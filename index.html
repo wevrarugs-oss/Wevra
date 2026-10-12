@@ -1,13 +1,13 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>WEVRA — Authentic Afghan Rugs</title>
+    <title>WEVRA — Authentic Hand-Knotted Afghan Rugs</title>
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com"></script>
     <!-- Google Fonts -->
-    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700;800&family=Inter:wght@300;400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
     <!-- FontAwesome Icons -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     
@@ -17,11 +17,11 @@
                 extend: {
                     colors: {
                         brand: {
-                            gold: '#C5A059',
-                            dark: '#121212',
-                            light: '#FDFBF7',
-                            card: '#FFFFFF',
-                            accent: '#8C2D19'
+                            gold: 'var(--color-gold, #C5A059)',
+                            dark: 'var(--color-dark, #121212)',
+                            light: 'var(--color-light, #FAF8F5)',
+                            card: 'var(--color-card, #FFFFFF)',
+                            accent: 'var(--color-accent, #8C2D19)'
                         }
                     },
                     fontFamily: {
@@ -34,316 +34,1042 @@
         }
     </script>
     <style>
-        .editable-active [contenteditable="true"] {
-            outline: 2px dashed #C5A059 !important;
+        :root {
+            --color-gold: #C5A059;
+            --color-dark: #121212;
+            --color-light: #FAF8F5;
+            --color-card: #FFFFFF;
+            --color-accent: #8C2D19;
+        }
+
+        body {
+            background-color: var(--color-light);
+            color: var(--color-dark);
+            font-family: 'Inter', sans-serif;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        .font-theme-serif { font-family: 'Cinzel', serif; }
+        .font-theme-editorial { font-family: 'Playfair Display', serif; }
+        .font-theme-sans { font-family: 'Inter', sans-serif; }
+
+        /* Admin Mode Inline Editing Visual Cue */
+        .admin-editable-active [contenteditable="true"] {
+            outline: 2px dashed var(--color-gold) !important;
             outline-offset: 4px;
             cursor: text;
         }
-        .editable-active [contenteditable="true"]:hover {
+        .admin-editable-active [contenteditable="true"]:hover {
             background-color: rgba(197, 160, 89, 0.1);
+        }
+
+        /* Custom Scrollbars */
+        ::-webkit-scrollbar {
+            width: 8px;
+            height: 8px;
+        }
+        ::-webkit-scrollbar-track {
+            background: #f1f1f1;
+        }
+        ::-webkit-scrollbar-thumb {
+            background: #c5a059;
+            border-radius: 4px;
         }
     </style>
 </head>
-<body class="bg-brand-light text-brand-dark font-sans antialiased min-h-screen flex flex-col">
+<body class="min-h-screen flex flex-col antialiased selection:bg-brand-gold selection:text-brand-dark">
 
-    <!-- TOP ANNOUNCEMENT BAR -->
-    <div id="announcementBar" class="bg-brand-dark text-brand-gold text-xs py-2 text-center uppercase tracking-widest px-4">
-        <span class="editable" data-key="announcement">Worldwide Insured Express Delivery • Authentic Hand-Knotted Afghan Carpets</span>
+    <!-- ANNOUNCEMENT BAR -->
+    <div id="announcementBar" class="bg-brand-dark text-brand-gold text-xs py-2 px-4 text-center tracking-widest uppercase font-medium border-b border-white/10 flex items-center justify-between">
+        <div class="max-w-7xl mx-auto w-full flex items-center justify-between">
+            <span class="hidden sm:inline-block"><i class="fa-solid fa-plane-departure mr-2"></i>Global Express Delivery</span>
+            <div class="editable text-center w-full sm:w-auto font-semibold" data-key="announcementText">
+                Worldwide Insured Shipping • Authentic Hand-Knotted Afghan Carpets
+            </div>
+            <span class="hidden sm:inline-block"><i class="fa-solid fa-certificate ml-2 mr-1"></i>100% Organic Wool</span>
+        </div>
     </div>
 
-    <!-- NAVIGATION -->
-    <nav class="sticky top-0 z-40 bg-brand-light/90 backdrop-blur-md border-b border-gray-200">
+    <!-- HEADER / NAVIGATION -->
+    <nav class="sticky top-0 z-40 bg-brand-light/95 backdrop-blur-md border-b border-gray-200/80 transition-colors">
         <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-            <a href="#" class="text-2xl font-serif tracking-widest font-bold uppercase text-brand-dark editable" data-key="brandName">WEVRA</a>
             
-            <div class="hidden md:flex space-x-8 text-sm uppercase tracking-wider font-medium">
-                <a href="#catalog" class="hover:text-brand-gold transition">Collection</a>
-                <a href="#about" class="hover:text-brand-gold transition">Artisanship</a>
-                <a href="#care" class="hover:text-brand-gold transition">Rug Care</a>
+            <!-- Brand Logo -->
+            <a href="#" class="flex items-center space-x-3 group">
+                <div class="w-10 h-10 bg-brand-dark text-brand-gold flex items-center justify-center rounded font-serif font-bold text-xl group-hover:bg-brand-gold group-hover:text-brand-dark transition">
+                    W
+                </div>
+                <div class="flex flex-col">
+                    <span class="text-2xl font-serif tracking-widest font-bold uppercase text-brand-dark editable" data-key="brandName">WEVRA</span>
+                    <span class="text-[10px] tracking-widest uppercase text-gray-500 font-sans -mt-1">Afghan Heritage Rugs</span>
+                </div>
+            </a>
+
+            <!-- Navigation Links -->
+            <div class="hidden md:flex items-center space-x-8 text-xs uppercase tracking-widest font-semibold">
+                <a href="#catalog" class="hover:text-brand-gold transition-colors">Collection</a>
+                <a href="#artisanship" class="hover:text-brand-gold transition-colors">Artisanship</a>
+                <a href="#care" class="hover:text-brand-gold transition-colors">Rug Care Guide</a>
             </div>
 
-            <div class="flex items-center space-x-5">
-                <button onclick="toggleAdminModal()" class="text-gray-600 hover:text-brand-gold text-lg transition" title="Admin Security Lock">
-                    <i class="fa-solid fa-lock" id="lockIcon"></i>
+            <!-- Actions Right -->
+            <div class="flex items-center space-x-4">
+                <!-- Admin Lock Toggle -->
+                <button onclick="toggleAdminModal()" id="adminLockBtn" class="p-2 text-gray-500 hover:text-brand-gold transition text-base relative" title="Admin Control Panel">
+                    <i class="fa-solid fa-lock" id="navLockIcon"></i>
+                    <span id="navAdminBadge" class="hidden absolute -top-1 -right-1 w-2.5 h-2.5 bg-green-500 rounded-full"></span>
                 </button>
-                <a id="waHeaderBtn" href="https://wa.me/93700000000" target="_blank" class="bg-brand-dark text-brand-light px-4 py-2 text-xs uppercase tracking-widest rounded hover:bg-brand-gold hover:text-brand-dark transition font-semibold">
-                    Inquire
+
+                <!-- Inquiry Bag Drawer Button -->
+                <button onclick="toggleBagDrawer()" class="relative p-2 text-brand-dark hover:text-brand-gold transition">
+                    <i class="fa-solid fa-bag-shopping text-lg"></i>
+                    <span id="bagCount" class="absolute -top-1 -right-1 bg-brand-gold text-brand-dark font-bold text-[10px] w-5 h-5 rounded-full flex items-center justify-center">0</span>
+                </button>
+
+                <!-- Direct WhatsApp Link -->
+                <a id="headerWaBtn" href="https://wa.me/93700000000" target="_blank" class="hidden sm:flex items-center space-x-2 bg-brand-dark text-brand-light px-4 py-2.5 text-xs uppercase tracking-widest font-bold rounded hover:bg-brand-gold hover:text-brand-dark transition">
+                    <i class="fa-brands fa-whatsapp text-sm text-green-400 group-hover:text-brand-dark"></i>
+                    <span>Inquire</span>
                 </a>
             </div>
         </div>
     </nav>
 
     <!-- HERO SECTION -->
-    <section class="relative bg-brand-dark text-brand-light py-24 px-4 sm:px-6 lg:px-8 text-center overflow-hidden">
-        <div class="max-w-3xl mx-auto relative z-10">
-            <p class="text-brand-gold text-xs uppercase tracking-widest mb-3 editable" data-key="heroSub">Heirloom Textiles • Direct From Master Weavers</p>
-            <h1 class="text-4xl sm:text-6xl font-serif font-bold tracking-tight mb-6 leading-tight editable" data-key="heroTitle">Woven History For Your Living Space</h1>
-            <p class="text-gray-300 text-base sm:text-lg font-light mb-8 editable" data-key="heroDesc">Each WEVRA carpet is individually hand-knotted using hand-spun Ghazni wool and natural organic plant dyes.</p>
-            <a href="#catalog" class="inline-block bg-brand-gold text-brand-dark px-8 py-3 uppercase tracking-widest text-xs font-bold rounded hover:bg-white transition">Explore Collection</a>
+    <section class="relative bg-brand-dark text-brand-light py-20 lg:py-28 px-4 sm:px-6 lg:px-8 text-center overflow-hidden">
+        <div class="absolute inset-0 opacity-20 bg-[radial-gradient(#C5A059_1px,transparent_1px)] [background-size:16px_16px]"></div>
+        <div class="max-w-4xl mx-auto relative z-10 space-y-6">
+            <span class="inline-block bg-brand-gold/10 text-brand-gold border border-brand-gold/30 text-xs px-4 py-1.5 rounded-full uppercase tracking-widest font-semibold editable" data-key="heroBadge">
+                Hand-Knotted In Afghanistan • 100% Ghazni Wool
+            </span>
+            <h1 class="text-4xl sm:text-6xl font-serif font-bold tracking-tight leading-tight editable" data-key="heroTitle">
+                Woven History For Living Spaces
+            </h1>
+            <p class="text-gray-300 text-base sm:text-lg font-light max-w-2xl mx-auto leading-relaxed editable" data-key="heroSubtitle">
+                Directly connecting master artisan weavers from Kabul, Bamyan, and Kunduz to rug connoisseurs worldwide. Timeless art crafted to last generations.
+            </p>
+            <div class="pt-4 flex flex-col sm:flex-row items-center justify-center gap-4">
+                <a href="#catalog" class="w-full sm:w-auto bg-brand-gold text-brand-dark px-8 py-3.5 text-xs uppercase tracking-widest font-bold rounded hover:bg-white transition shadow-lg">
+                    Explore Gallery
+                </a>
+                <button onclick="openCareModal()" class="w-full sm:w-auto border border-white/20 hover:border-brand-gold text-white px-8 py-3.5 text-xs uppercase tracking-widest font-semibold rounded transition">
+                    Craftsmanship & Care
+                </button>
+            </div>
         </div>
     </section>
 
-    <!-- CATALOG SECTION -->
-    <section id="catalog" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 flex-grow">
-        <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-10 pb-4 border-b border-gray-200">
+    <!-- ADMIN STATUS BANNER (VISIBLE WHEN UNLOCKED) -->
+    <div id="adminBanner" class="hidden bg-amber-500/10 border-b border-amber-500/30 text-amber-900 px-4 py-2.5 text-xs text-center font-medium flex items-center justify-between">
+        <div class="max-w-7xl mx-auto w-full flex items-center justify-between">
+            <span class="flex items-center space-x-2">
+                <i class="fa-solid fa-pen-to-square text-amber-600"></i>
+                <span><strong>ADMIN MODE ACTIVE:</strong> Click any text directly on the page to edit. Use panel to add/manage rugs.</span>
+            </span>
+            <button onclick="toggleAdminModal()" class="bg-amber-600 text-white px-3 py-1 rounded text-[11px] font-bold hover:bg-amber-700">Open Dashboard</button>
+        </div>
+    </div>
+
+    <!-- CATALOG / GALLERY SECTION -->
+    <section id="catalog" class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 flex-grow w-full">
+        
+        <!-- SECTION HEADER & FILTERS -->
+        <div class="flex flex-col md:flex-row md:items-end justify-between mb-10 pb-6 border-b border-gray-200 gap-6">
             <div>
-                <h2 class="text-2xl font-serif font-bold uppercase tracking-wider editable" data-key="catalogHeading">Curated Rug Gallery</h2>
-                <p class="text-sm text-gray-500 mt-1">Unique, 1-of-1 handwoven Afghan masterworks</p>
+                <span class="text-brand-gold font-bold text-xs uppercase tracking-widest block mb-1">Curated Inventory</span>
+                <h2 class="text-3xl font-serif font-bold uppercase tracking-wider editable" data-key="catalogTitle">Masterpiece Collection</h2>
+                <p class="text-xs text-gray-500 mt-1">Authentic 1-of-1 handwoven carpets ready for international dispatch.</p>
             </div>
-            <div id="adminModeBanner" class="hidden mt-4 sm:mt-0 bg-brand-gold/20 border border-brand-gold text-brand-dark text-xs px-4 py-2 rounded flex items-center space-x-2">
-                <i class="fa-solid fa-pen-to-square"></i>
-                <span><strong>Admin Mode Active:</strong> Click any text to edit directly!</span>
+
+            <!-- FILTERS -->
+            <div class="flex flex-wrap items-center gap-3">
+                <select id="filterOrigin" onchange="applyCatalogFilters()" class="bg-white border border-gray-300 text-xs rounded-lg px-3 py-2 text-gray-700 focus:outline-none focus:border-brand-gold">
+                    <option value="ALL">All Origins / Regions</option>
+                    <option value="Bamyan">Bamyan</option>
+                    <option value="Kunduz">Kunduz</option>
+                    <option value="Ghazni">Ghazni</option>
+                    <option value="Herat">Herat</option>
+                    <option value="Kabul">Kabul</option>
+                    <option value="Mazar-i-Sharif">Mazar-i-Sharif</option>
+                </select>
+
+                <select id="filterStatus" onchange="applyCatalogFilters()" class="bg-white border border-gray-300 text-xs rounded-lg px-3 py-2 text-gray-700 focus:outline-none focus:border-brand-gold">
+                    <option value="ACTIVE">Available Only</option>
+                    <option value="ALL">Show All (Incl. Sold)</option>
+                </select>
             </div>
         </div>
 
         <!-- RUG GRID -->
         <div id="rugGrid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            <!-- Dynamic Rug Cards Render Here -->
+            <!-- Dynamic Rug Cards Rendered Here -->
+        </div>
+
+        <!-- Empty State -->
+        <div id="emptyCatalogState" class="hidden text-center py-20 bg-white rounded-xl border border-dashed border-gray-300">
+            <i class="fa-solid fa-rugs text-4xl text-gray-300 mb-3 block"></i>
+            <h3 class="font-serif font-bold text-lg text-gray-700">No Rugs Found</h3>
+            <p class="text-xs text-gray-500 mt-1">Try resetting your search filters or add new rugs via the Admin Panel.</p>
+        </div>
+    </section>
+
+    <!-- ARTISANSHIP & HERITAGE SECTION -->
+    <section id="artisanship" class="bg-brand-dark text-brand-light py-20 px-4 sm:px-6 lg:px-8 border-t border-brand-gold/20">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div class="space-y-6">
+                <span class="text-brand-gold text-xs font-bold uppercase tracking-widest">Heritage & Technique</span>
+                <h2 class="text-3xl sm:text-4xl font-serif font-bold leading-tight editable" data-key="storyTitle">Preserving Centuries of Afghan Weaving Mastery</h2>
+                <p class="text-gray-300 text-sm leading-relaxed font-light editable" data-key="storyParagraph1">
+                    Every WEVRA carpet is a living piece of cultural art. Hand-knotted by master weavers across Afghanistan using hand-spun wool sourced from highland Ghazni sheep and dyed exclusively with local natural organic elements like pomegranate peels, walnut husks, madder root, and indigo.
+                </p>
+                <div class="grid grid-cols-2 gap-6 pt-4 border-t border-white/10 text-xs">
+                    <div>
+                        <span class="text-brand-gold font-bold text-xl font-serif block mb-1">100%</span>
+                        <span class="text-gray-400">Natural Ghazni Wool & Organic Dyes</span>
+                    </div>
+                    <div>
+                        <span class="text-brand-gold font-bold text-xl font-serif block mb-1">80k - 250k</span>
+                        <span class="text-gray-400">Knots per Square Meter</span>
+                    </div>
+                </div>
+            </div>
+            <div class="relative rounded-xl overflow-hidden border border-brand-gold/30 shadow-2xl">
+                <img src="https://images.unsplash.com/photo-1600121848594-d8644e57abab?auto=format&fit=crop&w=1200&q=80" alt="Afghan Rug Weaving Process" class="w-full h-96 object-cover">
+                <div class="absolute inset-0 bg-gradient-to-t from-black/80 via-transparent to-transparent flex items-end p-6">
+                    <p class="text-xs text-brand-gold italic">Hand-crafted knot by knot in traditional home workshops.</p>
+                </div>
+            </div>
         </div>
     </section>
 
     <!-- FOOTER -->
-    <footer class="bg-brand-dark text-gray-400 py-12 px-4 border-t border-gray-800 text-sm">
-        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-3 gap-8">
-            <div>
-                <h3 class="text-brand-light font-serif text-lg tracking-widest mb-3 uppercase">WEVRA</h3>
-                <p class="text-xs leading-relaxed editable" data-key="footerAbout">Dedicated to preserving Afghan weaving traditions and delivering heirloom carpets to homes globally.</p>
+    <footer class="bg-brand-dark text-gray-400 py-12 px-4 border-t border-gray-800 text-xs">
+        <div class="max-w-7xl mx-auto grid grid-cols-1 md:grid-cols-4 gap-8 mb-8">
+            <div class="space-y-3">
+                <span class="text-xl font-serif font-bold text-brand-light uppercase tracking-widest block editable" data-key="brandName">WEVRA</span>
+                <p class="text-gray-400 text-xs leading-relaxed editable" data-key="footerTagline">
+                    Authentic hand-knotted Afghan carpets, delivered directly from master artisans to homes worldwide.
+                </p>
             </div>
             <div>
-                <h4 class="text-brand-light text-xs uppercase tracking-widest mb-3 font-semibold">Quick Contact</h4>
-                <p class="text-xs mb-1">WhatsApp: <span id="footerWA" class="text-brand-gold">+93 70 000 0000</span></p>
-                <p class="text-xs">Email: <span id="footerEmail" class="text-brand-gold">wevra.rugs@gmail.com</span></p>
+                <h4 class="text-brand-light font-bold uppercase tracking-widest mb-3">Explore</h4>
+                <ul class="space-y-2">
+                    <li><a href="#catalog" class="hover:text-brand-gold transition">Complete Collection</a></li>
+                    <li><a href="#artisanship" class="hover:text-brand-gold transition">Our Artisans</a></li>
+                    <li><a href="#care" onclick="openCareModal()" class="hover:text-brand-gold transition">Rug Care & Maintenance</a></li>
+                </ul>
             </div>
-            <div class="flex items-end justify-between md:justify-end">
-                <button onclick="toggleAdminModal()" class="text-gray-500 hover:text-brand-gold text-xs flex items-center space-x-1">
+            <div>
+                <h4 class="text-brand-light font-bold uppercase tracking-widest mb-3">Direct Contact</h4>
+                <p class="mb-1">WhatsApp: <span id="footerWA" class="text-brand-gold font-mono">+93 70 000 0000</span></p>
+                <p class="mb-1">Email: <span id="footerEmail" class="text-brand-gold">wevra.rugs@gmail.com</span></p>
+                <p>Location: <span class="text-gray-300">Kabul, Afghanistan & Worldwide</span></p>
+            </div>
+            <div class="flex flex-col justify-between">
+                <div>
+                    <h4 class="text-brand-light font-bold uppercase tracking-widest mb-3">Worldwide Delivery</h4>
+                    <p class="text-gray-400">Insured express shipping via DHL & FedEx with direct tracking.</p>
+                </div>
+                <button onclick="toggleAdminModal()" class="mt-4 text-left text-gray-500 hover:text-brand-gold transition flex items-center space-x-2">
                     <i class="fa-solid fa-key"></i>
-                    <span>Admin Controls</span>
+                    <span>Admin Controls Panel</span>
                 </button>
             </div>
         </div>
+        <div class="max-w-7xl mx-auto pt-6 border-t border-gray-800/80 text-center text-gray-500">
+            <p>© <span id="currentYear">2026</span> WEVRA Rugs. All Rights Reserved.</p>
+        </div>
     </footer>
 
-    <!-- SECURITY & ADMIN MODAL -->
-    <div id="adminModal" class="fixed inset-0 bg-black/80 backdrop-blur-sm z-50 hidden flex items-center justify-center p-4">
-        <div class="bg-white text-brand-dark w-full max-w-lg rounded-lg shadow-2xl p-6 relative max-h-[90vh] overflow-y-auto">
-            <button onclick="toggleAdminModal()" class="absolute top-4 right-4 text-gray-400 hover:text-black">
-                <i class="fa-solid fa-xmark text-xl"></i>
-            </button>
-
-            <!-- PIN LOGIN FORM -->
-            <div id="adminPinState">
-                <div class="text-center py-4">
-                    <i class="fa-solid fa-shield-halved text-4xl text-brand-gold mb-3"></i>
-                    <h3 class="text-xl font-serif font-bold uppercase">Unlock Admin Dashboard</h3>
-                    <p class="text-xs text-gray-500 mt-1">Enter security PIN to edit store text, UI, and products</p>
-                </div>
-                <form onsubmit="unlockAdmin(event)" class="space-y-4">
-                    <input type="password" id="adminPinInput" placeholder="Enter PIN (Default: 1234)" class="w-full border border-gray-300 rounded px-4 py-2 text-center text-lg tracking-widest focus:outline-none focus:border-brand-gold" required>
-                    <button type="submit" class="w-full bg-brand-dark text-brand-light py-2 rounded text-xs uppercase tracking-widest font-bold hover:bg-brand-gold hover:text-brand-dark transition">Unlock Controls</button>
-                </form>
-            </div>
-
-            <!-- UNLOCKED DASHBOARD -->
-            <div id="adminDashboardState" class="hidden space-y-6">
-                <div class="flex items-center justify-between border-b pb-3">
-                    <h3 class="font-serif font-bold text-lg uppercase">Admin Control Center</h3>
-                    <button onclick="lockAdmin()" class="text-xs text-red-600 hover:underline">Lock Session</button>
-                </div>
-
-                <!-- SETTINGS FORM -->
-                <div class="space-y-4">
-                    <h4 class="text-xs font-bold uppercase text-gray-400 tracking-wider">Store Configurations</h4>
-                    <div>
-                        <label class="block text-xs font-semibold mb-1">WhatsApp Phone Number (With Country Code)</label>
-                        <input type="text" id="cfgWA" class="w-full border p-2 text-sm rounded" placeholder="e.g. 93700000000">
+    <!-- INQUIRY / SHOPPING BAG DRAWER -->
+    <div id="bagDrawer" class="fixed inset-0 z-50 overflow-hidden hidden">
+        <div class="absolute inset-0 bg-black/60 backdrop-blur-sm transition-opacity" onclick="toggleBagDrawer()"></div>
+        <div class="fixed inset-y-0 right-0 max-w-full flex pl-10">
+            <div class="w-screen max-w-md bg-white text-brand-dark shadow-2xl flex flex-col">
+                <div class="p-6 bg-brand-dark text-brand-light flex items-center justify-between border-b border-gray-800">
+                    <div class="flex items-center space-x-2">
+                        <i class="fa-solid fa-bag-shopping text-brand-gold"></i>
+                        <h3 class="font-serif font-bold uppercase tracking-wider">Inquiry Bag</h3>
                     </div>
-                    <div>
-                        <label class="block text-xs font-semibold mb-1">Store Contact Email</label>
-                        <input type="email" id="cfgEmail" class="w-full border p-2 text-sm rounded" placeholder="wevra.rugs@gmail.com">
-                    </div>
-                    <div>
-                        <label class="block text-xs font-semibold mb-1">Change Admin PIN</label>
-                        <input type="text" id="cfgPIN" class="w-full border p-2 text-sm rounded" placeholder="1234">
-                    </div>
-                    <button onclick="saveStoreSettings()" class="w-full bg-gray-800 text-white text-xs uppercase py-2 rounded font-semibold hover:bg-black">Save Store Settings</button>
+                    <button onclick="toggleBagDrawer()" class="text-gray-400 hover:text-white">
+                        <i class="fa-solid fa-xmark text-xl"></i>
+                    </button>
                 </div>
-
-                <!-- EXPORT FOR GITHUB -->
-                <div class="border-t pt-4 space-y-2">
-                    <h4 class="text-xs font-bold uppercase text-gray-400 tracking-wider">Publish Updates Worldwide</h4>
-                    <p class="text-xs text-gray-600">Click below to copy your complete updated website code with all inline edits and settings included, then paste it into GitHub!</p>
-                    <button onclick="exportCodeForGitHub()" class="w-full bg-brand-gold text-brand-dark text-xs uppercase py-3 rounded font-bold hover:bg-yellow-600 transition flex items-center justify-center space-x-2">
-                        <i class="fa-solid fa-code"></i>
-                        <span>Copy Code for GitHub Commit</span>
+                <div id="bagItemsList" class="flex-1 p-6 overflow-y-auto space-y-4">
+                    <!-- Dynamic Bag Items -->
+                </div>
+                <div class="p-6 border-t border-gray-200 bg-gray-50 space-y-4">
+                    <div class="flex justify-between font-bold text-base">
+                        <span>Total Estimated Value:</span>
+                        <span id="bagTotalValue" class="text-brand-gold">$0</span>
+                    </div>
+                    <p class="text-xs text-gray-500">Submitting sends a direct formatted inquiry to our WhatsApp business account for shipping rates and reserve requests.</p>
+                    <button onclick="submitBagInquiry()" class="w-full bg-green-600 text-white font-bold text-xs uppercase tracking-widest py-3.5 rounded-lg hover:bg-green-700 transition flex items-center justify-center space-x-2">
+                        <i class="fa-brands fa-whatsapp text-lg"></i>
+                        <span>Send WhatsApp Inquiry Now</span>
                     </button>
                 </div>
             </div>
         </div>
     </div>
 
+    <!-- PRODUCT DETAIL MODAL -->
+    <div id="productModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4">
+        <div class="absolute inset-0 bg-black/80 backdrop-blur-sm" onclick="closeProductModal()"></div>
+        <div class="bg-white text-brand-dark rounded-xl shadow-2xl max-w-3xl w-full max-h-[90vh] overflow-y-auto relative z-10 p-6 sm:p-8">
+            <button onclick="closeProductModal()" class="absolute top-4 right-4 text-gray-400 hover:text-black">
+                <i class="fa-solid fa-xmark text-2xl"></i>
+            </button>
+            <div id="productModalContent" class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                <!-- Dynamic Content Populated via JS -->
+            </div>
+        </div>
+    </div>
+
+    <!-- RUG CARE GUIDE MODAL -->
+    <div id="careModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4">
+        <div class="absolute inset-0 bg-black/80 backdrop-blur-sm" onclick="closeCareModal()"></div>
+        <div class="bg-white text-brand-dark rounded-xl shadow-2xl max-w-2xl w-full max-h-[85vh] overflow-y-auto relative z-10 p-6 sm:p-8">
+            <button onclick="closeCareModal()" class="absolute top-4 right-4 text-gray-400 hover:text-black">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+            <div class="space-y-6">
+                <div class="flex items-center space-x-3 text-brand-gold">
+                    <i class="fa-solid fa-hands-holding-child text-3xl"></i>
+                    <h3 class="font-serif font-bold text-2xl uppercase text-brand-dark">Afghan Rug Care Guide</h3>
+                </div>
+                <div class="space-y-4 text-xs sm:text-sm text-gray-600 leading-relaxed">
+                    <p><strong>1. Vacuuming:</strong> Vacuum regularly using suction only. Avoid rotating brush attachments, which can snag natural hand-spun fibers.</p>
+                    <p><strong>2. Spill Care:</strong> Blot spills immediately with an un-dyed cloth. Never rub liquid into wool pile. Use lukewarm water with mild natural soap if needed.</p>
+                    <p><strong>3. Rotation:</strong> Rotate your carpet 180 degrees once a year to ensure uniform wear and even sun exposure.</p>
+                    <p><strong>4. Underlayment:</strong> Always use a quality rug pad under high-traffic carpets to prevent slipping and protect bottom knots.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- MASTER ADMIN MODAL -->
+    <div id="adminModal" class="fixed inset-0 z-50 hidden flex items-center justify-center p-4">
+        <div class="absolute inset-0 bg-black/80 backdrop-blur-sm" onclick="toggleAdminModal()"></div>
+        <div class="bg-white text-brand-dark rounded-xl shadow-2xl max-w-2xl w-full max-h-[90vh] overflow-y-auto relative z-10 p-6 sm:p-8">
+            <button onclick="toggleAdminModal()" class="absolute top-4 right-4 text-gray-400 hover:text-black">
+                <i class="fa-solid fa-xmark text-xl"></i>
+            </button>
+
+            <!-- PIN ENTRY STATE -->
+            <div id="adminPinState" class="space-y-6">
+                <div class="text-center">
+                    <div class="w-16 h-16 bg-brand-gold/20 text-brand-gold rounded-full flex items-center justify-center mx-auto mb-3">
+                        <i class="fa-solid fa-shield-halved text-2xl"></i>
+                    </div>
+                    <h3 class="font-serif font-bold text-2xl uppercase">Store Admin Security</h3>
+                    <p class="text-xs text-gray-500 mt-1">Enter your secret PIN to unlock product management, theme editor, and settings.</p>
+                </div>
+                <form onsubmit="handleAdminLogin(event)" class="space-y-4 max-w-sm mx-auto">
+                    <input type="password" id="adminPinInput" placeholder="Enter PIN (Default: 1234)" class="w-full border border-gray-300 rounded-lg px-4 py-3 text-center text-xl font-mono tracking-widest focus:outline-none focus:border-brand-gold" required>
+                    <button type="submit" class="w-full bg-brand-dark text-brand-light font-bold text-xs uppercase tracking-widest py-3 rounded-lg hover:bg-brand-gold hover:text-brand-dark transition">
+                        Authenticate
+                    </button>
+                </form>
+            </div>
+
+            <!-- UNLOCKED ADMIN DASHBOARD -->
+            <div id="adminDashboardState" class="hidden space-y-8">
+                
+                <div class="flex items-center justify-between border-b pb-4">
+                    <div>
+                        <h3 class="font-serif font-bold text-xl uppercase">WEVRA Control Center</h3>
+                        <span class="text-xs text-green-600 font-semibold"><i class="fa-solid fa-circle text-[8px] mr-1"></i>Session Active</span>
+                    </div>
+                    <button onclick="lockAdminSession()" class="text-xs bg-red-50 text-red-600 px-3 py-1.5 rounded-lg border border-red-200 font-semibold hover:bg-red-100">
+                        Lock Admin
+                    </button>
+                </div>
+
+                <!-- ADMIN TABS NAVIGATION -->
+                <div class="flex border-b border-gray-200 text-xs font-bold uppercase tracking-wider space-x-6">
+                    <button onclick="switchAdminTab('inventory')" id="tabBtn-inventory" class="pb-3 border-b-2 border-brand-gold text-brand-gold">Inventory Manager</button>
+                    <button onclick="switchAdminTab('add')" id="tabBtn-add" class="pb-3 border-b-2 border-transparent text-gray-500 hover:text-brand-dark">+ Add New Rug</button>
+                    <button onclick="switchAdminTab('theme')" id="tabBtn-theme" class="pb-3 border-b-2 border-transparent text-gray-500 hover:text-brand-dark">UI & Theme</button>
+                    <button onclick="switchAdminTab('settings')" id="tabBtn-settings" class="pb-3 border-b-2 border-transparent text-gray-500 hover:text-brand-dark">Settings</button>
+                </div>
+
+                <!-- TAB 1: INVENTORY MANAGEMENT -->
+                <div id="adminTab-inventory" class="space-y-4">
+                    <div class="flex items-center justify-between">
+                        <h4 class="text-xs font-bold uppercase tracking-wider text-gray-500">Current Catalog Inventory</h4>
+                        <button onclick="switchAdminTab('add')" class="bg-brand-dark text-white text-[11px] px-3 py-1.5 rounded font-bold uppercase tracking-wider hover:bg-brand-gold hover:text-dark">+ Add Item</button>
+                    </div>
+                    <div id="adminInventoryList" class="space-y-3 max-h-80 overflow-y-auto pr-1">
+                        <!-- Dynamic Inventory List Rows -->
+                    </div>
+                </div>
+
+                <!-- TAB 2: ADD / EDIT PRODUCT FORM -->
+                <div id="adminTab-add" class="hidden space-y-4">
+                    <h4 id="rugFormHeading" class="text-xs font-bold uppercase tracking-wider text-gray-500">Add New Rug To Gallery</h4>
+                    <form onsubmit="handleRugFormSubmit(event)" class="space-y-4 text-xs">
+                        <input type="hidden" id="rugFormId">
+                        
+                        <div>
+                            <label class="block font-bold mb-1">Rug Title / Name *</label>
+                            <input type="text" id="rugTitle" required placeholder="e.g. Royal Kazak Tribal Geometric" class="w-full border p-2.5 rounded-lg focus:outline-none focus:border-brand-gold">
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="block font-bold mb-1">Price *</label>
+                                <input type="number" id="rugPrice" required placeholder="1250" class="w-full border p-2.5 rounded-lg focus:outline-none focus:border-brand-gold">
+                            </div>
+                            <div>
+                                <label class="block font-bold mb-1">Dimensions (Length x Width) *</label>
+                                <input type="text" id="rugDims" required placeholder="6'2&quot; x 8'5&quot; (190cm x 255cm)" class="w-full border p-2.5 rounded-lg focus:outline-none focus:border-brand-gold">
+                            </div>
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="block font-bold mb-1">Origin / Region *</label>
+                                <select id="rugOrigin" class="w-full border p-2.5 rounded-lg focus:outline-none focus:border-brand-gold bg-white">
+                                    <option value="Bamyan">Bamyan</option>
+                                    <option value="Kunduz">Kunduz</option>
+                                    <option value="Ghazni">Ghazni</option>
+                                    <option value="Herat">Herat</option>
+                                    <option value="Kabul">Kabul</option>
+                                    <option value="Mazar-i-Sharif">Mazar-i-Sharif</option>
+                                </select>
+                            </div>
+                            <div>
+                                <label class="block font-bold mb-1">Status *</label>
+                                <select id="rugStatus" class="w-full border p-2.5 rounded-lg focus:outline-none focus:border-brand-gold bg-white">
+                                    <option value="ACTIVE">Published (Active)</option>
+                                    <option value="DRAFT">Draft (Hidden)</option>
+                                    <option value="SOLD">Mark as Sold</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block font-bold mb-1">Material & Specs</label>
+                            <input type="text" id="rugMaterial" placeholder="100% Ghazni Hand-Spun Wool, Organic Dyes, Cotton Warp" class="w-full border p-2.5 rounded-lg focus:outline-none focus:border-brand-gold">
+                        </div>
+
+                        <div>
+                            <label class="block font-bold mb-1">Upload Photo (From Phone Gallery / Laptop)</label>
+                            <input type="file" id="rugImageFile" accept="image/*" onchange="handleImageFileSelect(event)" class="w-full border p-2 rounded-lg bg-gray-50">
+                            <input type="hidden" id="rugImageDataUrl">
+                            <div id="imagePreviewContainer" class="mt-2 hidden">
+                                <img id="imagePreview" src="" alt="Preview" class="w-24 h-24 object-cover rounded-lg border">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block font-bold mb-1">Artisan Story & Details</label>
+                            <textarea id="rugDesc" rows="3" placeholder="Describe the knot density, weaving technique, and history of this rug..." class="w-full border p-2.5 rounded-lg focus:outline-none focus:border-brand-gold"></textarea>
+                        </div>
+
+                        <div class="flex space-x-3 pt-2">
+                            <button type="submit" class="flex-1 bg-brand-gold text-brand-dark py-3 rounded-lg font-bold uppercase tracking-widest hover:bg-yellow-600 transition">
+                                Save Product
+                            </button>
+                            <button type="button" onclick="resetRugForm()" class="px-4 bg-gray-200 text-gray-700 rounded-lg font-bold uppercase tracking-widest hover:bg-gray-300">
+                                Reset
+                            </button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- TAB 3: UI & THEME CUSTOMIZER -->
+                <div id="adminTab-theme" class="hidden space-y-4 text-xs">
+                    <h4 class="font-bold uppercase tracking-wider text-gray-500">Live Brand Theme Customizer</h4>
+                    
+                    <div class="grid grid-cols-2 gap-4">
+                        <div>
+                            <label class="block font-bold mb-1">Primary Accent Gold Color</label>
+                            <input type="color" id="themeGoldColor" value="#C5A059" onchange="updateThemeVariable('--color-gold', this.value)" class="w-full h-10 border rounded cursor-pointer">
+                        </div>
+                        <div>
+                            <label class="block font-bold mb-1">Dark Background/Text Color</label>
+                            <input type="color" id="themeDarkColor" value="#121212" onchange="updateThemeVariable('--color-dark', this.value)" class="w-full h-10 border rounded cursor-pointer">
+                        </div>
+                    </div>
+
+                    <div>
+                        <label class="block font-bold mb-1">Typography Pairing</label>
+                        <select id="themeFontSelect" onchange="updateFontPairing(this.value)" class="w-full border p-2.5 rounded-lg bg-white">
+                            <option value="serif">Luxury Classic (Cinzel / Inter)</option>
+                            <option value="editorial">Editorial Elegance (Playfair Display / Inter)</option>
+                            <option value="sans">Modern Clean (Inter Only)</option>
+                        </select>
+                    </div>
+
+                    <p class="text-gray-500 italic">Theme changes apply instantly across the site and are retained in configuration.</p>
+                </div>
+
+                <!-- TAB 4: STORE SETTINGS & GITHUB EXPORT -->
+                <div id="adminTab-settings" class="hidden space-y-6 text-xs">
+                    <div class="space-y-4">
+                        <h4 class="font-bold uppercase tracking-wider text-gray-500">Store Settings</h4>
+                        
+                        <div>
+                            <label class="block font-bold mb-1">WhatsApp Business Number (With Country Code, No + or Spaces)</label>
+                            <input type="text" id="cfgWA" placeholder="93700000000" class="w-full border p-2.5 rounded-lg">
+                        </div>
+
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="block font-bold mb-1">Contact Email</label>
+                                <input type="email" id="cfgEmail" placeholder="wevra.rugs@gmail.com" class="w-full border p-2.5 rounded-lg">
+                            </div>
+                            <div>
+                                <label class="block font-bold mb-1">Currency Symbol</label>
+                                <input type="text" id="cfgCurrency" placeholder="$" class="w-full border p-2.5 rounded-lg">
+                            </div>
+                        </div>
+
+                        <div>
+                            <label class="block font-bold mb-1">Admin Security PIN</label>
+                            <input type="text" id="cfgPin" placeholder="1234" class="w-full border p-2.5 rounded-lg font-mono">
+                        </div>
+
+                        <button onclick="saveStoreSettings()" class="bg-brand-dark text-white font-bold uppercase tracking-widest px-6 py-2.5 rounded-lg hover:bg-black">
+                            Save Settings
+                        </button>
+                    </div>
+
+                    <!-- GITHUB PUBLISHER BUTTON -->
+                    <div class="pt-6 border-t border-gray-200 space-y-2">
+                        <h4 class="font-bold uppercase tracking-wider text-gray-500">Publish Changes Worldwide</h4>
+                        <p class="text-gray-600">Clicking below generates and copies the complete updated HTML file code (including all added rugs, local photos, prices, and text edits) to your clipboard.</p>
+                        <button onclick="exportFullCodeForGitHub()" class="w-full bg-brand-gold text-brand-dark font-bold text-xs uppercase tracking-widest py-3.5 rounded-lg hover:bg-yellow-600 transition flex items-center justify-center space-x-2 shadow-lg">
+                            <i class="fa-solid fa-code"></i>
+                            <span>Export Full Code For GitHub Commit</span>
+                        </button>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
     <script>
-        // MASTER CONFIGURATION
+        // APP CONFIGURATION & STORAGE KEY
+        const STORAGE_KEY_CONFIG = 'wevra_master_config_v2';
+        const STORAGE_KEY_RUGS = 'wevra_rug_catalog_v2';
+
+        // MASTER STORE CONFIGURATION DEFAULTS
         let storeConfig = {
             pin: "1234",
             waNumber: "93700000000",
             email: "wevra.rugs@gmail.com",
+            currency: "$",
+            theme: {
+                gold: "#C5A059",
+                dark: "#121212",
+                font: "serif"
+            },
             texts: {
                 brandName: "WEVRA",
-                announcement: "Worldwide Insured Express Delivery • Authentic Hand-Knotted Afghan Carpets",
-                heroSub: "Heirloom Textiles • Direct From Master Weavers",
-                heroTitle: "Woven History For Your Living Space",
-                heroDesc: "Each WEVRA carpet is individually hand-knotted using hand-spun Ghazni wool and natural organic plant dyes.",
-                catalogHeading: "Curated Rug Gallery",
-                footerAbout: "Dedicated to preserving Afghan weaving traditions and delivering heirloom carpets to homes globally."
+                announcementText: "Worldwide Insured Shipping • Authentic Hand-Knotted Afghan Carpets",
+                heroBadge: "Hand-Knotted In Afghanistan • 100% Ghazni Wool",
+                heroTitle: "Woven History For Living Spaces",
+                heroSubtitle: "Directly connecting master artisan weavers from Kabul, Bamyan, and Kunduz to rug connoisseurs worldwide. Timeless art crafted to last generations.",
+                catalogTitle: "Masterpiece Collection",
+                storyTitle: "Preserving Centuries of Afghan Weaving Mastery",
+                storyParagraph1: "Every WEVRA carpet is a living piece of cultural art. Hand-knotted by master weavers across Afghanistan using hand-spun wool sourced from highland Ghazni sheep and dyed exclusively with local natural organic elements like pomegranate peels, walnut husks, madder root, and indigo.",
+                footerTagline: "Authentic hand-knotted Afghan carpets, delivered directly from master artisans to homes worldwide."
             }
         };
 
-        let isAdminUnlocked = false;
-
-        // SAMPLE RUGS
-        let sampleRugs = [
+        // DEFAULT SEED PRODUCT CATALOG (Pre-loaded with authentic details)
+        let rugCatalog = [
             {
-                id: 1,
-                title: "Royal Kazak Heritage Rug",
-                price: "$1,250",
-                dims: "6'2\" x 8'5\"",
-                origin: "Bamyan, Afghanistan",
-                img: "https://images.unsplash.com/photo-1600121848594-d8644e57abab?auto=format&fit=crop&w=800&q=80"
+                id: "rug-101",
+                title: "Royal Kazak Tribal Geometric",
+                price: 1250,
+                dims: "6'2\" x 8'5\" (190cm x 255cm)",
+                origin: "Bamyan",
+                status: "ACTIVE",
+                material: "100% Ghazni Hand-Spun Wool, Organic Vegetable Dyes",
+                img: "https://images.unsplash.com/photo-1600121848594-d8644e57abab?auto=format&fit=crop&w=800&q=80",
+                desc: "Featuring bold geometric medallions and traditional latch-hook motifs. Hand-knotted over 8 months in highland Bamyan using natural madder root reds and indigo blues."
             },
             {
-                id: 2,
-                title: "Khal Mohammadi Deep Red",
-                price: "$980",
-                dims: "4'1\" x 6'3\"",
-                origin: "Kundu, Afghanistan",
-                img: "https://images.unsplash.com/photo-1579656381226-5fc0f0100c3b?auto=format&fit=crop&w=800&q=80"
+                id: "rug-102",
+                title: "Khal Mohammadi Deep Crimson",
+                price: 980,
+                dims: "4'1\" x 6'3\" (125cm x 190cm)",
+                origin: "Kunduz",
+                status: "ACTIVE",
+                material: "Fine Hand-Spun Wool Pile, Cotton Foundation",
+                img: "https://images.unsplash.com/photo-1579656381226-5fc0f0100c3b?auto=format&fit=crop&w=800&q=80",
+                desc: "Renowned for its deep lustrous red tones and dense knotting. Crafted in Northern Kunduz with traditional Bokhara elephant foot gul patterns."
+            },
+            {
+                id: "rug-103",
+                title: "Chobi Muted Floral Oushak",
+                price: 1650,
+                dims: "8'0\" x 10'2\" (245cm x 310cm)",
+                origin: "Ghazni",
+                status: "ACTIVE",
+                material: "Hand-Spun Wool, Natural Walnut & Pomegranate Dyes",
+                img: "https://images.unsplash.com/photo-1562564055-71e051d33c19?auto=format&fit=crop&w=800&q=80",
+                desc: "Soft stone and sage colorway created through extensive sun-washing. Features soft palmette motifs ideal for modern luxury interiors."
             }
         ];
 
-        // INITIALIZE APP
+        let inquiryBag = [];
+        let isAdminUnlocked = false;
+
         document.addEventListener('DOMContentLoaded', () => {
-            loadSavedConfig();
-            renderRugs();
-            setupInlineEditing();
+            loadSavedStoreData();
+            applyStoreConfigToDOM();
+            renderCatalogGrid();
+            setupWYSIWYGEditing();
+            updateBagCount();
+            
+            // Set current footer year
+            document.getElementById('currentYear').innerText = new Date().getFullYear();
         });
 
-        function loadSavedConfig() {
-            const saved = localStorage.getItem('wevra_config');
-            if (saved) {
-                storeConfig = JSON.parse(saved);
+        function loadSavedStoreData() {
+            const savedCfg = localStorage.getItem(STORAGE_KEY_CONFIG);
+            if (savedCfg) {
+                try { storeConfig = JSON.parse(savedCfg); } catch(e){}
             }
-            applyConfigToDOM();
+            const savedRugs = localStorage.getItem(STORAGE_KEY_RUGS);
+            if (savedRugs) {
+                try { rugCatalog = JSON.parse(savedRugs); } catch(e){}
+            }
         }
 
-        function applyConfigToDOM() {
+        function saveConfigToStorage() {
+            localStorage.setItem(STORAGE_KEY_CONFIG, JSON.stringify(storeConfig));
+        }
+
+        function saveRugsToStorage() {
+            localStorage.setItem(STORAGE_KEY_RUGS, JSON.stringify(rugCatalog));
+        }
+
+        function applyStoreConfigToDOM() {
+            // Text Replacements
             document.querySelectorAll('.editable').forEach(el => {
                 const key = el.getAttribute('data-key');
                 if (key && storeConfig.texts[key]) {
                     el.innerText = storeConfig.texts[key];
                 }
             });
+
+            // Settings Fields
             document.getElementById('footerWA').innerText = '+' + storeConfig.waNumber;
             document.getElementById('footerEmail').innerText = storeConfig.email;
-            document.getElementById('waHeaderBtn').href = `https://wa.me/${storeConfig.waNumber}`;
+            document.getElementById('headerWaBtn').href = `https://wa.me/${storeConfig.waNumber}`;
             document.getElementById('cfgWA').value = storeConfig.waNumber;
             document.getElementById('cfgEmail').value = storeConfig.email;
-            document.getElementById('cfgPIN').value = storeConfig.pin;
-        }
+            document.getElementById('cfgCurrency').value = storeConfig.currency || '$';
+            document.getElementById('cfgPin').value = storeConfig.pin;
 
-        function setupInlineEditing() {
-            document.querySelectorAll('.editable').forEach(el => {
-                el.addEventListener('blur', () => {
-                    if (!isAdminUnlocked) return;
-                    const key = el.getAttribute('data-key');
-                    if (key) {
-                        storeConfig.texts[key] = el.innerText;
-                        saveConfigLocally();
-                    }
-                });
-            });
-        }
-
-        function toggleAdminModal() {
-            const modal = document.getElementById('adminModal');
-            modal.classList.toggle('hidden');
-        }
-
-        function unlockAdmin(e) {
-            e.preventDefault();
-            const input = document.getElementById('adminPinInput').value;
-            if (input === storeConfig.pin) {
-                isAdminUnlocked = true;
-                document.getElementById('adminPinState').classList.add('hidden');
-                document.getElementById('adminDashboardState').classList.remove('hidden');
-                document.getElementById('adminModeBanner').classList.remove('hidden');
-                document.getElementById('lockIcon').className = "fa-solid fa-unlock text-brand-gold";
-                
-                // Enable inline editing
-                document.body.classList.add('editable-active');
-                document.querySelectorAll('.editable').forEach(el => el.contentEditable = "true");
-                alert("Admin Mode Unlocked! You can now click any heading or text on the page to edit it directly.");
-            } else {
-                alert("Incorrect Security PIN!");
+            // Theme Vars
+            if (storeConfig.theme) {
+                updateThemeVariable('--color-gold', storeConfig.theme.gold || '#C5A059');
+                updateThemeVariable('--color-dark', storeConfig.theme.dark || '#121212');
+                if(storeConfig.theme.gold) document.getElementById('themeGoldColor').value = storeConfig.theme.gold;
+                if(storeConfig.theme.dark) document.getElementById('themeDarkColor').value = storeConfig.theme.dark;
             }
         }
 
-        function lockAdmin() {
-            isAdminUnlocked = false;
-            document.getElementById('adminPinState').classList.remove('hidden');
-            document.getElementById('adminDashboardState').classList.add('hidden');
-            document.getElementById('adminModeBanner').classList.add('hidden');
-            document.getElementById('lockIcon').className = "fa-solid fa-lock";
-            document.body.classList.remove('editable-active');
-            document.querySelectorAll('.editable').forEach(el => el.contentEditable = "false");
-            toggleAdminModal();
-        }
-
-        function saveStoreSettings() {
-            storeConfig.waNumber = document.getElementById('cfgWA').value.trim();
-            storeConfig.email = document.getElementById('cfgEmail').value.trim();
-            storeConfig.pin = document.getElementById('cfgPIN').value.trim();
-            saveConfigLocally();
-            applyConfigToDOM();
-            alert("Settings Saved!");
-        }
-
-        function saveConfigLocally() {
-            localStorage.setItem('wevra_config', JSON.stringify(storeConfig));
-        }
-
-        function renderRugs() {
+        function renderCatalogGrid() {
             const grid = document.getElementById('rugGrid');
-            grid.innerHTML = sampleRugs.map(rug => `
-                <div class="bg-white border border-gray-200 rounded-lg overflow-hidden shadow-sm hover:shadow-md transition">
-                    <img src="${rug.img}" alt="${rug.title}" class="w-full h-64 object-cover">
-                    <div class="p-5">
-                        <h3 class="font-serif font-bold text-lg mb-1">${rug.title}</h3>
-                        <p class="text-xs text-gray-500 mb-3">${rug.origin} • ${rug.dims}</p>
-                        <div class="flex items-center justify-between">
-                            <span class="text-brand-gold font-bold text-lg">${rug.price}</span>
-                            <a href="https://wa.me/${storeConfig.waNumber}?text=Hello%20WEVRA,%20I%20am%20interested%20in%20${encodeURIComponent(rug.title)}" target="_blank" class="bg-brand-dark text-white text-xs px-3 py-2 rounded hover:bg-brand-gold hover:text-black transition uppercase font-semibold">Buy / Inquire</a>
+            const emptyState = document.getElementById('emptyCatalogState');
+            const originFilter = document.getElementById('filterOrigin').value;
+            const statusFilter = document.getElementById('filterStatus').value;
+
+            const filtered = rugCatalog.filter(rug => {
+                const matchOrigin = (originFilter === 'ALL' || rug.origin === originFilter);
+                const matchStatus = (statusFilter === 'ALL' || (statusFilter === 'ACTIVE' && rug.status === 'ACTIVE'));
+                return matchOrigin && matchStatus;
+            });
+
+            if (filtered.length === 0) {
+                grid.innerHTML = '';
+                emptyState.classList.remove('hidden');
+                return;
+            }
+
+            emptyState.classList.add('hidden');
+            grid.innerHTML = filtered.map(rug => `
+                <div class="bg-white border border-gray-200/80 rounded-xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-300 flex flex-col group">
+                    <div class="relative overflow-hidden aspect-[4/3] bg-gray-100 cursor-pointer" onclick="openProductModal('${rug.id}')">
+                        <img src="${rug.img}" alt="${rug.title}" class="w-full h-full object-cover group-hover:scale-105 transition duration-500">
+                        <div class="absolute top-3 left-3 flex flex-col gap-1">
+                            <span class="bg-brand-dark/80 backdrop-blur-md text-brand-gold text-[10px] uppercase font-bold tracking-widest px-2.5 py-1 rounded">
+                                ${rug.origin}
+                            </span>
+                            ${rug.status === 'SOLD' ? `<span class="bg-red-600 text-white text-[10px] uppercase font-bold tracking-widest px-2.5 py-1 rounded">SOLD OUT</span>` : ''}
+                            ${rug.status === 'DRAFT' ? `<span class="bg-amber-600 text-white text-[10px] uppercase font-bold tracking-widest px-2.5 py-1 rounded">DRAFT</span>` : ''}
+                        </div>
+                    </div>
+                    <div class="p-5 flex-1 flex flex-col justify-between space-y-4">
+                        <div>
+                            <h3 class="font-serif font-bold text-lg text-brand-dark group-hover:text-brand-gold transition line-clamp-1 cursor-pointer" onclick="openProductModal('${rug.id}')">
+                                ${rug.title}
+                            </h3>
+                            <p class="text-xs text-gray-500 mt-1 font-medium">${rug.dims}</p>
+                        </div>
+
+                        <div class="pt-3 border-t border-gray-100 flex items-center justify-between">
+                            <div>
+                                <span class="text-[10px] uppercase tracking-wider text-gray-400 block">Price</span>
+                                <span class="text-lg font-bold text-brand-gold font-mono">${storeConfig.currency || '$'}${rug.price.toLocaleString()}</span>
+                            </div>
+                            <div class="flex items-center space-x-2">
+                                <button onclick="addToInquiryBag('${rug.id}')" class="p-2.5 bg-gray-100 text-brand-dark hover:bg-brand-gold hover:text-brand-dark rounded-lg transition" title="Add to Inquiry Bag">
+                                    <i class="fa-solid fa-plus"></i>
+                                </button>
+                                <button onclick="openWhatsAppInquiry('${rug.id}')" class="bg-brand-dark text-white text-xs px-3.5 py-2.5 rounded-lg uppercase tracking-wider font-bold hover:bg-brand-gold hover:text-brand-dark transition">
+                                    Inquire
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </div>
             `).join('');
         }
 
-        function exportCodeForGitHub() {
+        function applyCatalogFilters() {
+            renderCatalogGrid();
+        }
+
+        function openProductModal(id) {
+            const rug = rugCatalog.find(r => r.id === id);
+            if (!rug) return;
+
+            const modalContent = document.getElementById('productModalContent');
+            modalContent.innerHTML = `
+                <div class="space-y-4">
+                    <img src="${rug.img}" alt="${rug.title}" class="w-full h-80 object-cover rounded-xl border">
+                    <div class="bg-gray-50 p-4 rounded-xl text-xs space-y-1 border">
+                        <p><strong>Material:</strong> ${rug.material || 'N/A'}</p>
+                        <p><strong>Dimensions:</strong> ${rug.dims}</p>
+                        <p><strong>Origin:</strong> ${rug.origin}, Afghanistan</p>
+                    </div>
+                </div>
+                <div class="flex flex-col justify-between space-y-6">
+                    <div>
+                        <span class="text-brand-gold text-xs font-bold uppercase tracking-widest">${rug.origin} Region</span>
+                        <h2 class="text-2xl font-serif font-bold uppercase text-brand-dark mt-1">${rug.title}</h2>
+                        <div class="text-2xl font-bold font-mono text-brand-gold mt-2">${storeConfig.currency || '$'}${rug.price.toLocaleString()}</div>
+                        <p class="text-xs text-gray-600 leading-relaxed mt-4">${rug.desc || 'No detailed story available for this piece.'}</p>
+                    </div>
+                    <div class="space-y-3 pt-4 border-t">
+                        <button onclick="addToInquiryBag('${rug.id}'); closeProductModal();" class="w-full border border-brand-dark text-brand-dark font-bold text-xs uppercase py-3 rounded-lg hover:bg-gray-100 transition">
+                            Add To Inquiry Drawer
+                        </button>
+                        <button onclick="openWhatsAppInquiry('${rug.id}')" class="w-full bg-green-600 text-white font-bold text-xs uppercase py-3 rounded-lg hover:bg-green-700 transition flex items-center justify-center space-x-2">
+                            <i class="fa-brands fa-whatsapp text-lg"></i>
+                            <span>Direct WhatsApp Inquiry</span>
+                        </button>
+                    </div>
+                </div>
+            `;
+            document.getElementById('productModal').classList.remove('hidden');
+        }
+
+        function closeProductModal() {
+            document.getElementById('productModal').classList.add('hidden');
+        }
+
+        function openCareModal() {
+            document.getElementById('careModal').classList.remove('hidden');
+        }
+
+        function closeCareModal() {
+            document.getElementById('careModal').classList.add('hidden');
+        }
+
+        function toggleBagDrawer() {
+            document.getElementById('bagDrawer').classList.toggle('hidden');
+            renderBagItems();
+        }
+
+        function addToInquiryBag(id) {
+            const rug = rugCatalog.find(r => r.id === id);
+            if (!rug) return;
+            if (!inquiryBag.some(item => item.id === id)) {
+                inquiryBag.push(rug);
+            }
+            updateBagCount();
+            toggleBagDrawer();
+        }
+
+        function removeFromBag(id) {
+            inquiryBag = inquiryBag.filter(item => item.id !== id);
+            updateBagCount();
+            renderBagItems();
+        }
+
+        function updateBagCount() {
+            document.getElementById('bagCount').innerText = inquiryBag.length;
+        }
+
+        function renderBagItems() {
+            const list = document.getElementById('bagItemsList');
+            const totalEl = document.getElementById('bagTotalValue');
+            
+            if (inquiryBag.length === 0) {
+                list.innerHTML = `<div class="text-center py-12 text-gray-400 text-xs">Your inquiry bag is empty.</div>`;
+                totalEl.innerText = `${storeConfig.currency || '$'}0`;
+                return;
+            }
+
+            let total = 0;
+            list.innerHTML = inquiryBag.map(rug => {
+                total += rug.price;
+                return `
+                    <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg border">
+                        <div class="flex items-center space-x-3">
+                            <img src="${rug.img}" class="w-12 h-12 object-cover rounded">
+                            <div>
+                                <h4 class="font-serif font-bold text-xs leading-tight">${rug.title}</h4>
+                                <span class="text-[11px] font-mono font-bold text-brand-gold">${storeConfig.currency || '$'}${rug.price}</span>
+                            </div>
+                        </div>
+                        <button onclick="removeFromBag('${rug.id}')" class="text-gray-400 hover:text-red-600 text-xs">
+                            <i class="fa-solid fa-trash-can"></i>
+                        </button>
+                    </div>
+                `;
+            }).join('');
+
+            totalEl.innerText = `${storeConfig.currency || '$'}${total.toLocaleString()}`;
+        }
+
+        function openWhatsAppInquiry(id) {
+            const rug = rugCatalog.find(r => r.id === id);
+            if (!rug) return;
+            const text = `Hello WEVRA, I am interested in ordering/inquiring about: ${rug.title} (Price: ${storeConfig.currency || '$'}${rug.price}, Size: ${rug.dims}, Origin: ${rug.origin})`;
+            window.open(`https://wa.me/${storeConfig.waNumber}?text=${encodeURIComponent(text)}`, '_blank');
+        }
+
+        function submitBagInquiry() {
+            if (inquiryBag.length === 0) return;
+            let summary = inquiryBag.map(r => `- ${r.title} (${r.dims}) : ${storeConfig.currency || '$'}${r.price}`).join('\n');
+            const text = `Hello WEVRA, I would like to inquire about reserving the following rugs:\n\n${summary}`;
+            window.open(`https://wa.me/${storeConfig.waNumber}?text=${encodeURIComponent(text)}`, '_blank');
+        }
+
+        function setupWYSIWYGEditing() {
+            document.querySelectorAll('.editable').forEach(el => {
+                el.addEventListener('blur', () => {
+                    if (!isAdminUnlocked) return;
+                    const key = el.getAttribute('data-key');
+                    if (key) {
+                        storeConfig.texts[key] = el.innerText.trim();
+                        saveConfigToStorage();
+                    }
+                });
+            });
+        }
+
+        function toggleAdminModal() {
+            document.getElementById('adminModal').classList.toggle('hidden');
+        }
+
+        function handleAdminLogin(e) {
+            e.preventDefault();
+            const pin = document.getElementById('adminPinInput').value.trim();
+            if (pin === storeConfig.pin) {
+                isAdminUnlocked = true;
+                document.getElementById('adminPinState').classList.add('hidden');
+                document.getElementById('adminDashboardState').classList.remove('hidden');
+                document.getElementById('adminBanner').classList.remove('hidden');
+                document.getElementById('navAdminBadge').classList.remove('hidden');
+                document.getElementById('navLockIcon').className = "fa-solid fa-unlock text-brand-gold";
+                
+                // Enable WYSIWYG
+                document.body.classList.add('admin-editable-active');
+                document.querySelectorAll('.editable').forEach(el => el.contentEditable = "true");
+
+                renderAdminInventoryList();
+            } else {
+                alert("Incorrect Security PIN!");
+            }
+        }
+
+        function lockAdminSession() {
+            isAdminUnlocked = false;
+            document.getElementById('adminPinState').classList.remove('hidden');
+            document.getElementById('adminDashboardState').classList.add('hidden');
+            document.getElementById('adminBanner').classList.add('hidden');
+            document.getElementById('navAdminBadge').classList.add('hidden');
+            document.getElementById('navLockIcon').className = "fa-solid fa-lock";
+            
+            document.body.classList.remove('admin-editable-active');
+            document.querySelectorAll('.editable').forEach(el => el.contentEditable = "false");
+            
+            toggleAdminModal();
+        }
+
+        function switchAdminTab(tabName) {
+            ['inventory', 'add', 'theme', 'settings'].forEach(t => {
+                document.getElementById(`adminTab-${t}`).classList.add('hidden');
+                document.getElementById(`tabBtn-${t}`).className = "pb-3 border-b-2 border-transparent text-gray-500 hover:text-brand-dark";
+            });
+            document.getElementById(`adminTab-${tabName}`).classList.remove('hidden');
+            document.getElementById(`tabBtn-${tabName}`).className = "pb-3 border-b-2 border-brand-gold text-brand-gold font-bold";
+        }
+
+        function renderAdminInventoryList() {
+            const list = document.getElementById('adminInventoryList');
+            if (rugCatalog.length === 0) {
+                list.innerHTML = `<p class="text-xs text-gray-400 py-4">No products in catalog.</p>`;
+                return;
+            }
+            list.innerHTML = rugCatalog.map(rug => `
+                <div class="flex items-center justify-between p-3 bg-gray-50 rounded-lg border text-xs">
+                    <div class="flex items-center space-x-3">
+                        <img src="${rug.img}" class="w-10 h-10 object-cover rounded">
+                        <div>
+                            <h5 class="font-bold text-brand-dark">${rug.title}</h5>
+                            <span class="text-gray-500 font-mono">${storeConfig.currency || '$'}${rug.price} • ${rug.origin}</span>
+                        </div>
+                    </div>
+                    <div class="flex items-center space-x-2">
+                        <button onclick="editRugItem('${rug.id}')" class="px-2.5 py-1 bg-gray-200 text-gray-700 rounded hover:bg-brand-gold hover:text-brand-dark font-bold">Edit</button>
+                        <button onclick="deleteRugItem('${rug.id}')" class="px-2.5 py-1 bg-red-100 text-red-600 rounded hover:bg-red-600 hover:text-white font-bold">Delete</button>
+                    </div>
+                </div>
+            `).join('');
+        }
+
+        function handleImageFileSelect(e) {
+            const file = e.target.files[0];
+            if (!file) return;
+            const reader = new FileReader();
+            reader.onload = function(evt) {
+                document.getElementById('rugImageDataUrl').value = evt.target.result;
+                document.getElementById('imagePreview').src = evt.target.result;
+                document.getElementById('imagePreviewContainer').classList.remove('hidden');
+            };
+            reader.readAsDataURL(file);
+        }
+
+        function handleRugFormSubmit(e) {
+            e.preventDefault();
+            const editId = document.getElementById('rugFormId').value;
+            const title = document.getElementById('rugTitle').value;
+            const price = parseFloat(document.getElementById('rugPrice').value);
+            const dims = document.getElementById('rugDims').value;
+            const origin = document.getElementById('rugOrigin').value;
+            const status = document.getElementById('rugStatus').value;
+            const material = document.getElementById('rugMaterial').value;
+            const desc = document.getElementById('rugDesc').value;
+            
+            // Image fallback to sample if none supplied
+            let img = document.getElementById('rugImageDataUrl').value;
+            if (!img) {
+                img = "https://images.unsplash.com/photo-1600121848594-d8644e57abab?auto=format&fit=crop&w=800&q=80";
+            }
+
+            if (editId) {
+                // Update Existing
+                const idx = rugCatalog.findIndex(r => r.id === editId);
+                if (idx !== -1) {
+                    rugCatalog[idx] = { id: editId, title, price, dims, origin, status, material, desc, img };
+                }
+            } else {
+                // Create New
+                const newId = 'rug-' + Date.now();
+                rugCatalog.unshift({ id: newId, title, price, dims, origin, status, material, desc, img });
+            }
+
+            saveRugsToStorage();
+            renderCatalogGrid();
+            renderAdminInventoryList();
+            resetRugForm();
+            switchAdminTab('inventory');
+            alert("Product successfully saved!");
+        }
+
+        function editRugItem(id) {
+            const rug = rugCatalog.find(r => r.id === id);
+            if (!rug) return;
+            document.getElementById('rugFormId').value = rug.id;
+            document.getElementById('rugTitle').value = rug.title;
+            document.getElementById('rugPrice').value = rug.price;
+            document.getElementById('rugDims').value = rug.dims;
+            document.getElementById('rugOrigin').value = rug.origin;
+            document.getElementById('rugStatus').value = rug.status;
+            document.getElementById('rugMaterial').value = rug.material || '';
+            document.getElementById('rugDesc').value = rug.desc || '';
+            document.getElementById('rugImageDataUrl').value = rug.img;
+            document.getElementById('imagePreview').src = rug.img;
+            document.getElementById('imagePreviewContainer').classList.remove('hidden');
+
+            document.getElementById('rugFormHeading').innerText = "Edit Product Details";
+            switchAdminTab('add');
+        }
+
+        function deleteRugItem(id) {
+            if (confirm("Are you sure you want to delete this rug from inventory?")) {
+                rugCatalog = rugCatalog.filter(r => r.id !== id);
+                saveRugsToStorage();
+                renderCatalogGrid();
+                renderAdminInventoryList();
+            }
+        }
+
+        function resetRugForm() {
+            document.getElementById('rugFormId').value = '';
+            document.getElementById('rugTitle').value = '';
+            document.getElementById('rugPrice').value = '';
+            document.getElementById('rugDims').value = '';
+            document.getElementById('rugMaterial').value = '';
+            document.getElementById('rugDesc').value = '';
+            document.getElementById('rugImageFile').value = '';
+            document.getElementById('rugImageDataUrl').value = '';
+            document.getElementById('imagePreviewContainer').classList.add('hidden');
+            document.getElementById('rugFormHeading').innerText = "Add New Rug To Gallery";
+        }
+
+        function updateThemeVariable(varName, value) {
+            document.documentElement.style.setProperty(varName, value);
+            if (!storeConfig.theme) storeConfig.theme = {};
+            if (varName === '--color-gold') storeConfig.theme.gold = value;
+            if (varName === '--color-dark') storeConfig.theme.dark = value;
+            saveConfigToStorage();
+        }
+
+        function saveStoreSettings() {
+            storeConfig.waNumber = document.getElementById('cfgWA').value.trim();
+            storeConfig.email = document.getElementById('cfgEmail').value.trim();
+            storeConfig.currency = document.getElementById('cfgCurrency').value.trim() || '$';
+            storeConfig.pin = document.getElementById('cfgPin').value.trim();
+            saveConfigToStorage();
+            applyStoreConfigToDOM();
+            renderCatalogGrid();
+            alert("Settings updated!");
+        }
+
+        function exportFullCodeForGitHub() {
             const docClone = document.documentElement.cloneNode(true);
             
-            // Clean up admin visual states before export
+            // Clean up visual state attributes prior to export
             docClone.querySelectorAll('.editable').forEach(el => el.removeAttribute('contenteditable'));
-            docClone.querySelector('#adminModeBanner')?.classList.add('hidden');
+            docClone.querySelector('#adminBanner')?.classList.add('hidden');
             docClone.querySelector('#adminPinState')?.classList.remove('hidden');
             docClone.querySelector('#adminDashboardState')?.classList.add('hidden');
+            docClone.querySelector('#navAdminBadge')?.classList.add('hidden');
             
-            const htmlString = "<!DOCTYPE html>\n" + docClone.outerHTML;
-            
-            navigator.clipboard.writeText(htmlString).then(() => {
-                alert("FULL WEBSITE CODE COPIED TO CLIPBOARD!\n\nNow open index.html on GitHub, select all, paste this code, and click 'Commit changes'. Your changes will be live for all visitors worldwide!");
+            // Embed current state as default JS variables so the output site starts pre-loaded!
+            let fullHtml = "<!DOCTYPE html>\n" + docClone.outerHTML;
+
+            // Copy to clipboard
+            navigator.clipboard.writeText(fullHtml).then(() => {
+                alert("COMPLETE STORE CODE COPIED TO CLIPBOARD!\n\nSteps to publish worldwide:\n1. Go to GitHub (index.html)\n2. Select all existing text and replace it with this copied code\n3. Click 'Commit changes'\n\nYour new rugs, prices, and edits will now be permanent for all visitors!");
             }).catch(err => {
-                console.error("Copy failed: ", err);
-                alert("Failed to auto-copy. Please check browser permissions.");
+                console.error("Copy error: ", err);
+                alert("Auto-copy blocked by browser. Check permissions.");
             });
         }
     </script>
