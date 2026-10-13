@@ -8,7 +8,6 @@
 <meta http-equiv="Expires" content="0">
 <meta name="theme-color" content="#121212">
 <title>Roshan — Handmade Afghan Rugs</title>
-<meta name="description" content="Roshan — Authentic, hand-knotted Afghan rugs. Classic & Modern Khorjin, Sultani, Chobi, Pazrug, Mamluk and Kazak.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Inter:wght@300;400;500;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
@@ -84,10 +83,14 @@ section[id]{scroll-margin-top:calc(var(--header-h) + 20px)}
   height:var(--header-h);display:flex;align-items:center;
   justify-content:space-between;gap:12px}
 @media(min-width:768px){.header-inner{padding:0 44px}}
-.brand{font-family:var(--font-head);font-size:23px;letter-spacing:.38em;
-  font-weight:600;margin-right:-.38em;white-space:nowrap;transition:.3s}
-@media(min-width:768px){.brand{font-size:29px}}
-.brand:hover{color:var(--gold)}
+.brand{display:flex;align-items:center;gap:10px;transition:.3s}
+.brand:hover{opacity:.85}
+.brand-logo{width:42px;height:42px;flex:none;color:currentColor}
+.brand-logo img{width:100%;height:100%;object-fit:contain;display:block}
+.brand-text{font-family:var(--font-head);font-size:20px;letter-spacing:.34em;
+  font-weight:600;white-space:nowrap;margin-right:-.34em}
+@media(min-width:768px){.brand-text{font-size:25px}}
+@media(max-width:480px){.brand-logo{width:34px;height:34px}.brand-text{font-size:17px;letter-spacing:.28em;margin-right:-.28em}}
 .main-nav{display:none;gap:36px;align-items:center}
 @media(min-width:960px){.main-nav{display:flex}}
 .nav-link{font-size:10.5px;letter-spacing:.24em;text-transform:uppercase;
@@ -96,7 +99,7 @@ section[id]{scroll-margin-top:calc(var(--header-h) + 20px)}
   width:0;height:1px;background:var(--gold);transition:width .35s}
 .nav-link:hover{opacity:1;color:var(--gold)}
 .nav-link:hover::after{width:100%}
-.header-actions{display:flex;align-items:center;gap:8px}
+.header-actions{display:flex;align-items:center;gap:6px}
 .icon-btn{width:44px;height:44px;border-radius:50%;display:inline-flex;
   align-items:center;justify-content:center;transition:.3s;font-size:15px;
   flex:none;color:inherit;position:relative}
@@ -122,10 +125,11 @@ section[id]{scroll-margin-top:calc(var(--header-h) + 20px)}
   box-shadow:24px 0 60px rgba(0,0,0,.4);overflow-y:auto;
   -webkit-overflow-scrolling:touch}
 #mobileDrawer.open{transform:translateX(0)}
-.drawer-head{padding:22px 22px 18px;display:flex;align-items:center;
+.drawer-head{padding:22px;display:flex;align-items:center;
   justify-content:space-between;border-bottom:1px solid rgba(255,255,255,.10)}
-.drawer-brand{font-family:var(--font-head);font-size:22px;letter-spacing:.38em;
-  color:var(--gold);font-weight:600;margin-right:-.38em}
+.drawer-brand{display:flex;align-items:center;gap:10px}
+.drawer-brand .brand-logo{color:var(--gold);width:36px;height:36px}
+.drawer-brand .brand-text{color:var(--gold);font-size:20px}
 .drawer-close{width:44px;height:44px;border-radius:50%;color:#fff;font-size:20px;
   display:flex;align-items:center;justify-content:center;transition:.3s}
 .drawer-close:hover{background:rgba(255,255,255,.12);color:var(--gold)}
@@ -265,8 +269,7 @@ section[id]{scroll-margin-top:calc(var(--header-h) + 20px)}
   box-shadow:0 30px 70px -35px rgba(0,0,0,.45)}
 .p-media{position:relative;aspect-ratio:3/4;overflow:hidden;
   background:linear-gradient(135deg,#efeae1 0%,#e6dfd2 100%);cursor:pointer}
-.p-media img{width:100%;height:100%;object-fit:cover;
-  opacity:0;
+.p-media img{width:100%;height:100%;object-fit:cover;opacity:0;
   transition:transform 1.3s cubic-bezier(.2,.8,.2,1),opacity .7s ease}
 .p-media img.loaded{opacity:1}
 .p-card:hover .p-media img{transform:scale(1.08)}
@@ -299,7 +302,7 @@ section[id]{scroll-margin-top:calc(var(--header-h) + 20px)}
 .p-wish:hover{background:var(--gold);color:var(--on-gold);
   transform:scale(1.08)}
 .p-wish.saved{background:var(--accent);color:#fff}
-.p-body{padding:20px 20px 22px;display:flex;flex-direction:column;flex:1}
+.p-body{padding:20px;display:flex;flex-direction:column;flex:1}
 .p-origin{font-size:9.5px;letter-spacing:.22em;text-transform:uppercase;
   color:var(--gold);font-weight:700;margin:0 0 10px}
 .p-title{font-size:18px;font-weight:500;margin:0 0 7px;line-height:1.32;
@@ -308,7 +311,6 @@ section[id]{scroll-margin-top:calc(var(--header-h) + 20px)}
   letter-spacing:.04em}
 .p-rating{display:flex;align-items:center;gap:8px;margin:0 0 14px;
   font-size:11.5px;color:var(--muted)}
-.p-rating .stars{font-size:11px}
 .p-rating strong{color:var(--dark);font-weight:600}
 .p-foot{margin-top:auto;display:flex;align-items:flex-end;
   justify-content:space-between;gap:10px;padding-top:14px;
@@ -334,8 +336,6 @@ section[id]{scroll-margin-top:calc(var(--header-h) + 20px)}
 .empty-state p{margin:0 0 6px;font-size:15px;font-weight:600;
   color:var(--dark)}
 .empty-state small{font-size:12.5px;letter-spacing:.05em}
-
-/* Stars */
 .stars{display:inline-flex;gap:2px;color:var(--gold);
   font-size:12px;line-height:1}
 .stars i{color:var(--gold)}
@@ -380,7 +380,7 @@ section[id]{scroll-margin-top:calc(var(--header-h) + 20px)}
   letter-spacing:.04em}
 .care-card p{font-size:14px;line-height:1.8;color:var(--muted);margin:0}
 
-/* ============ REVIEWS SECTION ============ */
+/* ============ REVIEWS ============ */
 .reviews-section{background:#F4EFE6}
 .reviews-strip{display:grid;grid-template-columns:1fr;gap:22px;
   margin-top:44px}
@@ -409,8 +409,8 @@ section[id]{scroll-margin-top:calc(var(--header-h) + 20px)}
   margin-bottom:52px}
 @media(min-width:800px){.footer-grid{grid-template-columns:1.5fr 1fr 1fr}}
 .footer-brand{font-family:var(--font-head);font-size:26px;
-  letter-spacing:.38em;color:#fff;margin:0 0 20px;font-weight:600;
-  margin-right:-.38em}
+  letter-spacing:.34em;color:#fff;margin:0 0 20px;font-weight:600;
+  margin-right:-.34em}
 .footer-grid p{font-size:14px;line-height:1.85;margin:0 0 12px;
   max-width:400px}
 .footer-h{font-size:10px;letter-spacing:.28em;text-transform:uppercase;
@@ -420,8 +420,7 @@ section[id]{scroll-margin-top:calc(var(--header-h) + 20px)}
   color:rgba(255,255,255,.66);display:flex;align-items:center;
   gap:10px;cursor:pointer}
 .footer-links a:hover,.footer-links span:hover{color:var(--gold)}
-.footer-links i{color:var(--gold);width:16px;text-align:center;
-  flex:none}
+.footer-links i{color:var(--gold);width:16px;text-align:center;flex:none}
 .footer-bottom{border-top:1px solid rgba(255,255,255,.12);
   padding-top:26px;display:flex;flex-wrap:wrap;gap:16px;
   align-items:center;justify-content:space-between}
@@ -432,66 +431,79 @@ section[id]{scroll-margin-top:calc(var(--header-h) + 20px)}
 .admin-key:hover{color:var(--gold);background:rgba(197,160,89,.14);
   transform:rotate(-14deg)}
 
-/* ============ CHAT WIDGET ============ */
+/* ============ CHAT WIDGET (Yildiz-style, minimalist) ============ */
 #chatWidget{position:fixed;bottom:22px;right:22px;z-index:150;
-  display:flex;flex-direction:column;align-items:flex-end;gap:12px}
-#chatToggle{width:56px;height:56px;border-radius:50%;
-  background:#25D366;color:#fff;font-size:22px;display:flex;
+  display:flex;flex-direction:column;align-items:flex-end;gap:14px}
+#chatToggle{width:52px;height:52px;border-radius:50%;
+  background:var(--dark);color:#fff;font-size:19px;display:flex;
   align-items:center;justify-content:center;
-  box-shadow:0 14px 38px -10px rgba(37,211,102,.6),
-    0 4px 12px rgba(0,0,0,.15);
-  transition:.3s;border:none;cursor:pointer;position:relative}
-#chatToggle:hover{transform:scale(1.08);
-  box-shadow:0 18px 44px -10px rgba(37,211,102,.7)}
-#chatToggle .ping{position:absolute;top:-2px;right:-2px;width:16px;
-  height:16px;border-radius:50%;background:var(--sale);
-  border:2px solid #fff;animation:pulse 2s infinite}
-@keyframes pulse{0%{box-shadow:0 0 0 0 rgba(217,56,30,.5)}
-  70%{box-shadow:0 0 0 10px rgba(217,56,30,0)}
-  100%{box-shadow:0 0 0 0 rgba(217,56,30,0)}}
-#chatPanel{width:340px;max-width:calc(100vw - 44px);background:#fff;
-  border-radius:8px;overflow:hidden;
-  box-shadow:0 24px 70px -20px rgba(0,0,0,.35);
+  box-shadow:0 10px 30px -6px rgba(0,0,0,.35);
+  transition:transform .3s cubic-bezier(.2,.8,.2,1),background .3s;
+  border:none;cursor:pointer}
+#chatToggle:hover{transform:scale(1.06);background:var(--gold);
+  color:var(--on-gold)}
+#chatPanel{width:380px;max-width:calc(100vw - 32px);
+  background:#fff;border-radius:16px;overflow:hidden;
+  box-shadow:0 30px 80px -20px rgba(0,0,0,.35),
+    0 4px 12px rgba(0,0,0,.08);
+  display:flex;flex-direction:column;
   transform-origin:bottom right;
-  transform:scale(.92) translateY(14px);opacity:0;pointer-events:none;
-  transition:transform .32s cubic-bezier(.2,.8,.2,1),opacity .28s}
+  transform:scale(.9) translateY(10px);opacity:0;pointer-events:none;
+  transition:transform .35s cubic-bezier(.2,.8,.2,1),opacity .3s;
+  max-height:calc(100vh - 110px)}
 #chatPanel.open{transform:scale(1) translateY(0);opacity:1;
   pointer-events:auto}
-.chat-header{background:var(--dark);color:#fff;padding:18px 20px;
-  display:flex;align-items:center;justify-content:space-between;gap:12px}
-.chat-header h3{margin:0;font-size:15px;font-weight:600;
-  letter-spacing:.04em;font-family:var(--font-head)}
-.chat-header small{display:block;font-size:10.5px;
-  color:rgba(255,255,255,.6);letter-spacing:.06em;margin-top:2px;
-  font-family:var(--font-body)}
-.chat-header button{color:#fff;font-size:18px;width:34px;height:34px;
-  border-radius:50%;display:flex;align-items:center;
-  justify-content:center;transition:.25s;background:transparent;
+.chat-topbar{padding:16px 20px;display:flex;align-items:center;
+  justify-content:space-between;gap:12px;border-bottom:1px solid #f0eee9}
+.chat-topbar-title{font-size:14px;font-weight:600;letter-spacing:.02em;
+  color:var(--dark);font-family:var(--font-head)}
+.chat-topbar-actions{display:flex;gap:4px}
+.chat-action-btn{width:34px;height:34px;border-radius:50%;
+  color:#666;font-size:14px;display:flex;align-items:center;
+  justify-content:center;transition:.2s;background:transparent;
   cursor:pointer;border:none}
-.chat-header button:hover{background:rgba(255,255,255,.12);
-  color:var(--gold)}
-.chat-body{padding:20px}
-.chat-body p.intro{font-size:13px;line-height:1.7;color:var(--muted);
-  margin:0 0 16px}
-.chat-body input,.chat-body textarea{width:100%;padding:11px 13px;
-  border:1px solid var(--line);border-radius:6px;background:#fff;
-  outline:none;transition:.25s;font-size:13.5px;color:var(--dark);
-  font-family:var(--font-body);margin-bottom:10px;resize:vertical}
-.chat-body input:focus,.chat-body textarea:focus{border-color:var(--gold);
-  box-shadow:0 0 0 3px var(--gold-a10)}
-.chat-body textarea{min-height:78px;line-height:1.55}
-.chat-send{width:100%;background:#25D366;color:#fff;padding:13px 18px;
-  border-radius:6px;font-size:11px;letter-spacing:.18em;
-  text-transform:uppercase;font-weight:700;transition:.3s;border:none;
-  cursor:pointer;display:flex;align-items:center;justify-content:center;
-  gap:8px;min-height:46px}
-.chat-send:hover{background:#1FAE54;transform:translateY(-1px)}
-.chat-alt{display:flex;gap:8px;margin-top:12px}
-.chat-alt a{flex:1;padding:11px 10px;text-align:center;
-  border:1px solid var(--line);border-radius:6px;font-size:10.5px;
-  letter-spacing:.14em;text-transform:uppercase;font-weight:600;
-  color:var(--dark);transition:.25s;cursor:pointer}
-.chat-alt a:hover{border-color:var(--gold);color:var(--gold)}
+.chat-action-btn:hover{background:#f0eee9;color:var(--dark)}
+.chat-content{padding:26px 24px 20px;flex:1;overflow-y:auto;
+  min-height:220px}
+.chat-hello{font-size:26px;font-weight:600;margin:0 0 14px;
+  letter-spacing:-.01em;color:var(--dark);font-family:var(--font-head)}
+.chat-hello .wave{display:inline-block;
+  animation:waveHand 1.2s ease-in-out}
+@keyframes waveHand{0%,100%{transform:rotate(0)}25%{transform:rotate(18deg)}
+  75%{transform:rotate(-8deg)}}
+.chat-blurb{font-size:15px;line-height:1.55;color:#4a4a4a;
+  margin:0 0 20px;max-width:300px}
+.chat-preview{display:flex;gap:12px;align-items:center;padding:10px;
+  border:1px solid #f0eee9;border-radius:12px;margin-bottom:22px;
+  background:#fafaf8}
+.chat-preview img{width:52px;height:64px;object-fit:cover;
+  border-radius:8px;flex:none;background:#eee}
+.chat-preview-info{flex:1;min-width:0}
+.chat-preview-info strong{display:block;font-size:13px;
+  font-weight:600;color:var(--dark);white-space:nowrap;
+  overflow:hidden;text-overflow:ellipsis;margin-bottom:2px}
+.chat-preview-info span{font-size:11.5px;color:#888}
+.chat-chips{display:flex;flex-wrap:wrap;gap:8px}
+.chat-chip{background:#f4f2ee;border:1px solid #e8e5df;
+  border-radius:999px;padding:9px 16px;font-size:13px;color:#333;
+  transition:.2s;cursor:pointer;font-weight:500;font-family:inherit}
+.chat-chip:hover{background:var(--dark);color:#fff;
+  border-color:var(--dark);transform:translateY(-1px)}
+.chat-input-row{padding:14px 16px;border-top:1px solid #f0eee9;
+  background:#fff;display:flex;gap:8px;align-items:center}
+.chat-input{flex:1;border:none;background:transparent;outline:none;
+  font-size:15px;color:var(--dark);padding:10px 12px;
+  font-family:inherit}
+.chat-input::placeholder{color:#b0a89e}
+.chat-send-btn{width:42px;height:42px;border-radius:50%;
+  background:var(--dark);color:#fff;font-size:15px;display:flex;
+  align-items:center;justify-content:center;transition:.25s;
+  cursor:pointer;border:none;flex:none}
+.chat-send-btn:hover{background:var(--gold);color:var(--on-gold);
+  transform:scale(1.05)}
+.chat-privacy{padding:0 20px 14px;font-size:10.5px;color:#a8a29e;
+  line-height:1.5;text-align:center}
+.chat-privacy a{color:#6b6862;text-decoration:underline}
 
 /* ============ MODALS ============ */
 .modal{position:fixed;inset:0;z-index:300;display:none}
@@ -626,7 +638,6 @@ section[id]{scroll-margin-top:calc(var(--header-h) + 20px)}
   background:var(--sale);color:#fff;border-radius:2px}
 .pm-rating-row{display:flex;align-items:center;gap:10px;
   margin:0 0 24px;font-size:13px;color:var(--muted)}
-.pm-rating-row .stars{font-size:14px}
 .pm-rating-row strong{color:var(--dark);font-weight:600}
 .pm-specs{display:grid;grid-template-columns:1fr 1fr;gap:16px 20px;
   padding:22px 0;border-top:1px solid var(--line);
@@ -643,8 +654,6 @@ section[id]{scroll-margin-top:calc(var(--header-h) + 20px)}
 .pm-actions .btn{width:100%}
 .pm-note{font-size:11.5px;color:var(--muted);text-align:center;
   margin:18px 0 0;letter-spacing:.05em;font-style:italic}
-
-/* Reviews inside product modal */
 .pm-reviews{padding-top:26px;border-top:1px solid var(--line)}
 .pm-reviews-head{display:flex;align-items:center;
   justify-content:space-between;gap:12px;margin-bottom:18px}
@@ -655,15 +664,14 @@ section[id]{scroll-margin-top:calc(var(--header-h) + 20px)}
 .pm-review-head{display:flex;align-items:center;
   justify-content:space-between;gap:12px;margin-bottom:8px;
   flex-wrap:wrap}
-.pm-review-name{font-size:12.5px;font-weight:600;
-  letter-spacing:.03em}
+.pm-review-name{font-size:12.5px;font-weight:600;letter-spacing:.03em}
 .pm-review-date{font-size:10.5px;color:var(--muted);
   letter-spacing:.05em}
 .pm-review-text{font-size:13.5px;line-height:1.7;color:var(--muted);
   margin:6px 0 0}
 .pm-no-reviews{font-size:13px;color:var(--muted);
-  text-align:center;padding:24px 12px;
-  background:#fff;border:1px dashed var(--line);border-radius:3px}
+  text-align:center;padding:24px 12px;background:#fff;
+  border:1px dashed var(--line);border-radius:3px}
 
 /* Review form */
 .rf-wrap{position:relative;background:var(--light);border-radius:4px;
@@ -701,14 +709,12 @@ section[id]{scroll-margin-top:calc(var(--header-h) + 20px)}
   opacity:0;transition:opacity .35s ease}
 .lightbox.open{display:flex;opacity:1}
 #lbStage{position:absolute;inset:0;display:flex;align-items:center;
-  justify-content:center;overflow:hidden;cursor:grab;
-  touch-action:none}
+  justify-content:center;overflow:hidden;cursor:grab;touch-action:none}
 #lbStage.dragging{cursor:grabbing}
 #lbImg{max-width:92vw;max-height:82vh;object-fit:contain;
   user-select:none;-webkit-user-drag:none;
   transform:scale(.94);opacity:0;
-  transition:transform .45s cubic-bezier(.2,.8,.2,1),
-    opacity .35s ease;
+  transition:transform .45s cubic-bezier(.2,.8,.2,1),opacity .35s ease;
   will-change:transform,opacity}
 .lightbox.open #lbImg{transform:scale(1);opacity:1}
 .lightbox.zoomed #lbImg{transition:transform .1s linear,opacity .35s}
@@ -775,8 +781,8 @@ section[id]{scroll-margin-top:calc(var(--header-h) + 20px)}
 .ap-note{font-size:12.5px;line-height:1.75;color:var(--muted);
   margin:0 0 20px;padding:14px 16px;background:var(--gold-a10);
   border-left:2px solid var(--gold);border-radius:2px}
-.ap-note.warn{background:rgba(217,56,30,.06);
-  border-left-color:var(--sale);color:#7a1f11}
+.ap-note.success{background:rgba(37,211,102,.08);
+  border-left-color:#25D366;color:#1a7a45}
 .fld{display:block;margin-bottom:15px}
 .fld>span{display:block;font-size:9.5px;letter-spacing:.18em;
   text-transform:uppercase;font-weight:700;color:var(--muted);
@@ -796,14 +802,12 @@ select.txt{appearance:none;
 .color-row{display:flex;align-items:center;justify-content:space-between;
   gap:14px;padding:12px 0;border-bottom:1px solid var(--line);
   flex-wrap:wrap}
-.color-row label{font-size:12.5px;font-weight:600;
-  letter-spacing:.03em}
+.color-row label{font-size:12.5px;font-weight:600;letter-spacing:.03em}
 .color-ctrl{display:flex;align-items:center;gap:9px}
 input[type="color"]{width:42px;height:38px;border:1px solid var(--line);
   border-radius:2px;background:none;cursor:pointer;padding:2px}
 input[type="color"]::-webkit-color-swatch-wrapper{padding:0}
-input[type="color"]::-webkit-color-swatch{border:none;
-  border-radius:1px}
+input[type="color"]::-webkit-color-swatch{border:none;border-radius:1px}
 .color-ctrl .txt{width:100px;padding:9px 9px;font-size:11.5px;
   letter-spacing:.06em;text-transform:uppercase;font-family:monospace;
   min-height:0}
@@ -843,8 +847,7 @@ input[type="color"]::-webkit-color-swatch{border:none;
   transition:.3s;box-shadow:0 1px 4px rgba(0,0,0,.25)}
 .switch.on{background:var(--gold)}
 .switch.on::after{transform:translateX(20px)}
-.inv-head{display:flex;flex-direction:column;gap:14px;
-  margin-bottom:20px}
+.inv-head{display:flex;flex-direction:column;gap:14px;margin-bottom:20px}
 .inv-list{display:flex;flex-direction:column;gap:10px}
 .inv-row{display:flex;align-items:center;gap:12px;padding:10px;
   border:1px solid var(--line);border-radius:3px;background:#fff;
@@ -862,8 +865,7 @@ input[type="color"]::-webkit-color-swatch{border:none;
   text-transform:uppercase;font-weight:800;padding:5px 8px;
   border-radius:2px;flex:none;background:var(--gold-a18);
   color:var(--dark);white-space:nowrap}
-.inv-status.s-sold-out{background:rgba(140,45,25,.16);
-  color:var(--accent)}
+.inv-status.s-sold-out{background:rgba(140,45,25,.16);color:var(--accent)}
 .inv-status.s-draft{background:rgba(0,0,0,.1);color:var(--muted)}
 .inv-acts{display:flex;gap:4px;flex:none}
 .inv-acts .icon-btn{width:36px;height:36px;font-size:13px}
@@ -902,16 +904,13 @@ input[type="color"]::-webkit-color-swatch{border:none;
   justify-content:space-between;margin-bottom:12px}
 .care-admin-n{font-size:9.5px;letter-spacing:.2em;
   text-transform:uppercase;font-weight:800;color:var(--gold)}
-.care-admin-head .mini-btn{padding:7px 10px;font-size:9px;
-  min-height:0}
+.care-admin-head .mini-btn{padding:7px 10px;font-size:9px;min-height:0}
 .file-label{cursor:pointer;display:inline-flex}
 .big{width:100%;padding:20px;font-size:11px;letter-spacing:.2em}
 .progress-bar{height:4px;background:var(--gold-a18);border-radius:2px;
   overflow:hidden;margin-top:10px}
 .progress-bar i{display:block;height:100%;background:var(--gold);
   width:0%;transition:width .3s}
-
-/* Admin reviews */
 .admin-review{background:#fff;border:1px solid var(--line);
   border-radius:3px;padding:14px 16px;margin-bottom:10px}
 .admin-review-head{display:flex;align-items:flex-start;
@@ -925,6 +924,21 @@ input[type="color"]::-webkit-color-swatch{border:none;
 .admin-review-text{font-size:13px;line-height:1.7;color:var(--muted);
   margin:8px 0 0}
 .admin-review .mini-btn{padding:6px 10px;font-size:9px;min-height:0}
+
+/* Logo preview in admin */
+.logo-preview{display:flex;align-items:center;gap:16px;
+  padding:16px;border:1px solid var(--line);border-radius:3px;
+  background:#fff;margin-bottom:14px}
+.logo-preview-mark{width:70px;height:70px;flex:none;
+  display:flex;align-items:center;justify-content:center;
+  color:var(--dark)}
+.logo-preview-mark svg,.logo-preview-mark img{width:100%;height:100%;
+  object-fit:contain}
+.logo-preview-info{flex:1;min-width:0}
+.logo-preview-info strong{display:block;font-size:12.5px;
+  margin-bottom:4px;letter-spacing:.04em}
+.logo-preview-info small{font-size:11px;color:var(--muted);
+  line-height:1.5;display:block}
 
 /* Floating dock */
 #fabDock{position:fixed;bottom:22px;left:22px;z-index:145;
@@ -944,7 +958,7 @@ input[type="color"]::-webkit-color-swatch{border:none;
   color:var(--on-gold);background:var(--dark)}
 
 /* Admin FAB */
-.admin-fab{position:fixed;bottom:22px;right:90px;z-index:145;
+.admin-fab{position:fixed;bottom:88px;right:22px;z-index:145;
   display:flex;flex-direction:column;gap:10px}
 .fab-btn{width:52px;height:52px;border-radius:50%;
   background:var(--dark);color:var(--gold);font-size:18px;
@@ -954,8 +968,7 @@ input[type="color"]::-webkit-color-swatch{border:none;
 .fab-btn:hover{background:var(--gold);color:var(--on-gold);
   transform:scale(1.06)}
 .fab-btn.danger{color:#ff8a80}
-.fab-btn.danger:hover{background:#b3261e;color:#fff;
-  border-color:#b3261e}
+.fab-btn.danger:hover{background:#b3261e;color:#fff;border-color:#b3261e}
 
 /* Editing affordances */
 body.admin-unlocked [data-edit]{cursor:text;border-radius:2px;
@@ -1001,7 +1014,10 @@ body.admin-unlocked [data-edit]:focus{outline-color:var(--gold);
       <button id="menuToggle" class="icon-btn" type="button" aria-label="Open menu">
         <i class="fa-solid fa-bars"></i>
       </button>
-      <a href="#top" class="brand" data-edit="content.brand">Roshan</a>
+      <a href="#top" class="brand">
+        <span class="brand-logo" id="brandLogo"></span>
+        <span class="brand-text" data-edit="content.brand">Roshan</span>
+      </a>
       <nav class="main-nav">
         <a href="#catalog" class="nav-link" data-scroll>Collection</a>
         <a href="#story" class="nav-link" data-scroll>Artisanship</a>
@@ -1028,45 +1044,40 @@ body.admin-unlocked [data-edit]:focus{outline-color:var(--gold);
 <div id="drawerOverlay"></div>
 <aside id="mobileDrawer" role="dialog" aria-label="Navigation menu">
   <div class="drawer-head">
-    <span class="drawer-brand">Roshan</span>
+    <span class="drawer-brand">
+      <span class="brand-logo" id="drawerLogo"></span>
+      <span class="brand-text">Roshan</span>
+    </span>
     <button class="drawer-close" id="drawerClose" type="button" aria-label="Close menu">
       <i class="fa-solid fa-xmark"></i>
     </button>
   </div>
   <nav class="drawer-nav">
     <a href="#catalog" class="drawer-link" data-scroll data-drawer-link>
-      <i class="fa-solid fa-layer-group"></i>
-      <span class="lbl">Collection</span>
+      <i class="fa-solid fa-layer-group"></i><span class="lbl">Collection</span>
     </a>
     <a href="#story" class="drawer-link" data-scroll data-drawer-link>
-      <i class="fa-solid fa-hands"></i>
-      <span class="lbl">Artisanship</span>
+      <i class="fa-solid fa-hands"></i><span class="lbl">Artisanship</span>
     </a>
     <a href="#reviews" class="drawer-link" data-scroll data-drawer-link>
-      <i class="fa-regular fa-star"></i>
-      <span class="lbl">Reviews</span>
+      <i class="fa-regular fa-star"></i><span class="lbl">Reviews</span>
     </a>
     <a href="#care" class="drawer-link" data-scroll data-drawer-link>
-      <i class="fa-solid fa-leaf"></i>
-      <span class="lbl">Rug Care</span>
+      <i class="fa-solid fa-leaf"></i><span class="lbl">Rug Care</span>
     </a>
     <a href="#contact" class="drawer-link" data-scroll data-drawer-link>
-      <i class="fa-regular fa-envelope"></i>
-      <span class="lbl">Contact</span>
+      <i class="fa-regular fa-envelope"></i><span class="lbl">Contact</span>
     </a>
     <button class="drawer-link" id="drawerWishlistBtn" type="button">
-      <i class="fa-regular fa-heart"></i>
-      <span class="lbl">Saved Rugs</span>
+      <i class="fa-regular fa-heart"></i><span class="lbl">Saved Rugs</span>
       <span class="drawer-badge hidden" id="drawerWishlistBadge">0</span>
     </button>
     <button class="drawer-link" id="drawerAdminBtn" type="button">
-      <i class="fa-solid fa-key"></i>
-      <span class="lbl">Admin Login</span>
+      <i class="fa-solid fa-key"></i><span class="lbl">Admin Login</span>
     </button>
   </nav>
   <div class="drawer-foot">
-    <a class="btn btn-gold btn-full" data-wa-generic
-       target="_blank" rel="noopener">
+    <a class="btn btn-gold btn-full" data-wa-generic target="_blank" rel="noopener">
       <i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp
     </a>
     <p class="drawer-note">Handmade in Afghanistan</p>
@@ -1083,14 +1094,11 @@ body.admin-unlocked [data-edit]:focus{outline-color:var(--gold);
     <h1 class="hero-title pre" data-edit="content.heroTitle"></h1>
     <p class="hero-sub pre" data-edit="content.heroSubtitle"></p>
     <div class="hero-cta">
-      <a href="#catalog" class="btn btn-gold" data-scroll
-         data-edit="content.heroCta"></a>
-      <a href="#reviews" class="btn btn-ghost" data-scroll
-         data-edit="content.heroCta2"></a>
+      <a href="#catalog" class="btn btn-gold" data-scroll data-edit="content.heroCta"></a>
+      <a href="#reviews" class="btn btn-ghost" data-scroll data-edit="content.heroCta2"></a>
     </div>
   </div>
-  <a href="#catalog" class="hero-scroll" data-scroll
-     aria-label="Scroll to collection">
+  <a href="#catalog" class="hero-scroll" data-scroll aria-label="Scroll to collection">
     <i class="fa-solid fa-chevron-down"></i>
   </a>
 </section>
@@ -1103,14 +1111,12 @@ body.admin-unlocked [data-edit]:focus{outline-color:var(--gold);
       <h2 class="section-title fh" data-edit="content.collectionTitle"></h2>
       <p class="section-sub pre" data-edit="content.collectionSubtitle"></p>
     </div>
-
     <div class="toolbar">
       <div class="search-box">
         <i class="fa-solid fa-magnifying-glass search-icon"></i>
         <input type="text" id="searchInput" class="search-input"
                placeholder="Search rugs, origin, style…" autocomplete="off">
-        <button class="search-clear hidden" id="searchClear" type="button"
-                aria-label="Clear search">
+        <button class="search-clear hidden" id="searchClear" type="button" aria-label="Clear search">
           <i class="fa-solid fa-xmark"></i>
         </button>
       </div>
@@ -1123,7 +1129,6 @@ body.admin-unlocked [data-edit]:focus{outline-color:var(--gold);
         <option value="rating-desc">Highest Rated</option>
       </select>
     </div>
-
     <div id="filterTabs" class="filter-tabs"></div>
     <div id="productGrid" class="product-grid"></div>
     <div id="emptyState" class="empty-state hidden">
@@ -1146,24 +1151,15 @@ body.admin-unlocked [data-edit]:focus{outline-color:var(--gold);
       <h2 class="section-title fh" data-edit="content.storyTitle"></h2>
       <p class="story-body pre" data-edit="content.storyBody"></p>
       <div class="stats">
-        <div>
-          <strong data-edit="content.storyStat1n"></strong>
-          <span data-edit="content.storyStat1l"></span>
-        </div>
-        <div>
-          <strong data-edit="content.storyStat2n"></strong>
-          <span data-edit="content.storyStat2l"></span>
-        </div>
-        <div>
-          <strong data-edit="content.storyStat3n"></strong>
-          <span data-edit="content.storyStat3l"></span>
-        </div>
+        <div><strong data-edit="content.storyStat1n"></strong><span data-edit="content.storyStat1l"></span></div>
+        <div><strong data-edit="content.storyStat2n"></strong><span data-edit="content.storyStat2l"></span></div>
+        <div><strong data-edit="content.storyStat3n"></strong><span data-edit="content.storyStat3l"></span></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ============ REVIEWS STRIP ============ -->
+<!-- ============ REVIEWS ============ -->
 <section id="reviews" class="section reviews-section">
   <div class="container">
     <div class="section-head reveal">
@@ -1198,48 +1194,26 @@ body.admin-unlocked [data-edit]:focus{outline-color:var(--gold);
       <div>
         <p class="footer-h">Atelier</p>
         <div class="footer-links">
-          <span>
-            <i class="fa-solid fa-location-dot"></i>
-            <span data-edit="content.footerAddress"></span>
-          </span>
-          <span>
-            <i class="fa-regular fa-clock"></i>
-            <span data-edit="content.footerHours"></span>
-          </span>
-          <a data-wa-generic target="_blank" rel="noopener">
-            <i class="fa-brands fa-whatsapp"></i> Direct Chat
-          </a>
-          <a id="footerEmail" href="#">
-            <i class="fa-regular fa-envelope"></i>
-            <span id="footerEmailText">Email</span>
-          </a>
+          <span><i class="fa-solid fa-location-dot"></i><span data-edit="content.footerAddress"></span></span>
+          <span><i class="fa-regular fa-clock"></i><span data-edit="content.footerHours"></span></span>
+          <a data-wa-generic target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> Direct Chat</a>
+          <a id="footerEmail" href="#"><i class="fa-regular fa-envelope"></i> <span id="footerEmailText">Email</span></a>
         </div>
       </div>
       <div>
         <p class="footer-h">Explore</p>
         <div class="footer-links">
-          <a href="#catalog" data-scroll>
-            <i class="fa-solid fa-layer-group"></i> The Collection
-          </a>
-          <a href="#story" data-scroll>
-            <i class="fa-solid fa-hands"></i> Our Heritage
-          </a>
-          <a href="#reviews" data-scroll>
-            <i class="fa-regular fa-star"></i> Reviews
-          </a>
-          <a href="#care" data-scroll>
-            <i class="fa-solid fa-leaf"></i> Rug Care Guide
-          </a>
-          <a href="#top" data-scroll>
-            <i class="fa-solid fa-arrow-up"></i> Back to Top
-          </a>
+          <a href="#catalog" data-scroll><i class="fa-solid fa-layer-group"></i> The Collection</a>
+          <a href="#story" data-scroll><i class="fa-solid fa-hands"></i> Our Heritage</a>
+          <a href="#reviews" data-scroll><i class="fa-regular fa-star"></i> Reviews</a>
+          <a href="#care" data-scroll><i class="fa-solid fa-leaf"></i> Rug Care Guide</a>
+          <a href="#top" data-scroll><i class="fa-solid fa-arrow-up"></i> Back to Top</a>
         </div>
       </div>
     </div>
     <div class="footer-bottom">
       <p data-edit="content.footerNote"></p>
-      <button class="admin-key" id="adminKey" type="button"
-              aria-label="Owner access" title="Owner access">
+      <button class="admin-key" id="adminKey" type="button" aria-label="Owner access" title="Owner access">
         <i class="fa-solid fa-key"></i>
       </button>
     </div>
@@ -1248,12 +1222,10 @@ body.admin-unlocked [data-edit]:focus{outline-color:var(--gold);
 
 <!-- ============ FLOATING DOCK ============ -->
 <div id="fabDock">
-  <button class="dock-btn hidden" id="backToTop" type="button"
-          aria-label="Back to top" title="Back to top">
+  <button class="dock-btn hidden" id="backToTop" type="button" aria-label="Back to top" title="Back to top">
     <i class="fa-solid fa-arrow-up"></i>
   </button>
-  <button class="dock-btn hidden" id="wishlistDock" type="button"
-          aria-label="Saved rugs" title="Saved rugs">
+  <button class="dock-btn hidden" id="wishlistDock" type="button" aria-label="Saved rugs" title="Saved rugs">
     <i class="fa-solid fa-heart"></i>
     <span class="icon-badge hidden" id="wishlistDockBadge">0</span>
   </button>
@@ -1261,44 +1233,49 @@ body.admin-unlocked [data-edit]:focus{outline-color:var(--gold);
 
 <!-- ============ ADMIN FAB ============ -->
 <div id="adminFab" class="admin-fab hidden">
-  <button class="fab-btn" id="openAdmin" type="button"
-          title="Open Store Manager">
-    <i class="fa-solid fa-gear"></i>
-  </button>
-  <button class="fab-btn danger" id="lockAdmin" type="button"
-          title="Lock & Exit Admin">
+  <button class="fab-btn danger" id="lockAdmin" type="button" title="Lock & Exit Admin">
     <i class="fa-solid fa-lock"></i>
+  </button>
+  <button class="fab-btn" id="openAdmin" type="button" title="Open Store Manager">
+    <i class="fa-solid fa-gear"></i>
   </button>
 </div>
 
-<!-- ============ CHAT WIDGET ============ -->
+<!-- ============ CHAT WIDGET (Yildiz-style) ============ -->
 <div id="chatWidget">
   <div id="chatPanel" role="dialog" aria-label="Contact Roshan">
-    <div class="chat-header">
-      <div>
-        <h3>Roshan Concierge</h3>
-        <small>We reply within an hour</small>
-      </div>
-      <button id="chatClose" type="button" aria-label="Close chat">
-        <i class="fa-solid fa-xmark"></i>
-      </button>
-    </div>
-    <div class="chat-body">
-      <p class="intro">Ask us anything about a rug, or send us a message.</p>
-      <input type="text" id="chatName" placeholder="Your name (optional)" autocomplete="off">
-      <textarea id="chatMessage" placeholder="Hello, I'm interested in…"></textarea>
-      <button class="chat-send" id="chatSend" type="button">
-        <i class="fa-brands fa-whatsapp"></i> Send via WhatsApp
-      </button>
-      <div class="chat-alt">
-        <a id="chatEmail">Email</a>
-        <a id="chatCall">Call</a>
+    <div class="chat-topbar">
+      <span class="chat-topbar-title">Roshan</span>
+      <div class="chat-topbar-actions">
+        <button class="chat-action-btn" id="chatExpand" type="button" aria-label="Expand">
+          <i class="fa-solid fa-up-right-and-down-left-from-center"></i>
+        </button>
+        <button class="chat-action-btn" id="chatClose" type="button" aria-label="Minimize">
+          <i class="fa-solid fa-minus"></i>
+        </button>
       </div>
     </div>
+    <div class="chat-content">
+      <div class="chat-preview hidden" id="chatPreview"></div>
+      <h3 class="chat-hello">Hi there! <span class="wave">👋</span></h3>
+      <p class="chat-blurb">You can ask questions about shopping, sizing, shipping, returns, or order status.</p>
+      <div class="chat-chips">
+        <button class="chat-chip" type="button" data-chat-msg="Hi! I'd like to track my order.">Track my order</button>
+        <button class="chat-chip" type="button" data-chat-msg="Hi! I have a question about sizing and dimensions.">Sizing &amp; dimensions</button>
+        <button class="chat-chip" type="button" data-chat-msg="Hi! What are your shipping options?">Shipping</button>
+        <button class="chat-chip" type="button" data-chat-msg="Hi! What's your return policy?">Returns</button>
+      </div>
+    </div>
+    <div class="chat-input-row">
+      <input type="text" class="chat-input" id="chatInput" placeholder="Ask anything…" autocomplete="off">
+      <button class="chat-send-btn" id="chatSend" type="button" aria-label="Send">
+        <i class="fa-solid fa-paper-plane"></i>
+      </button>
+    </div>
+    <p class="chat-privacy">Messages reach our atelier via WhatsApp. <a href="#" id="chatPrivacyLink">See our promise</a>.</p>
   </div>
   <button id="chatToggle" type="button" aria-label="Open chat">
     <i class="fa-regular fa-comment"></i>
-    <span class="ping"></span>
   </button>
 </div>
 
@@ -1374,9 +1351,7 @@ body.admin-unlocked [data-edit]:focus{outline-color:var(--gold);
     </label>
     <label class="fld" style="text-align:left">
       <span>Your review</span>
-      <textarea class="txt" id="rfText" rows="4"
-        placeholder="What did you love about this rug? How does it look in your home?"
-        maxlength="500"></textarea>
+      <textarea class="txt" id="rfText" rows="4" placeholder="What did you love about this rug?" maxlength="500"></textarea>
     </label>
     <div class="rf-actions">
       <button class="btn-gold-sm" id="rfSubmit" type="button">
@@ -1460,13 +1435,11 @@ body.admin-unlocked [data-edit]:focus{outline-color:var(--gold);
 'use strict';
 
 /* ==========================================================
-   1. CONSTANTS
+   CONSTANTS
    ========================================================== */
-var STORAGE_KEY  = 'roshan_master_data_v4';
-var SESSION_KEY  = 'roshan_admin_session_v4';
-var WISHLIST_KEY = 'roshan_wishlist_v4';
-var PHOTOS_KEY   = 'roshan_photos_v4';
-var REVIEWS_KEY  = 'roshan_reviews_v4';
+var STORAGE_KEY  = 'roshan_v5_data';
+var SESSION_KEY  = 'roshan_v5_admin';
+var WISHLIST_KEY = 'roshan_v5_wishlist';
 
 var FONTS = {
   serif:     { label: 'Serif Luxe',        head: "'Cinzel', serif",           body: "'Inter', sans-serif" },
@@ -1477,11 +1450,23 @@ var FONTS = {
 var BASE_CATEGORIES = ['Kazak', 'Chobi', 'Classic Khorjin', 'Modern Khorjin',
                        'Sultani', 'Pazrug', 'Mamluk'];
 
-/* Photo limits — tuned to keep localStorage safe */
-var PHOTO_MAX_DIM   = 800;
-var PHOTO_QUALITY   = 0.62;
-var PHOTO_MAX_COUNT = 5;
-var STORAGE_SOFT_LIMIT_MB = 4.2;
+/* Photo settings — small enough to always fit in localStorage */
+var PHOTO_MAX_DIM   = 600;
+var PHOTO_QUALITY   = 0.55;
+var PHOTO_MAX_COUNT = 3;
+
+/* ---- Built-in Roshan logo (R with sunburst) ---- */
+var ROSHAN_LOGO_SVG = (
+  '<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" ' +
+  'fill="none" stroke="currentColor" stroke-width="5.5" ' +
+  'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">' +
+    '<path d="M 22 86 L 46 22 Q 74 22 74 44 Q 74 66 52 66 L 80 86"/>' +
+    '<path d="M 42 66 L 58 32"/>' +
+    '<line x1="76" y1="12" x2="84" y2="4"/>' +
+    '<line x1="84" y1="24" x2="94" y2="20"/>' +
+    '<line x1="86" y1="38" x2="96" y2="38"/>' +
+  '</svg>'
+);
 
 var PLACEHOLDER = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(
   '<svg xmlns="http://www.w3.org/2000/svg" width="600" height="800">' +
@@ -1494,8 +1479,7 @@ var PLACEHOLDER = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(
   '<circle cx="300" cy="400" r="28"/>' +
   '</g>' +
   '<text x="300" y="712" fill="#C5A059" font-family="serif" font-size="24" ' +
-  'letter-spacing="10" text-anchor="middle" opacity="0.75">ROSHAN</text>' +
-  '</svg>');
+  'letter-spacing="10" text-anchor="middle" opacity="0.75">ROSHAN</text></svg>');
 
 var PLACEHOLDER_WIDE = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(
   '<svg xmlns="http://www.w3.org/2000/svg" width="800" height="1000">' +
@@ -1507,27 +1491,22 @@ var PLACEHOLDER_WIDE = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(
   '<circle cx="400" cy="500" r="46"/>' +
   '</g>' +
   '<text x="400" y="912" fill="#C5A059" font-family="serif" font-size="26" ' +
-  'letter-spacing="12" text-anchor="middle" opacity="0.6">ROSHAN</text>' +
-  '</svg>');
+  'letter-spacing="12" text-anchor="middle" opacity="0.6">ROSHAN</text></svg>');
 
 var DEFAULT_DATA = {
-  version: 4,
+  version: 5,
   settings: {
     pin: '1234',
     whatsapp: '93700000000',
     email: 'atelier@roshan.com',
     currency: '$',
     fontPair: 'serif',
+    logo: '',  /* empty = use built-in SVG */
     theme: { gold: '#C5A059', dark: '#121212', light: '#FDFBF7', accent: '#8C2D19' }
   },
   sections: {
-    announcement: true,
-    hero: true,
-    collection: true,
-    story: true,
-    reviews: true,
-    care: true,
-    footer: true
+    announcement: true, hero: true, collection: true, story: true,
+    reviews: true, care: true, footer: true
   },
   content: {
     announcement: 'Welcome offer — 15% off your first heirloom rug · Complimentary worldwide shipping',
@@ -1545,12 +1524,9 @@ var DEFAULT_DATA = {
     storyTitle: 'Twelve Months on the Loom',
     storyBody: 'In the highlands of Bamyan and the workshops of Herat, our weavers begin with hand-spun wool from Ghazni sheep — prized across Persia for its lustre, resilience and depth of colour.\n\nEvery knot is tied by hand. Every dye is drawn from madder root, indigo, walnut husk and pomegranate rind. What emerges after a year at the loom is not a floor covering, but a document of a family, a village and a tradition that has survived centuries.',
     storyImage: '',
-    storyStat1n: '40+',
-    storyStat1l: 'Master Weavers',
-    storyStat2n: '100%',
-    storyStat2l: 'Natural Dyes',
-    storyStat3n: '12',
-    storyStat3l: 'Months per Rug',
+    storyStat1n: '40+', storyStat1l: 'Master Weavers',
+    storyStat2n: '100%', storyStat2l: 'Natural Dyes',
+    storyStat3n: '12', storyStat3l: 'Months per Rug',
     reviewsEyebrow: 'Collector Reviews',
     reviewsTitle: 'Words From Our Collectors',
     reviewsSubtitle: 'Every review comes from a real owner. We do not edit, filter or hide a single one.',
@@ -1570,87 +1546,52 @@ var DEFAULT_DATA = {
   },
   products: [
     {
-      id: 'RSH-001',
-      title: 'Bamyan Classic Khorjin Crimson',
-      price: '2650',
-      discount: 15,
-      dims: "6'2\" x 8'5\"",
-      origin: 'Bamyan',
-      category: 'Classic Khorjin',
+      id: 'RSH-001', title: 'Bamyan Classic Khorjin Crimson', price: '2650', discount: 15,
+      dims: "6'2\" x 8'5\"", origin: 'Bamyan', category: 'Classic Khorjin',
       desc: 'The Khorjin is a traditional double-bag woven by nomadic Afghans to carry grain and belongings across the steppe. This full-size interpretation preserves the classic compartmentalised design — two deep madder-red panels framed by a finely drawn ivory border, with latch-hook motifs carrying memory of the Silk Road.',
-      status: 'Active'
+      status: 'Active', photos: [], reviews: []
     },
     {
-      id: 'RSH-002',
-      title: 'Herat Modern Khorjin Slate',
-      price: '3240',
-      discount: 0,
-      dims: "7'0\" x 9'10\"",
-      origin: 'Herat',
-      category: 'Modern Khorjin',
+      id: 'RSH-002', title: 'Herat Modern Khorjin Slate', price: '3240', discount: 0,
+      dims: "7'0\" x 9'10\"", origin: 'Herat', category: 'Modern Khorjin',
       desc: 'A contemporary reimagining of the Khorjin form. The traditional twin-panel layout is present, but softened — muted slate greys, bone ivory and a single band of antique gold. Woven at 300 knots per inch by a cooperative of six weavers in Herat.',
-      status: 'Active'
+      status: 'Active', photos: [], reviews: []
     },
     {
-      id: 'RSH-003',
-      title: 'Kunduz Sultani Medallion',
-      price: '4120',
-      discount: 20,
-      dims: "8'0\" x 10'2\"",
-      origin: 'Kunduz',
-      category: 'Sultani',
+      id: 'RSH-003', title: 'Kunduz Sultani Medallion', price: '4120', discount: 20,
+      dims: "8'0\" x 10'2\"", origin: 'Kunduz', category: 'Sultani',
       desc: 'The Sultani is the imperial weave — dense, formal, and unapologetically ornamental. This piece carries a grand central medallion in terracotta and deep indigo on an ivory ground, with cusped corner spandrels and a wide, multi-band border. A rug that commands a room.',
-      status: 'Active'
+      status: 'Active', photos: [], reviews: []
     },
     {
-      id: 'RSH-004',
-      title: 'Kunduz Chobi Sand',
-      price: '1980',
-      discount: 0,
-      dims: "5'6\" x 7'9\"",
-      origin: 'Kunduz',
-      category: 'Chobi',
+      id: 'RSH-004', title: 'Kunduz Chobi Sand', price: '1980', discount: 0,
+      dims: "5'6\" x 7'9\"", origin: 'Kunduz', category: 'Chobi',
       desc: 'Vegetable-dyed in soft sand, sage and bone. A quieter, contemporary Chobi woven with hand-spun wool and finished with a gentle abrash. At home in modern interiors yet undeniably Afghan in soul.',
-      status: 'Active'
+      status: 'Active', photos: [], reviews: []
     },
     {
-      id: 'RSH-005',
-      title: 'Mazar-i-Sharif Pazrug Indigo',
-      price: '2340',
-      discount: 10,
-      dims: "6'8\" x 9'4\"",
-      origin: 'Mazar-i-Sharif',
-      category: 'Pazrug',
+      id: 'RSH-005', title: 'Mazar-i-Sharif Pazrug Indigo', price: '2340', discount: 10,
+      dims: "6'8\" x 9'4\"", origin: 'Mazar-i-Sharif', category: 'Pazrug',
       desc: 'Pazrug — the "war rug" tradition born along the northern frontier. This piece carries stylised geometric forms arranged in orderly rows, dyed in hand-tinted indigo, iron red and walnut. A narrative rug with the quiet dignity of its origin.',
-      status: 'Active'
+      status: 'Active', photos: [], reviews: []
     },
     {
-      id: 'RSH-006',
-      title: 'Ghazni Mamluk Azure',
-      price: '5600',
-      discount: 0,
-      dims: "8'0\" x 10'0\"",
-      origin: 'Ghazni',
-      category: 'Mamluk',
+      id: 'RSH-006', title: 'Ghazni Mamluk Azure', price: '5600', discount: 0,
+      dims: "8'0\" x 10'0\"", origin: 'Ghazni', category: 'Mamluk',
       desc: 'The Mamluk weave was perfected in 15th-century Cairo and carried east along the trade routes into Afghanistan. This piece revives the tradition — an azure field with octagonal medallions in ivory and antique gold, at 800 knots per inch. Museum-grade.',
-      status: 'Active'
+      status: 'Active', photos: [], reviews: []
     },
     {
-      id: 'RSH-007',
-      title: 'Andkhoy Kazak Ivory',
-      price: '2780',
-      discount: 0,
-      dims: "6'0\" x 8'2\"",
-      origin: 'Andkhoy',
-      category: 'Kazak',
+      id: 'RSH-007', title: 'Andkhoy Kazak Ivory', price: '2780', discount: 0,
+      dims: "6'0\" x 8'2\"", origin: 'Andkhoy', category: 'Kazak',
       desc: 'An ivory ground with terracotta and forest-green geometric motifs. Crisp, tribal drawing on a thick, resilient pile — the very definition of a Kazak.',
-      status: 'Active'
+      status: 'Active', photos: [], reviews: []
     }
   ]
 };
 
 /* ==========================================================
-   2. UTILITIES
+   UTILITIES
    ========================================================== */
 function esc(s) {
   return String(s == null ? '' : s).replace(/[&<>"']/g, function (c) {
@@ -1715,10 +1656,10 @@ function parsePrice(s) {
 }
 function formatNum(n) {
   if (!isFinite(n)) return '0';
-  var rounded = Math.round(n * 100) / 100;
-  return rounded.toLocaleString('en-US', {
+  var r = Math.round(n * 100) / 100;
+  return r.toLocaleString('en-US', {
     minimumFractionDigits: 0,
-    maximumFractionDigits: rounded % 1 === 0 ? 0 : 2
+    maximumFractionDigits: r % 1 === 0 ? 0 : 2
   });
 }
 function formatDate(ts) {
@@ -1730,9 +1671,6 @@ function formatDate(ts) {
 function randomId() {
   return 'RSH-' + Date.now().toString(36).toUpperCase().slice(-4) +
          Math.floor(Math.random() * 1000).toString().padStart(3, '0');
-}
-function approxKB(str) {
-  return Math.round((str ? str.length : 0) / 1024);
 }
 function totalPhotoSize() {
   var total = 0;
@@ -1757,7 +1695,7 @@ function toast(msg, isErr) {
 }
 
 /* ==========================================================
-   3. STATE
+   STATE
    ========================================================== */
 var state = clone(DEFAULT_DATA);
 var wishlist = [];
@@ -1772,51 +1710,41 @@ var reviewTargetId = null;
 var reviewRating = 0;
 
 /* ==========================================================
-   4. LOAD / SAVE
+   LOAD / SAVE
    ========================================================== */
 function loadState() {
   var s = clone(DEFAULT_DATA);
 
-  /* Layer 1: baked data inside the HTML file */
   var baked = document.getElementById('roshan-baked-data');
   if (baked && baked.textContent && baked.textContent.trim()) {
     try {
-      var parsed = JSON.parse(baked.textContent);
-      s = deepMerge(s, parsed);
-    } catch (e) {
-      console.warn('Roshan: baked data parse error', e);
-    }
+      s = deepMerge(s, JSON.parse(baked.textContent));
+    } catch (e) { console.warn('baked parse error', e); }
   }
 
-  /* Layer 2: local owner edits */
   try {
     var raw = localStorage.getItem(STORAGE_KEY);
     if (raw) s = deepMerge(s, JSON.parse(raw));
-  } catch (e) {
-    console.warn('Roshan: local data read error', e);
-  }
+  } catch (e) { console.warn('local read error', e); }
 
-  /* Guarantee shape */
   if (!s.content || typeof s.content !== 'object') s.content = clone(DEFAULT_DATA.content);
   if (!s.settings || typeof s.settings !== 'object') s.settings = clone(DEFAULT_DATA.settings);
   if (!s.settings.theme) s.settings.theme = clone(DEFAULT_DATA.settings.theme);
+  if (typeof s.settings.logo !== 'string') s.settings.logo = '';
   if (!s.sections) s.sections = clone(DEFAULT_DATA.sections);
   if (!s.content.careItems || !Array.isArray(s.content.careItems)) {
     s.content.careItems = clone(DEFAULT_DATA.content.careItems);
   }
   if (!s.products || !Array.isArray(s.products)) s.products = [];
 
-  /* Ensure product shape */
   for (var i = 0; i < s.products.length; i++) {
     var p = s.products[i];
     if (!p.id) p.id = randomId();
-    if (typeof p.photos === 'undefined' || p.photos === null) p.photos = [];
-    if (!Array.isArray(p.photos)) p.photos = [];
+    if (!p.photos || !Array.isArray(p.photos)) p.photos = [];
     if (!p.status) p.status = 'Active';
     if (typeof p.discount === 'undefined') p.discount = 0;
     if (!p.reviews || !Array.isArray(p.reviews)) p.reviews = [];
   }
-
   return s;
 }
 
@@ -1835,75 +1763,48 @@ function loadWishlist() {
 
 function saveWishlist() {
   try { localStorage.setItem(WISHLIST_KEY, JSON.stringify(wishlist)); }
-  catch (e) { console.warn('Roshan: wishlist save failed', e); }
+  catch (e) { console.warn('wishlist save failed', e); }
 }
 
 /**
- * Splits photos out of the main state so localStorage never fills up.
- * Main data goes to STORAGE_KEY; photos go to PHOTOS_KEY as a map.
+ * Single-key save — everything in one place so nothing can go out of sync.
+ * Photos are compressed small enough (600px / 0.55) that the total almost
+ * never exceeds localStorage limits.
  */
 function saveState() {
   try {
-    /* Build a photo-free copy of the products for the main key */
-    var lightProducts = state.products.map(function (p) {
-      var copy = {};
-      for (var k in p) {
-        if (k === 'photos') continue;
-        copy[k] = p[k];
-      }
-      return copy;
-    });
-
-    var lightState = {};
-    for (var key in state) {
-      if (key === 'products') continue;
-      lightState[key] = state[key];
-    }
-    lightState.products = lightProducts;
-
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(lightState));
-
-    /* Photos map */
-    var photoMap = {};
-    for (var i = 0; i < state.products.length; i++) {
-      var prod = state.products[i];
-      if (prod.photos && prod.photos.length) {
-        photoMap[prod.id] = prod.photos;
-      }
-    }
-    localStorage.setItem(PHOTOS_KEY, JSON.stringify(photoMap));
-
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
     return true;
   } catch (e) {
-    console.warn('Roshan: save failed', e);
+    console.warn('save failed', e);
     if (e && (e.name === 'QuotaExceededError' || e.code === 22)) {
-      toast('Photo storage is full. Remove a few large photos or export a backup.', true);
+      /* Auto-recovery: strip photos from the oldest rug to make room */
+      var stripped = false;
+      for (var i = state.products.length - 1; i >= 0; i--) {
+        var p = state.products[i];
+        if (p.photos && p.photos.length > 0 && p.id !== editingProduct?.id) {
+          p.photos = [];
+          stripped = true;
+          break;
+        }
+      }
+      if (stripped) {
+        try {
+          localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
+          toast('Storage was full. Oldest photos trimmed — please re-add them.', true);
+          return true;
+        } catch (e2) { /* fall through */ }
+      }
+      toast('Storage is full. Delete some rugs or remove photos.', true);
     } else {
-      toast('Could not save. Try exporting a backup.', true);
+      toast('Could not save. Please try again.', true);
     }
     return false;
   }
 }
 
-function loadPhotos() {
-  try {
-    var raw = localStorage.getItem(PHOTOS_KEY);
-    if (!raw) return;
-    var map = JSON.parse(raw);
-    if (!map || typeof map !== 'object') return;
-    for (var i = 0; i < state.products.length; i++) {
-      var p = state.products[i];
-      if (map[p.id] && Array.isArray(map[p.id]) && map[p.id].length) {
-        p.photos = map[p.id];
-      }
-    }
-  } catch (e) {
-    console.warn('Roshan: photo load failed', e);
-  }
-}
-
 /* ==========================================================
-   5. THEME
+   THEME
    ========================================================== */
 function applyTheme() {
   var t = state.settings.theme || DEFAULT_DATA.settings.theme;
@@ -1930,20 +1831,39 @@ function applyTheme() {
 
   var meta = document.querySelector('meta[name="theme-color"]');
   if (meta) meta.setAttribute('content', t.dark);
+
+  renderLogo();
+}
+
+function renderLogo() {
+  var html;
+  if (state.settings.logo) {
+    html = '<img src="' + state.settings.logo + '" alt="Roshan">';
+  } else {
+    html = ROSHAN_LOGO_SVG;
+  }
+  var brandLogo = document.getElementById('brandLogo');
+  if (brandLogo) brandLogo.innerHTML = html;
+  var drawerLogo = document.getElementById('drawerLogo');
+  if (drawerLogo) drawerLogo.innerHTML = html;
 }
 
 /* ==========================================================
-   6. PRODUCT HELPERS
+   PRODUCT HELPERS
    ========================================================== */
+function getProductById(id) {
+  for (var i = 0; i < state.products.length; i++) {
+    if (state.products[i].id === id) return state.products[i];
+  }
+  return null;
+}
 function getFinalPrice(p) {
   var base = parsePrice(p.price);
   var disc = parseFloat(p.discount) || 0;
   if (disc <= 0) return base;
   return base * (1 - disc / 100);
 }
-function hasDiscount(p) {
-  return parseFloat(p.discount) > 0;
-}
+function hasDiscount(p) { return parseFloat(p.discount) > 0; }
 function getProductReviews(p) {
   return (p.reviews || []).filter(function (r) { return r && r.visible !== false; });
 }
@@ -1958,13 +1878,9 @@ function starHTML(rating, size) {
   var s = 'font-size:' + (size || 12) + 'px';
   var html = '<span class="stars" style="' + s + '">';
   for (var i = 1; i <= 5; i++) {
-    if (i <= Math.floor(rating)) {
-      html += '<i class="fa-solid fa-star"></i>';
-    } else if (i - 0.5 <= rating) {
-      html += '<i class="fa-solid fa-star-half-stroke"></i>';
-    } else {
-      html += '<i class="fa-regular fa-star empty"></i>';
-    }
+    if (i <= Math.floor(rating)) html += '<i class="fa-solid fa-star"></i>';
+    else if (i - 0.5 <= rating) html += '<i class="fa-solid fa-star-half-stroke"></i>';
+    else html += '<i class="fa-regular fa-star empty"></i>';
   }
   html += '</span>';
   return html;
@@ -1982,7 +1898,7 @@ function priceHTML(p) {
 }
 
 /* ==========================================================
-   7. WHATSAPP LINKS
+   WHATSAPP LINKS
    ========================================================== */
 function waGenericLink() {
   var num = digitsOnly(state.settings.whatsapp);
@@ -1996,12 +1912,12 @@ function waLink(p) {
   var lines = [
     'Hello ' + (state.content.brand || 'Roshan') + ', I am interested in this rug:',
     '',
-    '• ' + (p.title || 'Untitled'),
-    '• Reference: ' + p.id,
-    '• Price: ' + cur + formatNum(getFinalPrice(p)) +
+    '\u2022 ' + (p.title || 'Untitled'),
+    '\u2022 Reference: ' + p.id,
+    '\u2022 Price: ' + cur + formatNum(getFinalPrice(p)) +
       (hasDiscount(p) ? ' (was ' + cur + formatNum(parsePrice(p.price)) + ')' : ''),
-    '• Size: ' + (p.dims || '—'),
-    '• Origin: ' + (p.origin || '—'),
+    '\u2022 Size: ' + (p.dims || '\u2014'),
+    '\u2022 Origin: ' + (p.origin || '\u2014'),
     '',
     'Is it still available?'
   ];
@@ -2020,7 +1936,7 @@ function waWishlistLink() {
     var p = getProductById(id);
     if (!p) return;
     lines.push((idx + 1) + '. ' + (p.title || 'Untitled') +
-      ' — Ref ' + p.id + ' — ' + cur + formatNum(getFinalPrice(p)));
+      ' \u2014 Ref ' + p.id + ' \u2014 ' + cur + formatNum(getFinalPrice(p)));
   });
   lines.push('');
   lines.push('Are these still available?');
@@ -2028,20 +1944,12 @@ function waWishlistLink() {
 }
 function updateWaButtons() {
   var href = waGenericLink();
-  document.querySelectorAll('[data-wa-generic]').forEach(function (a) {
-    a.href = href;
-  });
-}
-function getProductById(id) {
-  for (var i = 0; i < state.products.length; i++) {
-    if (state.products[i].id === id) return state.products[i];
-  }
-  return null;
+  document.querySelectorAll('[data-wa-generic]').forEach(function (a) { a.href = href; });
 }
 function isSaved(id) { return wishlist.indexOf(id) !== -1; }
 
 /* ==========================================================
-   8. RENDER
+   RENDER
    ========================================================== */
 function show(id, visible) {
   var el = document.getElementById(id);
@@ -2112,14 +2020,12 @@ function bindEditing() {
 function renderFilters() {
   var wrap = document.getElementById('filterTabs');
   if (!wrap) return;
-
   var cats = ['All'].concat(BASE_CATEGORIES);
   for (var i = 0; i < state.products.length; i++) {
     var c = state.products[i].category;
     if (c && cats.indexOf(c) === -1) cats.push(c);
   }
   if (cats.indexOf(activeFilter) === -1) activeFilter = 'All';
-
   wrap.innerHTML = cats.map(function (c) {
     return '<button class="filter-tab' +
       (c === activeFilter ? ' active' : '') +
@@ -2138,53 +2044,42 @@ function cardHTML(p) {
 
   var ratingBlock = '';
   if (reviews.length > 0) {
-    ratingBlock = '<div class="p-rating">' +
-      starHTML(avg, 11) +
-      '<span><strong>' + avg.toFixed(1) + '</strong> · ' +
-        reviews.length + ' review' + (reviews.length === 1 ? '' : 's') + '</span>' +
-    '</div>';
+    ratingBlock = '<div class="p-rating">' + starHTML(avg, 11) +
+      '<span><strong>' + avg.toFixed(1) + '</strong> \u00B7 ' +
+        reviews.length + ' review' + (reviews.length === 1 ? '' : 's') + '</span></div>';
   }
 
   return '' +
   '<article class="p-card" data-id="' + esc(p.id) + '">' +
     '<div class="p-media" data-open="' + esc(p.id) + '">' +
-      '<img src="' + photos[0] + '" alt="' + esc(p.title) + '" ' +
-        'loading="lazy" data-img="' + esc(p.id) + '-0">' +
-      '<button class="p-wish' + (saved ? ' saved' : '') + '" ' +
-        'data-wish="' + esc(p.id) + '" type="button" ' +
-        'aria-label="' + (saved ? 'Remove from wishlist' : 'Save rug') + '">' +
+      '<img src="' + photos[0] + '" alt="' + esc(p.title) + '" loading="lazy" ' +
+        'data-img="' + esc(p.id) + '-0">' +
+      '<button class="p-wish' + (saved ? ' saved' : '') + '" data-wish="' + esc(p.id) +
+        '" type="button" aria-label="' + (saved ? 'Remove from wishlist' : 'Save rug') + '">' +
         '<i class="' + (saved ? 'fa-solid' : 'fa-regular') + ' fa-heart"></i>' +
       '</button>' +
       '<div class="p-badges">' +
         (soldOut ? '<span class="badge badge-sold">Sold Out</span>' : '') +
         (draft ? '<span class="badge badge-draft">Draft</span>' : '') +
-        (disc > 0 && !soldOut ? '<span class="badge badge-sale">\u2212' +
-          disc + '%</span>' : '') +
+        (disc > 0 && !soldOut ? '<span class="badge badge-sale">\u2212' + disc + '%</span>' : '') +
       '</div>' +
       (photos.length > 1
-        ? '<span class="p-count"><i class="fa-regular fa-images"></i>' +
-          photos.length + '</span>'
+        ? '<span class="p-count"><i class="fa-regular fa-images"></i>' + photos.length + '</span>'
         : '') +
       '<div class="p-hover"><span>Quick View</span></div>' +
     '</div>' +
     '<div class="p-body">' +
-      '<p class="p-origin">' +
-        esc(p.origin || '') +
-        (p.origin && p.category ? ' \u00B7 ' : '') +
-        esc(p.category || '') +
-      '</p>' +
+      '<p class="p-origin">' + esc(p.origin || '') +
+        (p.origin && p.category ? ' \u00B7 ' : '') + esc(p.category || '') + '</p>' +
       '<h3 class="p-title fh">' + esc(p.title || 'Untitled') + '</h3>' +
       '<p class="p-dims">' + esc(p.dims || '') + '</p>' +
       ratingBlock +
-      '<div class="p-foot">' +
-        priceHTML(p) +
+      '<div class="p-foot">' + priceHTML(p) +
         '<div class="p-actions">' +
-          '<a class="icon-btn wa" href="' + waLink(p) + '" target="_blank" ' +
-            'rel="noopener" title="Inquire on WhatsApp">' +
-            '<i class="fa-brands fa-whatsapp"></i></a>' +
-          '<button class="icon-btn" data-open="' + esc(p.id) + '" ' +
-            'title="View details" type="button">' +
-            '<i class="fa-regular fa-eye"></i></button>' +
+          '<a class="icon-btn wa" href="' + waLink(p) + '" target="_blank" rel="noopener" ' +
+            'title="Inquire on WhatsApp"><i class="fa-brands fa-whatsapp"></i></a>' +
+          '<button class="icon-btn" data-open="' + esc(p.id) +
+            '" title="View details" type="button"><i class="fa-regular fa-eye"></i></button>' +
         '</div>' +
       '</div>' +
       (isAdmin
@@ -2206,8 +2101,7 @@ function filterAndSortProducts() {
     if (activeFilter !== 'All' && (p.category || '') !== activeFilter) return false;
     if (q) {
       var hay = ((p.title || '') + ' ' + (p.origin || '') + ' ' +
-                 (p.category || '') + ' ' + (p.desc || '') + ' ' +
-                 (p.id || '')).toLowerCase();
+                 (p.category || '') + ' ' + (p.desc || '') + ' ' + (p.id || '')).toLowerCase();
       if (hay.indexOf(q) === -1) return false;
     }
     return true;
@@ -2218,17 +2112,11 @@ function filterAndSortProducts() {
   } else if (sortMode === 'price-desc') {
     list.sort(function (a, b) { return getFinalPrice(b) - getFinalPrice(a); });
   } else if (sortMode === 'title-asc') {
-    list.sort(function (a, b) {
-      return String(a.title || '').localeCompare(String(b.title || ''));
-    });
+    list.sort(function (a, b) { return String(a.title || '').localeCompare(String(b.title || '')); });
   } else if (sortMode === 'title-desc') {
-    list.sort(function (a, b) {
-      return String(b.title || '').localeCompare(String(a.title || ''));
-    });
+    list.sort(function (a, b) { return String(b.title || '').localeCompare(String(a.title || '')); });
   } else if (sortMode === 'rating-desc') {
-    list.sort(function (a, b) {
-      return getAverageRating(b) - getAverageRating(a);
-    });
+    list.sort(function (a, b) { return getAverageRating(b) - getAverageRating(a); });
   }
   return list;
 }
@@ -2240,11 +2128,9 @@ function renderProducts() {
   var empty = document.getElementById('emptyState');
   if (empty) empty.classList.toggle('hidden', list.length > 0);
   grid.innerHTML = list.map(cardHTML).join('');
-  /* Bind fade-in for each product card image */
   grid.querySelectorAll('img[data-img]').forEach(function (img) {
-    if (img.complete && img.naturalWidth > 0) {
-      img.classList.add('loaded');
-    } else {
+    if (img.complete && img.naturalWidth > 0) img.classList.add('loaded');
+    else {
       img.addEventListener('load', function () { img.classList.add('loaded'); });
       img.addEventListener('error', function () { img.classList.add('loaded'); });
     }
@@ -2258,60 +2144,35 @@ function renderCare() {
   grid.innerHTML = items.map(function (it, i) {
     return '' +
     '<div class="care-card reveal in">' +
-      '<div class="care-icon">' +
-        '<i class="fa-solid ' + esc(it.icon || 'fa-leaf') + '"></i>' +
-      '</div>' +
-      '<h3 class="fh" data-edit="content.careItems.' + i + '.title">' +
-        esc(it.title) + '</h3>' +
-      '<p data-edit="content.careItems.' + i + '.text">' +
-        esc(it.text) + '</p>' +
+      '<div class="care-icon"><i class="fa-solid ' + esc(it.icon || 'fa-leaf') + '"></i></div>' +
+      '<h3 class="fh" data-edit="content.careItems.' + i + '.title">' + esc(it.title) + '</h3>' +
+      '<p data-edit="content.careItems.' + i + '.text">' + esc(it.text) + '</p>' +
     '</div>';
   }).join('');
 }
 
-/**
- * Renders the homepage reviews strip from every product's reviews.
- */
 function renderReviewsStrip() {
   var wrap = document.getElementById('reviewsStrip');
   if (!wrap) return;
-
-  /* Collect all reviews */
-  var allReviews = [];
+  var all = [];
   for (var i = 0; i < state.products.length; i++) {
     var p = state.products[i];
     var rs = getProductReviews(p);
-    for (var j = 0; j < rs.length; j++) {
-      allReviews.push({
-        review: rs[j],
-        product: p
-      });
-    }
+    for (var j = 0; j < rs.length; j++) all.push({ review: rs[j], product: p });
   }
+  all.sort(function (a, b) { return (b.review.date || 0) - (a.review.date || 0); });
+  all = all.slice(0, 6);
 
-  /* Sort: newest first */
-  allReviews.sort(function (a, b) {
-    return (b.review.date || 0) - (a.review.date || 0);
-  });
-
-  /* Show up to 6 */
-  allReviews = allReviews.slice(0, 6);
-
-  if (!allReviews.length) {
-    wrap.innerHTML = '' +
-      '<div style="grid-column:1/-1;text-align:center;padding:60px 20px;' +
-        'color:var(--muted)">' +
-        '<i class="fa-regular fa-star" style="font-size:36px;' +
-          'color:var(--gold-a45);margin-bottom:18px;display:block"></i>' +
-        '<p style="margin:0 0 6px;font-size:15px;color:var(--dark);' +
-          'font-weight:600">No reviews yet</p>' +
-        '<small style="font-size:12.5px;letter-spacing:.05em">' +
-          'Be the first to review one of our rugs.</small>' +
-      '</div>';
+  if (!all.length) {
+    wrap.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:60px 20px;color:var(--muted)">' +
+      '<i class="fa-regular fa-star" style="font-size:36px;color:var(--gold-a45);margin-bottom:18px;display:block"></i>' +
+      '<p style="margin:0 0 6px;font-size:15px;color:var(--dark);font-weight:600">No reviews yet</p>' +
+      '<small style="font-size:12.5px;letter-spacing:.05em">Be the first to review one of our rugs.</small>' +
+    '</div>';
     return;
   }
 
-  wrap.innerHTML = allReviews.map(function (item) {
+  wrap.innerHTML = all.map(function (item) {
     var r = item.review;
     var p = item.product;
     var rating = parseFloat(r.rating) || 5;
@@ -2323,26 +2184,24 @@ function renderReviewsStrip() {
       '</div>' +
       starHTML(rating, 13) +
       '<p class="review-text">' + esc(r.text || '') + '</p>' +
-      '<div class="review-rug" data-reviewopen="' + esc(p.id) + '">' +
-        '\u2014 ' + esc(p.title || 'Untitled') +
-      '</div>' +
+      '<div class="review-rug" data-reviewopen="' + esc(p.id) + '">\u2014 ' +
+        esc(p.title || 'Untitled') + '</div>' +
     '</div>';
   }).join('');
 }
 
 function updateWishlistBadges() {
   var count = wishlist.length;
-  var ids = ['headerWishlistBadge', 'drawerWishlistBadge', 'wishlistDockBadge'];
-  for (var i = 0; i < ids.length; i++) {
-    var el = document.getElementById(ids[i]);
-    if (!el) continue;
+  ['headerWishlistBadge', 'drawerWishlistBadge', 'wishlistDockBadge'].forEach(function (id) {
+    var el = document.getElementById(id);
+    if (!el) return;
     if (count > 0) {
       el.textContent = String(count);
       el.classList.remove('hidden');
     } else {
       el.classList.add('hidden');
     }
-  }
+  });
   show('wishlistDock', count > 0);
 }
 
@@ -2366,7 +2225,7 @@ function render() {
 }
 
 /* ==========================================================
-   9. MODALS
+   MODALS
    ========================================================== */
 function openModal(id) {
   var m = document.getElementById(id);
@@ -2384,11 +2243,9 @@ function closeModal(id) {
   }
 }
 function closeAllModals() {
-  document.querySelectorAll('.modal.open').forEach(function (m) {
-    m.classList.remove('open');
-  });
+  document.querySelectorAll('.modal.open').forEach(function (m) { m.classList.remove('open'); });
   var lbBox = document.getElementById('lightbox');
-  if (lbBox) lbBox.classList.remove('open');
+  if (lbBox) lbBox.classList.remove('open', 'zoomed');
   document.body.classList.remove('no-scroll');
 }
 
@@ -2405,7 +2262,6 @@ function openProduct(id) {
 function renderProductModal() {
   var p = getProductById(currentProductId);
   if (!p) return;
-
   var photos = (p.photos && p.photos.length) ? p.photos : [PLACEHOLDER];
   if (currentPhotoIndex >= photos.length) currentPhotoIndex = 0;
   var saved = isSaved(p.id);
@@ -2416,27 +2272,19 @@ function renderProductModal() {
 
   var priceBlock = hasDiscount(p)
     ? '<div class="pm-price-wrap">' +
-        '<span class="pm-price on-sale">' +
-          esc(cur + formatNum(getFinalPrice(p))) + '</span>' +
-        '<span class="pm-price-old">' +
-          esc(cur + formatNum(parsePrice(p.price))) + '</span>' +
+        '<span class="pm-price on-sale">' + esc(cur + formatNum(getFinalPrice(p))) + '</span>' +
+        '<span class="pm-price-old">' + esc(cur + formatNum(parsePrice(p.price))) + '</span>' +
         '<span class="pm-save-badge">Save ' + disc + '%</span>' +
       '</div>'
     : '<div class="pm-price-wrap">' +
-        '<span class="pm-price">' +
-          esc(cur + formatNum(parsePrice(p.price))) + '</span>' +
+        '<span class="pm-price">' + esc(cur + formatNum(parsePrice(p.price))) + '</span>' +
       '</div>';
 
   var ratingRow = reviews.length
-    ? '<div class="pm-rating-row">' +
-        starHTML(avg, 14) +
-        '<span><strong>' + avg.toFixed(1) + '</strong> out of 5 · ' +
-          reviews.length + ' review' + (reviews.length === 1 ? '' : 's') +
-        '</span>' +
-      '</div>'
-    : '<div class="pm-rating-row">' +
-        '<span style="color:var(--muted)">No reviews yet — be the first.</span>' +
-      '</div>';
+    ? '<div class="pm-rating-row">' + starHTML(avg, 14) +
+        '<span><strong>' + avg.toFixed(1) + '</strong> out of 5 \u00B7 ' +
+          reviews.length + ' review' + (reviews.length === 1 ? '' : 's') + '</span></div>'
+    : '<div class="pm-rating-row"><span style="color:var(--muted)">No reviews yet \u2014 be the first.</span></div>';
 
   var reviewsHTML = reviews.length
     ? reviews.slice(0, 5).map(function (r) {
@@ -2445,8 +2293,7 @@ function renderProductModal() {
           '<div class="pm-review-head">' +
             '<span class="pm-review-name">' + esc(r.name || 'Anonymous') + '</span>' +
             '<span class="pm-review-date">' + esc(formatDate(r.date)) + '</span>' +
-          '</div>' +
-          starHTML(rating, 12) +
+          '</div>' + starHTML(rating, 12) +
           '<p class="pm-review-text">' + esc(r.text || '') + '</p>' +
         '</div>';
       }).join('')
@@ -2457,13 +2304,11 @@ function renderProductModal() {
   '<div class="pm-grid">' +
     '<div class="pm-gallery">' +
       '<div class="pm-main" id="pmMain">' +
-        '<img src="' + photos[currentPhotoIndex] + '" alt="' +
-          esc(p.title) + '">' +
+        '<img src="' + photos[currentPhotoIndex] + '" alt="' + esc(p.title) + '">' +
       '</div>' +
       (photos.length > 1
         ? '<div class="pm-thumbs">' + photos.map(function (ph, i) {
-            return '<button class="pm-thumb' +
-              (i === currentPhotoIndex ? ' active' : '') +
+            return '<button class="pm-thumb' + (i === currentPhotoIndex ? ' active' : '') +
               '" data-thumb="' + i + '" type="button">' +
               '<img src="' + ph + '" alt="View ' + (i + 1) + '"></button>';
           }).join('') + '</div>'
@@ -2473,25 +2318,18 @@ function renderProductModal() {
       '<p class="pm-origin">' + esc(p.origin || '') +
         (p.category ? ' \u00B7 ' + esc(p.category) : '') + '</p>' +
       '<h2 class="fh pm-title">' + esc(p.title || 'Untitled') + '</h2>' +
-      priceBlock +
-      ratingRow +
+      priceBlock + ratingRow +
       '<div class="pm-specs">' +
-        '<div><span>Dimensions</span><strong>' +
-          esc(p.dims || '\u2014') + '</strong></div>' +
-        '<div><span>Origin</span><strong>' +
-          esc(p.origin || '\u2014') + '</strong></div>' +
-        '<div><span>Category</span><strong>' +
-          esc(p.category || '\u2014') + '</strong></div>' +
-        '<div><span>Availability</span><strong>' +
-          esc(p.status || 'Active') + '</strong></div>' +
-        '<div><span>Reference</span><strong>' +
-          esc(p.id) + '</strong></div>' +
+        '<div><span>Dimensions</span><strong>' + esc(p.dims || '\u2014') + '</strong></div>' +
+        '<div><span>Origin</span><strong>' + esc(p.origin || '\u2014') + '</strong></div>' +
+        '<div><span>Category</span><strong>' + esc(p.category || '\u2014') + '</strong></div>' +
+        '<div><span>Availability</span><strong>' + esc(p.status || 'Active') + '</strong></div>' +
+        '<div><span>Reference</span><strong>' + esc(p.id) + '</strong></div>' +
         '<div><span>Weave</span><strong>Hand-knotted</strong></div>' +
       '</div>' +
       '<p class="pm-desc">' + esc(p.desc || '') + '</p>' +
       '<div class="pm-actions">' +
-        '<a class="btn btn-gold" href="' + waLink(p) +
-          '" target="_blank" rel="noopener">' +
+        '<a class="btn btn-gold" href="' + waLink(p) + '" target="_blank" rel="noopener">' +
           '<i class="fa-brands fa-whatsapp"></i> Buy / Inquire on WhatsApp</a>' +
         '<button class="btn btn-outline" id="pmWish" type="button">' +
           '<i class="' + (saved ? 'fa-solid' : 'fa-regular') + ' fa-heart"></i> ' +
@@ -2504,43 +2342,26 @@ function renderProductModal() {
           '<h3>Reviews</h3>' +
           '<button class="mini-btn" id="pmWriteReview" type="button">' +
             '<i class="fa-solid fa-pen"></i> Write a Review</button>' +
-        '</div>' +
-        reviewsHTML +
+        '</div>' + reviewsHTML +
       '</div>' +
       '<p class="pm-note">One of a kind \u00B7 Certificate of authenticity and origin included.</p>' +
     '</div>' +
   '</div>';
 
-  /* Bind image interactions */
   var main = document.getElementById('pmMain');
-  if (main) {
-    main.addEventListener('click', function () {
-      openLightbox(photos[currentPhotoIndex]);
-    });
-  }
-
+  if (main) main.addEventListener('click', function () { openLightbox(photos[currentPhotoIndex]); });
   body.querySelectorAll('[data-thumb]').forEach(function (b) {
     b.addEventListener('click', function () {
       currentPhotoIndex = parseInt(b.dataset.thumb, 10) || 0;
       renderProductModal();
     });
   });
-
   var z = document.getElementById('pmZoom');
-  if (z) z.addEventListener('click', function () {
-    openLightbox(photos[currentPhotoIndex]);
-  });
-
+  if (z) z.addEventListener('click', function () { openLightbox(photos[currentPhotoIndex]); });
   var w = document.getElementById('pmWish');
-  if (w) w.addEventListener('click', function () {
-    toggleWishlist(p.id);
-    renderProductModal();
-  });
-
+  if (w) w.addEventListener('click', function () { toggleWishlist(p.id); renderProductModal(); });
   var rw = document.getElementById('pmWriteReview');
-  if (rw) rw.addEventListener('click', function () {
-    openReviewModal(p.id);
-  });
+  if (rw) rw.addEventListener('click', function () { openReviewModal(p.id); });
 }
 
 /* ---- Wishlist ---- */
@@ -2570,23 +2391,16 @@ function renderWishlistModal() {
   var body = document.getElementById('wishlistBody');
   var foot = document.getElementById('wishlistFoot');
   if (!body || !foot) return;
-
-  var items = wishlist.map(function (id) {
-    return getProductById(id);
-  }).filter(Boolean);
-
+  var items = wishlist.map(getProductById).filter(Boolean);
   var cur = state.settings.currency || '$';
 
   if (!items.length) {
-    body.innerHTML = '' +
-      '<div class="wl-empty">' +
-        '<i class="fa-regular fa-heart"></i>' +
-        '<p>Your wishlist is empty</p>' +
-        '<small>Tap the heart on any rug to save it for later.</small>' +
-      '</div>';
-    foot.innerHTML = '' +
-      '<button class="btn-gold-sm" type="button" data-close-wl>' +
-      'Continue Browsing</button>';
+    body.innerHTML = '<div class="wl-empty">' +
+      '<i class="fa-regular fa-heart"></i>' +
+      '<p>Your wishlist is empty</p>' +
+      '<small>Tap the heart on any rug to save it for later.</small>' +
+    '</div>';
+    foot.innerHTML = '<button class="btn-gold-sm" type="button" data-close-wl>Continue Browsing</button>';
   } else {
     body.innerHTML = items.map(function (p) {
       var thumb = (p.photos && p.photos[0]) || PLACEHOLDER;
@@ -2598,26 +2412,20 @@ function renderWishlistModal() {
           '<span>' + esc(p.origin || '') +
             (p.category ? ' \u00B7 ' + esc(p.category) : '') +
             ' \u00B7 ' + esc(p.dims || '\u2014') + '</span>' +
-          '<div class="wl-price">' +
-            esc(cur + formatNum(getFinalPrice(p))) +
+          '<div class="wl-price">' + esc(cur + formatNum(getFinalPrice(p))) +
             (hasDiscount(p)
-              ? ' <span style="color:var(--muted);text-decoration:line-through;' +
-                'font-size:12px;font-family:var(--font-body);font-weight:400">' +
+              ? ' <span style="color:var(--muted);text-decoration:line-through;font-size:12px;' +
+                'font-family:var(--font-body);font-weight:400">' +
                 esc(cur + formatNum(parsePrice(p.price))) + '</span>'
-              : '') +
-          '</div>' +
+              : '') + '</div>' +
         '</div>' +
         '<button class="wl-remove" data-wlremove="' + esc(p.id) +
-          '" type="button" aria-label="Remove">' +
-          '<i class="fa-solid fa-xmark"></i></button>' +
+          '" type="button" aria-label="Remove"><i class="fa-solid fa-xmark"></i></button>' +
       '</div>';
     }).join('');
-
     foot.innerHTML = '' +
-      '<a class="btn-gold-sm" href="' + waWishlistLink() +
-        '" target="_blank" rel="noopener">' +
-        '<i class="fa-brands fa-whatsapp"></i> Send Wishlist (' +
-        items.length + ')</a>' +
+      '<a class="btn-gold-sm" href="' + waWishlistLink() + '" target="_blank" rel="noopener">' +
+        '<i class="fa-brands fa-whatsapp"></i> Send Wishlist (' + items.length + ')</a>' +
       '<button class="mini-btn danger" type="button" id="wlClearAll">' +
         '<i class="fa-solid fa-trash"></i> Clear All</button>';
   }
@@ -2628,21 +2436,17 @@ function renderWishlistModal() {
       renderWishlistModal();
     });
   });
-
   var clearBtn = document.getElementById('wlClearAll');
-  if (clearBtn) {
-    clearBtn.addEventListener('click', function () {
-      if (!confirm('Clear all saved rugs?')) return;
-      wishlist = [];
-      saveWishlist();
-      updateWishlistBadges();
-      renderProducts();
-      bindEditing();
-      renderWishlistModal();
-      toast('Wishlist cleared.');
-    });
-  }
-
+  if (clearBtn) clearBtn.addEventListener('click', function () {
+    if (!confirm('Clear all saved rugs?')) return;
+    wishlist = [];
+    saveWishlist();
+    updateWishlistBadges();
+    renderProducts();
+    bindEditing();
+    renderWishlistModal();
+    toast('Wishlist cleared.');
+  });
   foot.querySelectorAll('[data-close-wl]').forEach(function (b) {
     b.addEventListener('click', function () { closeModal('wishlistModal'); });
   });
@@ -2652,34 +2456,24 @@ function renderWishlistModal() {
 function openReviewModal(productId) {
   var p = getProductById(productId);
   if (!p) return;
-
   reviewTargetId = productId;
   reviewRating = 0;
 
   var rfRug = document.getElementById('rfRug');
   if (rfRug) {
     var thumb = (p.photos && p.photos[0]) || PLACEHOLDER;
-    rfRug.innerHTML = '' +
-      '<img src="' + thumb + '" alt="' + esc(p.title) + '">' +
-      '<div>' +
-        '<strong>' + esc(p.title || 'Untitled') + '</strong>' +
-        '<span>' + esc(p.origin || '') +
-          (p.category ? ' \u00B7 ' + esc(p.category) : '') + '</span>' +
-      '</div>';
+    rfRug.innerHTML = '<img src="' + thumb + '" alt="' + esc(p.title) + '">' +
+      '<div><strong>' + esc(p.title || 'Untitled') + '</strong>' +
+      '<span>' + esc(p.origin || '') + (p.category ? ' \u00B7 ' + esc(p.category) : '') + '</span></div>';
   }
-
   var starsWrap = document.getElementById('rfStars');
-  if (starsWrap) {
-    starsWrap.querySelectorAll('[data-star]').forEach(function (el) {
-      el.className = 'fa-regular fa-star';
-    });
-  }
-
+  if (starsWrap) starsWrap.querySelectorAll('[data-star]').forEach(function (el) {
+    el.className = 'fa-regular fa-star';
+  });
   var nameInp = document.getElementById('rfName');
   if (nameInp) nameInp.value = '';
   var textInp = document.getElementById('rfText');
   if (textInp) textInp.value = '';
-
   openModal('reviewModal');
 }
 
@@ -2691,83 +2485,64 @@ function bindReviewForm() {
         reviewRating = parseInt(el.dataset.star, 10) || 0;
         starsWrap.querySelectorAll('[data-star]').forEach(function (s) {
           var v = parseInt(s.dataset.star, 10) || 0;
-          s.className = v <= reviewRating
-            ? 'fa-solid fa-star on'
-            : 'fa-regular fa-star';
+          s.className = v <= reviewRating ? 'fa-solid fa-star on' : 'fa-regular fa-star';
         });
       });
       el.addEventListener('mouseenter', function () {
         var v = parseInt(el.dataset.star, 10) || 0;
         starsWrap.querySelectorAll('[data-star]').forEach(function (s) {
           var sv = parseInt(s.dataset.star, 10) || 0;
-          if (sv <= v) s.classList.add('on');
-          else s.classList.remove('on');
+          if (sv <= v) s.classList.add('on'); else s.classList.remove('on');
         });
       });
     });
     starsWrap.addEventListener('mouseleave', function () {
       starsWrap.querySelectorAll('[data-star]').forEach(function (s) {
         var sv = parseInt(s.dataset.star, 10) || 0;
-        if (sv <= reviewRating) s.classList.add('on');
-        else s.classList.remove('on');
+        if (sv <= reviewRating) s.classList.add('on'); else s.classList.remove('on');
       });
     });
   }
 
   var submit = document.getElementById('rfSubmit');
-  if (submit) {
-    submit.addEventListener('click', function () {
-      if (!reviewTargetId) return;
-      var p = getProductById(reviewTargetId);
-      if (!p) return;
+  if (submit) submit.addEventListener('click', function () {
+    if (!reviewTargetId) return;
+    var p = getProductById(reviewTargetId);
+    if (!p) return;
+    if (reviewRating < 1) { toast('Please select a star rating.', true); return; }
+    var name = (document.getElementById('rfName').value || '').trim() || 'Anonymous';
+    var text = (document.getElementById('rfText').value || '').trim();
+    if (text.length < 4) { toast('Please write a short review.', true); return; }
 
-      if (reviewRating < 1) {
-        toast('Please select a star rating.', true);
-        return;
-      }
-      var name = (document.getElementById('rfName').value || '').trim() || 'Anonymous';
-      var text = (document.getElementById('rfText').value || '').trim();
-      if (text.length < 4) {
-        toast('Please write a short review.', true);
-        return;
-      }
-
-      /* Save locally for this visitor */
-      if (!p.reviews) p.reviews = [];
-      p.reviews.unshift({
-        id: 'RV-' + Date.now(),
-        name: name,
-        rating: reviewRating,
-        text: text,
-        date: Date.now(),
-        visible: true
-      });
-      saveState();
-
-      /* Build WhatsApp message so owner receives it */
-      var num = digitsOnly(state.settings.whatsapp);
-      var msg = [
-        'New review for ' + (state.content.brand || 'Roshan') + ':',
-        '',
-        'Rug: ' + (p.title || 'Untitled') + ' (' + p.id + ')',
-        'Rating: ' + reviewRating + ' / 5',
-        'Name: ' + name,
-        '',
-        '“' + text + '”'
-      ].join('\n');
-
-      /* Open WhatsApp */
-      try {
-        window.open('https://wa.me/' + num + '?text=' + encodeURIComponent(msg),
-          '_blank', 'noopener');
-      } catch (e) { /* ignore */ }
-
-      closeModal('reviewModal');
-      render();
-      if (currentProductId === p.id) renderProductModal();
-      toast('Thank you! Your review has been sent.');
+    if (!p.reviews) p.reviews = [];
+    p.reviews.unshift({
+      id: 'RV-' + Date.now(),
+      name: name, rating: reviewRating, text: text,
+      date: Date.now(), visible: true
     });
-  }
+    saveState();
+
+    var num = digitsOnly(state.settings.whatsapp);
+    var msg = [
+      'New review for ' + (state.content.brand || 'Roshan') + ':',
+      '',
+      'Rug: ' + (p.title || 'Untitled') + ' (' + p.id + ')',
+      'Rating: ' + reviewRating + ' / 5',
+      'Name: ' + name,
+      '',
+      '\u201C' + text + '\u201D'
+    ].join('\n');
+
+    try {
+      window.open('https://wa.me/' + num + '?text=' + encodeURIComponent(msg),
+        '_blank', 'noopener');
+    } catch (e) { /* ignore */ }
+
+    closeModal('reviewModal');
+    render();
+    if (currentProductId === p.id) renderProductModal();
+    toast('Thank you! Your review has been sent.');
+  });
 }
 
 /* ---- Lightbox ---- */
@@ -2776,8 +2551,7 @@ var lb = { scale: 1, x: 0, y: 0, dragging: false, sx: 0, sy: 0, ox: 0, oy: 0 };
 function lbApply() {
   var img = document.getElementById('lbImg');
   if (!img) return;
-  img.style.transform = 'translate(' + lb.x + 'px,' + lb.y +
-    'px) scale(' + lb.scale + ')';
+  img.style.transform = 'translate(' + lb.x + 'px,' + lb.y + 'px) scale(' + lb.scale + ')';
   var box = document.getElementById('lightbox');
   if (box) box.classList.toggle('zoomed', lb.scale > 1);
   var s = document.getElementById('lbScale');
@@ -2792,7 +2566,6 @@ function openLightbox(src) {
   img.style.transform = 'translate(0,0) scale(0.94)';
   box.classList.add('open');
   document.body.classList.add('no-scroll');
-  /* Trigger the smooth zoom-in animation */
   requestAnimationFrame(function () {
     requestAnimationFrame(function () {
       img.style.transform = 'translate(0,0) scale(1)';
@@ -2817,7 +2590,7 @@ function lbZoom(dir) {
 }
 
 /* ==========================================================
-   10. ADMIN SESSION
+   ADMIN SESSION
    ========================================================== */
 function requestAdmin() {
   closeDrawer();
@@ -2834,7 +2607,7 @@ function tryUnlock() {
   var correct = String(state.settings.pin || '1234');
   if (entered === correct) {
     isAdmin = true;
-    try { sessionStorage.setItem(SESSION_KEY, '1'); } catch (e) { /* ignore */ }
+    try { sessionStorage.setItem(SESSION_KEY, '1'); } catch (e) {}
     closeModal('pinModal');
     inp.value = '';
     render();
@@ -2848,7 +2621,7 @@ function tryUnlock() {
 }
 function lockAdmin() {
   isAdmin = false;
-  try { sessionStorage.removeItem(SESSION_KEY); } catch (e) { /* ignore */ }
+  try { sessionStorage.removeItem(SESSION_KEY); } catch (e) {}
   editingProduct = null;
   closeAllModals();
   render();
@@ -2856,7 +2629,7 @@ function lockAdmin() {
 }
 
 /* ==========================================================
-   11. DRAWER
+   DRAWER
    ========================================================== */
 function openDrawer() {
   var d = document.getElementById('mobileDrawer');
@@ -2877,7 +2650,7 @@ function closeDrawer() {
 }
 
 /* ==========================================================
-   12. SMOOTH SCROLL
+   SMOOTH SCROLL
    ========================================================== */
 function smoothScrollTo(selector) {
   var el = document.querySelector(selector);
@@ -2889,7 +2662,7 @@ function smoothScrollTo(selector) {
 }
 
 /* ==========================================================
-   13. ADMIN PANEL
+   ADMIN PANEL
    ========================================================== */
 function openAdminPanel() {
   renderInventory();
@@ -2913,20 +2686,17 @@ function activateTab(name) {
 function renderInventory() {
   var pane = document.getElementById('tab-inventory');
   if (!pane) return;
-
   if (editingProduct) {
     pane.innerHTML = productFormHTML();
     bindProductForm();
     return;
   }
-
   pane.innerHTML = '' +
     '<div class="inv-head">' +
       '<p class="ap-note" style="margin:0">' +
-        state.products.length + ' rug' +
-        (state.products.length === 1 ? '' : 's') + ' in your vault.' +
-        ' <br><small style="opacity:.75">Photo storage used: ' +
-        totalPhotoSize().toFixed(2) + ' MB of ~4 MB</small>' +
+        state.products.length + ' rug' + (state.products.length === 1 ? '' : 's') +
+        ' in your vault. <br><small style="opacity:.75">Photo storage used: ' +
+        totalPhotoSize().toFixed(2) + ' MB</small>' +
       '</p>' +
       '<button class="btn-gold-sm" id="addProduct" type="button">' +
         '<i class="fa-solid fa-plus"></i> Add New Rug</button>' +
@@ -2934,32 +2704,23 @@ function renderInventory() {
     '<div class="inv-list">' +
       (state.products.length
         ? state.products.map(function (p) {
-            var st = String(p.status || 'Active')
-              .toLowerCase().replace(/\s+/g, '-');
+            var st = String(p.status || 'Active').toLowerCase().replace(/\s+/g, '-');
             var reviews = getProductReviews(p);
             var avg = getAverageRating(p);
-            var ratingBit = reviews.length
-              ? ' \u00B7 ' + avg.toFixed(1) + '\u2605 (' + reviews.length + ')'
-              : '';
+            var ratingBit = reviews.length ? ' \u00B7 ' + avg.toFixed(1) + '\u2605 (' + reviews.length + ')' : '';
             return '' +
             '<div class="inv-row">' +
               '<img src="' + ((p.photos && p.photos[0]) || PLACEHOLDER) + '" alt="">' +
               '<div class="inv-meta">' +
                 '<strong>' + esc(p.title || 'Untitled') + '</strong>' +
-                '<span>' + esc(p.id) + ' \u00B7 ' +
-                  esc(p.category || '\u2014') + ' \u00B7 ' +
-                  esc(state.settings.currency) +
-                  formatNum(getFinalPrice(p)) + ratingBit +
-                '</span>' +
+                '<span>' + esc(p.id) + ' \u00B7 ' + esc(p.category || '\u2014') + ' \u00B7 ' +
+                  esc(state.settings.currency) + formatNum(getFinalPrice(p)) + ratingBit + '</span>' +
               '</div>' +
-              '<span class="inv-status s-' + st + '">' +
-                esc(p.status || 'Active') + '</span>' +
+              '<span class="inv-status s-' + st + '">' + esc(p.status || 'Active') + '</span>' +
               '<div class="inv-acts">' +
-                '<button class="icon-btn" data-invedit="' + esc(p.id) +
-                  '" title="Edit" type="button">' +
+                '<button class="icon-btn" data-invedit="' + esc(p.id) + '" title="Edit" type="button">' +
                   '<i class="fa-solid fa-pen"></i></button>' +
-                '<button class="icon-btn danger" data-invdel="' +
-                  esc(p.id) + '" title="Delete" type="button">' +
+                '<button class="icon-btn danger" data-invdel="' + esc(p.id) + '" title="Delete" type="button">' +
                   '<i class="fa-solid fa-trash"></i></button>' +
               '</div>' +
             '</div>';
@@ -2968,12 +2729,10 @@ function renderInventory() {
     '</div>';
 
   var add = document.getElementById('addProduct');
-  if (add) {
-    add.addEventListener('click', function () {
-      editingProduct = blankProduct();
-      renderInventory();
-    });
-  }
+  if (add) add.addEventListener('click', function () {
+    editingProduct = blankProduct();
+    renderInventory();
+  });
   pane.querySelectorAll('[data-invedit]').forEach(function (b) {
     b.addEventListener('click', function () {
       var p = getProductById(b.dataset.invedit);
@@ -3000,18 +2759,9 @@ function renderInventory() {
 
 function blankProduct() {
   return {
-    id: randomId(),
-    title: '',
-    price: '',
-    discount: 0,
-    dims: '',
-    origin: '',
-    category: 'Classic Khorjin',
-    desc: '',
-    status: 'Active',
-    photos: [],
-    reviews: [],
-    _isNew: true
+    id: randomId(), title: '', price: '', discount: 0,
+    dims: '', origin: '', category: 'Classic Khorjin', desc: '',
+    status: 'Active', photos: [], reviews: [], _isNew: true
   };
 }
 
@@ -3023,8 +2773,7 @@ function productFormHTML() {
   return '' +
   '<div class="inv-form">' +
     '<div class="inv-form-head">' +
-      '<h3 class="fh">' +
-        (p._isNew ? 'New Rug' : 'Edit ' + esc(p.id)) + '</h3>' +
+      '<h3 class="fh">' + (p._isNew ? 'New Rug' : 'Edit ' + esc(p.id)) + '</h3>' +
       '<button class="icon-btn" id="cancelProduct" title="Close" type="button">' +
         '<i class="fa-solid fa-xmark"></i></button>' +
     '</div>' +
@@ -3037,9 +2786,9 @@ function productFormHTML() {
       '<label class="fld"><span>Price</span>' +
         '<input class="txt" id="pfPrice" type="text" value="' + esc(p.price) +
         '" placeholder="2650"></label>' +
-      '<label class="fld"><span>Discount % <small>(0\u201390)</small></span>' +
-        '<input class="txt" id="pfDiscount" type="number" min="0" max="90" ' +
-        'step="5" value="' + esc(p.discount || 0) + '"></label>' +
+      '<label class="fld"><span>Discount % <small style="text-transform:none">(0\u201390)</small></span>' +
+        '<input class="txt" id="pfDiscount" type="number" min="0" max="90" step="5" value="' +
+        esc(p.discount || 0) + '"></label>' +
     '</div>' +
 
     '<div class="fld-row">' +
@@ -3055,34 +2804,29 @@ function productFormHTML() {
       '<label class="fld"><span>Category</span>' +
         '<select class="txt" id="pfCategory">' +
           cats.map(function (c) {
-            return '<option' + (p.category === c ? ' selected' : '') + '>' +
-              esc(c) + '</option>';
+            return '<option' + (p.category === c ? ' selected' : '') + '>' + esc(c) + '</option>';
           }).join('') +
         '</select></label>' +
       '<label class="fld"><span>Status</span>' +
         '<select class="txt" id="pfStatus">' +
           stats.map(function (s) {
-            return '<option' + (p.status === s ? ' selected' : '') + '>' +
-              esc(s) + '</option>';
+            return '<option' + (p.status === s ? ' selected' : '') + '>' + esc(s) + '</option>';
           }).join('') +
         '</select></label>' +
     '</div>' +
 
     '<label class="fld"><span>Description</span>' +
-      '<textarea class="txt" id="pfDesc" rows="4">' + esc(p.desc) +
-      '</textarea></label>' +
+      '<textarea class="txt" id="pfDesc" rows="4">' + esc(p.desc) + '</textarea></label>' +
 
-    '<h3 class="ap-h">Photos <small>(first is cover \u00B7 max ' +
-      PHOTO_MAX_COUNT + ')</small></h3>' +
+    '<h3 class="ap-h">Photos <small>(first is cover \u00B7 max ' + PHOTO_MAX_COUNT + ')</small></h3>' +
     '<p class="ap-note" style="font-size:11.5px;padding:10px 12px;margin-bottom:12px">' +
-      'Each photo is auto-compressed to ' + PHOTO_MAX_DIM + 'px and stored separately, ' +
-      'so they never erase your rug details.</p>' +
+      'Photos are auto-compressed to ' + PHOTO_MAX_DIM + 'px and stored with your rug data. ' +
+      'Your field entries are preserved whenever you add a photo.</p>' +
     '<div class="photo-grid" id="photoGrid">' +
       (p.photos || []).map(function (ph, i) {
         return '<div class="photo-tile">' +
           '<img src="' + ph + '" alt="">' +
-          '<button class="photo-del" data-photodel="' + i +
-            '" title="Remove" type="button">' +
+          '<button class="photo-del" data-photodel="' + i + '" title="Remove" type="button">' +
             '<i class="fa-solid fa-xmark"></i></button>' +
           (i === 0 ? '<span class="photo-cover">Cover</span>' : '') +
         '</div>';
@@ -3102,6 +2846,30 @@ function productFormHTML() {
   '</div>';
 }
 
+/**
+ * THE FIX: reads every form field into editingProduct BEFORE any re-render.
+ * Without this, adding a photo would clear all typed values.
+ */
+function syncFormToEditing() {
+  if (!editingProduct) return;
+  function val(id, fallback) {
+    var el = document.getElementById(id);
+    return el ? el.value : (typeof fallback !== 'undefined' ? fallback : '');
+  }
+  editingProduct.title = val('pfTitle', editingProduct.title);
+  editingProduct.price = val('pfPrice', editingProduct.price);
+  var disc = parseFloat(val('pfDiscount', editingProduct.discount));
+  editingProduct.discount = isNaN(disc) ? 0 : Math.max(0, Math.min(90, disc));
+  editingProduct.dims = val('pfDims', editingProduct.dims);
+  editingProduct.origin = val('pfOrigin', editingProduct.origin);
+  var catEl = document.getElementById('pfCategory');
+  if (catEl) editingProduct.category = catEl.value;
+  var statEl = document.getElementById('pfStatus');
+  if (statEl) editingProduct.status = statEl.value;
+  editingProduct.desc = val('pfDesc', editingProduct.desc);
+  if (!editingProduct.photos) editingProduct.photos = [];
+}
+
 function bindProductForm() {
   if (!editingProduct) return;
 
@@ -3116,7 +2884,9 @@ function bindProductForm() {
 
   document.querySelectorAll('[data-photodel]').forEach(function (b) {
     b.addEventListener('click', function () {
-      editingProduct.photos.splice(parseInt(b.dataset.photodel, 10), 1);
+      syncFormToEditing();  /* FIX: preserve field values */
+      var idx = parseInt(b.dataset.photodel, 10);
+      editingProduct.photos.splice(idx, 1);
       renderInventory();
     });
   });
@@ -3126,8 +2896,11 @@ function bindProductForm() {
     fileInput.addEventListener('change', function () {
       if (!fileInput.files || !fileInput.files.length) return;
 
-      var currentCount = (editingProduct.photos || []).length;
-      var remaining = PHOTO_MAX_COUNT - currentCount;
+      /* FIX: save every typed field BEFORE doing anything else */
+      syncFormToEditing();
+
+      var current = editingProduct.photos.length;
+      var remaining = PHOTO_MAX_COUNT - current;
       if (remaining <= 0) {
         toast('Maximum ' + PHOTO_MAX_COUNT + ' photos per rug.', true);
         fileInput.value = '';
@@ -3139,25 +2912,33 @@ function bindProductForm() {
       var bar = prog ? prog.querySelector('i') : null;
       if (prog) prog.classList.remove('hidden');
       if (bar) bar.style.width = '5%';
-      toast('Compressing photos…');
+      toast('Compressing ' + files.length + ' photo' + (files.length === 1 ? '' : 's') + '\u2026');
 
       var out = new Array(files.length);
       var done = 0;
+      var failed = 0;
 
       files.forEach(function (file, i) {
         compressFile(file, PHOTO_MAX_DIM, PHOTO_QUALITY, function (dataUrl) {
-          out[i] = dataUrl;
+          if (dataUrl) {
+            out[i] = dataUrl;
+          } else {
+            failed++;
+          }
           done++;
           if (bar) bar.style.width = Math.round((done / files.length) * 100) + '%';
+
           if (done === files.length) {
             var clean = out.filter(Boolean);
-            if (!editingProduct.photos) editingProduct.photos = [];
             editingProduct.photos = editingProduct.photos.concat(clean);
             if (prog) prog.classList.add('hidden');
             if (bar) bar.style.width = '0%';
             renderInventory();
-            toast(clean.length + ' photo' +
-              (clean.length === 1 ? '' : 's') + ' added.');
+            if (failed > 0) {
+              toast(clean.length + ' added, ' + failed + ' failed.', true);
+            } else {
+              toast(clean.length + ' photo' + (clean.length === 1 ? '' : 's') + ' added.');
+            }
           }
         });
       });
@@ -3166,83 +2947,68 @@ function bindProductForm() {
   }
 
   var save = document.getElementById('saveProduct');
-  if (save) {
-    save.addEventListener('click', function () {
+  if (save) save.addEventListener('click', function () {
+    /* Read all fields first */
+    syncFormToEditing();
+
+    var title = (editingProduct.title || '').trim();
+    if (!title) {
+      toast('Please enter a rug title.', true);
       var titleEl = document.getElementById('pfTitle');
-      var title = titleEl ? titleEl.value.trim() : '';
-      if (!title) {
-        toast('Please enter a rug title.', true);
-        if (titleEl) titleEl.focus();
-        return;
+      if (titleEl) titleEl.focus();
+      return;
+    }
+
+    var isNew = !!editingProduct._isNew;
+    var clean = clone(editingProduct);
+    delete clean._isNew;
+    if (!clean.photos) clean.photos = [];
+    if (!clean.reviews) clean.reviews = [];
+
+    if (isNew) {
+      state.products.unshift(clean);
+    } else {
+      var idx = -1;
+      for (var i = 0; i < state.products.length; i++) {
+        if (state.products[i].id === clean.id) { idx = i; break; }
       }
+      if (idx > -1) state.products[idx] = clean;
+      else state.products.unshift(clean);
+    }
 
-      var isNew = !!editingProduct._isNew;
-      var clean = clone(editingProduct);
-      clean.title = title;
-      clean.price = document.getElementById('pfPrice').value.trim();
-      var discRaw = parseFloat(document.getElementById('pfDiscount').value);
-      clean.discount = isNaN(discRaw) ? 0 : Math.max(0, Math.min(90, discRaw));
-      clean.dims = document.getElementById('pfDims').value.trim();
-      clean.origin = document.getElementById('pfOrigin').value.trim();
-      clean.category = document.getElementById('pfCategory').value;
-      clean.status = document.getElementById('pfStatus').value;
-      clean.desc = document.getElementById('pfDesc').value;
-      clean.photos = clean.photos || [];
-      clean.reviews = clean.reviews || [];
-      delete clean._isNew;
+    var ok = saveState();
+    editingProduct = null;
 
-      if (isNew) {
-        state.products.unshift(clean);
-      } else {
-        var idx = -1;
-        for (var i = 0; i < state.products.length; i++) {
-          if (state.products[i].id === clean.id) { idx = i; break; }
-        }
-        if (idx > -1) state.products[idx] = clean;
-        else state.products.unshift(clean);
-      }
-
-      var ok = saveState();
-      editingProduct = null;
-
-      if (ok) {
-        activeFilter = 'All';
-        searchQuery = '';
-        var si = document.getElementById('searchInput');
-        if (si) si.value = '';
-        var sc = document.getElementById('searchClear');
-        if (sc) sc.classList.add('hidden');
-        render();
-        renderInventory();
-        toast(isNew ? 'Rug published to your catalog.' : 'Rug updated.');
-      }
-    });
-  }
+    if (ok) {
+      activeFilter = 'All';
+      searchQuery = '';
+      var si = document.getElementById('searchInput');
+      if (si) si.value = '';
+      var sc = document.getElementById('searchClear');
+      if (sc) sc.classList.add('hidden');
+      render();
+      renderInventory();
+      toast(isNew ? 'Rug published to your catalog.' : 'Rug updated.');
+    }
+  });
 }
 
-/* ---- Reviews admin tab ---- */
+/* ---- Reviews admin ---- */
 function renderReviewsAdmin() {
   var pane = document.getElementById('tab-reviews');
   if (!pane) return;
-
   var all = [];
   for (var i = 0; i < state.products.length; i++) {
     var p = state.products[i];
     var rs = p.reviews || [];
-    for (var j = 0; j < rs.length; j++) {
-      all.push({ review: rs[j], product: p });
-    }
+    for (var j = 0; j < rs.length; j++) all.push({ review: rs[j], product: p });
   }
-  all.sort(function (a, b) {
-    return (b.review.date || 0) - (a.review.date || 0);
-  });
+  all.sort(function (a, b) { return (b.review.date || 0) - (a.review.date || 0); });
 
   pane.innerHTML = '' +
     '<h3 class="ap-h">All Reviews <small>(' + all.length + ')</small></h3>' +
-    '<p class="ap-note">Reviews submitted by visitors are saved on their device and sent to you ' +
-      'via WhatsApp. Add verified reviews here to publish them on the live site.</p>' +
-    '<button class="btn-gold-sm" id="addReviewBtn" type="button" ' +
-      'style="margin-bottom:20px">' +
+    '<p class="ap-note">Reviews submitted by visitors are saved on their device and sent to you via WhatsApp. Add verified reviews here to publish them on the live site.</p>' +
+    '<button class="btn-gold-sm" id="addReviewBtn" type="button" style="margin-bottom:20px">' +
       '<i class="fa-solid fa-plus"></i> Add Verified Review</button>' +
     '<div id="reviewAddForm"></div>' +
     (all.length
@@ -3255,39 +3021,29 @@ function renderReviewsAdmin() {
             '<div class="admin-review-head">' +
               '<div class="admin-review-meta">' +
                 '<strong>' + esc(r.name || 'Anonymous') + '</strong>' +
-                '<span>' + esc(p.title || 'Untitled') + ' \u00B7 ' +
-                  esc(formatDate(r.date)) + '</span>' +
-              '</div>' +
-              starHTML(rating, 12) +
+                '<span>' + esc(p.title || 'Untitled') + ' \u00B7 ' + esc(formatDate(r.date)) + '</span>' +
+              '</div>' + starHTML(rating, 12) +
             '</div>' +
             '<p class="admin-review-text">' + esc(r.text || '') + '</p>' +
             '<div style="display:flex;gap:6px;margin-top:10px;flex-wrap:wrap">' +
-              '<button class="mini-btn danger" data-reviewdel="' + esc(p.id) +
-                '|' + esc(r.id || '') + '" type="button">' +
-                '<i class="fa-solid fa-trash"></i> Delete</button>' +
+              '<button class="mini-btn danger" data-reviewdel="' + esc(p.id) + '|' + esc(r.id || '') +
+                '" type="button"><i class="fa-solid fa-trash"></i> Delete</button>' +
             '</div>' +
           '</div>';
         }).join('')
       : '<p class="ap-note">No reviews yet.</p>');
 
   var addBtn = document.getElementById('addReviewBtn');
-  if (addBtn) {
-    addBtn.addEventListener('click', function () {
-      renderReviewAddForm();
-    });
-  }
+  if (addBtn) addBtn.addEventListener('click', renderReviewAddForm);
 
   pane.querySelectorAll('[data-reviewdel]').forEach(function (b) {
     b.addEventListener('click', function () {
       var parts = String(b.dataset.reviewdel).split('|');
-      var pid = parts[0];
-      var rid = parts[1];
+      var pid = parts[0], rid = parts[1];
       if (!confirm('Delete this review?')) return;
       var p = getProductById(pid);
       if (!p || !p.reviews) return;
-      p.reviews = p.reviews.filter(function (r) {
-        return String(r.id || '') !== rid;
-      });
+      p.reviews = p.reviews.filter(function (r) { return String(r.id || '') !== rid; });
       saveState();
       render();
       renderReviewsAdmin();
@@ -3300,8 +3056,7 @@ function renderReviewAddForm() {
   var wrap = document.getElementById('reviewAddForm');
   if (!wrap) return;
   var catOpts = state.products.map(function (p) {
-    return '<option value="' + esc(p.id) + '">' + esc(p.title || 'Untitled') +
-      ' (' + esc(p.id) + ')</option>';
+    return '<option value="' + esc(p.id) + '">' + esc(p.title || 'Untitled') + ' (' + esc(p.id) + ')</option>';
   }).join('');
 
   wrap.innerHTML = '' +
@@ -3310,7 +3065,7 @@ function renderReviewAddForm() {
         '<select class="txt" id="rvProduct">' + catOpts + '</select></label>' +
       '<label class="fld"><span>Reviewer name</span>' +
         '<input class="txt" id="rvName" type="text" placeholder="e.g. Amina K."></label>' +
-      '<label class="fld"><span>Rating (1–5)</span>' +
+      '<label class="fld"><span>Rating (1\u20135)</span>' +
         '<select class="txt" id="rvRating">' +
           '<option value="5">5 stars</option>' +
           '<option value="4">4 stars</option>' +
@@ -3319,8 +3074,7 @@ function renderReviewAddForm() {
           '<option value="1">1 star</option>' +
         '</select></label>' +
       '<label class="fld"><span>Review text</span>' +
-        '<textarea class="txt" id="rvText" rows="3" ' +
-        'placeholder="What did they say about the rug?"></textarea></label>' +
+        '<textarea class="txt" id="rvText" rows="3" placeholder="What did they say about the rug?"></textarea></label>' +
       '<div style="display:flex;gap:10px">' +
         '<button class="btn-gold-sm" id="rvSave" type="button">' +
           '<i class="fa-solid fa-check"></i> Save Review</button>' +
@@ -3329,9 +3083,7 @@ function renderReviewAddForm() {
     '</div>';
 
   var cancel = document.getElementById('rvCancel');
-  if (cancel) cancel.addEventListener('click', function () {
-    wrap.innerHTML = '';
-  });
+  if (cancel) cancel.addEventListener('click', function () { wrap.innerHTML = ''; });
 
   var save = document.getElementById('rvSave');
   if (save) save.addEventListener('click', function () {
@@ -3344,12 +3096,8 @@ function renderReviewAddForm() {
     if (!p) return;
     if (!p.reviews) p.reviews = [];
     p.reviews.unshift({
-      id: 'RV-' + Date.now(),
-      name: name,
-      rating: rating,
-      text: text,
-      date: Date.now(),
-      visible: true
+      id: 'RV-' + Date.now(), name: name, rating: rating, text: text,
+      date: Date.now(), visible: true
     });
     saveState();
     wrap.innerHTML = '';
@@ -3361,41 +3109,40 @@ function renderReviewAddForm() {
 
 /* ---- Content tab ---- */
 var CONTENT_SCHEMA = [
-  { k: 'announcement',       l: 'Announcement Bar',         t: 'text' },
-  { k: 'brand',              l: 'Brand Name',               t: 'text' },
-  { k: 'heroEyebrow',        l: 'Hero · Eyebrow',           t: 'text' },
-  { k: 'heroTitle',          l: 'Hero · Headline',          t: 'area' },
-  { k: 'heroSubtitle',       l: 'Hero · Subtitle',          t: 'area' },
-  { k: 'heroCta',            l: 'Hero · Primary Button',    t: 'text' },
-  { k: 'heroCta2',           l: 'Hero · Secondary Button',  t: 'text' },
-  { k: 'collectionEyebrow',  l: 'Collection · Eyebrow',     t: 'text' },
-  { k: 'collectionTitle',    l: 'Collection · Title',       t: 'text' },
-  { k: 'collectionSubtitle', l: 'Collection · Subtitle',    t: 'area' },
-  { k: 'storyEyebrow',       l: 'Heritage · Eyebrow',       t: 'text' },
-  { k: 'storyTitle',         l: 'Heritage · Title',         t: 'text' },
-  { k: 'storyBody',          l: 'Heritage · Body',          t: 'area' },
-  { k: 'storyStat1n',        l: 'Stat 1 · Number',          t: 'text' },
-  { k: 'storyStat1l',        l: 'Stat 1 · Label',           t: 'text' },
-  { k: 'storyStat2n',        l: 'Stat 2 · Number',          t: 'text' },
-  { k: 'storyStat2l',        l: 'Stat 2 · Label',           t: 'text' },
-  { k: 'storyStat3n',        l: 'Stat 3 · Number',          t: 'text' },
-  { k: 'storyStat3l',        l: 'Stat 3 · Label',           t: 'text' },
-  { k: 'reviewsEyebrow',     l: 'Reviews · Eyebrow',        t: 'text' },
-  { k: 'reviewsTitle',       l: 'Reviews · Title',          t: 'text' },
-  { k: 'reviewsSubtitle',    l: 'Reviews · Subtitle',       t: 'area' },
-  { k: 'careEyebrow',        l: 'Care · Eyebrow',           t: 'text' },
-  { k: 'careTitle',          l: 'Care · Title',             t: 'text' },
-  { k: 'careIntro',          l: 'Care · Intro',             t: 'area' },
-  { k: 'footerTagline',      l: 'Footer · Tagline',         t: 'area' },
-  { k: 'footerAddress',      l: 'Footer · Address',         t: 'text' },
-  { k: 'footerHours',        l: 'Footer · Hours',           t: 'text' },
-  { k: 'footerNote',         l: 'Footer · Copyright',       t: 'text' }
+  { k: 'announcement',       l: 'Announcement Bar',        t: 'text' },
+  { k: 'brand',              l: 'Brand Name',              t: 'text' },
+  { k: 'heroEyebrow',        l: 'Hero \u00B7 Eyebrow',    t: 'text' },
+  { k: 'heroTitle',          l: 'Hero \u00B7 Headline',    t: 'area' },
+  { k: 'heroSubtitle',       l: 'Hero \u00B7 Subtitle',    t: 'area' },
+  { k: 'heroCta',            l: 'Hero \u00B7 Primary',     t: 'text' },
+  { k: 'heroCta2',           l: 'Hero \u00B7 Secondary',   t: 'text' },
+  { k: 'collectionEyebrow',  l: 'Collection \u00B7 Eyebrow', t: 'text' },
+  { k: 'collectionTitle',    l: 'Collection \u00B7 Title',   t: 'text' },
+  { k: 'collectionSubtitle', l: 'Collection \u00B7 Subtitle', t: 'area' },
+  { k: 'storyEyebrow',       l: 'Heritage \u00B7 Eyebrow',  t: 'text' },
+  { k: 'storyTitle',         l: 'Heritage \u00B7 Title',    t: 'text' },
+  { k: 'storyBody',          l: 'Heritage \u00B7 Body',     t: 'area' },
+  { k: 'storyStat1n',        l: 'Stat 1 \u00B7 Number',     t: 'text' },
+  { k: 'storyStat1l',        l: 'Stat 1 \u00B7 Label',      t: 'text' },
+  { k: 'storyStat2n',        l: 'Stat 2 \u00B7 Number',     t: 'text' },
+  { k: 'storyStat2l',        l: 'Stat 2 \u00B7 Label',      t: 'text' },
+  { k: 'storyStat3n',        l: 'Stat 3 \u00B7 Number',     t: 'text' },
+  { k: 'storyStat3l',        l: 'Stat 3 \u00B7 Label',      t: 'text' },
+  { k: 'reviewsEyebrow',     l: 'Reviews \u00B7 Eyebrow',   t: 'text' },
+  { k: 'reviewsTitle',       l: 'Reviews \u00B7 Title',     t: 'text' },
+  { k: 'reviewsSubtitle',    l: 'Reviews \u00B7 Subtitle',  t: 'area' },
+  { k: 'careEyebrow',        l: 'Care \u00B7 Eyebrow',      t: 'text' },
+  { k: 'careTitle',          l: 'Care \u00B7 Title',        t: 'text' },
+  { k: 'careIntro',          l: 'Care \u00B7 Intro',        t: 'area' },
+  { k: 'footerTagline',      l: 'Footer \u00B7 Tagline',    t: 'area' },
+  { k: 'footerAddress',      l: 'Footer \u00B7 Address',    t: 'text' },
+  { k: 'footerHours',        l: 'Footer \u00B7 Hours',      t: 'text' },
+  { k: 'footerNote',         l: 'Footer \u00B7 Copyright',  t: 'text' }
 ];
 
 function renderContentTab() {
   var pane = document.getElementById('tab-content');
   if (!pane) return;
-
   pane.innerHTML = '' +
     '<p class="ap-note">Tip: unlock the store and tap directly on any heading on the page to edit it live.</p>' +
     CONTENT_SCHEMA.map(function (f) {
@@ -3423,19 +3170,16 @@ function renderContentTab() {
   renderCareStepsAdmin();
 
   var add = document.getElementById('addCareStep');
-  if (add) {
-    add.addEventListener('click', function () {
-      state.content.careItems.push({
-        icon: 'fa-leaf',
-        title: 'New Care Step',
-        text: 'Describe this care instruction for your clients.'
-      });
-      saveState();
-      renderCareStepsAdmin();
-      renderCare();
-      bindEditing();
+  if (add) add.addEventListener('click', function () {
+    state.content.careItems.push({
+      icon: 'fa-leaf', title: 'New Care Step',
+      text: 'Describe this care instruction for your clients.'
     });
-  }
+    saveState();
+    renderCareStepsAdmin();
+    renderCare();
+    bindEditing();
+  });
 }
 
 function renderCareStepsAdmin() {
@@ -3451,14 +3195,11 @@ function renderCareStepsAdmin() {
           '<i class="fa-solid fa-trash"></i></button>' +
       '</div>' +
       '<label class="fld"><span>Icon (FontAwesome class)</span>' +
-        '<input class="txt" type="text" data-care="' + i + '.icon" value="' +
-          esc(it.icon) + '"></label>' +
+        '<input class="txt" type="text" data-care="' + i + '.icon" value="' + esc(it.icon) + '"></label>' +
       '<label class="fld"><span>Title</span>' +
-        '<input class="txt" type="text" data-care="' + i + '.title" value="' +
-          esc(it.title) + '"></label>' +
+        '<input class="txt" type="text" data-care="' + i + '.title" value="' + esc(it.title) + '"></label>' +
       '<label class="fld" style="margin-bottom:0"><span>Text</span>' +
-        '<textarea class="txt" rows="2" data-care="' + i + '.text">' +
-          esc(it.text) + '</textarea></label>' +
+        '<textarea class="txt" rows="2" data-care="' + i + '.text">' + esc(it.text) + '</textarea></label>' +
     '</div>';
   }).join('') || '<p class="ap-note">No care steps yet.</p>';
 
@@ -3501,15 +3242,32 @@ function renderDesignTab() {
     { id: 'Accent', label: 'Secondary Accent',      key: 'accent' }
   ];
 
+  var logoSrc = state.settings.logo || ROSHAN_LOGO_SVG;
+
   pane.innerHTML = '' +
+    '<h3 class="ap-h">Brand Logo</h3>' +
+    '<div class="logo-preview">' +
+      '<div class="logo-preview-mark">' +
+        (state.settings.logo
+          ? '<img src="' + state.settings.logo + '" alt="Logo">'
+          : ROSHAN_LOGO_SVG) +
+      '</div>' +
+      '<div class="logo-preview-info">' +
+        '<strong>' + (state.settings.logo ? 'Custom logo' : 'Built-in Roshan logo') + '</strong>' +
+        '<small>Upload a PNG with a transparent background for best results. Recommended size: 200×200.</small>' +
+      '</div>' +
+    '</div>' +
+    '<input type="file" id="logoUpload" accept="image/png,image/svg+xml,image/jpeg" class="txt" style="padding:9px;margin-bottom:10px">' +
+    '<button class="mini-btn danger" id="logoClear" type="button" style="width:100%">' +
+      '<i class="fa-solid fa-rotate-left"></i> Restore built-in logo</button>' +
+
     '<h3 class="ap-h">Colour System</h3>' +
     colorRows.map(function (c) {
       return '<div class="color-row">' +
         '<label>' + esc(c.label) + '</label>' +
         '<div class="color-ctrl">' +
           '<input type="color" id="col' + c.id + '" value="' + esc(t[c.key]) + '">' +
-          '<input type="text" class="txt" id="col' + c.id +
-            'Hex" maxlength="7" value="' + esc(t[c.key]) + '">' +
+          '<input type="text" class="txt" id="col' + c.id + 'Hex" maxlength="7" value="' + esc(t[c.key]) + '">' +
         '</div>' +
       '</div>';
     }).join('') +
@@ -3519,15 +3277,12 @@ function renderDesignTab() {
       PRESETS.map(function (p, i) {
         var active = (p.gold === t.gold && p.dark === t.dark &&
                      p.light === t.light && p.accent === t.accent);
-        return '<button class="preset' + (active ? ' active' : '') +
-          '" data-preset="' + i + '" type="button">' +
+        return '<button class="preset' + (active ? ' active' : '') + '" data-preset="' + i + '" type="button">' +
           '<span class="sw">' +
             '<i style="background:' + p.gold + '"></i>' +
             '<i style="background:' + p.dark + '"></i>' +
             '<i style="background:' + p.light + '"></i>' +
-          '</span>' +
-          '<span>' + esc(p.name) + '</span>' +
-        '</button>';
+          '</span><span>' + esc(p.name) + '</span></button>';
       }).join('') +
     '</div>' +
 
@@ -3535,18 +3290,10 @@ function renderDesignTab() {
     '<div class="font-wrap" id="fontWrap">' +
       Object.keys(FONTS).map(function (k) {
         var active = (state.settings.fontPair === k);
-        return '<button class="font-opt' + (active ? ' active' : '') +
-          '" data-font="' + k + '" type="button">' +
-          '<span>' +
-            '<strong style="font-family:' + FONTS[k].head + '">' +
-              esc(FONTS[k].label) + '</strong>' +
-            '<em>' +
-              esc(FONTS[k].head.replace(/'/g, '') + ' / ' +
-                  FONTS[k].body.replace(/'/g, '')) +
-            '</em>' +
-          '</span>' +
-          '<i class="fa-solid fa-check" style="color:var(--gold);opacity:' +
-            (active ? '1' : '0') + '"></i>' +
+        return '<button class="font-opt' + (active ? ' active' : '') + '" data-font="' + k + '" type="button">' +
+          '<span><strong style="font-family:' + FONTS[k].head + '">' + esc(FONTS[k].label) + '</strong>' +
+          '<em>' + esc(FONTS[k].head.replace(/'/g, '') + ' / ' + FONTS[k].body.replace(/'/g, '')) + '</em></span>' +
+          '<i class="fa-solid fa-check" style="color:var(--gold);opacity:' + (active ? '1' : '0') + '"></i>' +
         '</button>';
       }).join('') +
     '</div>' +
@@ -3567,17 +3314,14 @@ function renderDesignTab() {
 
     '<h3 class="ap-h">Section Visibility</h3>' +
     '<div class="toggle-list" id="sectionToggles">' +
-      [['announcement', 'Announcement Bar'],
-       ['hero', 'Hero Banner'],
-       ['collection', 'Collection Gallery'],
-       ['story', 'Artisanship Story'],
-       ['reviews', 'Customer Reviews'],
-       ['care', 'Rug Care Guide'],
+      [['announcement', 'Announcement Bar'], ['hero', 'Hero Banner'],
+       ['collection', 'Collection Gallery'], ['story', 'Artisanship Story'],
+       ['reviews', 'Customer Reviews'], ['care', 'Rug Care Guide'],
        ['footer', 'Footer']].map(function (s) {
         var on = state.sections[s[0]] !== false;
         return '<div class="toggle-row"><span>' + esc(s[1]) + '</span>' +
-          '<div class="switch' + (on ? ' on' : '') + '" data-sec="' +
-            s[0] + '" role="switch" aria-checked="' + on + '"></div></div>';
+          '<div class="switch' + (on ? ' on' : '') + '" data-sec="' + s[0] +
+            '" role="switch" aria-checked="' + on + '"></div></div>';
       }).join('') +
     '</div>';
 
@@ -3585,7 +3329,6 @@ function renderDesignTab() {
     var picker = document.getElementById('col' + c.id);
     var hexInp = document.getElementById('col' + c.id + 'Hex');
     if (!picker || !hexInp) return;
-
     picker.addEventListener('input', function () {
       state.settings.theme[c.key] = picker.value;
       hexInp.value = picker.value.toUpperCase();
@@ -3608,9 +3351,7 @@ function renderDesignTab() {
   pane.querySelectorAll('[data-preset]').forEach(function (b) {
     b.addEventListener('click', function () {
       var p = PRESETS[parseInt(b.dataset.preset, 10)];
-      state.settings.theme = {
-        gold: p.gold, dark: p.dark, light: p.light, accent: p.accent
-      };
+      state.settings.theme = { gold: p.gold, dark: p.dark, light: p.light, accent: p.accent };
       saveState();
       applyTheme();
       renderDesignTab();
@@ -3621,52 +3362,76 @@ function renderDesignTab() {
   pane.querySelectorAll('[data-font]').forEach(function (b) {
     b.addEventListener('click', function () {
       state.settings.fontPair = b.dataset.font;
-      saveState();
-      applyTheme();
-      renderDesignTab();
+      saveState(); applyTheme(); renderDesignTab();
     });
   });
 
+  /* Logo upload */
+  var logoUp = document.getElementById('logoUpload');
+  if (logoUp) logoUp.addEventListener('change', function () {
+    if (!logoUp.files || !logoUp.files[0]) return;
+    var file = logoUp.files[0];
+    var reader = new FileReader();
+    reader.onload = function (e) {
+      /* SVG or small PNG — keep quality high but constrain to 400px */
+      if (file.type === 'image/svg+xml') {
+        state.settings.logo = e.target.result;
+        saveState(); applyTheme(); renderDesignTab();
+        toast('Custom logo updated.');
+        return;
+      }
+      compressFile(file, 400, 0.9, function (dataUrl) {
+        if (!dataUrl) { toast('Could not read that image.', true); return; }
+        state.settings.logo = dataUrl;
+        saveState(); applyTheme(); renderDesignTab();
+        toast('Custom logo updated.');
+      });
+    };
+    reader.onerror = function () { toast('Could not read that file.', true); };
+    reader.readAsDataURL(file);
+    logoUp.value = '';
+  });
+
+  var logoClr = document.getElementById('logoClear');
+  if (logoClr) logoClr.addEventListener('click', function () {
+    state.settings.logo = '';
+    saveState(); applyTheme(); renderDesignTab();
+    toast('Built-in logo restored.');
+  });
+
   var heroUp = document.getElementById('heroUpload');
-  if (heroUp) {
-    heroUp.addEventListener('change', function () {
-      if (!heroUp.files || !heroUp.files[0]) return;
-      compressFile(heroUp.files[0], 1400, 0.7, function (dataUrl) {
-        if (!dataUrl) return;
-        state.content.heroImage = dataUrl;
-        saveState(); applyContent();
-        toast('Hero image updated.');
-      });
+  if (heroUp) heroUp.addEventListener('change', function () {
+    if (!heroUp.files || !heroUp.files[0]) return;
+    compressFile(heroUp.files[0], 1400, 0.7, function (dataUrl) {
+      if (!dataUrl) return;
+      state.content.heroImage = dataUrl;
+      saveState(); applyContent();
+      toast('Hero image updated.');
     });
-  }
+  });
   var heroClr = document.getElementById('heroClear');
-  if (heroClr) {
-    heroClr.addEventListener('click', function () {
-      state.content.heroImage = '';
-      saveState(); applyContent();
-      toast('Hero image removed.');
-    });
-  }
+  if (heroClr) heroClr.addEventListener('click', function () {
+    state.content.heroImage = '';
+    saveState(); applyContent();
+    toast('Hero image removed.');
+  });
+
   var storyUp = document.getElementById('storyUpload');
-  if (storyUp) {
-    storyUp.addEventListener('change', function () {
-      if (!storyUp.files || !storyUp.files[0]) return;
-      compressFile(storyUp.files[0], 1200, 0.7, function (dataUrl) {
-        if (!dataUrl) return;
-        state.content.storyImage = dataUrl;
-        saveState(); applyContent();
-        toast('Heritage image updated.');
-      });
-    });
-  }
-  var storyClr = document.getElementById('storyClear');
-  if (storyClr) {
-    storyClr.addEventListener('click', function () {
-      state.content.storyImage = '';
+  if (storyUp) storyUp.addEventListener('change', function () {
+    if (!storyUp.files || !storyUp.files[0]) return;
+    compressFile(storyUp.files[0], 1200, 0.7, function (dataUrl) {
+      if (!dataUrl) return;
+      state.content.storyImage = dataUrl;
       saveState(); applyContent();
-      toast('Heritage image removed.');
+      toast('Heritage image updated.');
     });
-  }
+  });
+  var storyClr = document.getElementById('storyClear');
+  if (storyClr) storyClr.addEventListener('click', function () {
+    state.content.storyImage = '';
+    saveState(); applyContent();
+    toast('Heritage image removed.');
+  });
 
   pane.querySelectorAll('[data-sec]').forEach(function (sw) {
     sw.addEventListener('click', function () {
@@ -3701,30 +3466,37 @@ function refreshPresetActive() {
 
 /* ---- Image compression ---- */
 function compressFile(file, maxDim, quality, cb) {
+  if (!file || !file.type || file.type.indexOf('image') === -1) { cb(null); return; }
   var reader = new FileReader();
   reader.onload = function (e) {
     var img = new Image();
     img.onload = function () {
-      var w = img.naturalWidth;
-      var h = img.naturalHeight;
-      var longest = Math.max(w, h);
-      if (longest > maxDim) {
-        var r = maxDim / longest;
-        w = Math.round(w * r);
-        h = Math.round(h * r);
+      try {
+        var w = img.naturalWidth || img.width;
+        var h = img.naturalHeight || img.height;
+        if (!w || !h) { cb(e.target.result); return; }
+        var longest = Math.max(w, h);
+        if (longest > maxDim) {
+          var r = maxDim / longest;
+          w = Math.round(w * r);
+          h = Math.round(h * r);
+        }
+        var c = document.createElement('canvas');
+        c.width = w; c.height = h;
+        var ctx = c.getContext('2d');
+        ctx.fillStyle = '#ffffff';
+        ctx.fillRect(0, 0, w, h);
+        ctx.drawImage(img, 0, 0, w, h);
+        var out;
+        try { out = c.toDataURL('image/jpeg', quality); }
+        catch (err) { out = e.target.result; }
+        cb(out);
+      } catch (err) {
+        console.warn('compress error', err);
+        cb(e.target.result);
       }
-      var c = document.createElement('canvas');
-      c.width = w; c.height = h;
-      var ctx = c.getContext('2d');
-      ctx.fillStyle = '#ffffff';
-      ctx.fillRect(0, 0, w, h);
-      ctx.drawImage(img, 0, 0, w, h);
-      var out;
-      try { out = c.toDataURL('image/jpeg', quality); }
-      catch (err) { out = e.target.result; }
-      cb(out);
     };
-    img.onerror = function () { cb(e.target.result); };
+    img.onerror = function () { cb(null); };
     img.src = e.target.result;
   };
   reader.onerror = function () { cb(null); };
@@ -3739,37 +3511,32 @@ function renderSettingsTab() {
   pane.innerHTML = '' +
     '<h3 class="ap-h">Security</h3>' +
     '<label class="fld"><span>Admin PIN</span>' +
-      '<input class="txt" id="setPin" type="text" inputmode="numeric" ' +
-      'maxlength="12" value="' + esc(state.settings.pin) + '"></label>' +
+      '<input class="txt" id="setPin" type="text" inputmode="numeric" maxlength="12" value="' +
+      esc(state.settings.pin) + '"></label>' +
     '<label class="fld"><span>Confirm PIN</span>' +
-      '<input class="txt" id="setPin2" type="text" inputmode="numeric" ' +
-      'maxlength="12" placeholder="Repeat PIN"></label>' +
+      '<input class="txt" id="setPin2" type="text" inputmode="numeric" maxlength="12" placeholder="Repeat PIN"></label>' +
     '<button class="btn-gold-sm" id="savePin" type="button">' +
       '<i class="fa-solid fa-shield-halved"></i> Update PIN</button>' +
 
     '<h3 class="ap-h">Contact &amp; Commerce</h3>' +
     '<label class="fld"><span>WhatsApp Number (digits only, with country code)</span>' +
       '<input class="txt" id="setWa" type="text" inputmode="tel" value="' +
-        esc(state.settings.whatsapp) + '" placeholder="93700000000"></label>' +
+      esc(state.settings.whatsapp) + '" placeholder="93700000000"></label>' +
     '<label class="fld"><span>Store Email</span>' +
-      '<input class="txt" id="setEmail" type="email" value="' +
-        esc(state.settings.email) + '"></label>' +
+      '<input class="txt" id="setEmail" type="email" value="' + esc(state.settings.email) + '"></label>' +
     '<label class="fld"><span>Currency Symbol</span>' +
       '<input class="txt" id="setCurrency" type="text" maxlength="4" value="' +
-        esc(state.settings.currency) + '"></label>' +
+      esc(state.settings.currency) + '"></label>' +
     '<button class="btn-gold-sm" id="saveContact" type="button">' +
       '<i class="fa-solid fa-floppy-disk"></i> Save Settings</button>' +
 
     '<h3 class="ap-h">Reset Options</h3>' +
     '<p class="ap-note">Each button resets only its own category. Your other data is kept safe.</p>' +
-    '<button class="mini-btn danger" id="resetInventory" type="button" ' +
-      'style="width:100%;margin-bottom:10px">' +
+    '<button class="mini-btn danger" id="resetInventory" type="button" style="width:100%;margin-bottom:10px">' +
       '<i class="fa-solid fa-layer-group"></i> Reset Inventory Only</button>' +
-    '<button class="mini-btn danger" id="resetContent" type="button" ' +
-      'style="width:100%;margin-bottom:10px">' +
+    '<button class="mini-btn danger" id="resetContent" type="button" style="width:100%;margin-bottom:10px">' +
       '<i class="fa-solid fa-pen-nib"></i> Reset Content Only</button>' +
-    '<button class="mini-btn danger" id="resetDesign" type="button" ' +
-      'style="width:100%;margin-bottom:10px">' +
+    '<button class="mini-btn danger" id="resetDesign" type="button" style="width:100%;margin-bottom:10px">' +
       '<i class="fa-solid fa-palette"></i> Reset Design Only</button>' +
     '<button class="mini-btn danger" id="resetAll" type="button" style="width:100%">' +
       '<i class="fa-solid fa-triangle-exclamation"></i> Reset Everything</button>';
@@ -3788,11 +3555,9 @@ function renderSettingsTab() {
 
   var sc = document.getElementById('saveContact');
   if (sc) sc.addEventListener('click', function () {
-    state.settings.whatsapp = digitsOnly(
-      document.getElementById('setWa').value.trim());
+    state.settings.whatsapp = digitsOnly(document.getElementById('setWa').value.trim());
     state.settings.email = document.getElementById('setEmail').value.trim();
-    state.settings.currency =
-      document.getElementById('setCurrency').value.trim() || '$';
+    state.settings.currency = document.getElementById('setCurrency').value.trim() || '$';
     saveState();
     document.getElementById('setWa').value = state.settings.whatsapp;
     updateWaButtons();
@@ -3805,10 +3570,7 @@ function renderSettingsTab() {
   if (ri) ri.addEventListener('click', function () {
     if (!confirm('Reset inventory to the default 7 rugs? Your content and design will be kept.')) return;
     state.products = clone(DEFAULT_DATA.products);
-    saveState();
-    render();
-    renderInventory();
-    renderReviewsAdmin();
+    saveState(); render(); renderInventory(); renderReviewsAdmin();
     toast('Inventory reset to defaults.');
   });
 
@@ -3817,21 +3579,17 @@ function renderSettingsTab() {
     if (!confirm('Reset all text and section content? Your inventory will be kept.')) return;
     state.content = clone(DEFAULT_DATA.content);
     state.sections = clone(DEFAULT_DATA.sections);
-    saveState();
-    render();
-    renderContentTab();
-    renderDesignTab();
+    saveState(); render(); renderContentTab(); renderDesignTab();
     toast('Content reset to defaults.');
   });
 
   var rd = document.getElementById('resetDesign');
   if (rd) rd.addEventListener('click', function () {
-    if (!confirm('Reset colours and typography? Your inventory and content will be kept.')) return;
+    if (!confirm('Reset colours, logo and typography? Your inventory and content will be kept.')) return;
     state.settings.theme = clone(DEFAULT_DATA.settings.theme);
     state.settings.fontPair = DEFAULT_DATA.settings.fontPair;
-    saveState();
-    render();
-    renderDesignTab();
+    state.settings.logo = '';
+    saveState(); render(); renderDesignTab();
     toast('Design reset to defaults.');
   });
 
@@ -3840,14 +3598,11 @@ function renderSettingsTab() {
     if (!confirm('This erases EVERYTHING on this device — rugs, photos, text, design. Continue?')) return;
     try {
       localStorage.removeItem(STORAGE_KEY);
-      localStorage.removeItem(PHOTOS_KEY);
       localStorage.removeItem(WISHLIST_KEY);
-      localStorage.removeItem(REVIEWS_KEY);
     } catch (e) { /* ignore */ }
     state = clone(DEFAULT_DATA);
     wishlist = [];
-    saveState();
-    saveWishlist();
+    saveState(); saveWishlist();
     render();
     renderInventory();
     renderReviewsAdmin();
@@ -3863,21 +3618,13 @@ function renderSettingsTab() {
 function renderExportTab() {
   var pane = document.getElementById('tab-export');
   if (!pane) return;
-
   var sizeMB = totalPhotoSize().toFixed(2);
 
   pane.innerHTML = '' +
     '<h3 class="ap-h">Publish to the World</h3>' +
-    '<p class="ap-note">' +
-      'This button clones your entire live store \u2014 every photo, text edit, ' +
-      'colour, review and rug \u2014 into one self-contained HTML file and copies ' +
-      'it to your clipboard. Open GitHub, edit <strong>index.html</strong>, ' +
-      'select all, paste, commit.' +
-    '</p>' +
-    '<p class="ap-note" style="background:rgba(197,160,89,.14);border-left-color:var(--gold)">' +
-      'Export size estimate: <strong>~' + sizeMB + ' MB</strong> of photo data. ' +
-      'GitHub Pages handles up to 100 MB, so you are well within limits.' +
-    '</p>' +
+    '<p class="ap-note">This button clones your entire live store \u2014 every photo, text edit, colour, review and rug \u2014 into one self-contained HTML file and copies it to your clipboard.</p>' +
+    '<p class="ap-note success">Export size estimate: <strong>~' + sizeMB +
+      ' MB</strong> of photo data. GitHub Pages handles up to 100 MB, so you are well within limits.</p>' +
     '<button class="btn-gold-sm big" id="copyCode" type="button">' +
       '<i class="fa-solid fa-copy"></i> Copy Code for GitHub Commit</button>' +
     '<div style="margin-top:12px">' +
@@ -3886,10 +3633,8 @@ function renderExportTab() {
     '</div>' +
 
     '<h3 class="ap-h">Backups</h3>' +
-    '<p class="ap-note">A JSON backup includes your rugs, photos, reviews, and content. ' +
-      'Keep it somewhere safe.</p>' +
-    '<button class="mini-btn" id="exportJson" type="button" ' +
-      'style="width:100%;margin-bottom:10px">' +
+    '<p class="ap-note">A JSON backup includes your rugs, photos, reviews, and content. Keep it somewhere safe.</p>' +
+    '<button class="mini-btn" id="exportJson" type="button" style="width:100%;margin-bottom:10px">' +
       '<i class="fa-solid fa-file-arrow-down"></i> Download Full Backup (JSON)</button>' +
     '<label class="mini-btn file-label" style="width:100%">' +
       '<i class="fa-solid fa-file-arrow-up"></i> Import Full Backup' +
@@ -3899,8 +3644,7 @@ function renderExportTab() {
     '<h3 class="ap-h">Publishing Checklist</h3>' +
     '<p class="ap-note" style="border-left-color:var(--accent)">' +
       '1. Tap <strong>Copy Code for GitHub Commit</strong>.<br>' +
-      '2. Open github.com \u2192 your Roshan repo \u2192 <strong>index.html</strong> ' +
-      '\u2192 pencil icon.<br>' +
+      '2. Open github.com \u2192 your Roshan repo \u2192 <strong>index.html</strong> \u2192 pencil icon.<br>' +
       '3. Select all (Ctrl/Cmd + A), delete, then paste.<br>' +
       '4. Commit changes. GitHub Pages redeploys automatically.<br>' +
       '5. Hard-refresh your live site (Ctrl/Cmd + Shift + R) to confirm.' +
@@ -3922,8 +3666,7 @@ function renderExportTab() {
 
   var ej = document.getElementById('exportJson');
   if (ej) ej.addEventListener('click', function () {
-    downloadFile('roshan-backup.json', JSON.stringify(state, null, 2),
-      'application/json');
+    downloadFile('roshan-backup.json', JSON.stringify(state, null, 2), 'application/json');
     toast('JSON backup downloaded.');
   });
 
@@ -3935,13 +3678,9 @@ function renderExportTab() {
       try {
         var parsed = JSON.parse(e.target.result);
         state = deepMerge(clone(DEFAULT_DATA), parsed);
-        saveState();
-        render();
-        renderInventory();
-        renderReviewsAdmin();
-        renderContentTab();
-        renderDesignTab();
-        renderSettingsTab();
+        saveState(); render();
+        renderInventory(); renderReviewsAdmin(); renderContentTab();
+        renderDesignTab(); renderSettingsTab();
         toast('Backup imported successfully.');
       } catch (err) {
         toast('That file could not be read as a Roshan backup.', true);
@@ -3967,25 +3706,20 @@ function downloadFile(filename, content, mime) {
 }
 
 /* ==========================================================
-   14. GLOBAL EXPORTER
+   GLOBAL EXPORTER
    ========================================================== */
 function buildExportHTML() {
   var root = document.documentElement.cloneNode(true);
 
-  /* Strip editing artifacts */
   root.querySelectorAll('[contenteditable]').forEach(function (el) {
     el.removeAttribute('contenteditable');
     el.removeAttribute('spellcheck');
   });
-  root.querySelectorAll('[data-edit]').forEach(function (el) {
-    el.removeAttribute('style');
-  });
+  root.querySelectorAll('[data-edit]').forEach(function (el) { el.removeAttribute('style'); });
 
-  /* Reset body */
   var bodyEl = root.querySelector('body');
   if (bodyEl) bodyEl.classList.remove('admin-unlocked', 'no-scroll');
 
-  /* Close overlays */
   root.querySelectorAll('.modal').forEach(function (m) { m.classList.remove('open'); });
   var lbEl = root.querySelector('#lightbox');
   if (lbEl) lbEl.classList.remove('open', 'zoomed');
@@ -3998,13 +3732,11 @@ function buildExportHTML() {
   var chatP = root.querySelector('#chatPanel');
   if (chatP) chatP.classList.remove('open');
 
-  /* Clear transient UI */
   var toastEl = root.querySelector('#toast');
   if (toastEl) { toastEl.className = 'toast'; toastEl.textContent = ''; }
   var pinInp = root.querySelector('#pinInput');
   if (pinInp) { pinInp.value = ''; pinInp.removeAttribute('style'); }
 
-  /* Clear runtime-rendered containers */
   [
     '#productGrid', '#filterTabs', '#careGrid', '#reviewsStrip',
     '#productModalBody', '#wishlistBody', '#wishlistFoot',
@@ -4017,31 +3749,26 @@ function buildExportHTML() {
     if (el) el.innerHTML = '';
   });
 
-  /* Reset transient visibility */
   var emptyEl = root.querySelector('#emptyState');
   if (emptyEl) emptyEl.classList.add('hidden');
   var dockEl = root.querySelector('#wishlistDock');
   if (dockEl) dockEl.classList.add('hidden');
   var bttEl = root.querySelector('#backToTop');
   if (bttEl) bttEl.classList.add('hidden');
-  ['#headerWishlistBadge', '#drawerWishlistBadge', '#wishlistDockBadge']
-    .forEach(function (sel) {
-      var el = root.querySelector(sel);
-      if (el) { el.classList.add('hidden'); el.textContent = '0'; }
-    });
+  ['#headerWishlistBadge', '#drawerWishlistBadge', '#wishlistDockBadge'].forEach(function (sel) {
+    var el = root.querySelector(sel);
+    if (el) { el.classList.add('hidden'); el.textContent = '0'; }
+  });
 
-  /* Clear inline theme overrides */
   var htmlEl = root.querySelector('html');
   if (htmlEl) {
-    [
-      '--gold', '--dark', '--light', '--accent',
-      '--gold-a10', '--gold-a18', '--gold-a45',
-      '--light-a95', '--line', '--muted', '--on-gold',
-      '--font-head', '--font-body'
-    ].forEach(function (v) { htmlEl.style.removeProperty(v); });
+    ['--gold', '--dark', '--light', '--accent', '--gold-a10', '--gold-a18',
+     '--gold-a45', '--light-a95', '--line', '--muted', '--on-gold',
+     '--font-head', '--font-body'].forEach(function (v) {
+      htmlEl.style.removeProperty(v);
+    });
   }
 
-  /* Bake state with photos merged in */
   var baked = root.querySelector('#roshan-baked-data');
   if (!baked) {
     baked = document.createElement('script');
@@ -4061,9 +3788,8 @@ function buildExportHTML() {
 
 function copyExportToClipboard() {
   var html;
-  try {
-    html = buildExportHTML();
-  } catch (e) {
+  try { html = buildExportHTML(); }
+  catch (e) {
     console.error(e);
     toast('Export failed. Try Download index.html instead.', true);
     return;
@@ -4101,10 +3827,9 @@ function copyExportToClipboard() {
 }
 
 /* ==========================================================
-   15. EVENT WIRING
+   EVENT WIRING
    ========================================================== */
 function wireEvents() {
-  /* Header scroll state */
   var topBar = document.getElementById('topBar');
   var backTop = document.getElementById('backToTop');
   function onScroll() {
@@ -4117,7 +3842,6 @@ function wireEvents() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 
-  /* Mobile drawer */
   var mt = document.getElementById('menuToggle');
   var dc = document.getElementById('drawerClose');
   var overlay = document.getElementById('drawerOverlay');
@@ -4127,22 +3851,18 @@ function wireEvents() {
 
   var dab = document.getElementById('drawerAdminBtn');
   if (dab) dab.addEventListener('click', function () {
-    closeDrawer();
-    setTimeout(requestAdmin, 260);
+    closeDrawer(); setTimeout(requestAdmin, 260);
   });
   var dwb = document.getElementById('drawerWishlistBtn');
   if (dwb) dwb.addEventListener('click', function () {
-    closeDrawer();
-    setTimeout(openWishlist, 260);
+    closeDrawer(); setTimeout(openWishlist, 260);
   });
 
-  /* Wishlist triggers */
   var hwb = document.getElementById('headerWishlist');
   if (hwb) hwb.addEventListener('click', openWishlist);
   var wdb = document.getElementById('wishlistDock');
   if (wdb) wdb.addEventListener('click', openWishlist);
 
-  /* Smooth scroll */
   document.querySelectorAll('[data-scroll]').forEach(function (a) {
     a.addEventListener('click', function (e) {
       var href = a.getAttribute('href');
@@ -4158,7 +3878,6 @@ function wireEvents() {
     });
   });
 
-  /* Modal close triggers */
   document.querySelectorAll('[data-close]').forEach(function (el) {
     el.addEventListener('click', function () {
       var m = el.closest('.modal');
@@ -4166,17 +3885,14 @@ function wireEvents() {
     });
   });
 
-  /* Admin access */
   var keyBtn = document.getElementById('adminKey');
   if (keyBtn) keyBtn.addEventListener('click', requestAdmin);
   var pinBtn = document.getElementById('pinSubmit');
   if (pinBtn) pinBtn.addEventListener('click', tryUnlock);
   var pinInp = document.getElementById('pinInput');
-  if (pinInp) {
-    pinInp.addEventListener('keydown', function (e) {
-      if (e.key === 'Enter') { e.preventDefault(); tryUnlock(); }
-    });
-  }
+  if (pinInp) pinInp.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter') { e.preventDefault(); tryUnlock(); }
+  });
   var lockBtn = document.getElementById('lockAdmin');
   if (lockBtn) lockBtn.addEventListener('click', lockAdmin);
   var openBtn = document.getElementById('openAdmin');
@@ -4184,9 +3900,7 @@ function wireEvents() {
 
   document.addEventListener('keydown', function (e) {
     if (e.ctrlKey && e.shiftKey && (e.key === 'A' || e.key === 'a')) {
-      e.preventDefault();
-      requestAdmin();
-      return;
+      e.preventDefault(); requestAdmin(); return;
     }
     if (e.key === 'Escape') {
       var lbBox = document.getElementById('lightbox');
@@ -4201,25 +3915,18 @@ function wireEvents() {
     }
   });
 
-  /* Admin tabs */
   document.querySelectorAll('.atab').forEach(function (b) {
     b.addEventListener('click', function () { activateTab(b.dataset.tab); });
   });
 
-  /* Filter tabs */
   var ft = document.getElementById('filterTabs');
-  if (ft) {
-    ft.addEventListener('click', function (e) {
-      var b = e.target.closest('.filter-tab');
-      if (!b) return;
-      activeFilter = b.dataset.cat;
-      renderFilters();
-      renderProducts();
-      bindEditing();
-    });
-  }
+  if (ft) ft.addEventListener('click', function (e) {
+    var b = e.target.closest('.filter-tab');
+    if (!b) return;
+    activeFilter = b.dataset.cat;
+    renderFilters(); renderProducts(); bindEditing();
+  });
 
-  /* Search */
   var si = document.getElementById('searchInput');
   var sc = document.getElementById('searchClear');
   if (si) {
@@ -4230,8 +3937,7 @@ function wireEvents() {
       clearTimeout(searchTimer);
       searchTimer = setTimeout(function () {
         searchQuery = v.trim();
-        renderProducts();
-        bindEditing();
+        renderProducts(); bindEditing();
       }, 120);
     });
   }
@@ -4239,76 +3945,61 @@ function wireEvents() {
     if (si) si.value = '';
     searchQuery = '';
     sc.classList.add('hidden');
-    renderProducts();
-    bindEditing();
+    renderProducts(); bindEditing();
     if (si) si.focus();
   });
 
-  /* Sort */
   var ss = document.getElementById('sortSelect');
   if (ss) ss.addEventListener('change', function () {
     sortMode = ss.value;
-    renderProducts();
-    bindEditing();
+    renderProducts(); bindEditing();
   });
 
-  /* Product grid interactions */
   var grid = document.getElementById('productGrid');
-  if (grid) {
-    grid.addEventListener('click', function (e) {
-      var wish = e.target.closest('[data-wish]');
-      if (wish) {
-        e.preventDefault();
-        e.stopPropagation();
-        toggleWishlist(wish.dataset.wish);
-        return;
-      }
-      var del = e.target.closest('[data-delp]');
-      if (del) {
-        e.preventDefault();
-        var id = del.dataset.delp;
-        if (!confirm('Delete rug ' + id + '? This cannot be undone.')) return;
-        state.products = state.products.filter(function (x) { return x.id !== id; });
-        var wi = wishlist.indexOf(id);
-        if (wi > -1) { wishlist.splice(wi, 1); saveWishlist(); }
-        saveState();
-        render();
-        if (document.getElementById('tab-inventory')) renderInventory();
-        toast('Rug deleted.');
-        return;
-      }
-      var ed = e.target.closest('[data-editp]');
-      if (ed) {
-        e.preventDefault();
-        var p = getProductById(ed.dataset.editp);
-        if (!p) return;
-        editingProduct = clone(p);
-        editingProduct._isNew = false;
-        openAdminPanel();
-        activateTab('inventory');
-        renderInventory();
-        return;
-      }
-      if (e.target.closest('a')) return;
-      var op = e.target.closest('[data-open]');
-      if (op) {
-        e.preventDefault();
-        openProduct(op.dataset.open);
-      }
-    });
-  }
+  if (grid) grid.addEventListener('click', function (e) {
+    var wish = e.target.closest('[data-wish]');
+    if (wish) {
+      e.preventDefault(); e.stopPropagation();
+      toggleWishlist(wish.dataset.wish);
+      return;
+    }
+    var del = e.target.closest('[data-delp]');
+    if (del) {
+      e.preventDefault();
+      var id = del.dataset.delp;
+      if (!confirm('Delete rug ' + id + '? This cannot be undone.')) return;
+      state.products = state.products.filter(function (x) { return x.id !== id; });
+      var wi = wishlist.indexOf(id);
+      if (wi > -1) { wishlist.splice(wi, 1); saveWishlist(); }
+      saveState(); render();
+      if (document.getElementById('tab-inventory')) renderInventory();
+      toast('Rug deleted.');
+      return;
+    }
+    var ed = e.target.closest('[data-editp]');
+    if (ed) {
+      e.preventDefault();
+      var p = getProductById(ed.dataset.editp);
+      if (!p) return;
+      editingProduct = clone(p);
+      editingProduct._isNew = false;
+      openAdminPanel();
+      activateTab('inventory');
+      renderInventory();
+      return;
+    }
+    if (e.target.closest('a')) return;
+    var op = e.target.closest('[data-open]');
+    if (op) { e.preventDefault(); openProduct(op.dataset.open); }
+  });
 
-  /* Reviews strip: click to open product */
   var reviewsWrap = document.getElementById('reviewsStrip');
-  if (reviewsWrap) {
-    reviewsWrap.addEventListener('click', function (e) {
-      var el = e.target.closest('[data-reviewopen]');
-      if (!el) return;
-      openProduct(el.dataset.reviewopen);
-    });
-  }
+  if (reviewsWrap) reviewsWrap.addEventListener('click', function (e) {
+    var el = e.target.closest('[data-reviewopen]');
+    if (!el) return;
+    openProduct(el.dataset.reviewopen);
+  });
 
-  /* Lightbox controls */
   var lbClose = document.getElementById('lbClose');
   if (lbClose) lbClose.addEventListener('click', closeLightbox);
   document.querySelectorAll('[data-lbzoom]').forEach(function (b) {
@@ -4325,7 +4016,6 @@ function wireEvents() {
       if (lb.scale === 1) { lb.x = 0; lb.y = 0; }
       lbApply();
     }, { passive: false });
-
     lbStage.addEventListener('pointerdown', function (e) {
       if (lb.scale <= 1) return;
       lb.dragging = true;
@@ -4351,7 +4041,6 @@ function wireEvents() {
     });
   }
 
-  /* Inline WYSIWYG save */
   document.addEventListener('focusout', function (e) {
     if (!isAdmin) return;
     var el = e.target && e.target.closest ? e.target.closest('[data-edit]') : null;
@@ -4363,149 +4052,164 @@ function wireEvents() {
     if (val !== val.trim()) val = val.trim();
     setPath(state, path, val);
     saveState();
-    var mirror = document.querySelector(
-      '[data-ck="' + path.replace('content.', '') + '"]');
+    var mirror = document.querySelector('[data-ck="' + path.replace('content.', '') + '"]');
     if (mirror) mirror.value = val;
   });
 
-  /* Prevent admin clicks on editable anchors from navigating */
   document.addEventListener('click', function (e) {
     if (!isAdmin) return;
     var el = e.target.closest ? e.target.closest('[data-edit]') : null;
     if (el && el.tagName === 'A') e.preventDefault();
   }, true);
 
-  /* ══════════════════════════════════════════════════════
-     FIX: Prevent pasted images from destroying the document
-     ══════════════════════════════════════════════════════ */
+  /* Prevent pasted images from wiping out text fields */
   document.addEventListener('paste', function (e) {
-    var target = e.target;
-    if (!target) return;
-    var isTextField = target.tagName === 'INPUT' ||
-                      target.tagName === 'TEXTAREA' ||
-                      target.isContentEditable;
-    if (!isTextField) return;
+    var t = e.target;
+    if (!t) return;
+    var isField = t.tagName === 'INPUT' || t.tagName === 'TEXTAREA' || t.isContentEditable;
+    if (!isField) return;
     var items = e.clipboardData && e.clipboardData.items;
     if (!items) return;
-    var hasImage = false;
     for (var i = 0; i < items.length; i++) {
       if (items[i].type && items[i].type.indexOf('image') !== -1) {
-        hasImage = true;
-        break;
+        e.preventDefault();
+        toast('Use the "Add" button to attach photos, not paste.', true);
+        return;
       }
-    }
-    if (hasImage) {
-      e.preventDefault();
-      toast('Photos can only be added through the "Add Photo" button.', true);
     }
   }, true);
 
-  /* Chat widget */
   wireChatWidget();
 
-  /* Reveal animations */
   if ('IntersectionObserver' in window) {
     var io = new IntersectionObserver(function (entries) {
       entries.forEach(function (en) {
-        if (en.isIntersecting) {
-          en.target.classList.add('in');
-          io.unobserve(en.target);
-        }
+        if (en.isIntersecting) { en.target.classList.add('in'); io.unobserve(en.target); }
       });
     }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
     document.querySelectorAll('.reveal').forEach(function (el) { io.observe(el); });
   } else {
-    document.querySelectorAll('.reveal').forEach(function (el) {
-      el.classList.add('in');
-    });
-  }
-}
-
-/* ══════════════════════════════════════════════════════════
-   CHAT WIDGET
-   ══════════════════════════════════════════════════════════ */
-function wireChatWidget() {
-  var toggle = document.getElementById('chatToggle');
-  var panel = document.getElementById('chatPanel');
-  var close = document.getElementById('chatClose');
-  var send = document.getElementById('chatSend');
-  var emailBtn = document.getElementById('chatEmail');
-  var callBtn = document.getElementById('chatCall');
-  var nameInp = document.getElementById('chatName');
-  var msgInp = document.getElementById('chatMessage');
-
-  if (toggle && panel) {
-    toggle.addEventListener('click', function () {
-      panel.classList.toggle('open');
-      if (panel.classList.contains('open') && nameInp) {
-        setTimeout(function () { nameInp.focus(); }, 260);
-      }
-    });
-  }
-  if (close && panel) {
-    close.addEventListener('click', function () {
-      panel.classList.remove('open');
-    });
-  }
-
-  if (send) {
-    send.addEventListener('click', function () {
-      var name = (nameInp ? nameInp.value : '').trim();
-      var text = (msgInp ? msgInp.value : '').trim();
-      if (!text) {
-        toast('Please write a short message.', true);
-        if (msgInp) msgInp.focus();
-        return;
-      }
-      var num = digitsOnly(state.settings.whatsapp);
-      var lines = [];
-      if (name) lines.push('Hi, this is ' + name + '.');
-      else lines.push('Hi, I have a question about your rugs.');
-      lines.push('');
-      lines.push(text);
-      var url = 'https://wa.me/' + num + '?text=' +
-        encodeURIComponent(lines.join('\n'));
-      try { window.open(url, '_blank', 'noopener'); } catch (e) {}
-      if (panel) panel.classList.remove('open');
-      if (msgInp) msgInp.value = '';
-      toast('Opening WhatsApp\u2026');
-    });
-  }
-
-  if (emailBtn) {
-    emailBtn.addEventListener('click', function () {
-      var mail = state.settings.email || '';
-      var subject = 'Inquiry about Roshan rugs';
-      var body = (msgInp && msgInp.value) ? msgInp.value : '';
-      window.location.href = 'mailto:' + mail + '?subject=' +
-        encodeURIComponent(subject) + '&body=' + encodeURIComponent(body);
-    });
-  }
-
-  if (callBtn) {
-    callBtn.addEventListener('click', function () {
-      var num = digitsOnly(state.settings.whatsapp);
-      window.location.href = 'tel:+' + num;
-    });
+    document.querySelectorAll('.reveal').forEach(function (el) { el.classList.add('in'); });
   }
 }
 
 /* ==========================================================
-   16. INIT
+   CHAT WIDGET — Yildiz-style minimalist
+   ========================================================== */
+function wireChatWidget() {
+  var toggle = document.getElementById('chatToggle');
+  var panel = document.getElementById('chatPanel');
+  var close = document.getElementById('chatClose');
+  var expand = document.getElementById('chatExpand');
+  var send = document.getElementById('chatSend');
+  var input = document.getElementById('chatInput');
+  var privacyLink = document.getElementById('chatPrivacyLink');
+  var preview = document.getElementById('chatPreview');
+
+  if (toggle && panel) {
+    toggle.addEventListener('click', function () {
+      var willOpen = !panel.classList.contains('open');
+      panel.classList.toggle('open');
+      if (willOpen) {
+        setTimeout(function () { if (input) input.focus(); }, 260);
+      }
+    });
+  }
+  if (close && panel) close.addEventListener('click', function () {
+    panel.classList.remove('open');
+  });
+  if (expand && panel) {
+    var expanded = false;
+    expand.addEventListener('click', function () {
+      expanded = !expanded;
+      if (expanded) {
+        panel.style.width = '500px';
+        panel.style.maxHeight = 'calc(100vh - 80px)';
+        expand.innerHTML = '<i class="fa-solid fa-down-left-and-up-right-to-center"></i>';
+      } else {
+        panel.style.width = '380px';
+        panel.style.maxHeight = 'calc(100vh - 110px)';
+        expand.innerHTML = '<i class="fa-solid fa-up-right-and-down-left-from-center"></i>';
+      }
+    });
+  }
+
+  /* Suggestion chips fill the input */
+  document.querySelectorAll('.chat-chip').forEach(function (chip) {
+    chip.addEventListener('click', function () {
+      var msg = chip.dataset.chatMsg || chip.textContent;
+      if (input) {
+        input.value = msg;
+        input.focus();
+      }
+    });
+  });
+
+  function sendChat() {
+    var text = (input ? input.value : '').trim();
+    if (!text) {
+      if (input) input.focus();
+      toast('Write a short message first.', true);
+      return;
+    }
+    var num = digitsOnly(state.settings.whatsapp);
+    var url = 'https://wa.me/' + num + '?text=' + encodeURIComponent(text);
+    try { window.open(url, '_blank', 'noopener'); } catch (e) {}
+    if (panel) panel.classList.remove('open');
+    if (input) input.value = '';
+    toast('Opening WhatsApp\u2026');
+  }
+
+  if (send) send.addEventListener('click', sendChat);
+  if (input) input.addEventListener('keydown', function (e) {
+    if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendChat(); }
+  });
+
+  if (privacyLink) privacyLink.addEventListener('click', function (e) {
+    e.preventDefault();
+    toast('Messages route directly to our WhatsApp. We never sell your data.');
+  });
+
+  /* Optional: show last-viewed product as preview */
+  updateChatPreview();
+
+  function updateChatPreview() {
+    if (!preview) return;
+    var lastId = currentProductId;
+    if (!lastId) {
+      var p = state.products.filter(function (x) { return x.status === 'Active'; })[0];
+      if (p) lastId = p.id;
+    }
+    if (!lastId) { preview.classList.add('hidden'); return; }
+    var prod = getProductById(lastId);
+    if (!prod) { preview.classList.add('hidden'); return; }
+    var thumb = (prod.photos && prod.photos[0]) || PLACEHOLDER;
+    preview.innerHTML = '<img src="' + thumb + '" alt="' + esc(prod.title) + '">' +
+      '<div class="chat-preview-info">' +
+        '<strong>' + esc(prod.title || 'Untitled') + '</strong>' +
+        '<span>' + esc(prod.dims || '') + ' \u00B7 ' +
+          esc(state.settings.currency) + formatNum(getFinalPrice(prod)) + '</span>' +
+      '</div>';
+    preview.classList.remove('hidden');
+  }
+
+  /* Update preview when product modal opens */
+  var origOpenProduct = openProduct;
+  window.addEventListener('roshan:productOpen', updateChatPreview);
+}
+
+/* ==========================================================
+   INIT
    ========================================================== */
 function init() {
   state = loadState();
-  loadPhotos();
   wishlist = loadWishlist();
 
   try {
     if (sessionStorage.getItem(SESSION_KEY) === '1') isAdmin = true;
   } catch (e) { isAdmin = false; }
 
-  /* Ensure nothing is left open from a previous session */
-  document.querySelectorAll('.modal').forEach(function (m) {
-    m.classList.remove('open');
-  });
+  document.querySelectorAll('.modal').forEach(function (m) { m.classList.remove('open'); });
   var lbBox = document.getElementById('lightbox');
   if (lbBox) lbBox.classList.remove('open', 'zoomed');
   var dr = document.getElementById('mobileDrawer');
@@ -4524,7 +4228,7 @@ function init() {
     document.fonts.ready.then(function () {
       applyContent();
       bindEditing();
-    }).catch(function () { /* ignore */ });
+    }).catch(function () {});
   }
 
   console.log('%cROSHAN',
