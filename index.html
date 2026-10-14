@@ -29,9 +29,6 @@ html{-webkit-text-size-adjust:100%;scroll-behavior:smooth}
 body{margin:0;padding:0;background:var(--light);color:var(--dark);
   font-family:var(--font-body);font-size:16px;line-height:1.65;
   -webkit-font-smoothing:antialiased;overflow-x:hidden}
-body.no-scroll{overflow:hidden}
-/* FIX: ensure pointer-events never stays stuck */
-body.no-scroll{pointer-events:auto}
 img{max-width:100%;display:block}
 a{color:inherit;text-decoration:none}
 button{font-family:inherit;cursor:pointer;border:none;background:none;color:inherit;
@@ -58,6 +55,7 @@ section[id]{scroll-margin-top:calc(var(--header-h) + 20px)}
   max-width:660px;margin:0 auto}
 .section-head{text-align:center;margin-bottom:52px}
 @media(min-width:900px){.section-head{margin-bottom:60px}}
+/* HEADER */
 #topBar{position:fixed;top:0;left:0;right:0;z-index:120}
 .announcement{background:var(--dark);color:var(--gold);font-size:10.5px;
   letter-spacing:.22em;text-transform:uppercase;text-align:center;
@@ -94,7 +92,7 @@ section[id]{scroll-margin-top:calc(var(--header-h) + 20px)}
 .header-actions{display:flex;align-items:center;gap:6px}
 .icon-btn{width:44px;height:44px;border-radius:50%;display:inline-flex;
   align-items:center;justify-content:center;transition:.3s;font-size:15px;
-  flex:none;color:inherit;position:relative}
+  flex:none;color:inherit;position:relative;cursor:pointer}
 .icon-btn:hover{background:var(--gold-a18);color:var(--gold)}
 .icon-btn.danger:hover{background:rgba(200,40,40,.14);color:#c62828}
 #menuToggle{display:inline-flex}
@@ -105,7 +103,7 @@ section[id]{scroll-margin-top:calc(var(--header-h) + 20px)}
   color:#fff;font-size:9px;font-weight:800;min-width:18px;height:18px;
   border-radius:999px;display:flex;align-items:center;justify-content:center;
   padding:0 4px;letter-spacing:0;pointer-events:none}
-/* ---- Mobile drawer ---- */
+/* MOBILE DRAWER */
 #drawerOverlay{position:fixed;inset:0;z-index:190;background:rgba(6,6,6,.65);
   opacity:0;pointer-events:none;transition:opacity .35s}
 #drawerOverlay.open{opacity:1;pointer-events:auto}
@@ -120,26 +118,27 @@ section[id]{scroll-margin-top:calc(var(--header-h) + 20px)}
 .drawer-brand .brand-logo{color:var(--gold);width:36px;height:36px}
 .drawer-brand .brand-text{color:var(--gold);font-size:20px}
 .drawer-close{width:44px;height:44px;border-radius:50%;color:#fff;font-size:20px;
-  display:flex;align-items:center;justify-content:center;transition:.3s}
+  display:flex;align-items:center;justify-content:center;transition:.3s;cursor:pointer}
 .drawer-close:hover{background:rgba(255,255,255,.12);color:var(--gold)}
 .drawer-nav{padding:14px 0;flex:1}
 .drawer-link{display:flex;align-items:center;gap:16px;padding:18px 26px;
   font-family:var(--font-head);font-size:17px;letter-spacing:.14em;
   text-transform:uppercase;color:rgba(255,255,255,.88);transition:.3s;
-  border-left:2px solid transparent;width:100%;text-align:left;background:transparent}
-.drawer-link:hover,.drawer-link:active{background:rgba(197,160,89,.10);
-  color:var(--gold);border-left-color:var(--gold);padding-left:30px}
+  border-left:2px solid transparent;width:100%;text-align:left;background:transparent;
+  cursor:pointer}
+.drawer-link:hover{background:rgba(197,160,89,.10);color:var(--gold);
+  border-left-color:var(--gold);padding-left:30px}
 .drawer-link i{font-size:14px;color:var(--gold);width:20px;text-align:center;flex:none}
 .drawer-link span.lbl{flex:1}
 .drawer-badge{background:var(--accent);color:#fff;font-size:10px;font-weight:800;
   min-width:22px;height:22px;border-radius:999px;display:flex;align-items:center;
-  justify-content:center;padding:0 6px;letter-spacing:0;font-family:var(--font-body)}
+  justify-content:center;padding:0 6px;letter-spacing:0}
 .drawer-foot{padding:22px 26px;border-top:1px solid rgba(255,255,255,.10);
   display:flex;flex-direction:column;gap:12px}
 .drawer-foot .btn{width:100%}
 .drawer-note{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;
   color:rgba(255,255,255,.4);text-align:center;margin-top:6px}
-/* ---- Buttons ---- */
+/* BUTTONS */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;
   padding:16px 32px;font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;
   font-weight:600;border-radius:2px;transition:all .32s ease;white-space:nowrap;
@@ -164,7 +163,7 @@ section[id]{scroll-margin-top:calc(var(--header-h) + 20px)}
 .mini-btn:hover{border-color:var(--gold);color:var(--gold)}
 .mini-btn.danger{color:#b3261e;border-color:rgba(179,38,30,.28)}
 .mini-btn.danger:hover{background:rgba(179,38,30,.08);border-color:#b3261e;color:#b3261e}
-/* ---- Hero ---- */
+/* HERO */
 .hero{position:relative;min-height:100vh;min-height:100svh;display:flex;
   align-items:center;justify-content:center;text-align:center;overflow:hidden;
   background:var(--dark);padding:140px 22px 100px}
@@ -188,9 +187,10 @@ section[id]{scroll-margin-top:calc(var(--header-h) + 20px)}
   max-width:640px;margin:0 auto 42px}
 .hero-cta{display:flex;gap:14px;justify-content:center;flex-wrap:wrap}
 .hero-scroll{position:absolute;bottom:34px;left:50%;transform:translateX(-50%);
-  z-index:3;color:var(--gold);font-size:15px;animation:bob 2.4s ease-in-out infinite;opacity:.75}
+  z-index:3;color:var(--gold);font-size:15px;animation:bob 2.4s ease-in-out infinite;
+  opacity:.75;cursor:pointer}
 @keyframes bob{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,10px)}}
-/* ---- Toolbar ---- */
+/* TOOLBAR */
 .toolbar{display:flex;flex-wrap:wrap;gap:12px;align-items:center;
   justify-content:center;margin-bottom:26px}
 .search-box{position:relative;flex:1 1 260px;max-width:400px;min-width:220px}
@@ -201,14 +201,14 @@ section[id]{scroll-margin-top:calc(var(--header-h) + 20px)}
 .search-input:focus{border-color:var(--gold);box-shadow:0 0 0 3px var(--gold-a10)}
 .search-clear{position:absolute;right:8px;top:50%;transform:translateY(-50%);
   width:32px;height:32px;border-radius:50%;color:var(--muted);font-size:13px;
-  display:flex;align-items:center;justify-content:center;transition:.25s}
+  display:flex;align-items:center;justify-content:center;transition:.25s;cursor:pointer}
 .search-clear:hover{color:var(--gold);background:var(--gold-a10)}
 .sort-select{padding:13px 36px 13px 18px;border:1px solid var(--line);
   border-radius:999px;background:#fff;outline:none;font-size:12px;
   letter-spacing:.05em;color:var(--dark);appearance:none;cursor:pointer;
-  transition:.25s;font-weight:600;
-  background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23888' stroke-width='1.6' fill='none'/%3E%3C/svg%3E");
-  background-repeat:no-repeat;background-position:right 16px center;min-height:46px}
+  transition:.25s;font-weight:600;background-repeat:no-repeat;
+  background-position:right 16px center;min-height:46px;
+  background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23888' stroke-width='1.6' fill='none'/%3E%3C/svg%3E")}
 .sort-select:focus{border-color:var(--gold);box-shadow:0 0 0 3px var(--gold-a10)}
 .filter-tabs{display:flex;flex-wrap:wrap;gap:8px;justify-content:center;margin-bottom:40px}
 .filter-tab{padding:10px 18px;font-size:10px;letter-spacing:.16em;text-transform:uppercase;
@@ -216,7 +216,7 @@ section[id]{scroll-margin-top:calc(var(--header-h) + 20px)}
   transition:.3s;background:#fff;min-height:40px;cursor:pointer}
 .filter-tab:hover{border-color:var(--gold);color:var(--gold)}
 .filter-tab.active{background:var(--gold);color:var(--on-gold);border-color:var(--gold)}
-/* ---- Product cards ---- */
+/* PRODUCTS */
 .product-grid{display:grid;grid-template-columns:1fr;gap:28px}
 @media(min-width:600px){.product-grid{grid-template-columns:repeat(2,1fr);gap:26px}}
 @media(min-width:1024px){.product-grid{grid-template-columns:repeat(3,1fr);gap:34px}}
@@ -237,10 +237,9 @@ section[id]{scroll-margin-top:calc(var(--header-h) + 20px)}
   transition:.45s;pointer-events:none}
 .p-card:hover .p-hover{opacity:1}
 .p-hover span{color:#fff;font-size:10px;letter-spacing:.26em;text-transform:uppercase;
-  border:1px solid rgba(255,255,255,.6);padding:12px 22px;font-weight:600;
-  transform:translateY(6px);transition:transform .45s}
-.p-card:hover .p-hover span{transform:translateY(0)}
-.p-badges{position:absolute;top:12px;left:12px;display:flex;flex-direction:column;gap:6px;z-index:2}
+  border:1px solid rgba(255,255,255,.6);padding:12px 22px;font-weight:600}
+.p-badges{position:absolute;top:12px;left:12px;display:flex;flex-direction:column;
+  gap:6px;z-index:2}
 .badge{font-size:9px;letter-spacing:.18em;text-transform:uppercase;font-weight:700;
   padding:6px 11px;border-radius:2px;background:var(--dark);color:#fff;
   box-shadow:0 4px 12px rgba(0,0,0,.2)}
@@ -257,8 +256,8 @@ section[id]{scroll-margin-top:calc(var(--header-h) + 20px)}
 .p-wish:hover{background:var(--gold);color:var(--on-gold);transform:scale(1.08)}
 .p-wish.saved{background:var(--accent);color:#fff}
 .p-body{padding:20px;display:flex;flex-direction:column;flex:1}
-.p-origin{font-size:9.5px;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);
-  font-weight:700;margin:0 0 10px}
+.p-origin{font-size:9.5px;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--gold);font-weight:700;margin:0 0 10px}
 .p-title{font-size:18px;font-weight:500;margin:0 0 7px;line-height:1.32;letter-spacing:.01em}
 .p-dims{font-size:12.5px;color:var(--muted);margin:0 0 12px;letter-spacing:.04em}
 .p-rating{display:flex;align-items:center;gap:8px;margin:0 0 14px;
@@ -287,7 +286,7 @@ section[id]{scroll-margin-top:calc(var(--header-h) + 20px)}
 .stars{display:inline-flex;gap:2px;color:var(--gold);font-size:12px;line-height:1}
 .stars i{color:var(--gold)}
 .stars i.empty{color:rgba(197,160,89,.28)}
-/* ---- Story ---- */
+/* STORY */
 .story-section{background:var(--dark);color:var(--light)}
 .story-section .section-title{color:#fff}
 .story-grid{display:grid;grid-template-columns:1fr;gap:48px;align-items:center}
@@ -305,7 +304,7 @@ section[id]{scroll-margin-top:calc(var(--header-h) + 20px)}
   color:var(--gold);font-weight:600;line-height:1.1}
 .stats span{display:block;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;
   color:rgba(255,255,255,.55);margin-top:9px;font-weight:600}
-/* ---- Care ---- */
+/* CARE */
 .care-grid{display:grid;grid-template-columns:1fr;gap:22px;margin-top:52px}
 @media(min-width:640px){.care-grid{grid-template-columns:repeat(2,1fr)}}
 @media(min-width:1024px){.care-grid{grid-template-columns:repeat(4,1fr)}}
@@ -318,7 +317,7 @@ section[id]{scroll-margin-top:calc(var(--header-h) + 20px)}
   font-size:19px;margin-bottom:22px}
 .care-card h3{font-size:15.5px;font-weight:600;margin:0 0 12px;letter-spacing:.04em}
 .care-card p{font-size:14px;line-height:1.8;color:var(--muted);margin:0}
-/* ---- Reviews ---- */
+/* REVIEWS */
 .reviews-section{background:#F4EFE6}
 .reviews-strip{display:grid;grid-template-columns:1fr;gap:22px;margin-top:44px}
 @media(min-width:700px){.reviews-strip{grid-template-columns:repeat(2,1fr)}}
@@ -326,8 +325,8 @@ section[id]{scroll-margin-top:calc(var(--header-h) + 20px)}
 .review-card{background:#fff;border:1px solid var(--line);border-radius:3px;
   padding:26px 24px;display:flex;flex-direction:column;transition:.35s}
 .review-card:hover{border-color:var(--gold);box-shadow:0 18px 40px -30px rgba(0,0,0,.3)}
-.review-head{display:flex;align-items:center;justify-content:space-between;gap:10px;
-  margin-bottom:12px}
+.review-head{display:flex;align-items:center;justify-content:space-between;
+  gap:10px;margin-bottom:12px}
 .review-name{font-size:13px;font-weight:600;letter-spacing:.04em}
 .review-date{font-size:10.5px;color:var(--muted);letter-spacing:.06em}
 .review-text{font-size:13.5px;line-height:1.75;color:var(--muted);margin:14px 0 0}
@@ -335,15 +334,15 @@ section[id]{scroll-margin-top:calc(var(--header-h) + 20px)}
   color:var(--gold);font-weight:700;margin-top:16px;padding-top:14px;
   border-top:1px solid var(--line);cursor:pointer}
 .review-rug:hover{color:var(--accent)}
-/* ---- Footer ---- */
+/* FOOTER */
 .site-footer{background:var(--dark);color:rgba(255,255,255,.66);padding:76px 0 32px}
 .footer-grid{display:grid;grid-template-columns:1fr;gap:44px;margin-bottom:52px}
 @media(min-width:800px){.footer-grid{grid-template-columns:1.5fr 1fr 1fr}}
 .footer-brand{font-family:var(--font-head);font-size:26px;letter-spacing:.34em;
   color:#fff;margin:0 0 20px;font-weight:600;margin-right:-.34em}
 .footer-grid p{font-size:14px;line-height:1.85;margin:0 0 12px;max-width:400px}
-.footer-h{font-size:10px;letter-spacing:.28em;text-transform:uppercase;color:var(--gold);
-  font-weight:700;margin:0 0 22px}
+.footer-h{font-size:10px;letter-spacing:.28em;text-transform:uppercase;
+  color:var(--gold);font-weight:700;margin:0 0 22px}
 .footer-links{display:flex;flex-direction:column;gap:12px}
 .footer-links a,.footer-links span{font-size:13.5px;transition:.3s;
   color:rgba(255,255,255,.66);display:flex;align-items:center;gap:10px;cursor:pointer}
@@ -356,7 +355,7 @@ section[id]{scroll-margin-top:calc(var(--header-h) + 20px)}
   border-radius:50%;display:inline-flex;align-items:center;justify-content:center;
   transition:.35s;cursor:pointer}
 .admin-key:hover{color:var(--gold);background:rgba(197,160,89,.14);transform:rotate(-14deg)}
-/* ---- Chat widget ---- */
+/* CHAT */
 #chatWidget{position:fixed;bottom:22px;right:22px;z-index:150;display:flex;
   flex-direction:column;align-items:flex-end;gap:14px}
 #chatToggle{width:52px;height:52px;border-radius:50%;background:var(--dark);color:#fff;
@@ -371,10 +370,10 @@ section[id]{scroll-margin-top:calc(var(--header-h) + 20px)}
   transition:transform .35s cubic-bezier(.2,.8,.2,1),opacity .3s;
   max-height:calc(100vh - 110px)}
 #chatPanel.open{transform:scale(1) translateY(0);opacity:1;pointer-events:auto}
-.chat-topbar{padding:16px 20px;display:flex;align-items:center;justify-content:space-between;
-  gap:12px;border-bottom:1px solid #f0eee9}
-.chat-topbar-title{font-size:14px;font-weight:600;letter-spacing:.02em;color:var(--dark);
-  font-family:var(--font-head)}
+.chat-topbar{padding:16px 20px;display:flex;align-items:center;
+  justify-content:space-between;gap:12px;border-bottom:1px solid #f0eee9}
+.chat-topbar-title{font-size:14px;font-weight:600;letter-spacing:.02em;
+  color:var(--dark);font-family:var(--font-head)}
 .chat-topbar-actions{display:flex;gap:4px}
 .chat-action-btn{width:34px;height:34px;border-radius:50%;color:#666;font-size:14px;
   display:flex;align-items:center;justify-content:center;transition:.2s;
@@ -390,19 +389,20 @@ section[id]{scroll-margin-top:calc(var(--header-h) + 20px)}
 .chat-chip{background:#f4f2ee;border:1px solid #e8e5df;border-radius:999px;
   padding:9px 16px;font-size:13px;color:#333;transition:.2s;cursor:pointer;
   font-weight:500;font-family:inherit}
-.chat-chip:hover{background:var(--dark);color:#fff;border-color:var(--dark);transform:translateY(-1px)}
+.chat-chip:hover{background:var(--dark);color:#fff;border-color:var(--dark)}
 .chat-input-row{padding:14px 16px;border-top:1px solid #f0eee9;background:#fff;
   display:flex;gap:8px;align-items:center}
 .chat-input{flex:1;border:none;background:transparent;outline:none;font-size:15px;
   color:var(--dark);padding:10px 12px;font-family:inherit}
 .chat-input::placeholder{color:#b0a89e}
 .chat-send-btn{width:42px;height:42px;border-radius:50%;background:var(--dark);color:#fff;
-  font-size:15px;display:flex;align-items:center;justify-content:center;transition:.25s;
-  cursor:pointer;border:none;flex:none}
-.chat-send-btn:hover{background:var(--gold);color:var(--on-gold);transform:scale(1.05)}
-.chat-privacy{padding:0 20px 14px;font-size:10.5px;color:#a8a29e;line-height:1.5;text-align:center}
+  font-size:15px;display:flex;align-items:center;justify-content:center;
+  transition:.25s;cursor:pointer;border:none;flex:none}
+.chat-send-btn:hover{background:var(--gold);color:var(--on-gold)}
+.chat-privacy{padding:0 20px 14px;font-size:10.5px;color:#a8a29e;
+  line-height:1.5;text-align:center}
 .chat-privacy a{color:#6b6862;text-decoration:underline}
-/* ---- Modals (with pointer-events fix) ---- */
+/* MODALS — simple, no pointer-events tricks */
 .modal{position:fixed;inset:0;z-index:300;display:none}
 .modal.open{display:block}
 .modal-backdrop{position:absolute;inset:0;background:rgba(10,10,10,.72);
@@ -442,10 +442,11 @@ section[id]{scroll-margin-top:calc(var(--header-h) + 20px)}
 .wl-head h2{font-size:18px;margin:0;font-weight:500;letter-spacing:.06em}
 .wl-head .icon-btn{color:#fff}
 .wl-head .icon-btn:hover{background:rgba(255,255,255,.12);color:var(--gold)}
-.wl-kicker{font-size:9px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold);
-  margin:0 0 6px;font-weight:700}
+.wl-kicker{font-size:9px;letter-spacing:.3em;text-transform:uppercase;
+  color:var(--gold);margin:0 0 6px;font-weight:700}
 .wl-body{flex:1;overflow-y:auto;padding:20px 22px;-webkit-overflow-scrolling:touch}
-.wl-item{display:flex;gap:14px;padding:14px 0;border-bottom:1px solid var(--line);align-items:center}
+.wl-item{display:flex;gap:14px;padding:14px 0;border-bottom:1px solid var(--line);
+  align-items:center}
 .wl-item:last-child{border-bottom:none}
 .wl-item img{width:60px;height:76px;object-fit:cover;border-radius:2px;flex:none;background:#eee}
 .wl-info{flex:1;min-width:0}
@@ -455,11 +456,11 @@ section[id]{scroll-margin-top:calc(var(--header-h) + 20px)}
 .wl-info .wl-price{color:var(--accent);font-family:var(--font-head);font-size:14px;
   font-weight:600;margin-top:4px;letter-spacing:.02em}
 .wl-remove{width:38px;height:38px;border-radius:50%;color:var(--muted);font-size:14px;
-  display:flex;align-items:center;justify-content:center;transition:.25s;flex:none;
-  background:transparent;cursor:pointer}
+  display:flex;align-items:center;justify-content:center;transition:.25s;
+  flex:none;background:transparent;cursor:pointer}
 .wl-remove:hover{background:rgba(179,38,30,.10);color:#b3261e}
-.wl-foot{padding:18px 22px;border-top:1px solid var(--line);display:flex;gap:10px;
-  flex-wrap:wrap;border-radius:0 0 4px 4px;background:var(--light)}
+.wl-foot{padding:18px 22px;border-top:1px solid var(--line);display:flex;
+  gap:10px;flex-wrap:wrap;border-radius:0 0 4px 4px;background:var(--light)}
 .wl-foot .btn-gold-sm{flex:2;min-width:180px}
 .wl-foot .mini-btn{flex:1;min-width:100px;padding:14px 16px}
 .wl-empty{text-align:center;padding:60px 20px;color:var(--muted)}
@@ -475,9 +476,7 @@ section[id]{scroll-margin-top:calc(var(--header-h) + 20px)}
 @media(min-width:900px){.pm-gallery{padding:22px}}
 .pm-main{position:relative;aspect-ratio:4/5;overflow:hidden;border-radius:3px;
   cursor:zoom-in;background:linear-gradient(135deg,#e6dfd2 0%,#dfd6c5 100%)}
-.pm-main img{width:100%;height:100%;object-fit:cover;
-  transition:opacity .5s,transform .7s cubic-bezier(.2,.8,.2,1)}
-.pm-main:hover img{transform:scale(1.02)}
+.pm-main img{width:100%;height:100%;object-fit:cover;transition:.5s}
 .pm-thumbs{display:flex;gap:10px;margin-top:14px;overflow-x:auto;padding-bottom:4px}
 .pm-thumb{width:64px;height:80px;flex:none;border-radius:3px;overflow:hidden;
   border:2px solid transparent;transition:.28s;opacity:.62;padding:0;
@@ -502,8 +501,8 @@ section[id]{scroll-margin-top:calc(var(--header-h) + 20px)}
 .pm-rating-row strong{color:var(--dark);font-weight:600}
 .pm-specs{display:grid;grid-template-columns:1fr 1fr;gap:16px 20px;padding:22px 0;
   border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-bottom:24px}
-.pm-specs div span{display:block;font-size:9px;letter-spacing:.2em;text-transform:uppercase;
-  color:var(--muted);margin-bottom:6px;font-weight:600}
+.pm-specs div span{display:block;font-size:9px;letter-spacing:.2em;
+  text-transform:uppercase;color:var(--muted);margin-bottom:6px;font-weight:600}
 .pm-specs div strong{font-size:14px;font-weight:500;letter-spacing:.02em}
 .pm-desc{font-size:14.5px;line-height:1.88;color:var(--muted);margin:0 0 28px;
   white-space:pre-line}
@@ -548,78 +547,35 @@ section[id]{scroll-margin-top:calc(var(--header-h) + 20px)}
 .rf-actions .mini-btn{flex:1;padding:14px 16px}
 .rf-note{font-size:11.5px;color:var(--muted);text-align:center;margin:18px 0 0;
   letter-spacing:.04em;line-height:1.6;font-style:italic}
-/* ---- Lightbox ---- */
+/* LIGHTBOX */
 .lightbox{position:fixed;inset:0;z-index:400;background:rgba(6,6,6,.97);
-  display:none;align-items:center;justify-content:center;overflow:hidden;
-  opacity:0;transition:opacity .35s ease}
+  display:none;align-items:center;justify-content:center;overflow:hidden;opacity:0;
+  transition:opacity .35s ease}
 .lightbox.open{display:flex;opacity:1}
 #lbStage{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;
   overflow:hidden;cursor:grab;touch-action:none}
 #lbStage.dragging{cursor:grabbing}
 #lbImg{max-width:92vw;max-height:82vh;object-fit:contain;user-select:none;
   -webkit-user-drag:none;transform:scale(.94);opacity:0;
-  transition:transform .45s cubic-bezier(.2,.8,.2,1),opacity .35s ease;
-  will-change:transform,opacity}
+  transition:transform .45s cubic-bezier(.2,.8,.2,1),opacity .35s ease}
 .lightbox.open #lbImg{transform:scale(1);opacity:1}
 .lightbox.zoomed #lbImg{transition:transform .1s linear,opacity .35s}
-.lb-close{position:absolute;top:20px;right:20px;width:48px;height:48px;border-radius:50%;
-  background:rgba(255,255,255,.1);color:#fff;font-size:20px;display:flex;
-  align-items:center;justify-content:center;z-index:5;transition:.3s;cursor:pointer}
+.lb-close{position:absolute;top:20px;right:20px;width:48px;height:48px;
+  border-radius:50%;background:rgba(255,255,255,.1);color:#fff;font-size:20px;
+  display:flex;align-items:center;justify-content:center;z-index:5;
+  transition:.3s;cursor:pointer}
 .lb-close:hover{background:var(--gold);color:var(--on-gold)}
-.lb-controls{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);z-index:5;
-  display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.1);padding:8px;
-  border-radius:999px;-webkit-backdrop-filter:blur(10px);backdrop-filter:blur(10px)}
+.lb-controls{position:absolute;bottom:26px;left:50%;transform:translateX(-50%);
+  z-index:5;display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.1);
+  padding:8px;border-radius:999px;-webkit-backdrop-filter:blur(10px);
+  backdrop-filter:blur(10px)}
 .lb-controls button{width:44px;height:44px;border-radius:50%;color:#fff;font-size:16px;
   display:flex;align-items:center;justify-content:center;transition:.3s;
   background:transparent;cursor:pointer;border:none}
 .lb-controls button:hover{background:var(--gold);color:var(--on-gold)}
 #lbScale{color:rgba(255,255,255,.72);font-size:11px;letter-spacing:.14em;
   padding:0 14px;min-width:66px;text-align:center;font-weight:600}
-/* ---- Room visualizer modal ---- */
-.rv-wrap{position:relative;background:var(--light);border-radius:6px;max-width:1100px;
-  width:calc(100% - 20px);margin:0 auto;top:50%;transform:translateY(-50%);
-  max-height:92vh;overflow-y:auto;animation:slideUp .4s cubic-bezier(.2,.8,.2,1)}
-.rv-head{padding:20px 24px;border-bottom:1px solid var(--line);display:flex;
-  align-items:center;justify-content:space-between;gap:12px;background:var(--dark);
-  color:#fff;border-radius:6px 6px 0 0}
-.rv-head h2{font-size:17px;margin:0;font-weight:500;letter-spacing:.06em;
-  font-family:var(--font-head)}
-.rv-head .icon-btn{color:#fff}
-.rv-head .icon-btn:hover{background:rgba(255,255,255,.12);color:var(--gold)}
-.rv-kicker{font-size:9px;letter-spacing:.3em;text-transform:uppercase;
-  color:var(--gold);margin:0 0 6px;font-weight:700}
-.rv-body{padding:22px}
-.rv-stage{position:relative;width:100%;aspect-ratio:16/10;background:#e8e2d5;
-  border-radius:4px;overflow:hidden;cursor:grab;touch-action:none}
-.rv-stage.dragging{cursor:grabbing}
-.rv-stage img.rv-bg{width:100%;height:100%;object-fit:cover;
-  user-select:none;-webkit-user-drag:none;pointer-events:none}
-.rv-rug{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);
-  width:55%;pointer-events:none;transition:width .2s ease}
-.rv-rug img{width:100%;display:block;user-select:none;-webkit-user-drag:none;
-  filter:drop-shadow(0 10px 24px rgba(0,0,0,.3))}
-.rv-empty{position:absolute;inset:0;display:flex;flex-direction:column;
-  align-items:center;justify-content:center;gap:14px;background:rgba(0,0,0,.05);
-  text-align:center;padding:24px;pointer-events:none}
-.rv-empty i{font-size:34px;color:var(--gold-a45)}
-.rv-empty p{margin:0;font-size:14px;font-weight:600;color:var(--dark)}
-.rv-empty small{font-size:12px;color:var(--muted)}
-.rv-controls{padding:18px 22px 22px;border-top:1px solid var(--line)}
-.rv-row{display:flex;gap:10px;flex-wrap:wrap;align-items:center;margin-bottom:14px}
-.rv-row label{font-size:11px;letter-spacing:.1em;text-transform:uppercase;
-  font-weight:700;color:var(--muted);min-width:80px}
-.rv-slider{flex:1;min-width:160px;accent-color:var(--gold)}
-.rv-sample-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:8px;margin-top:8px}
-@media(min-width:600px){.rv-sample-grid{grid-template-columns:repeat(5,1fr)}}
-.rv-sample{aspect-ratio:4/3;border-radius:3px;overflow:hidden;cursor:pointer;
-  border:2px solid transparent;transition:.25s;background:#ddd}
-.rv-sample img{width:100%;height:100%;object-fit:cover}
-.rv-sample:hover{border-color:var(--gold)}
-.rv-sample.active{border-color:var(--gold);box-shadow:0 0 0 3px var(--gold-a18)}
-.rv-hint{font-size:12px;color:var(--muted);line-height:1.6;margin:14px 0 0;
-  padding:12px 14px;background:var(--gold-a10);border-left:2px solid var(--gold);
-  border-radius:2px}
-/* ---- Admin panel ---- */
+/* ADMIN */
 .admin-drawer{position:absolute;top:0;right:0;bottom:0;width:100%;max-width:600px;
   background:var(--light);display:flex;flex-direction:column;
   animation:slideRight .36s cubic-bezier(.2,.8,.2,1);
@@ -665,24 +621,24 @@ section[id]{scroll-margin-top:calc(var(--header-h) + 20px)}
   background:#fff;color:var(--dark);outline:none;transition:.25s;font-size:14px;min-height:44px}
 .txt:focus{border-color:var(--gold);box-shadow:0 0 0 3px var(--gold-a10)}
 textarea.txt{resize:vertical;line-height:1.65;min-height:80px}
-select.txt{appearance:none;
-  background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23888' stroke-width='1.6' fill='none'/%3E%3C/svg%3E");
-  background-repeat:no-repeat;background-position:right 13px center;
-  padding-right:34px;cursor:pointer}
+select.txt{appearance:none;background-repeat:no-repeat;
+  background-position:right 13px center;padding-right:34px;cursor:pointer;
+  background-image:url("data:image/svg+xml;charset=utf-8,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23888' stroke-width='1.6' fill='none'/%3E%3C/svg%3E")}
 .color-row{display:flex;align-items:center;justify-content:space-between;gap:14px;
   padding:12px 0;border-bottom:1px solid var(--line);flex-wrap:wrap}
 .color-row label{font-size:12.5px;font-weight:600;letter-spacing:.03em}
 .color-ctrl{display:flex;align-items:center;gap:9px}
-input[type="color"]{width:42px;height:38px;border:1px solid var(--line);border-radius:2px;
-  background:none;cursor:pointer;padding:2px}
+input[type="color"]{width:42px;height:38px;border:1px solid var(--line);
+  border-radius:2px;background:none;cursor:pointer;padding:2px}
 input[type="color"]::-webkit-color-swatch-wrapper{padding:0}
 input[type="color"]::-webkit-color-swatch{border:none;border-radius:1px}
-.color-ctrl .txt{width:100px;padding:9px 9px;font-size:11.5px;letter-spacing:.06em;
+.color-ctrl .txt{width:100px;padding:9px;font-size:11.5px;letter-spacing:.06em;
   text-transform:uppercase;font-family:monospace;min-height:0}
 .preset-wrap{display:grid;grid-template-columns:1fr 1fr;gap:10px}
 @media(max-width:420px){.preset-wrap{grid-template-columns:1fr}}
 .preset{display:flex;align-items:center;gap:10px;padding:11px;border:1px solid var(--line);
-  border-radius:2px;transition:.28s;background:#fff;text-align:left;min-height:52px;cursor:pointer}
+  border-radius:2px;transition:.28s;background:#fff;text-align:left;min-height:52px;
+  cursor:pointer}
 .preset:hover{border-color:var(--gold)}
 .preset.active{border-color:var(--gold);box-shadow:0 0 0 3px var(--gold-a10)}
 .preset .sw{display:flex;gap:3px;flex:none}
@@ -708,9 +664,8 @@ input[type="color"]::-webkit-color-swatch{border:none;border-radius:1px}
 .switch.on::after{transform:translateX(20px)}
 .inv-head{display:flex;flex-direction:column;gap:14px;margin-bottom:20px}
 .inv-list{display:flex;flex-direction:column;gap:10px}
-.inv-row{display:flex;align-items:center;gap:12px;padding:10px;
-  border:1px solid var(--line);border-radius:3px;background:#fff;
-  transition:.28s;flex-wrap:wrap}
+.inv-row{display:flex;align-items:center;gap:12px;padding:10px;border:1px solid var(--line);
+  border-radius:3px;background:#fff;transition:.28s;flex-wrap:wrap}
 .inv-row:hover{border-color:var(--gold)}
 .inv-row img{width:50px;height:62px;object-fit:cover;border-radius:2px;flex:none;background:#eee}
 .inv-meta{flex:1;min-width:120px}
@@ -784,10 +739,9 @@ input[type="color"]::-webkit-color-swatch{border:none;border-radius:1px}
   gap:12px;margin-bottom:10px}
 .storage-meter-head strong{font-size:13px;font-weight:600;letter-spacing:.03em}
 .storage-meter-head span{font-size:11.5px;color:var(--muted);letter-spacing:.05em}
-.storage-bar{height:8px;background:rgba(0,0,0,.06);border-radius:4px;overflow:hidden;
-  margin-bottom:12px}
-.storage-bar i{display:block;height:100%;border-radius:4px;
-  transition:width .4s ease,background .3s}
+.storage-bar{height:8px;background:rgba(0,0,0,.06);border-radius:4px;
+  overflow:hidden;margin-bottom:12px}
+.storage-bar i{display:block;height:100%;border-radius:4px;transition:.4s ease}
 .storage-bar i.ok{background:linear-gradient(90deg,#7cb342,#25D366)}
 .storage-bar i.warn{background:linear-gradient(90deg,#F9A825,#EF6C00)}
 .storage-bar i.danger{background:linear-gradient(90deg,#EF6C00,#C62828)}
@@ -795,43 +749,44 @@ input[type="color"]::-webkit-color-swatch{border:none;border-radius:1px}
   font-size:11.5px;color:var(--muted)}
 .storage-stats div strong{display:block;color:var(--dark);font-size:13px;
   font-family:var(--font-head);letter-spacing:.02em;margin-bottom:2px}
-/* ---- Floating dock ---- */
+/* FLOATING DOCK */
 #fabDock{position:fixed;bottom:22px;left:22px;z-index:145;display:flex;
   flex-direction:column;gap:10px;pointer-events:none}
 #fabDock>*{pointer-events:auto}
-.dock-btn{width:52px;height:52px;border-radius:50%;background:var(--dark);color:var(--gold);
-  font-size:18px;display:flex;align-items:center;justify-content:center;
-  box-shadow:0 12px 32px -8px rgba(0,0,0,.5);transition:.3s;
-  border:1px solid var(--gold-a45);position:relative;cursor:pointer}
+.dock-btn{width:52px;height:52px;border-radius:50%;background:var(--dark);
+  color:var(--gold);font-size:18px;display:flex;align-items:center;
+  justify-content:center;box-shadow:0 12px 32px -8px rgba(0,0,0,.5);
+  transition:.3s;border:1px solid var(--gold-a45);position:relative;cursor:pointer}
 .dock-btn:hover{background:var(--gold);color:var(--on-gold);transform:scale(1.06)}
 .dock-btn .icon-badge{top:-4px;right:-4px;background:var(--accent);color:#fff;
   font-size:9px;min-width:20px;height:20px;border:2px solid var(--dark)}
-.dock-btn:hover .icon-badge{border-color:var(--gold);color:var(--on-gold);
-  background:var(--dark)}
+/* ADMIN FAB — moved up, but hidden when panel opens */
 .admin-fab{position:fixed;bottom:88px;right:22px;z-index:145;display:flex;
   flex-direction:column;gap:10px}
-.fab-btn{width:52px;height:52px;border-radius:50%;background:var(--dark);color:var(--gold);
-  font-size:18px;display:flex;align-items:center;justify-content:center;
-  box-shadow:0 12px 32px -8px rgba(0,0,0,.5);transition:.3s;
-  border:1px solid var(--gold-a45);cursor:pointer}
+.fab-btn{width:52px;height:52px;border-radius:50%;background:var(--dark);
+  color:var(--gold);font-size:18px;display:flex;align-items:center;
+  justify-content:center;box-shadow:0 12px 32px -8px rgba(0,0,0,.5);
+  transition:.3s;border:1px solid var(--gold-a45);cursor:pointer}
 .fab-btn:hover{background:var(--gold);color:var(--on-gold);transform:scale(1.06)}
 .fab-btn.danger{color:#ff8a80}
 .fab-btn.danger:hover{background:#b3261e;color:#fff;border-color:#b3261e}
+/* EDITING AFFORDANCE */
 body.admin-unlocked [data-edit]{cursor:text;border-radius:2px;
-  outline:1px dashed transparent;outline-offset:4px;
-  transition:outline-color .22s,background .22s;min-width:20px;display:inline-block}
+  outline:1px dashed transparent;outline-offset:4px;transition:.22s;
+  min-width:20px;display:inline-block}
 body.admin-unlocked [data-edit]:hover{outline-color:var(--gold-a45)}
 body.admin-unlocked [data-edit]:focus{outline-color:var(--gold);
   background:rgba(197,160,89,.09)}
-.toast{position:fixed;bottom:26px;left:50%;transform:translate(-50%,26px);z-index:500;
-  background:var(--dark);color:#fff;padding:14px 24px;border-radius:3px;
-  font-size:12.5px;letter-spacing:.06em;opacity:0;pointer-events:none;
-  transition:.38s cubic-bezier(.2,.8,.2,1);border-left:3px solid var(--gold);
-  max-width:90vw;text-align:center;box-shadow:0 18px 44px -14px rgba(0,0,0,.6)}
+/* TOAST */
+.toast{position:fixed;bottom:26px;left:50%;transform:translate(-50%,26px);
+  z-index:500;background:var(--dark);color:#fff;padding:14px 24px;
+  border-radius:3px;font-size:12.5px;letter-spacing:.06em;opacity:0;
+  pointer-events:none;transition:.38s cubic-bezier(.2,.8,.2,1);
+  border-left:3px solid var(--gold);max-width:90vw;text-align:center;
+  box-shadow:0 18px 44px -14px rgba(0,0,0,.6)}
 .toast.show{opacity:1;transform:translate(-50%,0)}
 .toast.err{border-left-color:#e53935}
-.reveal{opacity:0;transform:translateY(26px);
-  transition:opacity .9s cubic-bezier(.2,.8,.2,1),transform .9s cubic-bezier(.2,.8,.2,1)}
+.reveal{opacity:0;transform:translateY(26px);transition:.9s cubic-bezier(.2,.8,.2,1)}
 .reveal.in{opacity:1;transform:none}
 @media(prefers-reduced-motion:reduce){
   .reveal{opacity:1;transform:none;transition:none}
@@ -931,9 +886,9 @@ body.admin-unlocked [data-edit]:focus{outline-color:var(--gold);
       <a href="#reviews" class="btn btn-ghost" data-scroll data-edit="content.heroCta2"></a>
     </div>
   </div>
-  <a href="#catalog" class="hero-scroll" data-scroll aria-label="Scroll to collection">
+  <button type="button" class="hero-scroll" data-scroll-target="#catalog" aria-label="Scroll to collection" style="background:transparent;border:none">
     <i class="fa-solid fa-chevron-down"></i>
-  </a>
+  </button>
 </section>
 
 <section id="catalog" class="section">
@@ -1030,11 +985,21 @@ body.admin-unlocked [data-edit]:focus{outline-color:var(--gold);
       <div>
         <p class="footer-h">Explore</p>
         <div class="footer-links">
-          <a href="#catalog" data-scroll><i class="fa-solid fa-layer-group"></i> The Collection</a>
-          <a href="#story" data-scroll><i class="fa-solid fa-hands"></i> Our Heritage</a>
-          <a href="#reviews" data-scroll><i class="fa-regular fa-star"></i> Reviews</a>
-          <a href="#care" data-scroll><i class="fa-solid fa-leaf"></i> Rug Care Guide</a>
-          <a href="#top" data-scroll><i class="fa-solid fa-arrow-up"></i> Back to Top</a>
+          <button type="button" class="footer-link-btn" data-scroll-target="#catalog">
+            <i class="fa-solid fa-layer-group"></i> The Collection
+          </button>
+          <button type="button" class="footer-link-btn" data-scroll-target="#story">
+            <i class="fa-solid fa-hands"></i> Our Heritage
+          </button>
+          <button type="button" class="footer-link-btn" data-scroll-target="#reviews">
+            <i class="fa-regular fa-star"></i> Reviews
+          </button>
+          <button type="button" class="footer-link-btn" data-scroll-target="#care">
+            <i class="fa-solid fa-leaf"></i> Rug Care Guide
+          </button>
+          <button type="button" class="footer-link-btn" data-scroll-target="#top">
+            <i class="fa-solid fa-arrow-up"></i> Back to Top
+          </button>
         </div>
       </div>
     </div>
@@ -1046,6 +1011,14 @@ body.admin-unlocked [data-edit]:focus{outline-color:var(--gold);
     </div>
   </div>
 </footer>
+
+<style>
+.footer-link-btn{font-size:13.5px;transition:.3s;color:rgba(255,255,255,.66);
+  display:flex;align-items:center;gap:10px;cursor:pointer;background:transparent;
+  border:none;padding:0;text-align:left;font-family:inherit}
+.footer-link-btn:hover{color:var(--gold)}
+.footer-link-btn i{color:var(--gold);width:16px;text-align:center;flex:none}
+</style>
 
 <div id="fabDock">
   <button class="dock-btn hidden" id="backToTop" type="button" aria-label="Back to top" title="Back to top">
@@ -1071,9 +1044,6 @@ body.admin-unlocked [data-edit]:focus{outline-color:var(--gold);
     <div class="chat-topbar">
       <span class="chat-topbar-title">Roshan</span>
       <div class="chat-topbar-actions">
-        <button class="chat-action-btn" id="chatExpand" type="button" aria-label="Expand">
-          <i class="fa-solid fa-up-right-and-down-left-from-center"></i>
-        </button>
         <button class="chat-action-btn" id="chatClose" type="button" aria-label="Minimize">
           <i class="fa-solid fa-minus"></i>
         </button>
@@ -1081,10 +1051,10 @@ body.admin-unlocked [data-edit]:focus{outline-color:var(--gold);
     </div>
     <div class="chat-content">
       <h3 class="chat-hello">Hi there! <span class="wave">👋</span></h3>
-      <p class="chat-blurb">You can ask questions about shopping, sizing, shipping, returns, or order status.</p>
+      <p class="chat-blurb">Ask us anything — sizing, shipping, returns, or a specific rug.</p>
       <div class="chat-chips">
         <button class="chat-chip" type="button" data-chat-msg="Hi! I'd like to track my order.">Track my order</button>
-        <button class="chat-chip" type="button" data-chat-msg="Hi! I have a question about sizing and dimensions.">Sizing &amp; dimensions</button>
+        <button class="chat-chip" type="button" data-chat-msg="Hi! I have a question about sizing and dimensions.">Sizing</button>
         <button class="chat-chip" type="button" data-chat-msg="Hi! What are your shipping options?">Shipping</button>
         <button class="chat-chip" type="button" data-chat-msg="Hi! What's your return policy?">Returns</button>
       </div>
@@ -1095,7 +1065,6 @@ body.admin-unlocked [data-edit]:focus{outline-color:var(--gold);
         <i class="fa-solid fa-paper-plane"></i>
       </button>
     </div>
-    <p class="chat-privacy">Messages reach our atelier via WhatsApp. <a href="#" id="chatPrivacyLink">See our promise</a>.</p>
   </div>
   <button id="chatToggle" type="button" aria-label="Open chat">
     <i class="fa-regular fa-comment"></i>
@@ -1147,49 +1116,6 @@ body.admin-unlocked [data-edit]:focus{outline-color:var(--gold);
   </div>
 </div>
 
-<!-- ROOM VISUALIZER -->
-<div id="roomModal" class="modal">
-  <div class="modal-backdrop" data-close></div>
-  <div class="rv-wrap">
-    <div class="rv-head">
-      <div>
-        <p class="rv-kicker">See It In Your Space</p>
-        <h2>View Rug in Your Room</h2>
-      </div>
-      <button class="icon-btn" data-close type="button" aria-label="Close">
-        <i class="fa-solid fa-xmark"></i>
-      </button>
-    </div>
-    <div class="rv-body">
-      <div class="rv-stage" id="rvStage">
-        <img class="rv-bg hidden" id="rvBg" src="" alt="Your room">
-        <div class="rv-rug hidden" id="rvRug"><img id="rvRugImg" src="" alt="Rug preview"></div>
-        <div class="rv-empty" id="rvEmpty">
-          <i class="fa-regular fa-image"></i>
-          <p>Upload a photo of your room</p>
-          <small>Or pick one of the sample rooms below</small>
-        </div>
-      </div>
-      <div class="rv-controls">
-        <div class="rv-row">
-          <label for="rvUpload">Your Room</label>
-          <input type="file" id="rvUpload" accept="image/*" class="txt" style="flex:1;padding:9px;min-width:180px">
-        </div>
-        <div class="rv-row">
-          <label for="rvSize">Rug Size</label>
-          <input type="range" id="rvSize" class="rv-slider" min="20" max="90" value="55">
-          <span id="rvSizeVal" style="font-size:12px;color:var(--muted);min-width:40px">55%</span>
-        </div>
-        <p class="ap-h" style="margin-top:20px">Sample Rooms</p>
-        <div class="rv-sample-grid" id="rvSamples"></div>
-        <p class="rv-hint">
-          <strong>Tip:</strong> For the most accurate result, stand back and take a photo that shows the full floor area where you plan to place the rug.
-        </p>
-      </div>
-    </div>
-  </div>
-</div>
-
 <div id="reviewModal" class="modal">
   <div class="modal-backdrop" data-close></div>
   <div class="rf-wrap">
@@ -1197,7 +1123,7 @@ body.admin-unlocked [data-edit]:focus{outline-color:var(--gold);
       <i class="fa-solid fa-xmark"></i>
     </button>
     <h2>Write a Review</h2>
-    <p class="sub">Your review will be sent to our atelier on WhatsApp. Thank you for helping other collectors.</p>
+    <p class="sub">Your review will be sent to our atelier on WhatsApp.</p>
     <div class="rf-rug" id="rfRug"></div>
     <div class="rf-stars" id="rfStars">
       <i class="fa-regular fa-star" data-star="1"></i>
@@ -1212,7 +1138,7 @@ body.admin-unlocked [data-edit]:focus{outline-color:var(--gold);
     </label>
     <label class="fld" style="text-align:left">
       <span>Your review</span>
-      <textarea class="txt" id="rfText" rows="4" placeholder="What did you love about this rug?" maxlength="500"></textarea>
+      <textarea class="txt" id="rfText" rows="4" placeholder="What did you love?" maxlength="500"></textarea>
     </label>
     <div class="rf-actions">
       <button class="btn-gold-sm" id="rfSubmit" type="button">
@@ -1232,9 +1158,14 @@ body.admin-unlocked [data-edit]:focus{outline-color:var(--gold);
         <p class="admin-kicker">Roshan · Control Room</p>
         <h2 class="fh">Store Manager</h2>
       </div>
-      <button class="icon-btn" data-close type="button" aria-label="Close">
-        <i class="fa-solid fa-xmark"></i>
-      </button>
+      <div style="display:flex;gap:6px;flex:none">
+        <button class="icon-btn" id="lockAdminHeader" type="button" title="Lock & Exit Admin" aria-label="Lock and exit admin">
+          <i class="fa-solid fa-lock"></i>
+        </button>
+        <button class="icon-btn" data-close type="button" aria-label="Close">
+          <i class="fa-solid fa-xmark"></i>
+        </button>
+      </div>
     </div>
     <div class="admin-tabs">
       <button class="atab active" data-tab="inventory" type="button">
@@ -1299,9 +1230,9 @@ body.admin-unlocked [data-edit]:focus{outline-color:var(--gold);
 /* ==========================================================
    CONSTANTS
    ========================================================== */
-var STORAGE_KEY  = 'roshan_v7_data';
-var SESSION_KEY  = 'roshan_v7_admin';
-var WISHLIST_KEY = 'roshan_v7_wishlist';
+var STORAGE_KEY  = 'roshan_v8_data';
+var SESSION_KEY  = 'roshan_v8_admin';
+var WISHLIST_KEY = 'roshan_v8_wishlist';
 var OUR_KEY_PREFIXES = ['wevra_', 'roshan_'];
 var OUR_CURRENT_KEYS = [STORAGE_KEY, SESSION_KEY, WISHLIST_KEY];
 var QUOTA_ESTIMATE_BYTES = 5 * 1024 * 1024;
@@ -1318,15 +1249,6 @@ var BASE_CATEGORIES = ['Kazak', 'Chobi', 'Classic Khorjin', 'Modern Khorjin',
 var PHOTO_MAX_DIM   = 500;
 var PHOTO_QUALITY   = 0.55;
 var PHOTO_MAX_COUNT = 3;
-
-/* Sample rooms for the visualizer — soft neutral CSS backgrounds */
-var SAMPLE_ROOMS = [
-  { id: 'living',   label: 'Living Room',   bg: 'linear-gradient(180deg,#e8e2d5 0%,#d4cbb8 55%,#8b7355 55%,#5a4530 100%)' },
-  { id: 'bedroom',  label: 'Bedroom',       bg: 'linear-gradient(180deg,#efe9e0 0%,#dcd3c5 60%,#b89968 60%,#8b6f47 100%)' },
-  { id: 'dining',   label: 'Dining Room',   bg: 'linear-gradient(180deg,#f3ece0 0%,#e0d5c3 55%,#7a5c3c 55%,#4a3624 100%)' },
-  { id: 'office',   label: 'Office',        bg: 'linear-gradient(180deg,#e6e8e4 0%,#cfd2cb 60%,#6b6f68 60%,#3d413c 100%)' },
-  { id: 'hallway',  label: 'Hallway',       bg: 'linear-gradient(180deg,#f0e9df 0%,#ddd2be 55%,#a08256 55%,#6b5438 100%)' }
-];
 
 var ROSHAN_LOGO_SVG = (
   '<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" ' +
@@ -1366,7 +1288,7 @@ var PLACEHOLDER_WIDE = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(
   'letter-spacing="12" text-anchor="middle" opacity="0.6">ROSHAN</text></svg>');
 
 var DEFAULT_DATA = {
-  version: 7,
+  version: 8,
   settings: {
     pin: '1234', whatsapp: '93700000000', email: 'atelier@roshan.com',
     currency: '$', fontPair: 'serif', logo: '',
@@ -1419,27 +1341,27 @@ var DEFAULT_DATA = {
       status: 'Active', photos: [], reviews: [] },
     { id: 'RSH-002', title: 'Herat Modern Khorjin Slate', price: '3240', discount: 0,
       dims: "7'0\" x 9'10\"", origin: 'Herat', category: 'Modern Khorjin',
-      desc: 'A contemporary reimagining of the Khorjin form. The traditional twin-panel layout is present, but softened — muted slate greys, bone ivory and a single band of antique gold. Woven at 300 knots per inch by a cooperative of six weavers in Herat.',
+      desc: 'A contemporary reimagining of the Khorjin form. The traditional twin-panel layout is present, but softened — muted slate greys, bone ivory and a single band of antique gold.',
       status: 'Active', photos: [], reviews: [] },
     { id: 'RSH-003', title: 'Kunduz Sultani Medallion', price: '4120', discount: 20,
       dims: "8'0\" x 10'2\"", origin: 'Kunduz', category: 'Sultani',
-      desc: 'The Sultani is the imperial weave — dense, formal, and unapologetically ornamental. This piece carries a grand central medallion in terracotta and deep indigo on an ivory ground, with cusped corner spandrels and a wide, multi-band border. A rug that commands a room.',
+      desc: 'The Sultani is the imperial weave — dense, formal, and unapologetically ornamental. A rug that commands a room.',
       status: 'Active', photos: [], reviews: [] },
     { id: 'RSH-004', title: 'Kunduz Chobi Sand', price: '1980', discount: 0,
       dims: "5'6\" x 7'9\"", origin: 'Kunduz', category: 'Chobi',
-      desc: 'Vegetable-dyed in soft sand, sage and bone. A quieter, contemporary Chobi woven with hand-spun wool and finished with a gentle abrash. At home in modern interiors yet undeniably Afghan in soul.',
+      desc: 'Vegetable-dyed in soft sand, sage and bone. A quieter, contemporary Chobi woven with hand-spun wool.',
       status: 'Active', photos: [], reviews: [] },
     { id: 'RSH-005', title: 'Mazar-i-Sharif Pazrug Indigo', price: '2340', discount: 10,
       dims: "6'8\" x 9'4\"", origin: 'Mazar-i-Sharif', category: 'Pazrug',
-      desc: 'Pazrug — the "war rug" tradition born along the northern frontier. This piece carries stylised geometric forms arranged in orderly rows, dyed in hand-tinted indigo, iron red and walnut. A narrative rug with the quiet dignity of its origin.',
+      desc: 'Pazrug — the "war rug" tradition born along the northern frontier. Stylised geometric forms in hand-tinted indigo and walnut.',
       status: 'Active', photos: [], reviews: [] },
     { id: 'RSH-006', title: 'Ghazni Mamluk Azure', price: '5600', discount: 0,
       dims: "8'0\" x 10'0\"", origin: 'Ghazni', category: 'Mamluk',
-      desc: 'The Mamluk weave was perfected in 15th-century Cairo and carried east along the trade routes into Afghanistan. This piece revives the tradition — an azure field with octagonal medallions in ivory and antique gold, at 800 knots per inch. Museum-grade.',
+      desc: 'The Mamluk weave perfected in 15th-century Cairo. An azure field with octagonal medallions in ivory and antique gold at 800 knots per inch.',
       status: 'Active', photos: [], reviews: [] },
     { id: 'RSH-007', title: 'Andkhoy Kazak Ivory', price: '2780', discount: 0,
       dims: "6'0\" x 8'2\"", origin: 'Andkhoy', category: 'Kazak',
-      desc: 'An ivory ground with terracotta and forest-green geometric motifs. Crisp, tribal drawing on a thick, resilient pile — the very definition of a Kazak.',
+      desc: 'An ivory ground with terracotta and forest-green geometric motifs. Crisp, tribal drawing on a thick, resilient pile.',
       status: 'Active', photos: [], reviews: [] }
   ]
 };
@@ -1522,7 +1444,6 @@ function randomId() {
   return 'RSH-' + Date.now().toString(36).toUpperCase().slice(-4) +
          Math.floor(Math.random() * 1000).toString().padStart(3, '0');
 }
-
 var toastTimer = null;
 function toast(msg, isErr) {
   var t = document.getElementById('toast');
@@ -1603,10 +1524,6 @@ var currentPhotoIndex = 0;
 var editingProduct = null;
 var reviewTargetId = null;
 var reviewRating = 0;
-var visualizerProductId = null;
-var visualizerBg = '';
-var visualizerSampleId = 'living';
-var visualizerRugSize = 55;
 
 function loadState() {
   var s = clone(DEFAULT_DATA);
@@ -1619,7 +1536,6 @@ function loadState() {
     var raw = localStorage.getItem(STORAGE_KEY);
     if (raw) s = deepMerge(s, JSON.parse(raw));
   } catch (e) { console.warn('local read error', e); }
-
   if (!s.content || typeof s.content !== 'object') s.content = clone(DEFAULT_DATA.content);
   if (!s.settings || typeof s.settings !== 'object') s.settings = clone(DEFAULT_DATA.settings);
   if (!s.settings.theme) s.settings.theme = clone(DEFAULT_DATA.settings.theme);
@@ -1696,10 +1612,10 @@ function renderLogo() {
   var html;
   if (state.settings.logo) html = '<img src="' + state.settings.logo + '" alt="Roshan">';
   else html = ROSHAN_LOGO_SVG;
-  var brandLogo = document.getElementById('brandLogo');
-  if (brandLogo) brandLogo.innerHTML = html;
-  var drawerLogo = document.getElementById('drawerLogo');
-  if (drawerLogo) drawerLogo.innerHTML = html;
+  var b = document.getElementById('brandLogo');
+  if (b) b.innerHTML = html;
+  var d = document.getElementById('drawerLogo');
+  if (d) d.innerHTML = html;
 }
 
 /* ==========================================================
@@ -1751,7 +1667,7 @@ function priceHTML(p) {
 }
 
 /* ==========================================================
-   WHATSAPP LINKS
+   WHATSAPP
    ========================================================== */
 function waGenericLink() {
   var num = digitsOnly(state.settings.whatsapp);
@@ -1905,10 +1821,10 @@ function cardHTML(p) {
       ratingBlock +
       '<div class="p-foot">' + priceHTML(p) +
         '<div class="p-actions">' +
-          '<button class="icon-btn view-room" data-viewroom="' + esc(p.id) + '" title="View in your room" type="button">' +
-            '<i class="fa-solid fa-couch"></i></button>' +
           '<a class="icon-btn wa" href="' + waLink(p) + '" target="_blank" rel="noopener" title="Inquire on WhatsApp">' +
-            '<i class="fa-brands fa-whatsapp"></i></a>' +
+            '<i class="fa')-brands fa-whatsapp"></i></a>' +
+          '<button class="icon-btn" data-open="' + esc(p.id) + '" title="View details" type="button">' +
+            '<i class="fa-regular fa-eye"></i></button>' +
         '</div>' +
       '</div>' +
       (isAdmin
@@ -1927,7 +1843,7 @@ function filterAndSortProducts() {
     if (activeFilter !== 'All' && (p.category || '') !== activeFilter) return false;
     if (q) {
       var hay = ((p.title || '') + ' ' + (p.origin || '') + ' ' +
-                 (p.category || '') + ' ' + (p.desc || '') + ' ' + (p.id || '')).toLowerCase();
+                 (p.category || '') + ' ' + (p.desc || ' + ' ' + (p.id || '')).toLowerCase();
       if (hay.indexOf(q) === -1) return false;
     }
     return true;
@@ -2013,7 +1929,9 @@ function updateWishlistBadges() {
 }
 function updateAdminUI() {
   document.body.classList.toggle('admin-unlocked', isAdmin);
-  show('adminFab', isAdmin);
+  /* Show FAB only when admin AND no modal is open */
+  var anyModalOpen = !!document.querySelector('.modal.open');
+  show('adminFab', isAdmin && !anyModalOpen);
 }
 function render() {
   applyTheme();
@@ -2030,23 +1948,51 @@ function render() {
 }
 
 /* ==========================================================
-   MODAL HELPERS — with the pointer-events fix
+   SCROLL — always works, even if body is stuck
    ========================================================== */
-function unlockPointerEvents() {
-  /* FIX: bulletproof reset of pointer-events on body and html */
+function forceUnlockScroll() {
+  /* Aggressively clear every scroll-blocking artifact */
+  document.body.classList.remove('no-scroll');
+  document.body.style.overflow = '';
+  document.body.style.position = '';
+  document.body.style.top = '';
+  document.body.style.height = '';
+  document.documentElement.style.overflow = '';
+  document.documentElement.style.height = '';
   document.body.style.pointerEvents = '';
   document.documentElement.style.pointerEvents = '';
-  document.body.style.overflow = '';
 }
-function lockScroll() {
+function smoothScrollTo(selector) {
+  forceUnlockScroll();
+  var el;
+  if (selector === '#top' || selector === '#heroSection') {
+    el = document.getElementById('heroSection') || document.body;
+  } else {
+    el = document.querySelector(selector);
+  }
+  if (!el) return;
+  var top;
+  if (selector === '#top' || selector === '#heroSection') top = 0;
+  else top = el.getBoundingClientRect().top + window.pageYOffset - 72;
+  try {
+    window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
+  } catch (e) {
+    window.scrollTo(0, Math.max(0, top));
+  }
+}
+
+/* ==========================================================
+   MODALS
+   ========================================================== */
+function lockBodyScroll() {
   document.body.classList.add('no-scroll');
-  document.body.style.pointerEvents = '';
 }
 function openModal(id) {
   var m = document.getElementById(id);
   if (!m) return;
   m.classList.add('open');
-  lockScroll();
+  lockBodyScroll();
+  updateAdminUI();
 }
 function closeModal(id) {
   var m = document.getElementById(id);
@@ -2054,16 +2000,16 @@ function closeModal(id) {
   m.classList.remove('open');
   if (!document.querySelector('.modal.open') &&
       !document.getElementById('lightbox').classList.contains('open')) {
-    document.body.classList.remove('no-scroll');
+    forceUnlockScroll();
   }
-  unlockPointerEvents();
+  updateAdminUI();
 }
 function closeAllModals() {
   document.querySelectorAll('.modal.open').forEach(function (m) { m.classList.remove('open'); });
   var lbBox = document.getElementById('lightbox');
   if (lbBox) lbBox.classList.remove('open', 'zoomed');
-  document.body.classList.remove('no-scroll');
-  unlockPointerEvents();
+  forceUnlockScroll();
+  updateAdminUI();
 }
 
 /* ---- Product modal ---- */
@@ -2143,8 +2089,6 @@ function renderProductModal() {
       '</div>' +
       '<p class="pm-desc">' + esc(p.desc || '') + '</p>' +
       '<div class="pm-actions">' +
-        '<button class="btn btn-outline" id="pmViewRoom" type="button" style="border-color:var(--gold);color:var(--gold)">' +
-          '<i class="fa-solid fa-couch"></i> View in Your Room</button>' +
         '<a class="btn btn-gold" href="' + waLink(p) + '" target="_blank" rel="noopener">' +
           '<i class="fa-brands fa-whatsapp"></i> Buy / Inquire on WhatsApp</a>' +
         '<button class="btn btn-outline" id="pmWish" type="button">' +
@@ -2177,8 +2121,6 @@ function renderProductModal() {
   if (w) w.addEventListener('click', function () { toggleWishlist(p.id); renderProductModal(); });
   var rw = document.getElementById('pmWriteReview');
   if (rw) rw.addEventListener('click', function () { openReviewModal(p.id); });
-  var vr = document.getElementById('pmViewRoom');
-  if (vr) vr.addEventListener('click', function () { openRoomVisualizer(p.id); });
 }
 
 function toggleWishlist(id) {
@@ -2247,93 +2189,7 @@ function renderWishlistModal() {
   });
 }
 
-/* ==========================================================
-   ROOM VISUALIZER
-   ========================================================== */
-function openRoomVisualizer(productId) {
-  var p = getProductById(productId);
-  if (!p) return;
-  visualizerProductId = productId;
-  visualizerBg = '';
-  visualizerSampleId = 'living';
-  visualizerRugSize = 55;
-
-  /* Populate sample rooms */
-  var sampleWrap = document.getElementById('rvSamples');
-  if (sampleWrap) {
-    sampleWrap.innerHTML = SAMPLE_ROOMS.map(function (r) {
-      return '<button class="rv-sample' + (r.id === visualizerSampleId ? ' active' : '') +
-        '" data-room="' + r.id + '" type="button" title="' + esc(r.label) + '">' +
-        '<div style="width:100%;height:100%;background:' + r.bg + '"></div>' +
-      '</button>';
-    }).join('');
-  }
-
-  /* Set rug image */
-  var rugImg = document.getElementById('rvRugImg');
-  if (rugImg) {
-    rugImg.src = (p.photos && p.photos[0]) || PLACEHOLDER;
-  }
-
-  /* Set initial state */
-  applySampleRoom(visualizerSampleId);
-  var sizeSlider = document.getElementById('rvSize');
-  if (sizeSlider) sizeSlider.value = String(visualizerRugSize);
-  var sizeVal = document.getElementById('rvSizeVal');
-  if (sizeVal) sizeVal.textContent = visualizerRugSize + '%';
-  applyRugSize(visualizerRugSize);
-
-  openModal('roomModal');
-}
-function applySampleRoom(sampleId) {
-  var sample = null;
-  for (var i = 0; i < SAMPLE_ROOMS.length; i++) {
-    if (SAMPLE_ROOMS[i].id === sampleId) { sample = SAMPLE_ROOMS[i]; break; }
-  }
-  if (!sample) return;
-  visualizerSampleId = sampleId;
-  visualizerBg = '';
-  var bg = document.getElementById('rvBg');
-  var empty = document.getElementById('rvEmpty');
-  var rug = document.getElementById('rvRug');
-  if (bg) {
-    bg.classList.add('hidden');
-    bg.style.background = sample.bg;
-    bg.src = '';
-  }
-  if (empty) empty.classList.add('hidden');
-  if (rug) rug.classList.remove('hidden');
-  document.querySelectorAll('[data-room]').forEach(function (b) {
-    b.classList.toggle('active', b.dataset.room === sampleId);
-  });
-}
-function applyUploadedRoom(dataUrl) {
-  visualizerBg = dataUrl;
-  var bg = document.getElementById('rvBg');
-  var empty = document.getElementById('rvEmpty');
-  var rug = document.getElementById('rvRug');
-  if (bg) {
-    bg.style.background = 'none';
-    bg.src = dataUrl;
-    bg.classList.remove('hidden');
-  }
-  if (empty) empty.classList.add('hidden');
-  if (rug) rug.classList.remove('hidden');
-  document.querySelectorAll('[data-room]').forEach(function (b) {
-    b.classList.remove('active');
-  });
-}
-function applyRugSize(pct) {
-  visualizerRugSize = pct;
-  var rug = document.getElementById('rvRug');
-  if (rug) rug.style.width = pct + '%';
-  var sizeVal = document.getElementById('rvSizeVal');
-  if (sizeVal) sizeVal.textContent = pct + '%';
-}
-
-/* ==========================================================
-   REVIEW MODAL
-   ========================================================== */
+/* ---- Review ---- */
 function openReviewModal(productId) {
   var p = getProductById(productId);
   if (!p) return;
@@ -2365,19 +2221,6 @@ function bindReviewForm() {
           s.className = v <= reviewRating ? 'fa-solid fa-star on' : 'fa-regular fa-star';
         });
       });
-      el.addEventListener('mouseenter', function () {
-        var v = parseInt(el.dataset.star, 10) || 0;
-        starsWrap.querySelectorAll('[data-star]').forEach(function (s) {
-          var sv = parseInt(s.dataset.star, 10) || 0;
-          if (sv <= v) s.classList.add('on'); else s.classList.remove('on');
-        });
-      });
-    });
-    starsWrap.addEventListener('mouseleave', function () {
-      starsWrap.querySelectorAll('[data-star]').forEach(function (s) {
-        var sv = parseInt(s.dataset.star, 10) || 0;
-        if (sv <= reviewRating) s.classList.add('on'); else s.classList.remove('on');
-      });
     });
   }
   var submit = document.getElementById('rfSubmit');
@@ -2406,9 +2249,7 @@ function bindReviewForm() {
   });
 }
 
-/* ==========================================================
-   LIGHTBOX
-   ========================================================== */
+/* ---- Lightbox ---- */
 var lb = { scale: 1, x: 0, y: 0, dragging: false, sx: 0, sy: 0, ox: 0, oy: 0 };
 function lbApply() {
   var img = document.getElementById('lbImg');
@@ -2427,7 +2268,7 @@ function openLightbox(src) {
   lb.scale = 1; lb.x = 0; lb.y = 0;
   img.style.transform = 'translate(0,0) scale(0.94)';
   box.classList.add('open');
-  lockScroll();
+  lockBodyScroll();
   requestAnimationFrame(function () {
     requestAnimationFrame(function () {
       img.style.transform = 'translate(0,0) scale(1)';
@@ -2439,8 +2280,7 @@ function closeLightbox() {
   var box = document.getElementById('lightbox');
   if (!box) return;
   box.classList.remove('open', 'zoomed');
-  if (!document.querySelector('.modal.open')) document.body.classList.remove('no-scroll');
-  unlockPointerEvents();
+  if (!document.querySelector('.modal.open')) forceUnlockScroll();
 }
 function lbZoom(dir) {
   if (dir === 0) { lb.scale = 1; lb.x = 0; lb.y = 0; }
@@ -2450,7 +2290,7 @@ function lbZoom(dir) {
 }
 
 /* ==========================================================
-   ADMIN SESSION — with pointer-events fix
+   ADMIN SESSION
    ========================================================== */
 function requestAdmin() {
   closeDrawer();
@@ -2485,7 +2325,6 @@ function lockAdmin() {
   editingProduct = null;
   closeAllModals();
   render();
-  unlockPointerEvents();
   toast('Admin mode locked. Storefront is public again.');
 }
 
@@ -2497,7 +2336,7 @@ function openDrawer() {
   var o = document.getElementById('drawerOverlay');
   if (d) d.classList.add('open');
   if (o) o.classList.add('open');
-  lockScroll();
+  lockBodyScroll();
 }
 function closeDrawer() {
   var d = document.getElementById('mobileDrawer');
@@ -2506,23 +2345,14 @@ function closeDrawer() {
   if (o) o.classList.remove('open');
   if (!document.querySelector('.modal.open') &&
       !document.getElementById('lightbox').classList.contains('open')) {
-    document.body.classList.remove('no-scroll');
+    forceUnlockScroll();
   }
-  unlockPointerEvents();
-}
-function smoothScrollTo(selector) {
-  var el = document.querySelector(selector);
-  if (!el) return;
-  var top = el.getBoundingClientRect().top + window.pageYOffset - 72;
-  if (selector === '#top' || selector === '#heroSection') top = 0;
-  window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' });
 }
 
 /* ==========================================================
    ADMIN PANEL
    ========================================================== */
 function openAdminPanel() {
-  unlockPointerEvents();
   renderInventory();
   renderReviewsAdmin();
   renderContentTab();
@@ -2531,8 +2361,6 @@ function openAdminPanel() {
   renderSettingsTab();
   renderExportTab();
   openModal('adminPanel');
-  /* FIX: ensure the body is not stuck with pointer-events none */
-  document.body.style.pointerEvents = '';
 }
 function activateTab(name) {
   document.querySelectorAll('.atab').forEach(function (b) {
@@ -2545,7 +2373,7 @@ function activateTab(name) {
   if (name === 'inventory') renderInventory();
 }
 
-/* ---------- Inventory ---------- */
+/* ---- Inventory ---- */
 function renderInventory() {
   var pane = document.getElementById('tab-inventory');
   if (!pane) return;
@@ -2653,7 +2481,7 @@ function productFormHTML() {
     '<div class="fld-row">' +
       '<label class="fld"><span>Price</span>' +
         '<input class="txt" id="pfPrice" type="text" value="' + esc(p.price) + '" placeholder="2650"></label>' +
-      '<label class="fld"><span>Discount % <small style="text-transform:none">(0\u201390)</small></span>' +
+      '<label class="fld"><span>Discount % (0-90)</span>' +
         '<input class="txt" id="pfDiscount" type="number" min="0" max="90" step="5" value="' + esc(p.discount || 0) + '"></label>' +
     '</div>' +
 
@@ -2680,7 +2508,7 @@ function productFormHTML() {
     '<label class="fld"><span>Description</span>' +
       '<textarea class="txt" id="pfDesc" rows="4">' + esc(p.desc) + '</textarea></label>' +
 
-    '<h3 class="ap-h">Photos <small>(first is cover \u00B7 max ' + PHOTO_MAX_COUNT + ')</small></h3>' +
+    '<h3 class="ap-h">Photos (first is cover, max ' + PHOTO_MAX_COUNT + ')</h3>' +
     '<p class="ap-note success" style="font-size:11.5px;padding:10px 12px;margin-bottom:12px">' +
       'Photos auto-compress to ' + PHOTO_MAX_DIM + 'px WebP (~15 KB each). Your typed fields are preserved when you add a photo.</p>' +
     '<div class="photo-grid" id="photoGrid">' +
@@ -2818,7 +2646,7 @@ function bindProductForm() {
   });
 }
 
-/* ---------- Reviews admin ---------- */
+/* ---- Reviews admin ---- */
 function renderReviewsAdmin() {
   var pane = document.getElementById('tab-reviews');
   if (!pane) return;
@@ -2831,8 +2659,8 @@ function renderReviewsAdmin() {
   all.sort(function (a, b) { return (b.review.date || 0) - (a.review.date || 0); });
 
   pane.innerHTML = '' +
-    '<h3 class="ap-h">All Reviews <small>(' + all.length + ')</small></h3>' +
-    '<p class="ap-note">Reviews submitted by visitors are saved on their device and sent to you via WhatsApp. Add verified reviews here to publish them.</p>' +
+    '<h3 class="ap-h">All Reviews (' + all.length + ')</h3>' +
+    '<p class="ap-note">Reviews submitted by visitors are saved on their device and sent to you via WhatsApp.</p>' +
     '<button class="btn-gold-sm" id="addReviewBtn" type="button" style="margin-bottom:20px">' +
       '<i class="fa-solid fa-plus"></i> Add Verified Review</button>' +
     '<div id="reviewAddForm"></div>' +
@@ -2882,11 +2710,11 @@ function renderReviewAddForm() {
     '<div class="care-admin-row" style="background:#fff">' +
       '<label class="fld"><span>Product</span><select class="txt" id="rvProduct">' + catOpts + '</select></label>' +
       '<label class="fld"><span>Reviewer name</span><input class="txt" id="rvName" type="text" placeholder="e.g. Amina K."></label>' +
-      '<label class="fld"><span>Rating (1\u20135)</span><select class="txt" id="rvRating">' +
+      '<label class="fld"><span>Rating (1-5)</span><select class="txt" id="rvRating">' +
         '<option value="5">5 stars</option><option value="4">4 stars</option>' +
         '<option value="3">3 stars</option><option value="2">2 stars</option>' +
         '<option value="1">1 star</option></select></label>' +
-      '<label class="fld"><span>Review text</span><textarea class="txt" id="rvText" rows="3" placeholder="What did they say?"></textarea></label>' +
+      '<label class="fld"><span>Review text</span><textarea class="txt" id="rvText" rows="3"></textarea></label>' +
       '<div style="display:flex;gap:10px">' +
         '<button class="btn-gold-sm" id="rvSave" type="button"><i class="fa-solid fa-check"></i> Save Review</button>' +
         '<button class="mini-btn" id="rvCancel" type="button">Cancel</button>' +
@@ -2912,37 +2740,37 @@ function renderReviewAddForm() {
   });
 }
 
-/* ---------- Content ---------- */
+/* ---- Content ---- */
 var CONTENT_SCHEMA = [
   { k: 'announcement', l: 'Announcement Bar', t: 'text' },
   { k: 'brand', l: 'Brand Name', t: 'text' },
-  { k: 'heroEyebrow', l: 'Hero \u00B7 Eyebrow', t: 'text' },
-  { k: 'heroTitle', l: 'Hero \u00B7 Headline', t: 'area' },
-  { k: 'heroSubtitle', l: 'Hero \u00B7 Subtitle', t: 'area' },
-  { k: 'heroCta', l: 'Hero \u00B7 Primary', t: 'text' },
-  { k: 'heroCta2', l: 'Hero \u00B7 Secondary', t: 'text' },
-  { k: 'collectionEyebrow', l: 'Collection \u00B7 Eyebrow', t: 'text' },
-  { k: 'collectionTitle', l: 'Collection \u00B7 Title', t: 'text' },
-  { k: 'collectionSubtitle', l: 'Collection \u00B7 Subtitle', t: 'area' },
-  { k: 'storyEyebrow', l: 'Heritage \u00B7 Eyebrow', t: 'text' },
-  { k: 'storyTitle', l: 'Heritage \u00B7 Title', t: 'text' },
-  { k: 'storyBody', l: 'Heritage \u00B7 Body', t: 'area' },
-  { k: 'storyStat1n', l: 'Stat 1 \u00B7 Number', t: 'text' },
-  { k: 'storyStat1l', l: 'Stat 1 \u00B7 Label', t: 'text' },
-  { k: 'storyStat2n', l: 'Stat 2 \u00B7 Number', t: 'text' },
-  { k: 'storyStat2l', l: 'Stat 2 \u00B7 Label', t: 'text' },
-  { k: 'storyStat3n', l: 'Stat 3 \u00B7 Number', t: 'text' },
-  { k: 'storyStat3l', l: 'Stat 3 \u00B7 Label', t: 'text' },
-  { k: 'reviewsEyebrow', l: 'Reviews \u00B7 Eyebrow', t: 'text' },
-  { k: 'reviewsTitle', l: 'Reviews \u00B7 Title', t: 'text' },
-  { k: 'reviewsSubtitle', l: 'Reviews \u00B7 Subtitle', t: 'area' },
-  { k: 'careEyebrow', l: 'Care \u00B7 Eyebrow', t: 'text' },
-  { k: 'careTitle', l: 'Care \u00B7 Title', t: 'text' },
-  { k: 'careIntro', l: 'Care \u00B7 Intro', t: 'area' },
-  { k: 'footerTagline', l: 'Footer \u00B7 Tagline', t: 'area' },
-  { k: 'footerAddress', l: 'Footer \u00B7 Address', t: 'text' },
-  { k: 'footerHours', l: 'Footer \u00B7 Hours', t: 'text' },
-  { k: 'footerNote', l: 'Footer \u00B7 Copyright', t: 'text' }
+  { k: 'heroEyebrow', l: 'Hero · Eyebrow', t: 'text' },
+  { k: 'heroTitle', l: 'Hero · Headline', t: 'area' },
+  { k: 'heroSubtitle', l: 'Hero · Subtitle', t: 'area' },
+  { k: 'heroCta', l: 'Hero · Primary', t: 'text' },
+  { k: 'heroCta2', l: 'Hero · Secondary', t: 'text' },
+  { k: 'collectionEyebrow', l: 'Collection · Eyebrow', t: 'text' },
+  { k: 'collectionTitle', l: 'Collection · Title', t: 'text' },
+  { k: 'collectionSubtitle', l: 'Collection · Subtitle', t: 'area' },
+  { k: 'storyEyebrow', l: 'Heritage · Eyebrow', t: 'text' },
+  { k: 'storyTitle', l: 'Heritage · Title', t: 'text' },
+  { k: 'storyBody', l: 'Heritage · Body', t: 'area' },
+  { k: 'storyStat1n', l: 'Stat 1 · Number', t: 'text' },
+  { k: 'storyStat1l', l: 'Stat 1 · Label', t: 'text' },
+  { k: 'storyStat2n', l: 'Stat 2 · Number', t: 'text' },
+  { k: 'storyStat2l', l: 'Stat 2 · Label', t: 'text' },
+  { k: 'storyStat3n', l: 'Stat 3 · Number', t: 'text' },
+  { k: 'storyStat3l', l: 'Stat 3 · Label', t: 'text' },
+  { k: 'reviewsEyebrow', l: 'Reviews · Eyebrow', t: 'text' },
+  { k: 'reviewsTitle', l: 'Reviews · Title', t: 'text' },
+  { k: 'reviewsSubtitle', l: 'Reviews · Subtitle', t: 'area' },
+  { k: 'careEyebrow', l: 'Care · Eyebrow', t: 'text' },
+  { k: 'careTitle', l: 'Care · Title', t: 'text' },
+  { k: 'careIntro', l: 'Care · Intro', t: 'area' },
+  { k: 'footerTagline', l: 'Footer · Tagline', t: 'area' },
+  { k: 'footerAddress', l: 'Footer · Address', t: 'text' },
+  { k: 'footerHours', l: 'Footer · Hours', t: 'text' },
+  { k: 'footerNote', l: 'Footer · Copyright', t: 'text' }
 ];
 function renderContentTab() {
   var pane = document.getElementById('tab-content');
@@ -2969,7 +2797,7 @@ function renderContentTab() {
   var add = document.getElementById('addCareStep');
   if (add) add.addEventListener('click', function () {
     state.content.careItems.push({ icon: 'fa-leaf', title: 'New Care Step',
-      text: 'Describe this care instruction for your clients.' });
+      text: 'Describe this care instruction.' });
     saveState(); renderCareStepsAdmin(); renderCare(); bindEditing();
   });
 }
@@ -3003,7 +2831,7 @@ function renderCareStepsAdmin() {
   });
 }
 
-/* ---------- Design ---------- */
+/* ---- Design ---- */
 var PRESETS = [
   { name: 'Antique Gold', gold: '#C5A059', dark: '#121212', light: '#FDFBF7', accent: '#8C2D19' },
   { name: 'Noir & Bone', gold: '#D8C9A8', dark: '#0B0B0B', light: '#F7F5F1', accent: '#3A3A3A' },
@@ -3201,7 +3029,7 @@ function refreshPresetActive() {
   });
 }
 
-/* ---------- STORAGE TAB ---------- */
+/* ---- Storage ---- */
 function renderStorageTab() {
   var pane = document.getElementById('tab-storage');
   if (!pane) return;
@@ -3225,7 +3053,7 @@ function renderStorageTab() {
 
   pane.innerHTML = '' +
     '<h3 class="ap-h">Storage Health</h3>' +
-    '<p class="ap-note">GitHub Pages shares one storage pool across all your sites. Old data from earlier versions can fill it up. Everything below cleans only <strong>our</strong> keys — never other apps.</p>' +
+    '<p class="ap-note">GitHub Pages shares one storage pool across all your sites. Old data from earlier versions can fill it up. Everything below cleans only our keys — never other apps.</p>' +
     '<div class="storage-meter">' +
       '<div class="storage-meter-head">' +
         '<strong>Total Usage</strong>' +
@@ -3241,8 +3069,7 @@ function renderStorageTab() {
     '</div>' +
     (oldKeys.length > 0
       ? '<p class="ap-note warn"><strong>' + oldKeys.length +
-        ' old key' + (oldKeys.length === 1 ? '' : 's') + ' found</strong> from earlier versions. ' +
-        'Cleaning them frees space and can fix the "storage full" error.</p>'
+        ' old key' + (oldKeys.length === 1 ? '' : 's') + ' found</strong> from earlier versions. Cleaning them frees space.</p>'
       : '<p class="ap-note success">No leftover keys from earlier versions. Your storage is tidy.</p>') +
     '<h3 class="ap-h">Quick Cleanup</h3>' +
     '<button class="btn-gold-sm" id="cleanOldKeys" type="button" style="margin-bottom:10px">' +
@@ -3250,14 +3077,7 @@ function renderStorageTab() {
     '<button class="mini-btn danger" id="removeAllPhotos" type="button" style="width:100%;margin-bottom:10px">' +
       '<i class="fa-solid fa-image"></i> Remove All Photos (' + photoCount + ')</button>' +
     '<button class="mini-btn danger" id="nuclearReset" type="button" style="width:100%">' +
-      '<i class="fa-solid fa-triangle-exclamation"></i> Erase Everything &amp; Start Fresh</button>' +
-
-    '<h3 class="ap-h">What Each Action Does</h3>' +
-    '<div class="ap-note" style="border-left-color:var(--muted)">' +
-      '<strong>Clean Old Data</strong> — removes leftover keys from WEVRA and Roshan v1–v6. Your current rugs, photos, reviews and settings are never touched.<br><br>' +
-      '<strong>Remove All Photos</strong> — keeps every rug, price, description and review, but removes every uploaded photo. Use this if storage is truly full and you can re-upload later.<br><br>' +
-      '<strong>Erase Everything</strong> — clears all Roshan data on this device and returns to the default 7 rugs. Only use this if you have exported a backup first.' +
-    '</div>';
+      '<i class="fa-solid fa-triangle-exclamation"></i> Erase Everything &amp; Start Fresh</button>';
 
   var cleanBtn = document.getElementById('cleanOldKeys');
   if (cleanBtn) cleanBtn.addEventListener('click', function () {
@@ -3294,7 +3114,7 @@ function renderStorageTab() {
   });
 }
 
-/* ---------- Settings ---------- */
+/* ---- Settings ---- */
 function renderSettingsTab() {
   var pane = document.getElementById('tab-settings');
   if (!pane) return;
@@ -3357,16 +3177,16 @@ function renderSettingsTab() {
   });
 }
 
-/* ---------- Export ---------- */
+/* ---- Export ---- */
 function renderExportTab() {
   var pane = document.getElementById('tab-export');
   if (!pane) return;
   var photoBytes = totalPhotoSize();
   pane.innerHTML = '' +
     '<h3 class="ap-h">Publish to the World</h3>' +
-    '<p class="ap-note">Clones your entire live store — every photo, text edit, colour, review and rug — into one self-contained HTML file and copies it to your clipboard.</p>' +
+    '<p class="ap-note">Clones your entire live store into one self-contained HTML file and copies it to your clipboard.</p>' +
     '<p class="ap-note success">Export estimate: <strong>~' + formatBytes(photoBytes) +
-      '</strong> of photo data. GitHub Pages handles up to 100 MB.</p>' +
+      '</strong> of photo data.</p>' +
     '<button class="btn-gold-sm big" id="copyCode" type="button">' +
       '<i class="fa-solid fa-copy"></i> Copy Code for GitHub Commit</button>' +
     '<div style="margin-top:12px">' +
@@ -3374,7 +3194,6 @@ function renderExportTab() {
         '<i class="fa-solid fa-download"></i> Download index.html</button></div>' +
 
     '<h3 class="ap-h">Backups</h3>' +
-    '<p class="ap-note">A JSON backup includes rugs, photos, reviews and content. Keep it somewhere safe.</p>' +
     '<button class="mini-btn" id="exportJson" type="button" style="width:100%;margin-bottom:10px">' +
       '<i class="fa-solid fa-file-arrow-down"></i> Download Full Backup (JSON)</button>' +
     '<label class="mini-btn file-label" style="width:100%">' +
@@ -3384,7 +3203,7 @@ function renderExportTab() {
     '<h3 class="ap-h">Publishing Checklist</h3>' +
     '<p class="ap-note" style="border-left-color:var(--accent)">' +
       '1. Tap <strong>Copy Code for GitHub Commit</strong>.<br>' +
-      '2. Open github.com \u2192 your repo \u2192 <strong>index.html</strong> \u2192 pencil icon.<br>' +
+      '2. Open github.com → your repo → <strong>index.html</strong> → pencil icon.<br>' +
       '3. Select all (Ctrl/Cmd + A), delete, then paste.<br>' +
       '4. Commit changes. GitHub Pages redeploys automatically.<br>' +
       '5. Hard-refresh your live site (Ctrl/Cmd + Shift + R).' +
@@ -3436,9 +3255,7 @@ function downloadFile(filename, content, mime) {
   }, 400);
 }
 
-/* ==========================================================
-   COMPRESSION
-   ========================================================== */
+/* ---- Compression ---- */
 function compressFile(file, maxDim, quality, cb) {
   if (!file || !file.type || file.type.indexOf('image') === -1) { cb(null); return; }
   var reader = new FileReader();
@@ -3482,9 +3299,7 @@ function compressFile(file, maxDim, quality, cb) {
   reader.readAsDataURL(file);
 }
 
-/* ==========================================================
-   EXPORTER
-   ========================================================== */
+/* ---- Exporter ---- */
 function buildExportHTML() {
   var root = document.documentElement.cloneNode(true);
   root.querySelectorAll('[contenteditable]').forEach(function (el) {
@@ -3576,10 +3391,15 @@ function wireEvents() {
   }
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
-  if (backTop) backTop.addEventListener('click', function () {
+
+  /* Back-to-top: force unlock, then scroll */
+  if (backTop) backTop.addEventListener('click', function (e) {
+    e.preventDefault();
+    forceUnlockScroll();
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 
+  /* Mobile drawer */
   var mt = document.getElementById('menuToggle');
   var dc = document.getElementById('drawerClose');
   var overlay = document.getElementById('drawerOverlay');
@@ -3597,17 +3417,36 @@ function wireEvents() {
   var wdb = document.getElementById('wishlistDock');
   if (wdb) wdb.addEventListener('click', openWishlist);
 
+  /* Smooth-scroll: link & button targets */
   document.querySelectorAll('[data-scroll]').forEach(function (a) {
     a.addEventListener('click', function (e) {
       var href = a.getAttribute('href');
       if (!href || href.charAt(0) !== '#') return;
       e.preventDefault();
       if (a.hasAttribute('data-drawer-link')) {
-        closeDrawer(); setTimeout(function () { smoothScrollTo(href); }, 260);
+        closeDrawer();
+        setTimeout(function () { smoothScrollTo(href); }, 260);
       } else smoothScrollTo(href);
     });
   });
 
+  /* Section-scroll buttons (hero-scroll arrow, footer buttons) */
+  document.querySelectorAll('[data-scroll-target]').forEach(function (b) {
+    b.addEventListener('click', function (e) {
+      e.preventDefault();
+      var target = b.getAttribute('data-scroll-target');
+      if (!target) return;
+      if (b.classList.contains('hero-scroll') || b.classList.contains('footer-link-btn')) {
+        /* If drawer is open, close it first */
+        if (document.getElementById('mobileDrawer').classList.contains('open')) {
+          closeDrawer();
+          setTimeout(function () { smoothScrollTo(target); }, 260);
+        } else smoothScrollTo(target);
+      } else smoothScrollTo(target);
+    });
+  });
+
+  /* Modal close triggers */
   document.querySelectorAll('[data-close]').forEach(function (el) {
     el.addEventListener('click', function () {
       var m = el.closest('.modal');
@@ -3615,6 +3454,7 @@ function wireEvents() {
     });
   });
 
+  /* Admin access */
   var keyBtn = document.getElementById('adminKey');
   if (keyBtn) keyBtn.addEventListener('click', requestAdmin);
   var pinBtn = document.getElementById('pinSubmit');
@@ -3623,10 +3463,24 @@ function wireEvents() {
   if (pinInp) pinInp.addEventListener('keydown', function (e) {
     if (e.key === 'Enter') { e.preventDefault(); tryUnlock(); }
   });
+
+  /* Lock buttons: both the FAB and the panel header */
   var lockBtn = document.getElementById('lockAdmin');
-  if (lockBtn) lockBtn.addEventListener('click', lockAdmin);
+  if (lockBtn) lockBtn.addEventListener('click', function (e) {
+    e.preventDefault();
+    lockAdmin();
+  });
+  var lockHeader = document.getElementById('lockAdminHeader');
+  if (lockHeader) lockHeader.addEventListener('click', function (e) {
+    e.preventDefault();
+    lockAdmin();
+  });
+
   var openBtn = document.getElementById('openAdmin');
-  if (openBtn) openBtn.addEventListener('click', openAdminPanel);
+  if (openBtn) openBtn.addEventListener('click', function (e) {
+    e.preventDefault();
+    openAdminPanel();
+  });
 
   document.addEventListener('keydown', function (e) {
     if (e.ctrlKey && e.shiftKey && (e.key === 'A' || e.key === 'a')) {
@@ -3647,6 +3501,7 @@ function wireEvents() {
     b.addEventListener('click', function () { activateTab(b.dataset.tab); });
   });
 
+  /* Filters */
   var ft = document.getElementById('filterTabs');
   if (ft) ft.addEventListener('click', function (e) {
     var b = e.target.closest('.filter-tab');
@@ -3655,6 +3510,7 @@ function wireEvents() {
     renderFilters(); renderProducts(); bindEditing();
   });
 
+  /* Search */
   var si = document.getElementById('searchInput');
   var sc = document.getElementById('searchClear');
   if (si) {
@@ -3676,19 +3532,15 @@ function wireEvents() {
     if (si) si.focus();
   });
 
+  /* Sort */
   var ss = document.getElementById('sortSelect');
   if (ss) ss.addEventListener('change', function () {
     sortMode = ss.value; renderProducts(); bindEditing();
   });
 
+  /* Product grid */
   var grid = document.getElementById('productGrid');
   if (grid) grid.addEventListener('click', function (e) {
-    var room = e.target.closest('[data-viewroom]');
-    if (room) {
-      e.preventDefault(); e.stopPropagation();
-      openRoomVisualizer(room.dataset.viewroom);
-      return;
-    }
     var wish = e.target.closest('[data-wish]');
     if (wish) { e.preventDefault(); e.stopPropagation(); toggleWishlist(wish.dataset.wish); return; }
     var del = e.target.closest('[data-delp]');
@@ -3717,6 +3569,7 @@ function wireEvents() {
     if (op) { e.preventDefault(); openProduct(op.dataset.open); }
   });
 
+  /* Reviews strip */
   var reviewsWrap = document.getElementById('reviewsStrip');
   if (reviewsWrap) reviewsWrap.addEventListener('click', function (e) {
     var el = e.target.closest('[data-reviewopen]');
@@ -3724,6 +3577,7 @@ function wireEvents() {
     openProduct(el.dataset.reviewopen);
   });
 
+  /* Lightbox */
   var lbClose = document.getElementById('lbClose');
   if (lbClose) lbClose.addEventListener('click', closeLightbox);
   document.querySelectorAll('[data-lbzoom]').forEach(function (b) {
@@ -3762,28 +3616,7 @@ function wireEvents() {
     });
   }
 
-  /* Room visualizer controls */
-  var rvUpload = document.getElementById('rvUpload');
-  if (rvUpload) rvUpload.addEventListener('change', function () {
-    if (!rvUpload.files || !rvUpload.files[0]) return;
-    compressFile(rvUpload.files[0], 1400, 0.7, function (dataUrl) {
-      if (!dataUrl) { toast('Could not read that image.', true); return; }
-      applyUploadedRoom(dataUrl);
-      toast('Room uploaded. Adjust the rug size to fit.');
-    });
-    rvUpload.value = '';
-  });
-  var rvSamples = document.getElementById('rvSamples');
-  if (rvSamples) rvSamples.addEventListener('click', function (e) {
-    var b = e.target.closest('[data-room]');
-    if (!b) return;
-    applySampleRoom(b.dataset.room);
-  });
-  var rvSize = document.getElementById('rvSize');
-  if (rvSize) rvSize.addEventListener('input', function () {
-    applyRugSize(parseInt(rvSize.value, 10) || 55);
-  });
-
+  /* Inline edit save */
   document.addEventListener('focusout', function (e) {
     if (!isAdmin) return;
     var el = e.target && e.target.closest ? e.target.closest('[data-edit]') : null;
@@ -3798,12 +3631,7 @@ function wireEvents() {
     if (mirror) mirror.value = val;
   });
 
-  document.addEventListener('click', function (e) {
-    if (!isAdmin) return;
-    var el = e.target.closest ? e.target.closest('[data-edit]') : null;
-    if (el && el.tagName === 'A') e.preventDefault();
-  }, true);
-
+  /* Prevent paste of images into text fields */
   document.addEventListener('paste', function (e) {
     var t = e.target;
     if (!t) return;
@@ -3840,10 +3668,8 @@ function wireChatWidget() {
   var toggle = document.getElementById('chatToggle');
   var panel = document.getElementById('chatPanel');
   var close = document.getElementById('chatClose');
-  var expand = document.getElementById('chatExpand');
   var send = document.getElementById('chatSend');
   var input = document.getElementById('chatInput');
-  var privacyLink = document.getElementById('chatPrivacyLink');
 
   if (toggle && panel) toggle.addEventListener('click', function () {
     var willOpen = !panel.classList.contains('open');
@@ -3851,21 +3677,6 @@ function wireChatWidget() {
     if (willOpen) setTimeout(function () { if (input) input.focus(); }, 260);
   });
   if (close && panel) close.addEventListener('click', function () { panel.classList.remove('open'); });
-  if (expand && panel) {
-    var expanded = false;
-    expand.addEventListener('click', function () {
-      expanded = !expanded;
-      if (expanded) {
-        panel.style.width = '500px';
-        panel.style.maxHeight = 'calc(100vh - 80px)';
-        expand.innerHTML = '<i class="fa-solid fa-down-left-and-up-right-to-center"></i>';
-      } else {
-        panel.style.width = '380px';
-        panel.style.maxHeight = 'calc(100vh - 110px)';
-        expand.innerHTML = '<i class="fa-solid fa-up-right-and-down-left-from-center"></i>';
-      }
-    });
-  }
   document.querySelectorAll('.chat-chip').forEach(function (chip) {
     chip.addEventListener('click', function () {
       var msg = chip.dataset.chatMsg || chip.textContent;
@@ -3885,10 +3696,6 @@ function wireChatWidget() {
   if (send) send.addEventListener('click', sendChat);
   if (input) input.addEventListener('keydown', function (e) {
     if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); sendChat(); }
-  });
-  if (privacyLink) privacyLink.addEventListener('click', function (e) {
-    e.preventDefault();
-    toast('Messages route directly to our WhatsApp. We never sell your data.');
   });
 }
 
@@ -3913,8 +3720,9 @@ function init() {
   var dr = document.getElementById('mobileDrawer'); if (dr) dr.classList.remove('open');
   var ov = document.getElementById('drawerOverlay'); if (ov) ov.classList.remove('open');
   var chatP = document.getElementById('chatPanel'); if (chatP) chatP.classList.remove('open');
-  document.body.classList.remove('no-scroll');
-  unlockPointerEvents();
+
+  /* ALWAYS unlock at init */
+  forceUnlockScroll();
 
   saveState();
   render();
@@ -3930,7 +3738,7 @@ function init() {
 
   console.log('%cROSHAN',
     'color:#C5A059;font-size:22px;letter-spacing:8px;font-weight:bold');
-  console.log('%cOwner access: Ctrl + Shift + A  \u00B7  or tap the key icon in the footer.',
+  console.log('%cOwner access: Ctrl + Shift + A  ·  or tap the key icon in the footer.',
     'color:#8C2D19;font-size:12px');
 
   if (cleanup.removed > 0) {
