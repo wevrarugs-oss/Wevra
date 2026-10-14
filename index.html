@@ -36,7 +36,6 @@ button{font-family:inherit;cursor:pointer;border:none;background:none;
 input,textarea,select{font-family:inherit;font-size:inherit}
 .hidden{display:none !important}
 .cinzel{font-family:'Cinzel',serif}
-
 .container{width:100%;max-width:1280px;margin:0 auto;padding:0 20px}
 @media(min-width:768px){.container{padding:0 40px}}
 
@@ -77,6 +76,42 @@ input,textarea,select{font-family:inherit;font-size:inherit}
 .badge{position:absolute;top:4px;right:4px;background:var(--accent);color:#fff;
   font-size:9px;font-weight:700;min-width:17px;height:17px;border-radius:99px;
   display:flex;align-items:center;justify-content:center;padding:0 4px}
+
+/* MOBILE DRAWER */
+.drawer-bg{position:fixed;inset:0;z-index:400;background:rgba(6,6,6,.6);
+  opacity:0;pointer-events:none;transition:opacity .35s}
+.drawer-bg.on{opacity:1;pointer-events:auto}
+.drawer{position:fixed;top:0;left:0;bottom:0;width:85%;max-width:340px;
+  background:var(--dark);color:#fff;z-index:500;
+  transform:translateX(-100%);transition:transform .4s cubic-bezier(.25,.9,.3,1);
+  display:flex;flex-direction:column;overflow-y:auto;
+  box-shadow:20px 0 60px rgba(0,0,0,.4)}
+.drawer.on{transform:translateX(0)}
+.drawer-head{padding:20px;display:flex;justify-content:space-between;
+  align-items:center;border-bottom:1px solid rgba(255,255,255,.1)}
+.drawer-head .word{font-family:'Cinzel',serif;font-size:18px;
+  letter-spacing:.32em;color:var(--gold);font-weight:600;margin-right:-.32em}
+.drawer-head button{width:40px;height:40px;border-radius:50%;color:#fff;
+  font-size:18px;display:flex;align-items:center;justify-content:center;
+  cursor:pointer;transition:background .25s,color .25s}
+.drawer-head button:hover{background:rgba(255,255,255,.1);color:var(--gold)}
+.drawer-nav{padding:8px 0;flex:1;display:flex;flex-direction:column}
+.drawer-nav a,.drawer-nav button{
+  padding:16px 24px;font-family:'Cinzel',serif;font-size:15px;
+  letter-spacing:.12em;text-transform:uppercase;
+  color:rgba(255,255,255,.9);text-align:left;
+  border-left:2px solid transparent;transition:all .25s;
+  cursor:pointer;background:transparent;border-top:none;border-right:none;
+  border-bottom:none;font-weight:500;display:flex;align-items:center;gap:12px}
+.drawer-nav a i,.drawer-nav button i{color:var(--gold);width:18px;
+  font-size:14px;text-align:center;flex:none}
+.drawer-nav a:hover,.drawer-nav button:hover{
+  background:rgba(197,160,89,.1);color:var(--gold);
+  border-left-color:var(--gold);padding-left:30px}
+.drawer-foot{padding:20px;border-top:1px solid rgba(255,255,255,.1);
+  display:flex;flex-direction:column;gap:12px}
+.drawer-note{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;
+  color:rgba(255,255,255,.4);text-align:center;margin:4px 0 0}
 
 /* BUTTONS */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:9px;
@@ -141,46 +176,69 @@ input,textarea,select{font-family:inherit;font-size:inherit}
   color:var(--muted);background:#fff;transition:all .25s;cursor:pointer;min-height:38px}
 .chip:hover{border-color:var(--gold);color:var(--gold)}
 .chip.on{background:var(--gold);color:var(--dark);border-color:var(--gold)}
-.grid{display:grid;grid-template-columns:1fr;gap:26px}
-@media(min-width:600px){.grid{grid-template-columns:repeat(2,1fr)}}
-@media(min-width:1000px){.grid{grid-template-columns:repeat(3,1fr);gap:32px}}
+.grid{display:grid;grid-template-columns:1fr;gap:22px}
+@media(min-width:600px){.grid{grid-template-columns:repeat(2,1fr);gap:24px}}
+@media(min-width:1000px){.grid{grid-template-columns:repeat(3,1fr);gap:28px}}
 
-/* PRODUCT CARD */
+/* ============================================================
+   PRODUCT CARD — Yildiz-inspired layout
+   Whole rug shown at natural size, contained with padding,
+   quick view button below, clean text below that.
+   ============================================================ */
 .card{background:#fff;border:1px solid var(--line);border-radius:3px;
   overflow:hidden;display:flex;flex-direction:column;
   transition:transform .35s,box-shadow .35s}
-.card:hover{transform:translateY(-4px);box-shadow:0 24px 50px -30px rgba(0,0,0,.4)}
-.card-img{position:relative;aspect-ratio:3/4;overflow:hidden;
-  background:#efeae1;cursor:pointer}
-.card-img img{width:100%;height:100%;object-fit:cover;transition:transform 1s}
-.card:hover .card-img img{transform:scale(1.06)}
-.card-badges{position:absolute;top:10px;left:10px;display:flex;flex-direction:column;gap:5px;z-index:2}
+.card:hover{transform:translateY(-4px);box-shadow:0 24px 50px -30px rgba(0,0,0,.35)}
+
+.card-img{position:relative;aspect-ratio:5/6;padding:24px 20px;
+  background:#fbf9f5;display:flex;align-items:center;justify-content:center;
+  cursor:pointer;border-bottom:1px solid var(--line);overflow:hidden}
+.card-img img{max-width:100%;max-height:100%;width:auto;height:auto;
+  object-fit:contain;transition:transform .7s cubic-bezier(.2,.8,.2,1)}
+.card:hover .card-img img{transform:scale(1.04)}
+
+.card-badges{position:absolute;top:12px;left:12px;display:flex;
+  flex-direction:column;gap:5px;z-index:2}
 .b{font-size:9px;letter-spacing:.14em;text-transform:uppercase;font-weight:700;
-  padding:5px 9px;border-radius:2px;background:var(--dark);color:#fff}
+  padding:5px 9px;border-radius:2px;background:var(--dark);color:#fff;
+  box-shadow:0 3px 10px rgba(0,0,0,.15)}
 .b-sold{background:var(--accent)}
-.b-sale{background:#D9381E}
+.b-sale{background:#D9381E;letter-spacing:.1em}
 .b-draft{background:rgba(18,18,18,.7);color:var(--gold)}
-.card-wish{position:absolute;top:10px;right:10px;width:38px;height:38px;
-  border-radius:50%;background:rgba(255,255,255,.95);display:flex;
-  align-items:center;justify-content:center;font-size:14px;cursor:pointer;
-  box-shadow:0 3px 12px rgba(0,0,0,.12);transition:background .25s,color .25s,transform .25s;z-index:2}
+
+.card-wish{position:absolute;top:12px;right:12px;width:38px;height:38px;
+  border-radius:50%;background:rgba(255,255,255,.95);
+  display:flex;align-items:center;justify-content:center;font-size:14px;
+  cursor:pointer;box-shadow:0 3px 12px rgba(0,0,0,.12);z-index:2;
+  transition:background .25s,color .25s,transform .25s}
 .card-wish:hover{background:var(--gold);color:var(--dark);transform:scale(1.08)}
 .card-wish.on{background:var(--accent);color:#fff}
-.card-body{padding:18px;display:flex;flex-direction:column;flex:1}
-.card-origin{font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;
-  color:var(--gold);font-weight:700;margin:0 0 8px}
-.card-title{font-family:'Cinzel',serif;font-size:17px;font-weight:500;
-  margin:0 0 6px;line-height:1.3}
-.card-dims{font-size:12px;color:var(--muted);margin:0 0 14px;letter-spacing:.03em}
-.card-foot{margin-top:auto;display:flex;align-items:center;justify-content:space-between;
-  gap:8px;padding-top:14px;border-top:1px solid var(--line)}
-.price-wrap{display:flex;flex-direction:column;line-height:1.1}
-.price-old{font-size:11.5px;color:var(--muted);text-decoration:line-through}
-.price{font-family:'Cinzel',serif;font-size:18px;font-weight:600}
-.price.sale{color:#D9381E}
-.card-actions{display:flex;gap:4px}
-.card-actions .iconbtn{width:36px;height:36px;border:1px solid var(--line);font-size:13px}
-.card-actions .iconbtn.wa:hover{background:#25D366;color:#fff;border-color:#25D366}
+
+/* Quick View button — Yildiz-style full-width bar */
+.card-qv{display:block;width:100%;padding:14px;text-align:center;
+  font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;
+  font-weight:700;background:var(--dark);color:#fff;cursor:pointer;
+  transition:background .28s,color .28s;border:none;font-family:inherit}
+.card-qv:hover{background:var(--gold);color:var(--dark)}
+
+.card-body{padding:18px 20px 22px;display:flex;flex-direction:column;flex:1}
+.card-title{font-family:'Cinzel',serif;font-size:15.5px;font-weight:500;
+  margin:0 0 8px;line-height:1.35;letter-spacing:.01em;color:var(--dark)}
+.card-brand{font-size:10px;letter-spacing:.2em;text-transform:uppercase;
+  color:var(--gold);font-weight:700;margin:0 0 6px}
+.card-dims{font-size:11.5px;color:var(--muted);margin:0 0 14px;letter-spacing:.03em}
+
+.card-price-row{display:flex;align-items:baseline;gap:10px;flex-wrap:wrap;
+  margin-top:auto;padding-top:8px}
+.card-price{font-family:'Cinzel',serif;font-size:17px;font-weight:600;
+  letter-spacing:.02em;color:var(--dark)}
+.card-price.sale{color:#D9381E}
+.card-price-old{font-size:12.5px;color:var(--muted);text-decoration:line-through}
+.card-wa{margin-left:auto;width:32px;height:32px;border-radius:50%;
+  background:var(--gold-soft);color:var(--gold);display:inline-flex;
+  align-items:center;justify-content:center;font-size:13px;flex:none;
+  transition:background .25s,color .25s}
+.card-wa:hover{background:#25D366;color:#fff}
 
 /* STORY */
 .story{background:var(--dark);color:var(--light)}
@@ -236,16 +294,16 @@ footer{background:var(--dark);color:rgba(255,255,255,.65);padding:64px 0 28px;ma
   border-radius:50%;display:inline-flex;align-items:center;justify-content:center;
   cursor:pointer;transition:color .3s,background .3s,transform .3s}
 .admin-key:hover{color:var(--gold);background:var(--gold-soft);transform:rotate(-12deg)}
-.vtag{font-size:10px;color:rgba(255,255,255,.3);letter-spacing:.1em;
-  font-family:monospace}
+.vtag{font-size:10px;color:rgba(255,255,255,.3);letter-spacing:.1em;font-family:monospace}
 
-/* MODAL — deliberately no scroll-lock, page behind stays interactive */
-.modal{position:fixed;inset:0;z-index:500;display:none;padding:20px;overflow-y:auto}
+/* MODAL */
+.modal{position:fixed;inset:0;z-index:600;display:none;padding:20px;overflow-y:auto}
 .modal.on{display:block}
 .modal-bg{position:fixed;inset:0;background:rgba(10,10,10,.72);
   -webkit-backdrop-filter:blur(6px);backdrop-filter:blur(6px)}
 .modal-card{position:relative;background:var(--light);border-radius:4px;
-  max-width:480px;margin:60px auto;padding:36px 28px;box-shadow:0 30px 80px -20px rgba(0,0,0,.4)}
+  max-width:480px;margin:60px auto;padding:36px 28px;
+  box-shadow:0 30px 80px -20px rgba(0,0,0,.4)}
 .modal-lg{max-width:1000px;padding:0;overflow:hidden}
 .modal-close{position:absolute;top:10px;right:10px;width:38px;height:38px;
   border-radius:50%;display:flex;align-items:center;justify-content:center;
@@ -265,8 +323,8 @@ footer{background:var(--dark);color:rgba(255,255,255,.65);padding:64px 0 28px;ma
 /* PRODUCT MODAL */
 .pm-grid{display:grid;grid-template-columns:1fr;gap:0}
 @media(min-width:800px){.pm-grid{grid-template-columns:1fr 1fr}}
-.pm-img{background:#efeae1;padding:20px;display:flex;align-items:center;justify-content:center}
-.pm-img img{max-height:60vh;width:auto;object-fit:contain;border-radius:3px}
+.pm-img{background:#fbf9f5;padding:30px;display:flex;align-items:center;justify-content:center}
+.pm-img img{max-height:60vh;width:auto;object-fit:contain;border-radius:2px}
 .pm-info{padding:30px 26px 36px}
 @media(min-width:800px){.pm-info{padding:40px}}
 .pm-title{font-family:'Cinzel',serif;font-size:26px;font-weight:500;
@@ -312,7 +370,8 @@ footer{background:var(--dark);color:rgba(255,255,255,.65);padding:64px 0 28px;ma
 
 .row{display:flex;gap:10px;align-items:center;padding:10px;border:1px solid var(--line);
   border-radius:3px;background:#fff;margin-bottom:8px}
-.row img{width:46px;height:58px;object-fit:cover;border-radius:2px;flex:none;background:#eee}
+.row img{width:46px;height:58px;object-fit:contain;background:#fbf9f5;
+  border-radius:2px;flex:none;padding:3px}
 .row-info{flex:1;min-width:0}
 .row-info strong{display:block;font-size:13px;font-weight:600;white-space:nowrap;
   overflow:hidden;text-overflow:ellipsis}
@@ -344,10 +403,11 @@ footer{background:var(--dark);color:rgba(255,255,255,.65);padding:64px 0 28px;ma
 .note{font-size:12.5px;line-height:1.7;color:var(--muted);margin:0 0 16px;
   padding:12px 14px;background:var(--gold-soft);border-left:2px solid var(--gold);border-radius:2px}
 
-.photo-preview{width:100%;aspect-ratio:3/4;border:1px dashed var(--line);
-  border-radius:3px;background:#f8f6f1;display:flex;align-items:center;
-  justify-content:center;overflow:hidden;margin-bottom:10px;max-width:220px}
-.photo-preview img{width:100%;height:100%;object-fit:cover}
+.photo-preview{width:100%;aspect-ratio:1/1;border:1px dashed var(--line);
+  border-radius:3px;background:#fbf9f5;display:flex;align-items:center;
+  justify-content:center;overflow:hidden;margin-bottom:10px;max-width:240px;
+  padding:8px}
+.photo-preview img{max-width:100%;max-height:100%;object-fit:contain}
 .photo-preview i{font-size:28px;color:rgba(197,160,89,.5)}
 
 .color-row{display:flex;align-items:center;justify-content:space-between;
@@ -372,14 +432,12 @@ footer{background:var(--dark);color:rgba(255,255,255,.65);padding:64px 0 28px;ma
 
 .actions-row{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px}
 
-/* CONTENT EDITABLE */
 [contenteditable="true"]{outline:1px dashed transparent;outline-offset:4px;
   border-radius:2px;transition:outline-color .2s,background .2s;min-width:20px;
   display:inline-block}
 [contenteditable="true"]:hover{outline-color:rgba(197,160,89,.5)}
 [contenteditable="true"]:focus{outline-color:var(--gold);background:var(--gold-soft)}
 
-/* TOAST */
 #toast{position:fixed;bottom:24px;left:50%;transform:translate(-50%,26px);
   background:var(--dark);color:#fff;padding:13px 22px;border-radius:3px;
   font-size:12.5px;letter-spacing:.05em;border-left:3px solid var(--gold);
@@ -432,7 +490,6 @@ footer{background:var(--dark);color:rgba(255,255,255,.65);padding:64px 0 28px;ma
           <i class="fa-regular fa-heart"></i>
           <span class="badge hidden" id="wish-badge">0</span>
         </button>
-        <a class="btn btn-gold btn-sm hidden" style="display:none" data-wa target="_blank"></a>
         <a class="btn btn-gold btn-sm" id="hdr-wa" target="_blank" rel="noopener">
           <i class="fa-brands fa-whatsapp"></i> Inquire
         </a>
@@ -440,6 +497,41 @@ footer{background:var(--dark);color:rgba(255,255,255,.65);padding:64px 0 28px;ma
     </div>
   </div>
 </div>
+
+<!-- MOBILE DRAWER -->
+<div id="drawer-bg" class="drawer-bg" onclick="closeDrawer()"></div>
+<aside id="drawer" class="drawer" role="dialog" aria-label="Navigation menu">
+  <div class="drawer-head">
+    <span class="word">Roshan</span>
+    <button onclick="closeDrawer()" aria-label="Close menu"><i class="fa-solid fa-xmark"></i></button>
+  </div>
+  <nav class="drawer-nav">
+    <a href="#catalog" onclick="closeDrawer();setTimeout(function(){scrollToId('catalog');},280);return false;">
+      <i class="fa-solid fa-layer-group"></i> Collection
+    </a>
+    <a href="#story" onclick="closeDrawer();setTimeout(function(){scrollToId('story');},280);return false;">
+      <i class="fa-solid fa-hands"></i> Artisanship
+    </a>
+    <a href="#care" onclick="closeDrawer();setTimeout(function(){scrollToId('care');},280);return false;">
+      <i class="fa-solid fa-leaf"></i> Rug Care
+    </a>
+    <a href="#contact" onclick="closeDrawer();setTimeout(function(){scrollToId('contact');},280);return false;">
+      <i class="fa-regular fa-envelope"></i> Contact
+    </a>
+    <button onclick="closeDrawer();setTimeout(openWishlist,280)">
+      <i class="fa-regular fa-heart"></i> Saved Rugs
+    </button>
+    <button onclick="closeDrawer();setTimeout(requestAdmin,280)">
+      <i class="fa-solid fa-key"></i> Admin Login
+    </button>
+  </nav>
+  <div class="drawer-foot">
+    <a class="btn btn-gold btn-block" id="drawer-wa" target="_blank" rel="noopener">
+      <i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp
+    </a>
+    <p class="drawer-note">Handmade in Afghanistan</p>
+  </div>
+</aside>
 
 <!-- HERO -->
 <section class="hero">
@@ -547,7 +639,7 @@ footer{background:var(--dark);color:rgba(255,255,255,.65);padding:64px 0 28px;ma
     <div class="foot-bottom">
       <p data-edit="footerNote"></p>
       <div class="right">
-        <span class="vtag" id="vtag">v10.0</span>
+        <span class="vtag" id="vtag">v11.0</span>
         <button class="admin-key" id="admin-key" aria-label="Owner access" title="Owner access">
           <i class="fa-solid fa-key"></i>
         </button>
@@ -556,7 +648,7 @@ footer{background:var(--dark);color:rgba(255,255,255,.65);padding:64px 0 28px;ma
   </div>
 </footer>
 
-<!-- ADMIN FAB (hidden by default) -->
+<!-- ADMIN FAB -->
 <div class="admin-fab hidden" id="admin-fab">
   <button class="fab danger" id="lock-admin" title="Lock"><i class="fa-solid fa-lock"></i></button>
   <button class="fab" id="open-admin" title="Open Panel"><i class="fa-solid fa-gear"></i></button>
@@ -643,20 +735,17 @@ footer{background:var(--dark);color:rgba(255,255,255,.65);padding:64px 0 28px;ma
 (function() {
 'use strict';
 
-// ============================================================
-// 1. CONSTANTS
-// ============================================================
-var VERSION = '10.0';
-var STORAGE_KEY = 'roshan_v10';
-var WISH_KEY = 'roshan_v10_wish';
-var SESSION_KEY = 'roshan_v10_session';
+var VERSION = '11.0';
+var STORAGE_KEY = 'roshan_v11';
+var WISH_KEY = 'roshan_v11_wish';
+var SESSION_KEY = 'roshan_v11_session';
 
 var CATEGORIES = ['Kazak','Chobi','Classic Khorjin','Modern Khorjin','Sultani','Pazrug','Mamluk','Other'];
 
 var PLACEHOLDER = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(
   '<svg xmlns="http://www.w3.org/2000/svg" width="600" height="800">' +
-  '<rect width="600" height="800" fill="#1b1b1b"/>' +
-  '<g stroke="#C5A059" stroke-width="1.5" fill="none" opacity="0.4">' +
+  '<rect width="600" height="800" fill="#f5f0e6"/>' +
+  '<g stroke="#C5A059" stroke-width="1.5" fill="none" opacity="0.5">' +
   '<rect x="40" y="40" width="520" height="720"/>' +
   '<rect x="70" y="70" width="460" height="660"/>' +
   '<path d="M300 190 L470 400 L300 610 L130 400 Z"/>' +
@@ -676,29 +765,17 @@ var STORY_PLACEHOLDER = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent
   '<text x="400" y="912" fill="#C5A059" font-family="serif" font-size="26" ' +
   'letter-spacing="12" text-anchor="middle" opacity="0.6">ROSHAN</text></svg>');
 
-// ============================================================
-// 2. DEFAULT DATA — everything the owner might change lives here
-// ============================================================
 var DEFAULT_DATA = {
   settings: {
     pin: '1234',
     whatsapp: '93700000000',
     email: 'atelier@roshan.com',
     currency: '$',
-    colors: {
-      gold: '#C5A059',
-      dark: '#121212',
-      light: '#FDFBF7',
-      accent: '#8C2D19'
-    }
+    colors: { gold:'#C5A059', dark:'#121212', light:'#FDFBF7', accent:'#8C2D19' }
   },
   sections: {
-    announcement: true,
-    hero: true,
-    catalog: true,
-    story: true,
-    care: true,
-    footer: true
+    announcement: true, hero: true, catalog: true,
+    story: true, care: true, footer: true
   },
   content: {
     announcement: 'Complimentary worldwide shipping on all heirloom rugs',
@@ -721,10 +798,10 @@ var DEFAULT_DATA = {
     careTitle: 'Preserving Your Rug',
     careIntro: 'A hand-knotted rug is an investment meant to outlive us. A little attention each season will keep it luminous for generations.',
     careItems: [
-      { icon: 'fa-rotate-left', title: 'Rotate Every Season', text: 'Turn your rug 180° twice a year so foot traffic and sunlight wear the pile evenly.' },
-      { icon: 'fa-wind', title: 'Air, Never Shake', text: 'Take it outside on a dry day and beat the reverse side gently. Never shake or vacuum the fringe.' },
-      { icon: 'fa-droplet', title: 'Blot, Do Not Rub', text: 'For spills, blot immediately with a clean white cloth, working from the outside in. Never rub.' },
-      { icon: 'fa-sun', title: 'Avoid Direct Sun', text: 'Natural dyes are living colours. Rotate and reposition to prevent uneven fading over decades.' }
+      { icon:'fa-rotate-left', title:'Rotate Every Season', text:'Turn your rug 180° twice a year so foot traffic and sunlight wear the pile evenly.' },
+      { icon:'fa-wind', title:'Air, Never Shake', text:'Take it outside on a dry day and beat the reverse side gently. Never shake or vacuum the fringe.' },
+      { icon:'fa-droplet', title:'Blot, Do Not Rub', text:'For spills, blot immediately with a clean white cloth, working from the outside in. Never rub.' },
+      { icon:'fa-sun', title:'Avoid Direct Sun', text:'Natural dyes are living colours. Rotate and reposition to prevent uneven fading over decades.' }
     ],
     footerTagline: 'Authentic handmade Afghan rugs, sourced directly from the weavers who make them.',
     footerAddress: 'Weaving Atelier, Kabul · Showroom, Dubai',
@@ -732,36 +809,33 @@ var DEFAULT_DATA = {
     footerNote: '© 2025 Roshan. All rights reserved.'
   },
   products: [
-    { id: 'RSH-001', title: 'Bamyan Classic Khorjin Crimson', price: '2650', discount: 15,
-      dims: '6\'2" x 8\'5"', origin: 'Bamyan', category: 'Classic Khorjin',
-      desc: 'A deep madder-red field framed by a finely drawn ivory border, with latch-hook motifs carrying memory of the Silk Road.',
-      status: 'Active', photo: '', reviews: [] },
-    { id: 'RSH-002', title: 'Herat Modern Khorjin Slate', price: '3240', discount: 0,
-      dims: '7\'0" x 9\'10"', origin: 'Herat', category: 'Modern Khorjin',
-      desc: 'A contemporary reimagining of the Khorjin form — muted slate greys, bone ivory and a single band of antique gold.',
-      status: 'Active', photo: '', reviews: [] },
-    { id: 'RSH-003', title: 'Kunduz Sultani Medallion', price: '4120', discount: 20,
-      dims: '8\'0" x 10\'2"', origin: 'Kunduz', category: 'Sultani',
-      desc: 'The imperial weave — dense, formal, and unapologetically ornamental. A rug that commands a room.',
-      status: 'Active', photo: '', reviews: [] },
-    { id: 'RSH-004', title: 'Kunduz Chobi Sand', price: '1980', discount: 0,
-      dims: '5\'6" x 7\'9"', origin: 'Kunduz', category: 'Chobi',
-      desc: 'Vegetable-dyed in soft sand, sage and bone. A quieter, contemporary Chobi woven with hand-spun wool.',
-      status: 'Active', photo: '', reviews: [] },
-    { id: 'RSH-005', title: 'Mazar-i-Sharif Pazrug Indigo', price: '2340', discount: 10,
-      dims: '6\'8" x 9\'4"', origin: 'Mazar-i-Sharif', category: 'Pazrug',
-      desc: 'Stylised geometric forms arranged in orderly rows, dyed in hand-tinted indigo, iron red and walnut.',
-      status: 'Active', photo: '', reviews: [] },
-    { id: 'RSH-006', title: 'Ghazni Mamluk Azure', price: '5600', discount: 0,
-      dims: '8\'0" x 10\'0"', origin: 'Ghazni', category: 'Mamluk',
-      desc: 'An azure field with octagonal medallions in ivory and antique gold at 800 knots per inch.',
-      status: 'Active', photo: '', reviews: [] }
+    { id:'RSH-001', title:'Bamyan Classic Khorjin Crimson', price:'2650', discount:15,
+      dims:'6\'2" x 8\'5"', origin:'Bamyan', category:'Classic Khorjin',
+      desc:'A deep madder-red field framed by a finely drawn ivory border, with latch-hook motifs carrying memory of the Silk Road.',
+      status:'Active', photo:'', reviews:[] },
+    { id:'RSH-002', title:'Herat Modern Khorjin Slate', price:'3240', discount:0,
+      dims:'7\'0" x 9\'10"', origin:'Herat', category:'Modern Khorjin',
+      desc:'A contemporary reimagining of the Khorjin form — muted slate greys, bone ivory and a single band of antique gold.',
+      status:'Active', photo:'', reviews:[] },
+    { id:'RSH-003', title:'Kunduz Sultani Medallion', price:'4120', discount:20,
+      dims:'8\'0" x 10\'2"', origin:'Kunduz', category:'Sultani',
+      desc:'The imperial weave — dense, formal, and unapologetically ornamental. A rug that commands a room.',
+      status:'Active', photo:'', reviews:[] },
+    { id:'RSH-004', title:'Kunduz Chobi Sand', price:'1980', discount:0,
+      dims:'5\'6" x 7\'9"', origin:'Kunduz', category:'Chobi',
+      desc:'Vegetable-dyed in soft sand, sage and bone. A quieter, contemporary Chobi woven with hand-spun wool.',
+      status:'Active', photo:'', reviews:[] },
+    { id:'RSH-005', title:'Mazar-i-Sharif Pazrug Indigo', price:'2340', discount:10,
+      dims:'6\'8" x 9\'4"', origin:'Mazar-i-Sharif', category:'Pazrug',
+      desc:'Stylised geometric forms arranged in orderly rows, dyed in hand-tinted indigo, iron red and walnut.',
+      status:'Active', photo:'', reviews:[] },
+    { id:'RSH-006', title:'Ghazni Mamluk Azure', price:'5600', discount:0,
+      dims:'8\'0" x 10\'0"', origin:'Ghazni', category:'Mamluk',
+      desc:'An azure field with octagonal medallions in ivory and antique gold at 800 knots per inch.',
+      status:'Active', photo:'', reviews:[] }
   ]
 };
 
-// ============================================================
-// 3. STATE
-// ============================================================
 var state = null;
 var isAdmin = false;
 var wishlist = [];
@@ -771,14 +845,11 @@ var sortMode = 'featured';
 var editingId = null;
 var editingDraft = null;
 
-// ============================================================
-// 4. UTILITIES
-// ============================================================
 function $(id) { return document.getElementById(id); }
 
 function escapeHtml(s) {
   return String(s == null ? '' : s).replace(/[&<>"']/g, function(c) {
-    return { '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[c];
+    return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c];
   });
 }
 
@@ -820,10 +891,7 @@ function toast(msg, isErr) {
   toast._t = setTimeout(function() { t.className = ''; }, 3000);
 }
 
-/**
- * THE MERGE FIX. Never lets an empty string overwrite a non-empty base.
- * This is what stops the "blank hero" bug permanently.
- */
+/* Merge: never lets empty strings overwrite non-empty base */
 function merge(base, over) {
   if (over === undefined || over === null) return base;
   if (Array.isArray(base)) return Array.isArray(over) ? over : base;
@@ -844,33 +912,24 @@ function merge(base, over) {
 
 function clone(o) { return JSON.parse(JSON.stringify(o)); }
 
-// ============================================================
-// 5. STORAGE
-// ============================================================
+/* STORAGE */
 function loadState() {
   var s = clone(DEFAULT_DATA);
-
-  // Layer 1: baked data
   var baked = $('roshan-baked');
   if (baked && baked.textContent && baked.textContent.trim()) {
     try { s = merge(s, JSON.parse(baked.textContent)); }
-    catch (e) { console.warn('baked parse error', e); }
+    catch(e) { console.warn('baked parse error', e); }
   }
-
-  // Layer 2: localStorage
   try {
     var raw = localStorage.getItem(STORAGE_KEY);
     if (raw) s = merge(s, JSON.parse(raw));
-  } catch (e) { console.warn('local read error', e); }
+  } catch(e) { console.warn('local read error', e); }
 
-  // Guarantee shape
   if (!s.settings) s.settings = clone(DEFAULT_DATA.settings);
   if (!s.settings.colors) s.settings.colors = clone(DEFAULT_DATA.settings.colors);
   if (!s.sections) s.sections = clone(DEFAULT_DATA.sections);
   if (!s.content) s.content = clone(DEFAULT_DATA.content);
   if (!Array.isArray(s.products)) s.products = [];
-
-  // Guarantee each product shape
   for (var i = 0; i < s.products.length; i++) {
     var p = s.products[i];
     if (!p.id) p.id = newId();
@@ -883,14 +942,8 @@ function loadState() {
 }
 
 function saveState() {
-  try {
-    localStorage.setItem(STORAGE_KEY, JSON.stringify(state));
-    return true;
-  } catch (e) {
-    console.warn('save failed', e);
-    toast('Could not save — storage may be full.', true);
-    return false;
-  }
+  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); return true; }
+  catch(e) { console.warn('save failed', e); toast('Could not save — storage full.', true); return false; }
 }
 
 function loadWishlist() {
@@ -900,30 +953,41 @@ function loadWishlist() {
       var arr = JSON.parse(raw);
       if (Array.isArray(arr)) return arr.filter(function(x) { return typeof x === 'string'; });
     }
-  } catch (e) { /* ignore */ }
+  } catch(e) {}
   return [];
 }
 
 function saveWishlist() {
-  try { localStorage.setItem(WISH_KEY, JSON.stringify(wishlist)); }
-  catch (e) { /* ignore */ }
+  try { localStorage.setItem(WISH_KEY, JSON.stringify(wishlist)); } catch(e) {}
 }
 
-// ============================================================
-// 6. SCROLLING — bulletproof, no dependencies
-// ============================================================
+/* SCROLL */
 function scrollToId(id) {
   var el = document.getElementById(id);
   if (!el) return;
   var top = el.getBoundingClientRect().top + window.pageYOffset - 70;
   try { window.scrollTo({ top: Math.max(0, top), behavior: 'smooth' }); }
-  catch (e) { window.scrollTo(0, Math.max(0, top)); }
+  catch(e) { window.scrollTo(0, Math.max(0, top)); }
 }
 window.scrollToId = scrollToId;
 
-// ============================================================
-// 7. MODALS — simple, no scroll lock, no pointer-events tricks
-// ============================================================
+/* DRAWER */
+function openDrawer() {
+  var d = $('drawer');
+  var b = $('drawer-bg');
+  if (d) d.classList.add('on');
+  if (b) b.classList.add('on');
+}
+function closeDrawer() {
+  var d = $('drawer');
+  var b = $('drawer-bg');
+  if (d) d.classList.remove('on');
+  if (b) b.classList.remove('on');
+}
+window.openDrawer = openDrawer;
+window.closeDrawer = closeDrawer;
+
+/* MODALS */
 function openModal(id) {
   var m = document.getElementById(id);
   if (!m) return;
@@ -937,9 +1001,7 @@ function closeModal(id) {
 window.openModal = openModal;
 window.closeModal = closeModal;
 
-// ============================================================
-// 8. THEME
-// ============================================================
+/* THEME */
 function applyTheme() {
   var c = state.settings.colors;
   var r = document.documentElement.style;
@@ -963,9 +1025,7 @@ function hexToRgba(hex, a) {
   return 'rgba(' + r + ',' + g + ',' + b + ',' + a + ')';
 }
 
-// ============================================================
-// 9. WHATSAPP
-// ============================================================
+/* WHATSAPP */
 function waGeneric() {
   var num = digitsOnly(state.settings.whatsapp);
   var msg = 'Hello ' + (state.content.brand || 'Roshan') +
@@ -995,11 +1055,10 @@ function updateWaButtons() {
   var href = waGeneric();
   var h = $('hdr-wa'); if (h) h.href = href;
   var f = $('foot-wa'); if (f) f.href = href;
+  var d = $('drawer-wa'); if (d) d.href = href;
 }
 
-// ============================================================
-// 10. APPLY CONTENT
-// ============================================================
+/* CONTENT */
 function applyContent() {
   var c = state.content;
   document.querySelectorAll('[data-edit]').forEach(function(el) {
@@ -1008,42 +1067,50 @@ function applyContent() {
     if (v === undefined || v === null) return;
     if (el.textContent !== String(v)) el.textContent = String(v);
   });
-
-  // Story image
   var si = $('story-img');
   if (si) si.src = c.storyImage || STORY_PLACEHOLDER;
-
-  // Footer email
   var mail = $('foot-mail');
   var mt = $('foot-mail-text');
   if (mail && mt) {
     mail.href = 'mailto:' + (state.settings.email || '');
     mt.textContent = state.settings.email || '';
   }
-
-  // Document title
   if (c.brand) document.title = c.brand + ' — Handmade Afghan Rugs';
 }
 
-// ============================================================
-// 11. PRODUCTS RENDERING
-// ============================================================
+function applySections() {
+  var s = state.sections;
+  var ann = document.querySelector('.announce');
+  if (ann) ann.style.display = s.announcement === false ? 'none' : '';
+  var hero = document.querySelector('.hero');
+  if (hero) hero.style.display = s.hero === false ? 'none' : '';
+  var cat = $('catalog');
+  if (cat) cat.style.display = s.catalog === false ? 'none' : '';
+  var story = $('story');
+  if (story) story.style.display = s.story === false ? 'none' : '';
+  var care = $('care');
+  if (care) care.style.display = s.care === false ? 'none' : '';
+  var foot = $('contact');
+  if (foot) foot.style.display = s.footer === false ? 'none' : '';
+}
+
+/* PRODUCTS */
 function productMatches(p) {
   if (!isAdmin && p.status === 'Draft') return false;
   if (activeFilter !== 'All' && p.category !== activeFilter) return false;
   if (searchQuery) {
     var q = searchQuery.toLowerCase();
-    var hay = ((p.title || '') + ' ' + (p.origin || '') + ' ' +
-               (p.category || '') + ' ' + (p.desc || '') + ' ' + (p.id || '')).toLowerCase();
+    var hay = ((p.title||'') + ' ' + (p.origin||'') + ' ' + (p.category||'') +
+               ' ' + (p.desc||'') + ' ' + (p.id||'')).toLowerCase();
     if (hay.indexOf(q) === -1) return false;
   }
   return true;
 }
 
 function sortProducts(list) {
-  if (sortMode === 'price-asc') list.sort(function(a, b) { return finalPrice(a) - finalPrice(b); });
-  else if (sortMode === 'price-desc') list.sort(function(a, b) { return finalPrice(b) - finalPrice(a); });
-  else if (sortMode === 'title-asc') list.sort(function(a, b) { return String(a.title||'').localeCompare(String(b.title||'')); });
+  if (sortMode === 'price-asc') list.sort(function(a,b) { return finalPrice(a) - finalPrice(b); });
+  else if (sortMode === 'price-desc') list.sort(function(a,b) { return finalPrice(b) - finalPrice(a); });
+  else if (sortMode === 'title-asc') list.sort(function(a,b) { return String(a.title||'').localeCompare(String(b.title||'')); });
   return list;
 }
 
@@ -1065,18 +1132,27 @@ function renderProducts() {
     var saved = wishlist.indexOf(p.id) !== -1;
     var disc = parseFloat(p.discount) || 0;
     var cur = state.settings.currency || '$';
+    var brand = state.content.brand || 'Roshan';
 
     var badges = '';
     if (p.status === 'Sold Out') badges += '<span class="b b-sold">Sold Out</span>';
     if (p.status === 'Draft') badges += '<span class="b b-draft">Draft</span>';
     if (disc > 0 && p.status !== 'Sold Out') badges += '<span class="b b-sale">−' + disc + '%</span>';
 
-    var priceHtml = hasDiscount(p)
-      ? '<div class="price-wrap">' +
-          '<span class="price-old">' + escapeHtml(cur + formatNum(parsePrice(p.price))) + '</span>' +
-          '<span class="price sale">' + escapeHtml(cur + formatNum(finalPrice(p))) + '</span>' +
-        '</div>'
-      : '<span class="price">' + escapeHtml(cur + formatNum(parsePrice(p.price))) + '</span>';
+    var brandLine = brand;
+    if (p.origin) brandLine += ' · ' + p.origin;
+
+    var priceRow = '<div class="card-price-row">';
+    if (hasDiscount(p)) {
+      priceRow += '<span class="card-price sale">' + escapeHtml(cur + formatNum(finalPrice(p))) + '</span>';
+      priceRow += '<span class="card-price-old">' + escapeHtml(cur + formatNum(parsePrice(p.price))) + '</span>';
+    } else {
+      priceRow += '<span class="card-price">' + escapeHtml(cur + formatNum(parsePrice(p.price))) + '</span>';
+    }
+    priceRow += '<a class="card-wa" href="' + waProduct(p) + '" target="_blank" rel="noopener" ' +
+      'onclick="event.stopPropagation()" title="Inquire on WhatsApp">' +
+      '<i class="fa-brands fa-whatsapp"></i></a>';
+    priceRow += '</div>';
 
     html +=
       '<article class="card" data-id="' + escapeHtml(p.id) + '">' +
@@ -1085,25 +1161,16 @@ function renderProducts() {
           (badges ? '<div class="card-badges">' + badges + '</div>' : '') +
           '<button class="card-wish' + (saved ? ' on' : '') + '" ' +
             'onclick="event.stopPropagation();toggleWish(\'' + escapeHtml(p.id) + '\')" ' +
-            'aria-label="Save">' +
+            'aria-label="Save for later">' +
             '<i class="' + (saved ? 'fa-solid' : 'fa-regular') + ' fa-heart"></i>' +
           '</button>' +
         '</div>' +
+        '<button class="card-qv" onclick="openProduct(\'' + escapeHtml(p.id) + '\')">Quick View</button>' +
         '<div class="card-body">' +
-          '<p class="card-origin">' + escapeHtml((p.origin || '') + (p.origin && p.category ? ' · ' : '') + (p.category || '')) + '</p>' +
           '<h3 class="card-title">' + escapeHtml(p.title || 'Untitled') + '</h3>' +
+          '<p class="card-brand">' + escapeHtml(brandLine) + '</p>' +
           '<p class="card-dims">' + escapeHtml(p.dims || '') + '</p>' +
-          '<div class="card-foot">' + priceHtml +
-            '<div class="card-actions">' +
-              '<a class="iconbtn wa" href="' + waProduct(p) + '" target="_blank" ' +
-                'rel="noopener" title="Inquire" onclick="event.stopPropagation()">' +
-                '<i class="fa-brands fa-whatsapp"></i>' +
-              '</a>' +
-              '<button class="iconbtn" onclick="openProduct(\'' + escapeHtml(p.id) + '\')" title="View">' +
-                '<i class="fa-regular fa-eye"></i>' +
-              '</button>' +
-            '</div>' +
-          '</div>' +
+          priceRow +
         '</div>' +
       '</article>';
   }
@@ -1114,7 +1181,6 @@ function renderFilters() {
   var wrap = $('filters');
   if (!wrap) return;
   var cats = ['All'].concat(CATEGORIES);
-  // Add any custom categories already in products
   for (var i = 0; i < state.products.length; i++) {
     var c = state.products[i].category;
     if (c && cats.indexOf(c) === -1) cats.push(c);
@@ -1152,9 +1218,7 @@ function renderCare() {
   grid.innerHTML = html;
 }
 
-// ============================================================
-// 12. WISHLIST
-// ============================================================
+/* WISHLIST */
 function toggleWish(id) {
   var idx = wishlist.indexOf(id);
   if (idx > -1) wishlist.splice(idx, 1);
@@ -1168,12 +1232,8 @@ window.toggleWish = toggleWish;
 function updateWishBadge() {
   var b = $('wish-badge');
   if (!b) return;
-  if (wishlist.length > 0) {
-    b.textContent = wishlist.length;
-    b.classList.remove('hidden');
-  } else {
-    b.classList.add('hidden');
-  }
+  if (wishlist.length > 0) { b.textContent = wishlist.length; b.classList.remove('hidden'); }
+  else b.classList.add('hidden');
 }
 
 function openWishlist() {
@@ -1210,9 +1270,8 @@ function openWishlist() {
           '<span style="color:var(--accent);font-family:Cinzel,serif;font-weight:600;display:block;margin-top:3px">' +
             escapeHtml(cur + formatNum(finalPrice(p))) + '</span>' +
         '</div>' +
-        '<button class="wl-remove" onclick="toggleWish(\'' + escapeHtml(p.id) + '\');openWishlist();" aria-label="Remove">' +
-          '<i class="fa-solid fa-xmark"></i>' +
-        '</button>' +
+        '<button class="wl-remove" onclick="toggleWish(\'' + escapeHtml(p.id) + '\');openWishlist();">' +
+          '<i class="fa-solid fa-xmark"></i></button>' +
       '</div>';
   }
   body.innerHTML = html;
@@ -1226,17 +1285,14 @@ function openWishlist() {
   var waHref = 'https://wa.me/' + digitsOnly(state.settings.whatsapp) +
     '?text=' + encodeURIComponent(lines.join('\n'));
 
-  foot.innerHTML =
-    '<a class="btn btn-gold btn-block" href="' + waHref + '" target="_blank" rel="noopener">' +
-      '<i class="fa-brands fa-whatsapp"></i> Send Wishlist (' + items.length + ')</a>';
+  foot.innerHTML = '<a class="btn btn-gold btn-block" href="' + waHref + '" target="_blank" rel="noopener">' +
+    '<i class="fa-brands fa-whatsapp"></i> Send Wishlist (' + items.length + ')</a>';
 
   openModal('wishlist-modal');
 }
 window.openWishlist = openWishlist;
 
-// ============================================================
-// 13. PRODUCT MODAL
-// ============================================================
+/* PRODUCT MODAL */
 function findProduct(id) {
   for (var i = 0; i < state.products.length; i++) {
     if (state.products[i].id === id) return state.products[i];
@@ -1258,36 +1314,12 @@ function openProduct(id) {
         '<span class="pm-save">Save ' + p.discount + '%</span></p>'
     : '<p class="pm-price">' + escapeHtml(cur + formatNum(parsePrice(p.price))) + '</p>';
 
-  var reviews = (p.reviews || []).filter(function(r) { return r && r.visible !== false; });
-  var reviewsHtml = '';
-  if (reviews.length) {
-    for (var i = 0; i < reviews.length && i < 3; i++) {
-      var r = reviews[i];
-      var stars = '';
-      for (var s = 1; s <= 5; s++) stars += s <= (r.rating || 0)
-        ? '<i class="fa-solid fa-star" style="color:var(--gold);font-size:11px"></i>'
-        : '<i class="fa-regular fa-star" style="color:var(--gold);opacity:.4;font-size:11px"></i>';
-      reviewsHtml +=
-        '<div style="background:#fff;border:1px solid var(--line);border-radius:3px;padding:12px 14px;margin-bottom:8px">' +
-          '<div style="display:flex;justify-content:space-between;margin-bottom:5px">' +
-            '<strong style="font-size:12.5px">' + escapeHtml(r.name || 'Anonymous') + '</strong>' +
-            '<span style="font-size:10.5px;color:var(--muted)">' + (r.date ? new Date(r.date).toLocaleDateString() : '') + '</span>' +
-          '</div>' +
-          '<div style="margin-bottom:6px">' + stars + '</div>' +
-          '<p style="font-size:13px;line-height:1.65;color:var(--muted);margin:0">' + escapeHtml(r.text || '') + '</p>' +
-        '</div>';
-    }
-  } else {
-    reviewsHtml = '<p style="font-size:13px;color:var(--muted);padding:16px;background:#fff;border:1px dashed var(--line);border-radius:3px;text-align:center;margin:0">No reviews yet — be the first.</p>';
-  }
-
   body.innerHTML =
     '<div class="pm-grid">' +
-      '<div class="pm-img">' +
-        '<img src="' + (p.photo || PLACEHOLDER) + '" alt="' + escapeHtml(p.title) + '">' +
-      '</div>' +
+      '<div class="pm-img"><img src="' + (p.photo || PLACEHOLDER) + '" alt="' + escapeHtml(p.title) + '"></div>' +
       '<div class="pm-info">' +
-        '<p class="card-origin">' + escapeHtml((p.origin || '') + (p.category ? ' · ' + p.category : '')) + '</p>' +
+        '<p class="card-brand" style="margin-bottom:10px">' +
+          escapeHtml((p.origin || '') + (p.category ? ' · ' + p.category : '')) + '</p>' +
         '<h2 class="pm-title">' + escapeHtml(p.title) + '</h2>' +
         priceBlock +
         '<div class="pm-specs">' +
@@ -1306,10 +1338,6 @@ function openProduct(id) {
             '<i class="' + (saved ? 'fa-solid' : 'fa-regular') + ' fa-heart"></i> ' +
             (saved ? 'Saved' : 'Save to Wishlist') + '</button>' +
         '</div>' +
-        '<div style="margin-top:24px;padding-top:20px;border-top:1px solid var(--line)">' +
-          '<h3 class="cinzel" style="font-size:14px;margin:0 0 12px">Reviews</h3>' +
-          reviewsHtml +
-        '</div>' +
       '</div>' +
     '</div>';
 
@@ -1317,9 +1345,7 @@ function openProduct(id) {
 }
 window.openProduct = openProduct;
 
-// ============================================================
-// 14. ADMIN
-// ============================================================
+/* ADMIN */
 function requestAdmin() {
   if (isAdmin) { openAdmin(); return; }
   var inp = $('pin-input');
@@ -1327,6 +1353,7 @@ function requestAdmin() {
   openModal('pin-modal');
   setTimeout(function() { if (inp) inp.focus(); }, 200);
 }
+window.requestAdmin = requestAdmin;
 
 function tryUnlock() {
   var inp = $('pin-input');
@@ -1335,13 +1362,13 @@ function tryUnlock() {
   var correct = String(state.settings.pin || '1234');
   if (entered === correct) {
     isAdmin = true;
-    try { sessionStorage.setItem(SESSION_KEY, '1'); } catch (e) { /* ignore */ }
+    try { sessionStorage.setItem(SESSION_KEY, '1'); } catch(e) {}
     closeModal('pin-modal');
     inp.value = '';
     $('admin-fab').classList.remove('hidden');
     makeContentEditable(true);
     toast('Admin unlocked — tap any text to edit.');
-    if (window.openAdmin) setTimeout(window.openAdmin, 200);
+    setTimeout(openAdmin, 250);
   } else {
     inp.value = '';
     inp.style.borderColor = '#e53935';
@@ -1352,7 +1379,7 @@ function tryUnlock() {
 
 function lockAdmin() {
   isAdmin = false;
-  try { sessionStorage.removeItem(SESSION_KEY); } catch (e) { /* ignore */ }
+  try { sessionStorage.removeItem(SESSION_KEY); } catch(e) {}
   editingId = null;
   editingDraft = null;
   $('admin-fab').classList.add('hidden');
@@ -1384,24 +1411,16 @@ function openAdmin() {
 }
 window.openAdmin = openAdmin;
 
-// ============================================================
-// 15. ADMIN — INVENTORY
-// ============================================================
+/* INVENTORY */
 function renderInventory() {
   var pane = $('pane-inventory');
   if (!pane) return;
-
-  // Editing mode: show the form
-  if (editingDraft) {
-    renderEditForm(pane);
-    return;
-  }
+  if (editingDraft) { renderEditForm(pane); return; }
 
   var html =
     '<div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;flex-wrap:wrap;gap:10px">' +
       '<p style="margin:0;font-size:13px;color:var(--muted)">' +
-        state.products.length + ' rug' + (state.products.length === 1 ? '' : 's') +
-      '</p>' +
+        state.products.length + ' rug' + (state.products.length === 1 ? '' : 's') + '</p>' +
       '<button class="btn btn-gold btn-sm" onclick="startNewProduct()">' +
         '<i class="fa-solid fa-plus"></i> Add New Rug</button>' +
     '</div>';
@@ -1435,17 +1454,9 @@ function renderInventory() {
 function startNewProduct() {
   editingId = null;
   editingDraft = {
-    id: newId(),
-    title: '',
-    price: '',
-    discount: 0,
-    dims: '',
-    origin: '',
-    category: 'Classic Khorjin',
-    desc: '',
-    status: 'Active',
-    photo: '',
-    reviews: []
+    id: newId(), title: '', price: '', discount: 0,
+    dims: '', origin: '', category: 'Classic Khorjin', desc: '',
+    status: 'Active', photo: '', reviews: []
   };
   renderInventory();
 }
@@ -1482,7 +1493,7 @@ function renderEditForm(pane) {
     catOptions += '<option' + (p.category === cats[i] ? ' selected' : '') + '>' +
       escapeHtml(cats[i]) + '</option>';
   }
-  var statuses = ['Active', 'Sold Out', 'Draft'];
+  var statuses = ['Active','Sold Out','Draft'];
   var statusOptions = '';
   for (var j = 0; j < statuses.length; j++) {
     statusOptions += '<option' + (p.status === statuses[j] ? ' selected' : '') + '>' +
@@ -1512,7 +1523,7 @@ function renderEditForm(pane) {
       '<i class="fa-solid fa-trash"></i> Remove</button>' : '') +
 
     '<label class="field"><span>Title *</span>' +
-      '<input type="text" id="ef-title" value="' + escapeHtml(p.title) + '" placeholder="Bamyan Classic Khorjin"></label>' +
+      '<input type="text" id="ef-title" value="' + escapeHtml(p.title) + '"></label>' +
 
     '<div class="field-row">' +
       '<label class="field"><span>Price</span>' +
@@ -1544,33 +1555,29 @@ function renderEditForm(pane) {
       '<button class="btn btn-line" style="flex:1;min-width:100px" onclick="cancelEdit()">Cancel</button>' +
     '</div>';
 
-  // ---- CRITICAL: bind every input to update editingDraft live ----
-  // This means the draft is ALWAYS current, so no re-render can lose data.
-  bindField('ef-title', 'title');
-  bindField('ef-price', 'price');
-  bindNumberField('ef-discount', 'discount', 0, 90);
-  bindField('ef-dims', 'dims');
-  bindField('ef-origin', 'origin');
-  bindSelect('ef-category', 'category');
-  bindSelect('ef-status', 'status');
-  bindField('ef-desc', 'desc');
+  /* Bind fields → they ALWAYS keep editingDraft in sync. This is what
+     prevents photo uploads from wiping typed values. */
+  bind('ef-title', 'title');
+  bind('ef-price', 'price');
+  bindNum('ef-discount', 'discount', 0, 90);
+  bind('ef-dims', 'dims');
+  bind('ef-origin', 'origin');
+  bindSel('ef-category', 'category');
+  bindSel('ef-status', 'status');
+  bind('ef-desc', 'desc');
 
-  // Photo input — updates draft and preview img ONLY, never the form fields
   var photoInput = $('ef-photo-input');
   if (photoInput) {
     photoInput.addEventListener('change', function(e) {
       var file = e.target.files && e.target.files[0];
       if (!file) return;
       toast('Compressing…');
-      compressImage(file, 600, 0.65, function(dataUrl) {
+      compressImage(file, 900, 0.72, function(dataUrl) {
         if (!dataUrl) { toast('Could not read image.', true); return; }
         editingDraft.photo = dataUrl;
-        // Update preview in place — don't touch the inputs
+        /* Update preview image in place — never touch the form inputs */
         var wrap = $('ef-photo-wrap');
-        if (wrap) {
-          wrap.innerHTML = '<img id="ef-photo-img" src="' + dataUrl + '" alt="">';
-        }
-        // Also update the Remove button: if it doesn't exist, add it
+        if (wrap) wrap.innerHTML = '<img id="ef-photo-img" src="' + dataUrl + '" alt="">';
         var removeBtn = document.querySelector('[onclick="removePhoto()"]');
         if (!removeBtn) {
           var label = document.querySelector('label.btn.btn-line.btn-sm');
@@ -1589,16 +1596,14 @@ function renderEditForm(pane) {
   }
 }
 
-function bindField(id, key) {
+function bind(id, key) {
   var el = $(id);
   if (!el) return;
   el.addEventListener('input', function() {
-    if (!editingDraft) return;
-    editingDraft[key] = el.value;
+    if (editingDraft) editingDraft[key] = el.value;
   });
 }
-
-function bindNumberField(id, key, min, max) {
+function bindNum(id, key, min, max) {
   var el = $(id);
   if (!el) return;
   el.addEventListener('input', function() {
@@ -1608,13 +1613,11 @@ function bindNumberField(id, key, min, max) {
     editingDraft[key] = Math.max(min, Math.min(max, v));
   });
 }
-
-function bindSelect(id, key) {
+function bindSel(id, key) {
   var el = $(id);
   if (!el) return;
   el.addEventListener('change', function() {
-    if (!editingDraft) return;
-    editingDraft[key] = el.value;
+    if (editingDraft) editingDraft[key] = el.value;
   });
 }
 
@@ -1632,15 +1635,27 @@ function cancelEdit() {
 }
 window.cancelEdit = cancelEdit;
 
+function syncDraftFromForm() {
+  if (!editingDraft) return;
+  function val(id, fb) { var el = $(id); return el ? el.value : fb; }
+  editingDraft.title = val('ef-title', editingDraft.title);
+  editingDraft.price = val('ef-price', editingDraft.price);
+  var d = parseFloat(val('ef-discount', editingDraft.discount));
+  editingDraft.discount = isNaN(d) ? 0 : Math.max(0, Math.min(90, d));
+  editingDraft.dims = val('ef-dims', editingDraft.dims);
+  editingDraft.origin = val('ef-origin', editingDraft.origin);
+  editingDraft.category = val('ef-category', editingDraft.category);
+  editingDraft.status = val('ef-status', editingDraft.status);
+  editingDraft.desc = val('ef-desc', editingDraft.desc);
+}
+
 function saveProduct() {
   if (!editingDraft) return;
-  // Ensure all fields sync one last time (belt and braces)
   syncDraftFromForm();
   var title = String(editingDraft.title || '').trim();
   if (!title) {
     toast('Please enter a title.', true);
-    var t = $('ef-title');
-    if (t) t.focus();
+    var t = $('ef-title'); if (t) t.focus();
     return;
   }
   editingDraft.title = title;
@@ -1669,60 +1684,40 @@ function saveProduct() {
 }
 window.saveProduct = saveProduct;
 
-// Belt-and-braces sync — reads all fields into draft
-function syncDraftFromForm() {
-  if (!editingDraft) return;
-  function val(id, fb) {
-    var el = $(id);
-    return el ? el.value : fb;
-  }
-  editingDraft.title = val('ef-title', editingDraft.title);
-  editingDraft.price = val('ef-price', editingDraft.price);
-  var d = parseFloat(val('ef-discount', editingDraft.discount));
-  editingDraft.discount = isNaN(d) ? 0 : Math.max(0, Math.min(90, d));
-  editingDraft.dims = val('ef-dims', editingDraft.dims);
-  editingDraft.origin = val('ef-origin', editingDraft.origin);
-  editingDraft.category = val('ef-category', editingDraft.category);
-  editingDraft.status = val('ef-status', editingDraft.status);
-  editingDraft.desc = val('ef-desc', editingDraft.desc);
-}
-
-// ============================================================
-// 16. ADMIN — CONTENT EDITOR
-// ============================================================
+/* CONTENT EDITOR */
 var CONTENT_KEYS = [
-  { k: 'announcement', l: 'Announcement Bar', t: 'text' },
-  { k: 'brand', l: 'Brand Name', t: 'text' },
-  { k: 'heroEyebrow', l: 'Hero · Eyebrow', t: 'text' },
-  { k: 'heroTitle', l: 'Hero · Headline', t: 'area' },
-  { k: 'heroSubtitle', l: 'Hero · Subtitle', t: 'area' },
-  { k: 'heroCta', l: 'Hero · Primary Button', t: 'text' },
-  { k: 'heroCta2', l: 'Hero · Secondary Button', t: 'text' },
-  { k: 'collectionEyebrow', l: 'Collection · Eyebrow', t: 'text' },
-  { k: 'collectionTitle', l: 'Collection · Title', t: 'text' },
-  { k: 'collectionSubtitle', l: 'Collection · Subtitle', t: 'area' },
-  { k: 'storyEyebrow', l: 'Heritage · Eyebrow', t: 'text' },
-  { k: 'storyTitle', l: 'Heritage · Title', t: 'text' },
-  { k: 'storyBody', l: 'Heritage · Body', t: 'area' },
-  { k: 'storyStat1n', l: 'Stat 1 · Number', t: 'text' },
-  { k: 'storyStat1l', l: 'Stat 1 · Label', t: 'text' },
-  { k: 'storyStat2n', l: 'Stat 2 · Number', t: 'text' },
-  { k: 'storyStat2l', l: 'Stat 2 · Label', t: 'text' },
-  { k: 'storyStat3n', l: 'Stat 3 · Number', t: 'text' },
-  { k: 'storyStat3l', l: 'Stat 3 · Label', t: 'text' },
-  { k: 'careEyebrow', l: 'Care · Eyebrow', t: 'text' },
-  { k: 'careTitle', l: 'Care · Title', t: 'text' },
-  { k: 'careIntro', l: 'Care · Intro', t: 'area' },
-  { k: 'footerTagline', l: 'Footer · Tagline', t: 'area' },
-  { k: 'footerAddress', l: 'Footer · Address', t: 'text' },
-  { k: 'footerHours', l: 'Footer · Hours', t: 'text' },
-  { k: 'footerNote', l: 'Footer · Copyright', t: 'text' }
+  { k:'announcement', l:'Announcement Bar', t:'text' },
+  { k:'brand', l:'Brand Name', t:'text' },
+  { k:'heroEyebrow', l:'Hero · Eyebrow', t:'text' },
+  { k:'heroTitle', l:'Hero · Headline', t:'area' },
+  { k:'heroSubtitle', l:'Hero · Subtitle', t:'area' },
+  { k:'heroCta', l:'Hero · Primary Button', t:'text' },
+  { k:'heroCta2', l:'Hero · Secondary Button', t:'text' },
+  { k:'collectionEyebrow', l:'Collection · Eyebrow', t:'text' },
+  { k:'collectionTitle', l:'Collection · Title', t:'text' },
+  { k:'collectionSubtitle', l:'Collection · Subtitle', t:'area' },
+  { k:'storyEyebrow', l:'Heritage · Eyebrow', t:'text' },
+  { k:'storyTitle', l:'Heritage · Title', t:'text' },
+  { k:'storyBody', l:'Heritage · Body', t:'area' },
+  { k:'storyStat1n', l:'Stat 1 · Number', t:'text' },
+  { k:'storyStat1l', l:'Stat 1 · Label', t:'text' },
+  { k:'storyStat2n', l:'Stat 2 · Number', t:'text' },
+  { k:'storyStat2l', l:'Stat 2 · Label', t:'text' },
+  { k:'storyStat3n', l:'Stat 3 · Number', t:'text' },
+  { k:'storyStat3l', l:'Stat 3 · Label', t:'text' },
+  { k:'careEyebrow', l:'Care · Eyebrow', t:'text' },
+  { k:'careTitle', l:'Care · Title', t:'text' },
+  { k:'careIntro', l:'Care · Intro', t:'area' },
+  { k:'footerTagline', l:'Footer · Tagline', t:'area' },
+  { k:'footerAddress', l:'Footer · Address', t:'text' },
+  { k:'footerHours', l:'Footer · Hours', t:'text' },
+  { k:'footerNote', l:'Footer · Copyright', t:'text' }
 ];
 
 function renderContentEditor() {
   var pane = $('pane-content');
   if (!pane) return;
-  var html = '<p class="note">Tip: with admin unlocked, tap any text directly on the page to edit it live.</p>';
+  var html = '<p class="note">Tip: with admin unlocked, tap any text on the page to edit it live.</p>';
   for (var i = 0; i < CONTENT_KEYS.length; i++) {
     var f = CONTENT_KEYS[i];
     var val = state.content[f.k] || '';
@@ -1735,7 +1730,6 @@ function renderContentEditor() {
     }
   }
   pane.innerHTML = html;
-
   pane.querySelectorAll('[data-ck]').forEach(function(el) {
     el.addEventListener('input', function() {
       state.content[el.getAttribute('data-ck')] = el.value;
@@ -1745,32 +1739,27 @@ function renderContentEditor() {
   });
 }
 
-// ============================================================
-// 17. ADMIN — DESIGN EDITOR
-// ============================================================
+/* DESIGN EDITOR */
 function renderDesignEditor() {
   var pane = $('pane-design');
   if (!pane) return;
   var c = state.settings.colors;
-
-  var html =
+  pane.innerHTML =
     '<h3 class="ap-h">Colours</h3>' +
-    colorRow('gold', 'Gold accent', c.gold) +
-    colorRow('dark', 'Dark background', c.dark) +
-    colorRow('light', 'Light surface', c.light) +
-    colorRow('accent', 'Burgundy accent', c.accent) +
-
+    colorRow('gold','Gold accent',c.gold) +
+    colorRow('dark','Dark background',c.dark) +
+    colorRow('light','Light surface',c.light) +
+    colorRow('accent','Burgundy accent',c.accent) +
     '<h3 class="ap-h">Section Visibility</h3>' +
-    toggleRow('announcement', 'Announcement bar') +
-    toggleRow('hero', 'Hero banner') +
-    toggleRow('catalog', 'Collection gallery') +
-    toggleRow('story', 'Artisanship story') +
-    toggleRow('care', 'Rug care guide') +
-    toggleRow('footer', 'Footer') +
-
+    toggleRow('announcement','Announcement bar') +
+    toggleRow('hero','Hero banner') +
+    toggleRow('catalog','Collection gallery') +
+    toggleRow('story','Artisanship story') +
+    toggleRow('care','Rug care guide') +
+    toggleRow('footer','Footer') +
     '<h3 class="ap-h">Contact &amp; Commerce</h3>' +
-    '<label class="field"><span>WhatsApp Number (digits only, with country code)</span>' +
-      '<input type="text" id="set-wa" value="' + escapeHtml(state.settings.whatsapp) + '" placeholder="93700000000"></label>' +
+    '<label class="field"><span>WhatsApp Number (digits only)</span>' +
+      '<input type="text" id="set-wa" value="' + escapeHtml(state.settings.whatsapp) + '"></label>' +
     '<label class="field"><span>Store Email</span>' +
       '<input type="email" id="set-email" value="' + escapeHtml(state.settings.email) + '"></label>' +
     '<label class="field"><span>Currency Symbol</span>' +
@@ -1779,24 +1768,17 @@ function renderDesignEditor() {
       '<input type="text" id="set-pin" maxlength="12" value="' + escapeHtml(state.settings.pin) + '"></label>' +
     '<button class="btn btn-gold" onclick="saveSettings()">' +
       '<i class="fa-solid fa-floppy-disk"></i> Save Settings</button>' +
-
     '<h3 class="ap-h" style="margin-top:28px">Reset</h3>' +
-    '<button class="btn btn-line" onclick="resetDesignOnly()">' +
-      '<i class="fa-solid fa-palette"></i> Reset Design Only</button>' +
-    '<button class="btn btn-line" style="margin-left:8px" onclick="resetContentOnly()">' +
-      '<i class="fa-solid fa-pen-nib"></i> Reset Content Only</button>';
+    '<button class="btn btn-line" onclick="resetDesignOnly()">Reset Design Only</button>' +
+    '<button class="btn btn-line" style="margin-left:8px" onclick="resetContentOnly()">Reset Content Only</button>';
 
-  pane.innerHTML = html;
-
-  // Colour pickers
   pane.querySelectorAll('[data-color]').forEach(function(input) {
     input.addEventListener('input', function() {
       var key = input.getAttribute('data-color');
       state.settings.colors[key] = input.value;
       var hex = pane.querySelector('[data-hex="' + key + '"]');
       if (hex) hex.value = input.value.toUpperCase();
-      applyTheme();
-      saveState();
+      applyTheme(); saveState();
     });
   });
   pane.querySelectorAll('[data-hex]').forEach(function(input) {
@@ -1808,43 +1790,34 @@ function renderDesignEditor() {
         state.settings.colors[key] = v;
         var picker = pane.querySelector('[data-color="' + key + '"]');
         if (picker) picker.value = v;
-        applyTheme();
-        saveState();
+        applyTheme(); saveState();
       } else {
         input.value = state.settings.colors[key];
         toast('Use a hex like #C5A059', true);
       }
     });
   });
-
-  // Section toggles
   pane.querySelectorAll('[data-toggle]').forEach(function(el) {
     el.addEventListener('click', function() {
       var key = el.getAttribute('data-toggle');
       state.sections[key] = state.sections[key] === false ? true : false;
       el.classList.toggle('on', state.sections[key] !== false);
-      saveState();
-      applySections();
+      saveState(); applySections();
     });
   });
 }
 
 function colorRow(key, label, value) {
-  return '<div class="color-row">' +
-    '<label>' + label + '</label>' +
+  return '<div class="color-row"><label>' + label + '</label>' +
     '<div class="ctrl">' +
       '<input type="color" data-color="' + key + '" value="' + escapeHtml(value) + '">' +
       '<input type="text" data-hex="' + key + '" maxlength="7" value="' + escapeHtml(value) + '">' +
-    '</div>' +
-  '</div>';
+    '</div></div>';
 }
-
 function toggleRow(key, label) {
   var on = state.sections[key] !== false;
-  return '<div class="toggle-row">' +
-    '<span>' + label + '</span>' +
-    '<div class="switch' + (on ? ' on' : '') + '" data-toggle="' + key + '"></div>' +
-  '</div>';
+  return '<div class="toggle-row"><span>' + label + '</span>' +
+    '<div class="switch' + (on ? ' on' : '') + '" data-toggle="' + key + '"></div></div>';
 }
 
 function saveSettings() {
@@ -1861,32 +1834,13 @@ function saveSettings() {
 }
 window.saveSettings = saveSettings;
 
-function applySections() {
-  var s = state.sections;
-  var ann = document.querySelector('.announce');
-  if (ann) ann.style.display = s.announcement === false ? 'none' : '';
-  var hero = document.querySelector('.hero');
-  if (hero) hero.style.display = s.hero === false ? 'none' : '';
-  var cat = $('catalog');
-  if (cat) cat.style.display = s.catalog === false ? 'none' : '';
-  var story = $('story');
-  if (story) story.style.display = s.story === false ? 'none' : '';
-  var care = $('care');
-  if (care) care.style.display = s.care === false ? 'none' : '';
-  var foot = $('contact');
-  if (foot) foot.style.display = s.footer === false ? 'none' : '';
-}
-
 function resetContentOnly() {
   if (!confirm('Reset all text to defaults? Your inventory will be kept.')) return;
   state.content = clone(DEFAULT_DATA.content);
   state.sections = clone(DEFAULT_DATA.sections);
   saveState();
-  applyContent();
-  applySections();
-  renderCare();
-  renderContentEditor();
-  makeContentEditable(isAdmin);
+  applyContent(); applySections(); renderCare();
+  renderContentEditor(); makeContentEditable(isAdmin);
   toast('Content reset.');
 }
 window.resetContentOnly = resetContentOnly;
@@ -1894,36 +1848,28 @@ window.resetContentOnly = resetContentOnly;
 function resetDesignOnly() {
   if (!confirm('Reset colours and layout? Your inventory and text will be kept.')) return;
   state.settings.colors = clone(DEFAULT_DATA.settings.colors);
-  saveState();
-  applyTheme();
-  renderDesignEditor();
+  saveState(); applyTheme(); renderDesignEditor();
   toast('Design reset.');
 }
 window.resetDesignOnly = resetDesignOnly;
 
-// ============================================================
-// 18. ADMIN — PUBLISH
-// ============================================================
+/* PUBLISH */
 function renderPublishTab() {
   var pane = $('pane-publish');
   if (!pane) return;
   pane.innerHTML =
     '<h3 class="ap-h">Publish to GitHub</h3>' +
-    '<p class="note">This button copies your entire live store — every rug, photo, text edit and colour — into one self-contained HTML file and copies it to your clipboard. Then open your GitHub repo, edit <strong>index.html</strong>, select all, paste, and commit.</p>' +
+    '<p class="note">This button copies your entire live store into one self-contained HTML file. Then open your GitHub repo, edit <strong>index.html</strong>, select all, paste, and commit.</p>' +
     '<button class="btn btn-gold btn-block" id="btn-copy" style="margin-bottom:10px">' +
       '<i class="fa-solid fa-copy"></i> Copy Code for GitHub Commit</button>' +
     '<button class="btn btn-line btn-block" id="btn-download">' +
       '<i class="fa-solid fa-download"></i> Download index.html</button>' +
-
     '<h3 class="ap-h" style="margin-top:28px">Backups</h3>' +
-    '<p class="note">A JSON backup includes everything — rugs, photos, text, settings.</p>' +
     '<button class="btn btn-line btn-block" id="btn-json" style="margin-bottom:10px">' +
       '<i class="fa-solid fa-file-arrow-down"></i> Download JSON Backup</button>' +
     '<label class="btn btn-line btn-block" style="cursor:pointer">' +
       '<i class="fa-solid fa-file-arrow-up"></i> Import JSON Backup' +
-      '<input type="file" id="import-json" accept="application/json,.json" style="display:none">' +
-    '</label>' +
-
+      '<input type="file" id="import-json" accept="application/json,.json" style="display:none"></label>' +
     '<h3 class="ap-h" style="margin-top:28px">Publishing Checklist</h3>' +
     '<p class="note" style="background:rgba(217,56,30,.06);border-left-color:#D9381E;color:#7a1f11">' +
       '1. Tap <strong>Copy Code for GitHub Commit</strong>.<br>' +
@@ -1932,18 +1878,14 @@ function renderPublishTab() {
       '4. Commit changes. GitHub Pages redeploys automatically.<br>' +
       '5. Hard-refresh your live site (Ctrl/Cmd + Shift + R).' +
     '</p>' +
-    '<p style="font-size:11.5px;color:var(--muted);text-align:center;margin-top:20px">' +
-      'Running Roshan v' + VERSION + '</p>';
+    '<p style="font-size:11.5px;color:var(--muted);text-align:center;margin-top:20px">Running Roshan v' + VERSION + '</p>';
 
   $('btn-copy').addEventListener('click', exportAndCopy);
   $('btn-download').addEventListener('click', function() {
     try {
       downloadFile('index.html', buildExportHTML(), 'text/html');
       toast('index.html downloaded.');
-    } catch (e) {
-      console.error(e);
-      toast('Download failed.', true);
-    }
+    } catch(e) { console.error(e); toast('Download failed.', true); }
   });
   $('btn-json').addEventListener('click', function() {
     downloadFile('roshan-backup.json', JSON.stringify(state, null, 2), 'application/json');
@@ -1961,20 +1903,12 @@ function renderPublishTab() {
         if (!state.content) state.content = clone(DEFAULT_DATA.content);
         if (!Array.isArray(state.products)) state.products = [];
         saveState();
-        applyTheme();
-        applyContent();
-        applySections();
-        renderProducts();
-        renderFilters();
-        renderCare();
-        renderInventory();
-        renderContentEditor();
-        renderDesignEditor();
+        applyTheme(); applyContent(); applySections();
+        renderProducts(); renderFilters(); renderCare();
+        renderInventory(); renderContentEditor(); renderDesignEditor();
         makeContentEditable(isAdmin);
         toast('Backup imported.');
-      } catch (err) {
-        toast('Could not read that file.', true);
-      }
+      } catch(err) { toast('Could not read that file.', true); }
     };
     reader.readAsText(file);
     e.target.value = '';
@@ -1985,10 +1919,8 @@ function downloadFile(filename, content, mime) {
   var blob = new Blob([content], { type: mime + ';charset=utf-8' });
   var url = URL.createObjectURL(blob);
   var a = document.createElement('a');
-  a.href = url;
-  a.download = filename;
-  document.body.appendChild(a);
-  a.click();
+  a.href = url; a.download = filename;
+  document.body.appendChild(a); a.click();
   setTimeout(function() {
     document.body.removeChild(a);
     URL.revokeObjectURL(url);
@@ -1996,10 +1928,7 @@ function downloadFile(filename, content, mime) {
 }
 
 function buildExportHTML() {
-  // Clone document
   var root = document.documentElement.cloneNode(true);
-
-  // Strip admin artifacts
   root.querySelectorAll('[contenteditable]').forEach(function(el) {
     el.removeAttribute('contenteditable');
     el.removeAttribute('spellcheck');
@@ -2007,29 +1936,27 @@ function buildExportHTML() {
   root.querySelectorAll('[data-edit]').forEach(function(el) {
     el.removeAttribute('style');
   });
-  root.querySelectorAll('.modal').forEach(function(m) {
-    m.classList.remove('on');
-  });
+  root.querySelectorAll('.modal').forEach(function(m) { m.classList.remove('on'); });
   var bodyEl = root.querySelector('body');
-  if (bodyEl) {
-    bodyEl.classList.remove('admin-unlocked');
-    bodyEl.removeAttribute('style');
-  }
+  if (bodyEl) { bodyEl.classList.remove('admin-unlocked'); bodyEl.removeAttribute('style'); }
   var fab = root.querySelector('#admin-fab');
   if (fab) fab.classList.add('hidden');
+  var drawer = root.querySelector('#drawer');
+  if (drawer) drawer.classList.remove('on');
+  var drawerBg = root.querySelector('#drawer-bg');
+  if (drawerBg) drawerBg.classList.remove('on');
 
-  // Clear runtime containers
-  ['#grid', '#filters', '#care-grid', '#product-body', '#wishlist-body', '#wishlist-foot',
-   '#pane-inventory', '#pane-content', '#pane-design', '#pane-publish'].forEach(function(sel) {
+  ['#grid','#filters','#care-grid','#product-body','#wishlist-body','#wishlist-foot',
+   '#pane-inventory','#pane-content','#pane-design','#pane-publish'].forEach(function(sel) {
     var el = root.querySelector(sel);
     if (el) el.innerHTML = '';
   });
+
   var toast = root.querySelector('#toast');
   if (toast) { toast.className = ''; toast.textContent = ''; }
   var pin = root.querySelector('#pin-input');
   if (pin) { pin.value = ''; pin.removeAttribute('style'); }
 
-  // Clear theme overrides
   var htmlEl = root.querySelector('html');
   if (htmlEl) {
     ['--gold','--dark','--light','--accent','--gold-soft','--line','--muted'].forEach(function(v) {
@@ -2037,7 +1964,6 @@ function buildExportHTML() {
     });
   }
 
-  // Bake state
   var baked = root.querySelector('#roshan-baked');
   if (!baked) {
     baked = document.createElement('script');
@@ -2058,11 +1984,7 @@ function buildExportHTML() {
 function exportAndCopy() {
   var html;
   try { html = buildExportHTML(); }
-  catch (e) {
-    console.error(e);
-    toast('Export failed. Try Download instead.', true);
-    return;
-  }
+  catch(e) { console.error(e); toast('Export failed. Try Download instead.', true); return; }
   var sizeKB = Math.round(html.length / 1024);
   function done() { toast('Copied (' + sizeKB + ' KB). Paste into GitHub index.html.'); }
   function fallback() {
@@ -2078,20 +2000,14 @@ function exportAndCopy() {
       var ok = document.execCommand('copy');
       document.body.removeChild(ta);
       if (ok) done(); else toast('Clipboard blocked. Use Download.', true);
-    } catch (e) {
-      toast('Clipboard blocked. Use Download.', true);
-    }
+    } catch(e) { toast('Clipboard blocked. Use Download.', true); }
   }
   if (navigator.clipboard && navigator.clipboard.writeText && window.isSecureContext) {
     navigator.clipboard.writeText(html).then(done).catch(fallback);
-  } else {
-    fallback();
-  }
+  } else fallback();
 }
 
-// ============================================================
-// 19. IMAGE COMPRESSION
-// ============================================================
+/* IMAGE COMPRESSION */
 function compressImage(file, maxDim, quality, cb) {
   if (!file || !file.type || file.type.indexOf('image') === -1) { cb(null); return; }
   var reader = new FileReader();
@@ -2105,12 +2021,10 @@ function compressImage(file, maxDim, quality, cb) {
         var longest = Math.max(w, h);
         if (longest > maxDim) {
           var r = maxDim / longest;
-          w = Math.round(w * r);
-          h = Math.round(h * r);
+          w = Math.round(w * r); h = Math.round(h * r);
         }
         var canvas = document.createElement('canvas');
-        canvas.width = w;
-        canvas.height = h;
+        canvas.width = w; canvas.height = h;
         var ctx = canvas.getContext('2d');
         ctx.fillStyle = '#ffffff';
         ctx.fillRect(0, 0, w, h);
@@ -2119,16 +2033,13 @@ function compressImage(file, maxDim, quality, cb) {
         try {
           out = canvas.toDataURL('image/webp', quality);
           if (out.indexOf('data:image/webp') !== 0) out = null;
-        } catch (err) { out = null; }
+        } catch(err) { out = null; }
         if (!out) {
           try { out = canvas.toDataURL('image/jpeg', quality); }
-          catch (err2) { out = e.target.result; }
+          catch(err2) { out = e.target.result; }
         }
         cb(out);
-      } catch (err) {
-        console.warn('compress error', err);
-        cb(e.target.result);
-      }
+      } catch(err) { console.warn('compress error', err); cb(e.target.result); }
     };
     img.onerror = function() { cb(null); };
     img.src = e.target.result;
@@ -2137,9 +2048,7 @@ function compressImage(file, maxDim, quality, cb) {
   reader.readAsDataURL(file);
 }
 
-// ============================================================
-// 20. INLINE CONTENT EDITING (blur save)
-// ============================================================
+/* INLINE EDIT BLUR */
 document.addEventListener('focusout', function(e) {
   if (!isAdmin) return;
   var el = e.target && e.target.closest ? e.target.closest('[data-edit]') : null;
@@ -2149,7 +2058,6 @@ document.addEventListener('focusout', function(e) {
   var val = el.innerText || '';
   val = val.replace(/\u00a0/g, ' ').replace(/\r/g, '');
 
-  // Split on dots for nested keys like careItems.0.title
   var parts = path.split('.');
   var current = state.content;
   for (var i = 0; i < parts.length - 1; i++) {
@@ -2158,7 +2066,6 @@ document.addEventListener('focusout', function(e) {
   }
   var lastKey = parts[parts.length - 1];
 
-  // If empty, restore default
   if (val.trim() === '') {
     var def = DEFAULT_DATA.content;
     for (var j = 0; j < parts.length - 1; j++) {
@@ -2171,48 +2078,40 @@ document.addEventListener('focusout', function(e) {
     }
   }
 
-  if (parts.length === 1) {
-    state.content[parts[0]] = val;
-  } else if (current) {
-    current[lastKey] = val;
-  }
+  if (parts.length === 1) state.content[parts[0]] = val;
+  else if (current) current[lastKey] = val;
   saveState();
   applyContent();
   var mirror = document.querySelector('[data-ck="' + path + '"]');
   if (mirror) mirror.value = val;
 });
 
-// ============================================================
-// 21. INIT
-// ============================================================
+/* INIT */
 function init() {
-  // Purge old keys
+  /* Purge old version keys so GitHub Pages shared storage never fills up */
   try {
     var toRemove = [];
     for (var i = 0; i < localStorage.length; i++) {
       var k = localStorage.key(i);
       if (!k) continue;
-      if (k.indexOf('wevra_') === 0 || k.indexOf('roshan_v') === 0 ||
-          k.indexOf('roshan_master') === 0) {
-        if (k !== STORAGE_KEY && k !== WISH_KEY && k !== SESSION_KEY) toRemove.push(k);
+      if ((k.indexOf('wevra_') === 0 || k.indexOf('roshan_v') === 0 ||
+           k.indexOf('roshan_master') === 0) &&
+          k !== STORAGE_KEY && k !== WISH_KEY && k !== SESSION_KEY) {
+        toRemove.push(k);
       }
     }
     for (var j = 0; j < toRemove.length; j++) {
-      try { localStorage.removeItem(toRemove[j]); } catch (e) { /* ignore */ }
+      try { localStorage.removeItem(toRemove[j]); } catch(e) {}
     }
-    if (toRemove.length > 0) {
-      console.log('Roshan: purged ' + toRemove.length + ' old keys');
-    }
-  } catch (e) { /* ignore */ }
+    if (toRemove.length > 0) console.log('Roshan: purged ' + toRemove.length + ' old keys');
+  } catch(e) {}
 
-  // Load
   state = loadState();
   wishlist = loadWishlist();
   try {
     if (sessionStorage.getItem(SESSION_KEY) === '1') isAdmin = true;
-  } catch (e) { isAdmin = false; }
+  } catch(e) { isAdmin = false; }
 
-  // Apply theme and content
   applyTheme();
   applyContent();
   applySections();
@@ -2222,17 +2121,18 @@ function init() {
   updateWaButtons();
   updateWishBadge();
 
-  // Version tag
   var vt = $('vtag');
   if (vt) vt.textContent = 'v' + VERSION;
 
-  // Admin UI
   if (isAdmin) {
     $('admin-fab').classList.remove('hidden');
     makeContentEditable(true);
   }
 
-  // ---- Bind events ----
+  /* Drawer */
+  $('menu-toggle').addEventListener('click', openDrawer);
+
+  /* Admin access */
   $('admin-key').addEventListener('click', requestAdmin);
   $('pin-submit').addEventListener('click', tryUnlock);
   $('pin-input').addEventListener('keydown', function(e) {
@@ -2241,35 +2141,30 @@ function init() {
   $('lock-admin').addEventListener('click', lockAdmin);
   $('open-admin').addEventListener('click', openAdmin);
 
+  /* Wishlist */
   $('wish-btn').addEventListener('click', openWishlist);
 
-  // Header scroll state
+  /* Header scroll */
   var hdr = $('hdr');
-  function onScroll() {
-    hdr.classList.toggle('scrolled', window.scrollY > 20);
-  }
+  function onScroll() { hdr.classList.toggle('scrolled', window.scrollY > 20); }
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
 
-  // Search
+  /* Search */
   var si = $('search-input');
-  if (si) {
-    si.addEventListener('input', function() {
-      searchQuery = si.value.trim();
-      renderProducts();
-    });
-  }
+  if (si) si.addEventListener('input', function() {
+    searchQuery = si.value.trim();
+    renderProducts();
+  });
 
-  // Sort
+  /* Sort */
   var ss = $('sort-select');
-  if (ss) {
-    ss.addEventListener('change', function() {
-      sortMode = ss.value;
-      renderProducts();
-    });
-  }
+  if (ss) ss.addEventListener('change', function() {
+    sortMode = ss.value;
+    renderProducts();
+  });
 
-  // Admin tabs
+  /* Admin tabs */
   document.querySelectorAll('.tab').forEach(function(t) {
     t.addEventListener('click', function() {
       var name = t.getAttribute('data-tab');
@@ -2282,16 +2177,14 @@ function init() {
     });
   });
 
-  // Keyboard shortcut
+  /* Keyboard */
   document.addEventListener('keydown', function(e) {
     if (e.ctrlKey && e.shiftKey && (e.key === 'A' || e.key === 'a')) {
-      e.preventDefault();
-      requestAdmin();
+      e.preventDefault(); requestAdmin();
     }
     if (e.key === 'Escape') {
-      document.querySelectorAll('.modal.on').forEach(function(m) {
-        m.classList.remove('on');
-      });
+      document.querySelectorAll('.modal.on').forEach(function(m) { m.classList.remove('on'); });
+      closeDrawer();
     }
   });
 
