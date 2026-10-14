@@ -1,208 +1,754 @@
 <!DOCTYPE html>
-<html lang="en"><head>
-<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate"><meta http-equiv="Pragma" content="no-cache"><meta http-equiv="Expires" content="0">
-<title>Roshan — Hand-Knotted Afghan Rugs</title>
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600&family=Inter:wght@300;400;500&family=Playfair+Display&family=Cormorant+Garamond&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-<script src="https://cdn.tailwindcss.com"></script>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Roshan — Handknotted Afghan Rugs</title>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500&family=Cormorant+Garamond:wght@400;500;600&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
-:root{--gold:#C5A059;--dark:#121212;--light:#FDFBF7;--accent:#8C2D19;--sale:#D9381E;--gold-a10:rgba(197,160,89,.1);--gold-a18:rgba(197,160,89,.18);--gold-a45:rgba(197,160,89,.45);--line:rgba(18,18,18,.1);--muted:rgba(18,18,18,.6);--on-gold:#121212;--font-head:'Cinzel',serif;--font-body:'Inter',sans-serif}
-html{scroll-behavior:smooth}body{font-family:var(--font-body);background:var(--light);color:var(--dark);line-height:1.8;font-size:15px;margin:0}
-h1,h2,h3,.head{font-family:var(--font-head)}
-.eyebrow{font-size:10px;letter-spacing:.3em;text-transform:uppercase;color:var(--gold)}
-.btn{display:inline-block;border:1px solid var(--gold);padding:12px 22px;border-radius:2px;font-size:11px;letter-spacing:.24em;text-transform:uppercase;cursor:pointer;transition:all .3s cubic-bezier(.2,.8,.2,1);background:transparent;color:inherit}
-.btn.gold{background:var(--gold);color:var(--on-gold)}.btn:hover{opacity:.85}
-.icon{width:38px;height:38px;border-radius:50%;border:1px solid var(--line);display:inline-flex;align-items:center;justify-content:center;cursor:pointer;background:#fff}
-.icon:hover{border-color:var(--gold);color:var(--gold)}
-header{position:fixed;top:0;left:0;right:0;z-index:40;background:rgba(253,251,247,.96);border-bottom:1px solid var(--line)}
-.hero{min-height:100vh;background:radial-gradient(circle at 30% 20%,#2a1d12,transparent 55%),repeating-linear-gradient(45deg,var(--gold-a10) 0 1px,transparent 1px 26px),var(--dark);color:#fff;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:120px 24px 60px;background-size:cover;background-position:center}
-.hero h1{font-size:clamp(34px,7vw,72px);line-height:1.15;white-space:pre-line;margin:16px 0}
-.card .ph{aspect-ratio:3/4;overflow:hidden;position:relative;background:#e8e2d6}
-.card img{width:100%;height:100%;object-fit:cover;opacity:0;transition:opacity .6s,transform 1.3s cubic-bezier(.2,.8,.2,1)}
-.card img.loaded{opacity:1}.card:hover img{transform:scale(1.08)}
-.badge{position:absolute;top:10px;left:10px;font-size:10px;letter-spacing:.15em;text-transform:uppercase;padding:3px 9px;color:#fff;border-radius:2px;margin-right:4px}
-.heart{position:absolute;top:10px;right:10px}.heart.on{color:var(--accent)}
-.modal{position:fixed;inset:0;background:rgba(0,0,0,.6);z-index:60;display:none;align-items:center;justify-content:center;padding:16px}
-.modal.open{display:flex}.box{background:var(--light);max-width:900px;width:100%;max-height:92vh;overflow:auto;padding:24px;border-radius:2px;position:relative}
-.drawer{max-width:600px;margin-left:auto;align-self:stretch;max-height:none;height:100%}
-.no-scroll{overflow:hidden}
-.chat{position:fixed;right:16px;bottom:16px;z-index:50}
-#chatPanel{display:none;width:300px;background:#fff;border:1px solid var(--line);padding:16px;margin-bottom:10px;transform-origin:bottom right}
-#chatPanel.open{display:block;animation:pop .3s cubic-bezier(.2,.8,.2,1)}
-@keyframes pop{from{transform:scale(.6);opacity:0}to{transform:scale(1);opacity:1}}
-.chip{border:1px solid var(--gold);border-radius:99px;padding:2px 12px;font-size:12px;cursor:pointer;margin:2px;background:none}
-body.admin-unlocked [data-edit]{outline:1px dashed var(--gold);cursor:text}
-input,select,textarea{border:1px solid var(--line);padding:8px;width:100%;background:#fff;font:inherit;margin:2px 0 10px}
-.tabs button{padding:6px 12px;font-size:11px;letter-spacing:.2em;text-transform:uppercase}
-.tabs button.on{border-bottom:2px solid var(--gold)}
-[hidden]{display:none!important}
+/* ===== TOKENS ===== */
+:root{--gold:#C5A059;--dark:#121212;--light:#FDFBF7;--accent:#8C2D19;--sale:#D9381E;--ease:cubic-bezier(.2,.8,.2,1);--head:'Cormorant Garamond',serif;--body:'Inter',sans-serif}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:var(--body);font-weight:300;background:var(--light);color:var(--dark);line-height:1.7;-webkit-text-size-adjust:100%}
+h1,h2,h3{font-family:var(--head);font-weight:500;line-height:1.15}
+button,input,select,textarea{font:inherit;color:inherit}
+img{max-width:100%;display:block}
+.wrap{max-width:1180px;margin:0 auto;padding:0 22px}
+.small{font-size:11px;letter-spacing:.28em;text-transform:uppercase}
+/* ===== BUTTONS ===== */
+.btn{display:inline-block;border:1px solid var(--dark);background:var(--dark);color:var(--light);padding:14px 28px;border-radius:2px;cursor:pointer;font-size:11px;letter-spacing:.26em;text-transform:uppercase;transition:all .5s var(--ease);text-decoration:none}
+.btn:hover{background:var(--gold);border-color:var(--gold)}
+.btn.ghost{background:transparent;color:inherit;border-color:currentColor}
+.btn.ghost:hover{background:var(--gold);border-color:var(--gold);color:var(--dark)}
+.btn.sm{padding:9px 16px}
+.icon{width:42px;height:42px;border-radius:50%;border:0;background:transparent;cursor:pointer;font-size:18px;transition:all .5s var(--ease)}
+.icon:hover{color:var(--gold)}
+input,select,textarea{width:100%;border:1px solid #d8d2c4;border-radius:2px;padding:11px 12px;background:#fff;font-size:16px}
+label{display:block;font-size:10px;letter-spacing:.24em;text-transform:uppercase;margin:14px 0 5px;color:#777}
+/* ===== HEADER ===== */
+#announce{background:var(--dark);color:var(--gold);text-align:center;padding:9px 12px;transition:all .6s var(--ease);overflow:hidden;max-height:60px}
+#announce.gone{max-height:0;padding:0}
+header{position:fixed;left:0;right:0;z-index:50;background:rgba(253,251,247,.94);backdrop-filter:blur(8px);border-bottom:1px solid #eee7d8;transition:top .6s var(--ease)}
+.bar{display:flex;align-items:center;justify-content:space-between;height:68px}
+.logo{display:flex;align-items:center;gap:10px;text-decoration:none;color:inherit}
+.logo span{font-family:'Cinzel',serif;letter-spacing:.34em;font-size:18px}
+nav.desk{display:none;gap:30px}
+nav.desk a{text-decoration:none;color:inherit;font-size:11px;letter-spacing:.24em;text-transform:uppercase}
+nav.desk a:hover{color:var(--gold)}
+.heart-count{font-size:10px;vertical-align:super;color:var(--sale)}
+#drawer{position:fixed;inset:0 40% 0 0;background:var(--light);z-index:80;padding:80px 28px;transform:translateX(-102%);transition:transform .6s var(--ease)}
+#drawer.open{transform:none}
+#drawer a{display:block;padding:14px 0;border-bottom:1px solid #eee;text-decoration:none;color:inherit}
+@media(min-width:900px){nav.desk{display:flex}#burger{display:none}}
+/* ===== HERO ===== */
+.hero{min-height:100vh;display:flex;align-items:center;justify-content:center;text-align:center;color:#fff;background:linear-gradient(rgba(18,18,18,.55),rgba(18,18,18,.65)),var(--heroimg,linear-gradient(135deg,#3a1d12,#8C2D19 55%,#C5A059));background-size:cover;background-position:center;padding:120px 22px 80px;position:relative}
+.hero h1{font-size:clamp(40px,8vw,84px);margin:18px 0}
+.hero p.sub{max-width:520px;margin:0 auto 34px;opacity:.9}
+.hero .cta{display:flex;gap:12px;justify-content:center;flex-wrap:wrap}
+.scroll{position:absolute;bottom:26px;left:50%;width:1px;height:46px;background:var(--gold);animation:drop 2s var(--ease) infinite}
+@keyframes drop{0%{transform:scaleY(0);transform-origin:top}50%{transform:scaleY(1);transform-origin:top}51%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+@media(prefers-reduced-motion:reduce){.scroll{animation:none}}
+/* ===== SECTIONS ===== */
+section{padding:96px 0}
+.title{text-align:center;margin-bottom:44px}
+.title h2{font-size:clamp(30px,5vw,46px);margin-top:10px}
+.tools{display:grid;gap:12px;margin-bottom:26px}
+.tabs{display:flex;gap:6px;flex-wrap:wrap;justify-content:center}
+.tab{background:none;border:1px solid #d8d2c4;border-radius:2px;padding:8px 16px;font-size:10px;letter-spacing:.22em;text-transform:uppercase;cursor:pointer;transition:all .4s var(--ease)}
+.tab.on{background:var(--dark);color:var(--light);border-color:var(--dark)}
+@media(min-width:700px){.tools{grid-template-columns:1fr 200px}}
+.grid{display:grid;grid-template-columns:repeat(2,1fr);gap:16px}
+@media(min-width:900px){.grid{grid-template-columns:repeat(3,1fr);gap:28px}}
+/* ===== CARDS ===== */
+.card{cursor:pointer}
+.thumb{position:relative;aspect-ratio:3/4;overflow:hidden;background:#ece5d6}
+.thumb img{width:100%;height:100%;object-fit:cover;opacity:0;transform:scale(1);transition:opacity .8s var(--ease),transform 1.3s var(--ease)}
+.thumb img.loaded{opacity:1}
+.card:hover .thumb img{transform:scale(1.08)}
+.badge{position:absolute;top:10px;left:10px;background:var(--sale);color:#fff;font-size:10px;letter-spacing:.14em;padding:3px 9px;border-radius:2px}
+.badge.sold{background:var(--dark);top:auto;bottom:10px}
+.wish{position:absolute;top:6px;right:6px;background:rgba(253,251,247,.9)}
+.wish.on{color:var(--sale)}
+.photos{position:absolute;bottom:10px;right:10px;font-size:10px;background:rgba(18,18,18,.7);color:#fff;padding:2px 8px;border-radius:2px}
+.over{position:absolute;inset:auto 0 0 0;padding:16px;background:linear-gradient(transparent,rgba(18,18,18,.75));color:#fff;opacity:0;transition:opacity .6s var(--ease)}
+.card:hover .over{opacity:1}
+.card h3{font-size:21px;margin-top:12px}
+.price s{color:#999;margin-right:8px}
+.price b{font-weight:500}
+.price .now.sale{color:var(--sale)}
+/* ===== MODAL ===== */
+.modal{position:fixed;inset:0;z-index:100;background:rgba(18,18,18,.7);display:flex;align-items:flex-start;justify-content:center;overflow-y:auto;-webkit-overflow-scrolling:touch;padding:20px 12px}
+.sheet{background:var(--light);width:100%;max-width:980px;border-radius:2px;position:relative;margin:auto;padding:24px}
+.sheet .x{position:absolute;top:8px;right:8px;z-index:3}
+.split{display:grid;gap:26px}
+@media(min-width:800px){.split{grid-template-columns:1fr 1fr}}
+.gal{aspect-ratio:3/4;background:#ece5d6;overflow:hidden;cursor:zoom-in}
+.gal img{width:100%;height:100%;object-fit:cover}
+.strip{display:flex;gap:8px;margin-top:8px}
+.strip img{width:64px;height:64px;object-fit:cover;cursor:pointer;opacity:.5;border:1px solid transparent}
+.strip img.on{opacity:1;border-color:var(--gold)}
+.specs{display:grid;grid-template-columns:1fr 1fr;gap:12px;margin:18px 0}
+.specs div{border-top:1px solid #e6dfce;padding-top:8px}
+.specs b{display:block;font-weight:400;font-size:15px}
+.lightbox{position:fixed;inset:0;z-index:200;background:#000;display:flex;align-items:center;justify-content:center;overflow:hidden;touch-action:none}
+.lightbox img{max-width:100%;max-height:100%;transition:transform .5s var(--ease);transform-origin:center;animation:zin .6s var(--ease)}
+@keyframes zin{from{transform:scale(.85);opacity:0}to{transform:none;opacity:1}}
+.lbc{position:absolute;top:14px;right:14px;display:flex;gap:6px}
+.lbc button{background:rgba(255,255,255,.15);color:#fff}
+/* ===== CONTENT SECTIONS ===== */
+.heritage{background:#fff}
+.stats{display:flex;gap:30px;margin:26px 0}
+.stats b{font-family:var(--head);font-size:38px;color:var(--gold);display:block;font-weight:500}
+.reviews{display:grid;gap:18px}
+@media(min-width:800px){.reviews{grid-template-columns:repeat(3,1fr)}}
+.rev{border:1px solid #e6dfce;padding:22px;border-radius:2px;background:#fff}
+.stars{color:var(--gold);letter-spacing:3px}
+.care{display:grid;grid-template-columns:repeat(2,1fr);gap:22px;text-align:center}
+@media(min-width:800px){.care{grid-template-columns:repeat(4,1fr)}}
+.care .ic{font-size:28px;color:var(--gold);margin-bottom:8px}
+footer{background:var(--dark);color:#d9d2c0;padding:70px 0 40px;text-align:center}
+footer a{color:var(--gold);text-decoration:none}
+.qnav{display:flex;gap:10px;justify-content:center;flex-wrap:wrap;margin:24px 0}
+#keybtn{opacity:.25;background:none;border:0;color:#fff;cursor:pointer;font-size:14px;padding:12px}
+#toast{position:fixed;bottom:22px;left:50%;transform:translateX(-50%) translateY(90px);background:var(--dark);color:#fff;padding:12px 22px;border-radius:2px;z-index:300;transition:transform .5s var(--ease);font-size:13px}
+#toast.show{transform:translateX(-50%)}
+/* ===== ADMIN + INLINE EDIT ===== */
+body.adm [data-edit]{cursor:text}
+body.adm [data-edit]:hover{outline:1px dashed var(--gold);outline-offset:4px}
+.admbar{display:flex;gap:4px;flex-wrap:wrap;margin:6px 0 16px;border-bottom:1px solid #e6dfce}
+.admbar button{background:none;border:0;padding:10px 12px;font-size:10px;letter-spacing:.2em;text-transform:uppercase;cursor:pointer;border-bottom:2px solid transparent}
+.admbar button.on{border-color:var(--gold)}
+.row{display:flex;gap:10px;align-items:center;padding:10px 0;border-bottom:1px solid #eee}
+.row img{width:48px;height:60px;object-fit:cover}
+.row .grow{flex:1;min-width:0}
+.meter{height:8px;background:#eee;border-radius:2px;overflow:hidden}
+.meter i{display:block;height:100%;background:var(--gold)}
+.two{display:grid;grid-template-columns:1fr 1fr;gap:12px}
+.pics{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+.pics div{position:relative}
+.pics img{width:80px;height:100px;object-fit:cover}
+.pics button{position:absolute;top:2px;right:2px;background:#000;color:#fff;border:0;width:22px;height:22px;border-radius:50%;cursor:pointer}
+.check{display:flex;gap:10px;align-items:center;font-size:14px;letter-spacing:0;text-transform:none;color:var(--dark);margin:8px 0}
+.check input{width:auto}
 </style>
-<meta name="roshan-note" content="Open the footer key icon (or Ctrl/Cmd+Shift+A) for admin. Default PIN 1234.">
-</head><body>
-<div id="announce" class="text-center py-2 text-xs tracking-widest" style="background:var(--dark);color:var(--gold);margin-top:0"><span data-edit="content.announcement"></span></div>
-<header><div class="flex items-center justify-between px-5 py-3">
-<a href="#top" class="flex items-center gap-3 head" style="letter-spacing:.3em"><span id="logoBox" style="width:34px;height:34px;display:inline-block;color:var(--gold)"></span><span data-edit="content.brand"></span></a>
-<nav class="hidden md:flex gap-6 text-xs tracking-widest uppercase"><a href="#collection">Collection</a><a href="#artisanship">Artisanship</a><a href="#reviews">Reviews</a><a href="#care">Care</a><a href="#contact">Contact</a></nav>
-<div class="flex items-center gap-3"><button class="icon" onclick="openWish()" aria-label="Wishlist"><i class="fa-solid fa-heart"></i><span id="wcount" class="text-xs ml-1">0</span></button><a id="inqBtn" class="btn gold" target="_blank" rel="noopener">Inquire</a></div></div></header>
-
-<section id="top" class="hero"><div class="eyebrow" data-edit="content.heroEyebrow"></div><h1 data-edit="content.heroTitle"></h1><p class="max-w-xl opacity-80" data-edit="content.heroSub"></p>
-<div class="mt-8 flex gap-3 flex-wrap justify-center"><a href="#collection" class="btn gold" data-edit="content.cta1"></a><a href="#reviews" class="btn" data-edit="content.cta2"></a></div></section>
-
-<section id="collection" class="px-5 py-20 max-w-6xl mx-auto">
-<div class="eyebrow" data-edit="content.collEyebrow"></div><h2 class="text-3xl mb-6" data-edit="content.collTitle"></h2>
-<div class="flex gap-3 flex-wrap"><input id="q" placeholder="Search rugs" oninput="renderGrid()" style="flex:1;min-width:160px">
-<select id="sort" onchange="renderGrid()" style="width:auto"><option value="f">Featured</option><option value="pa">Price ↑</option><option value="pd">Price ↓</option><option value="na">Name A–Z</option><option value="nz">Name Z–A</option><option value="r">Highest Rated</option></select></div>
-<div id="filterTabs" class="flex gap-2 overflow-x-auto mb-8"></div>
-<div id="productGrid" class="grid gap-6 grid-cols-1 sm:grid-cols-2 lg:grid-cols-3"></div></section>
-
-<section id="artisanship" style="background:var(--dark);color:#fff" class="px-5 py-20"><div class="max-w-5xl mx-auto grid md:grid-cols-2 gap-10 items-center">
-<div id="heritageImg" style="aspect-ratio:4/5;border:1px solid var(--gold);background:linear-gradient(135deg,#3a2616,#8C2D19);background-size:cover;background-position:center"></div>
-<div><div class="eyebrow" data-edit="content.herEyebrow"></div><h2 class="text-3xl my-3" data-edit="content.herTitle"></h2><p data-edit="content.herBody" style="white-space:pre-line;opacity:.85"></p>
-<div class="grid grid-cols-3 gap-4 mt-6 text-center"><div><div class="head text-2xl" style="color:var(--gold)" data-edit="content.stat1n"></div><div class="text-xs" data-edit="content.stat1l"></div></div><div><div class="head text-2xl" style="color:var(--gold)" data-edit="content.stat2n"></div><div class="text-xs" data-edit="content.stat2l"></div></div><div><div class="head text-2xl" style="color:var(--gold)" data-edit="content.stat3n"></div><div class="text-xs" data-edit="content.stat3l"></div></div></div></div></div></section>
-
-<section id="reviews" class="px-5 py-20" style="background:#F4EEE2"><div class="max-w-6xl mx-auto"><div class="eyebrow" data-edit="content.revEyebrow"></div><h2 class="text-3xl mb-6" data-edit="content.revTitle"></h2><div id="reviewsStrip" class="grid gap-4 md:grid-cols-3"></div></div></section>
-
-<section id="care" class="px-5 py-20 bg-white"><div class="max-w-6xl mx-auto"><div class="eyebrow" data-edit="content.careEyebrow"></div><h2 class="text-3xl mb-6" data-edit="content.careTitle"></h2><div id="careGrid" class="grid gap-4 sm:grid-cols-2 lg:grid-cols-4"></div></div></section>
-
-<footer id="contact" style="background:var(--dark);color:#ddd" class="px-5 py-14"><div class="max-w-6xl mx-auto grid md:grid-cols-3 gap-8">
-<div><div class="head text-xl" style="color:var(--gold)" data-edit="content.brand"></div><p data-edit="content.footTag" class="text-sm"></p></div>
-<div class="text-sm"><div class="eyebrow">Atelier</div><a id="waLink" target="_blank" rel="noopener">WhatsApp</a><br><a id="mailLink"></a></div>
-<div class="text-sm"><div class="eyebrow">Explore</div><a href="#collection">Collection</a><br><a href="#care">Care</a></div></div>
-<div class="max-w-6xl mx-auto mt-10 pt-4 flex justify-between text-xs opacity-70" style="border-top:1px solid #333"><span data-edit="content.copy"></span><button id="keyBtn" aria-label="Admin" style="color:var(--gold);opacity:.35"><i class="fa-solid fa-key"></i></button></div></footer>
-
-<div class="chat"><div id="chatPanel"><div class="flex justify-between"><b class="head">Roshan</b><button onclick="toggleChat()">–</button></div>
-<h3 class="head text-lg mt-2">Hi there! 👋</h3><p class="text-xs">Ask us anything — sizing, shipping, returns, or a specific rug.</p>
-<div id="chips" class="my-2"></div><div class="flex"><input id="chatIn" placeholder="Your message"><button class="btn gold" onclick="sendChat()" aria-label="Send"><i class="fa-solid fa-paper-plane"></i></button></div>
-<p class="text-xs" style="color:var(--muted)">Messages open in WhatsApp. We never store them.</p></div>
-<button class="icon" style="width:52px;height:52px;background:var(--gold)" onclick="toggleChat()" aria-label="Chat"><i class="fa-solid fa-comment"></i></button></div>
-<div id="adminFab" hidden style="position:fixed;left:16px;bottom:16px;z-index:50" class="flex gap-2"><button class="icon" onclick="openAdmin()"><i class="fa-solid fa-gear"></i></button><button class="icon" onclick="lockAdmin()"><i class="fa-solid fa-lock"></i></button></div>
-
-<div class="modal" id="mProduct"><div class="box" id="mProductBody"></div></div>
-<div class="modal" id="mWish"><div class="box" id="mWishBody"></div></div>
-<div class="modal" id="mPin"><div class="box" style="max-width:320px"><div class="eyebrow">Admin PIN</div><input id="pinInput" type="password" inputmode="numeric" maxlength="4"><button class="btn gold" onclick="tryPin()">Unlock</button> <button class="btn" onclick="closeAllModals()">Cancel</button></div></div>
-<div class="modal" id="mAdmin"><div class="box drawer"><div class="flex justify-between"><span class="head text-xl">Admin</span><button onclick="closeModal('mAdmin')">✕</button></div>
-<div class="tabs my-3"><button id="t-inv" onclick="tab('inv')">Inventory</button><button id="t-set" onclick="tab('set')">Settings</button><button id="t-pub" onclick="tab('pub')">Publish</button></div><div id="tabBody"></div></div></div>
-<div id="toast" style="position:fixed;bottom:80px;left:50%;transform:translateX(-50%);background:var(--dark);color:#fff;padding:8px 16px;z-index:90;font-size:13px;display:none"></div>
-<script id="roshan-baked-data" type="application/json"></script>
-
+</head>
+<body>
+<div id="app"></div>
+<div id="overlay"></div>
+<div id="toast"></div>
+<script id="roshan-baked-data" type="application/json">null</script>
 <script>
-var KEY='roshan_v9_data',CATS=['Kazak','Chobi','Classic Khorjin','Modern Khorjin','Sultani','Pazrug','Mamluk','Baluch','Turkish','Other'];
-var LOGO='<svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="5.5" stroke-linecap="round"><path d="M22 85V15h26a20 20 0 0 1 0 40H22M44 55l24 30M62 50a22 22 0 0 0-8-35M72 22l6-8M78 34l9-3M70 12l1-9"/></svg>';
-var D={content:{announcement:'Complimentary worldwide shipping on every hand-knotted rug',brand:'Roshan',heroEyebrow:'Authentic Afghan Heritage',heroTitle:'Rugs Woven by Hand,\nStories Told in Wool',heroSub:'Each piece is knotted over months by artisans of Bamyan, Kunduz and Herat, then travels to you.',cta1:'Explore the Collection',cta2:'Read Reviews',collEyebrow:'The Collection',collTitle:'Pieces Ready to Be Lived With',herEyebrow:'Artisanship',herTitle:'Knotted Slowly, Kept for Generations',herBody:'Our weavers shear, spin and dye wool in the valleys where this craft began.\nPatterns pass from mother to daughter, each knot a small decision made by hand.\nNo two rugs are ever identical, and that is the point.',stat1n:'3,000+',stat1l:'Knots per sq. foot',stat2n:'4 mo.',stat2l:'Per rug',stat3n:'100%',stat3l:'Natural wool',revEyebrow:'Reviews',revTitle:'Words From Our Collectors',careEyebrow:'Care',careTitle:'Looking After Your Rug',footTag:'Authentic hand-knotted Afghan rugs.',copy:'© Roshan. All rights reserved.',care:[['fa-rotate','Rotate','Turn your rug every six months for even wear.'],['fa-wind','Air','Air it outdoors in shade once a year.'],['fa-droplet','Blot','Blot spills at once; never rub.'],['fa-sun','Avoid Sun','Keep out of direct sunlight to protect the dyes.']]},
-settings:{pin:'1234',wa:'15551234567',email:'hello@roshan.example',cur:'$'},products:[],wish:[]};
-(function(){var s=[['Kazak Heritage',2400,0,'4\'1" x 6\'3"','Herat','Kazak'],['Chobi Earth',1800,0,'5\'0" x 7\'6"','Kabul','Chobi'],['Bamyan Classic Khorjin',900,15,'2\'0" x 4\'0"','Bamyan','Classic Khorjin'],['Modern Khorjin Sand',950,0,'2\'2" x 4\'2"','Mazar','Modern Khorjin'],['Kunduz Sultani',3200,20,'6\'2" x 8\'5"','Kunduz','Sultani'],['Pazrug Garden',2100,0,'5\'6" x 8\'0"','Herat','Pazrug'],['Mamluk Ruby',2800,0,'6\'0" x 9\'0"','Balkh','Mamluk']];
-for(var i=0;i<s.length;i++)D.products.push({id:'RSH-00'+(i+1),title:s[i][0],price:s[i][1],discount:s[i][2],dims:s[i][3],origin:s[i][4],cat:s[i][5],status:'active',desc:'A hand-knotted '+s[i][5]+' from '+s[i][4]+', woven in natural wool.',photos:[],reviews:[]})})();
-function clone(o){return JSON.parse(JSON.stringify(o))}
-function isObj(x){return x&&typeof x==='object'&&!Array.isArray(x)}
-function deepMerge(b,o){if(!isObj(b)||!isObj(o)){return o}var r=clone(b),k;for(k in o){if(typeof b[k]==='string'&&typeof o[k]==='string'){if(o[k]!==''||b[k]==='')r[k]=o[k]}else if(isObj(b[k])&&isObj(o[k])){r[k]=deepMerge(b[k],o[k])}else if(o[k]!==undefined&&o[k]!==null){r[k]=o[k]}}return r}
-function restoreBlank(o,d){var k;for(k in d){if(typeof d[k]==='string'){if(typeof o[k]!=='string'||o[k]===''){o[k]=d[k]}}else if(isObj(d[k])){if(!isObj(o[k]))o[k]={};restoreBlank(o[k],d[k])}else if(o[k]===undefined){o[k]=clone(d[k])}}}
-var S,editing=null,filterCat='All';
-function load(){var baked={},ls={},el=document.getElementById('roshan-baked-data');try{baked=JSON.parse(el.textContent||'{}')}catch(e){}try{ls=JSON.parse(localStorage.getItem(KEY)||'{}')}catch(e){}
-S=deepMerge(deepMerge(D,baked),ls);S.content.care=(ls.content&&ls.content.care)||(baked.content&&baked.content.care)||D.content.care;restoreBlank(S.content,D.content);restoreBlank(S.settings,D.settings);
-for(var i=0;i<S.products.length;i++){var p=S.products[i];p.id=p.id||('RSH-'+(100+i));p.photos=p.photos||[];p.status=p.status||'active';p.discount=p.discount||0;p.reviews=p.reviews||[]}}
-function save(){var snap=JSON.stringify(S);try{localStorage.setItem(KEY,snap);return true}catch(e){toast('Storage is full. Open Admin → Settings and remove photos.');return false}}
-function cleanupOld(){try{for(var i=localStorage.length-1;i>=0;i--){var k=localStorage.key(i);if(k&&(k.indexOf('wevra_')===0||k.indexOf('roshan_')===0)&&k!==KEY)localStorage.removeItem(k)}}catch(e){}}
-function forceUnlockScroll(){var a=[document.body,document.documentElement];for(var i=0;i<2;i++){a[i].classList.remove('no-scroll');var s=a[i].style;s.overflow='';s.position='';s.top='';s.height='';s.pointerEvents=''}}
-function esc(t){return String(t==null?'':t).replace(/[&<>"']/g,function(c){return {'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]})}
-function toast(m){var t=document.getElementById('toast');t.textContent=m;t.style.display='block';setTimeout(function(){t.style.display='none'},2600)}
-function money(n){return S.settings.cur+Number(n).toLocaleString()}
-function price(p){return p.discount?Math.round(p.price*(100-p.discount)/100):p.price}
-function waNum(){return String(S.settings.wa).replace(/\D/g,'')}
-function waUrl(t){return 'https://wa.me/'+waNum()+'?text='+encodeURIComponent(t)}
-function getP(id){for(var i=0;i<S.products.length;i++)if(S.products[i].id===id)return S.products[i]}
-function rating(p){var v=[],i;for(i=0;i<p.reviews.length;i++)if(p.reviews[i].visible!==false)v.push(p.reviews[i].rating);if(!v.length)return 0;var s=0;for(i=0;i<v.length;i++)s+=v[i];return s/v.length}
-function ph(p){return p.photos.length?p.photos[0]:'data:image/svg+xml,'+encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 30 40"><rect width="30" height="40" fill="#d8cdb8"/><path d="M0 0L30 40M30 0L0 40" stroke="#C5A059" stroke-width=".3"/></svg>')}
-function stars(n){var s='',i;for(i=1;i<=5;i++)s+='<i class="fa-'+(i<=Math.round(n)?'solid':'regular')+' fa-star" style="color:var(--gold);font-size:11px"></i>';return s}
-function setEdit(){var els=document.querySelectorAll('[data-edit]');for(var i=0;i<els.length;i++){var path=els[i].getAttribute('data-edit').split('.');els[i].textContent=S[path[0]][path[1]]}}
-function applyLogo(){document.getElementById('logoBox').innerHTML=LOGO}
-function renderStatic(){setEdit();applyLogo();
-var c='',i,cs=S.content.care;for(i=0;i<cs.length;i++)c+='<div class="p-6 text-center" style="border:1px solid var(--line)"><i class="fa-solid '+esc(cs[i][0])+'" style="color:var(--gold)"></i><h3 class="head my-2">'+esc(cs[i][1])+'</h3><p class="text-sm">'+esc(cs[i][2])+'</p></div>';document.getElementById('careGrid').innerHTML=c;
-var all=[],pi,ri;for(pi=0;pi<S.products.length;pi++)for(ri=0;ri<S.products[pi].reviews.length;ri++)if(S.products[pi].reviews[ri].visible!==false)all.push({r:S.products[pi].reviews[ri],p:S.products[pi]});
-all.sort(function(a,b){return String(b.r.date).localeCompare(String(a.r.date))});all=all.slice(0,6);var h='';
-for(i=0;i<all.length;i++)h+='<div class="bg-white p-5"><b>'+esc(all[i].r.name)+'</b> <span class="text-xs">'+esc(all[i].r.date)+'</span><div>'+stars(all[i].r.rating)+'</div><p class="text-sm">'+esc(all[i].r.text)+'</p><a href="#" class="text-xs" style="color:var(--gold)" onclick="openProduct(\''+all[i].p.id+'\');return false">'+esc(all[i].p.title)+'</a></div>';
-document.getElementById('reviewsStrip').innerHTML=h||'<p class="text-sm">Reviews from collectors will appear here.</p>';
-document.getElementById('inqBtn').href=waUrl('Hello Roshan, I would like to inquire about your rugs.');document.getElementById('waLink').href=waUrl('Hello Roshan');var m=document.getElementById('mailLink');m.textContent=S.settings.email;m.href='mailto:'+S.settings.email;
-var cs2=['All'],seen={};for(i=0;i<S.products.length;i++)if(!seen[S.products[i].cat]){seen[S.products[i].cat]=1;cs2.push(S.products[i].cat)}
-var t='';for(i=0;i<cs2.length;i++)t+='<button class="btn'+(cs2[i]===filterCat?' gold':'')+'" style="white-space:nowrap" onclick="setCat(\''+esc(cs2[i])+'\')">'+esc(cs2[i])+'</button>';document.getElementById('filterTabs').innerHTML=t;
-var hb=S.settings.heroBg;document.querySelector('.hero').style.backgroundImage=hb?'linear-gradient(rgba(0,0,0,.55),rgba(0,0,0,.55)),url('+hb+')':'';}
-function setCat(c){filterCat=c;renderStatic();renderGrid()}
-function renderGrid(){var q=document.getElementById('q').value.toLowerCase(),so=document.getElementById('sort').value,a=[],i,adm=document.body.classList.contains('admin-unlocked');
-for(i=0;i<S.products.length;i++){var p=S.products[i];if(p.status==='draft'&&!adm)continue;if(filterCat!=='All'&&p.cat!==filterCat)continue;if(q&&(p.title+' '+p.origin+' '+p.cat).toLowerCase().indexOf(q)<0)continue;a.push(p)}
-a.sort(function(x,y){if(so==='pa')return price(x)-price(y);if(so==='pd')return price(y)-price(x);if(so==='na')return x.title.localeCompare(y.title);if(so==='nz')return y.title.localeCompare(x.title);if(so==='r')return rating(y)-rating(x);return 0});
-var h='';for(i=0;i<a.length;i++){p=a[i];var on=S.wish.indexOf(p.id)>=0,r=rating(p);
-h+='<article class="card"><div class="ph"><img src="'+ph(p)+'" alt="'+esc(p.title)+'" onload="this.className=\'loaded\'" onclick="openProduct(\''+p.id+'\')" style="cursor:pointer">'+(p.status==='sold'?'<span class="badge" style="background:var(--accent)">Sold Out</span>':'')+(p.status==='draft'?'<span class="badge" style="background:var(--dark)">Draft</span>':'')+(p.discount?'<span class="badge" style="background:var(--sale);top:34px">−'+p.discount+'%</span>':'')+'<button class="icon heart'+(on?' on':'')+'" onclick="toggleWish(\''+p.id+'\')" aria-label="Save"><i class="fa-solid fa-heart"></i></button></div>'+
-'<div class="pt-3"><div class="eyebrow">'+esc(p.origin)+' · '+esc(p.cat)+'</div><h3 class="text-lg">'+esc(p.title)+'</h3><div class="text-xs">'+esc(p.dims)+'</div>'+(r?'<div>'+stars(r)+' <span class="text-xs">('+p.reviews.length+')</span></div>':'')+
-'<div class="mt-2">'+(p.discount?'<s class="text-xs" style="color:var(--muted)">'+money(p.price)+'</s><br><b style="color:var(--sale)">'+money(price(p))+'</b>':'<b>'+money(p.price)+'</b>')+'</div>'+
-'<div class="flex gap-2 mt-2"><a class="icon" target="_blank" rel="noopener" href="'+waUrl(waText(p))+'"><i class="fa-brands fa-whatsapp"></i></a><button class="icon" onclick="openProduct(\''+p.id+'\')"><i class="fa-solid fa-eye"></i></button></div>'+
-(adm?'<div class="mt-2 p-2" style="border:1px dashed var(--gold)"><button class="btn" onclick="editProduct(\''+p.id+'\')">Edit</button> <button class="btn" onclick="delProduct(\''+p.id+'\')">Delete</button></div>':'')+'</div></article>'}
-document.getElementById('productGrid').innerHTML=h||'<p>No rugs match your search.</p>';document.getElementById('wcount').textContent=S.wish.length}
-function waText(p){return 'Hello Roshan, I am interested in: '+p.title+' ('+p.id+')\nPrice: '+money(price(p))+(p.discount?' (was '+money(p.price)+')':'')+'\nSize: '+p.dims+'\nOrigin: '+p.origin+'\nIs it still available?'}
-function openModal(id){document.getElementById(id).classList.add('open');document.body.classList.add('no-scroll')}
-function closeModal(id){document.getElementById(id).classList.remove('open');forceUnlockScroll()}
-function closeAllModals(){var m=document.querySelectorAll('.modal');for(var i=0;i<m.length;i++)m[i].classList.remove('open');forceUnlockScroll()}
-function openProduct(id){var p=getP(id),i,th='',rv='';for(i=0;i<p.photos.length;i++)th+='<img src="'+p.photos[i]+'" style="width:60px;height:80px;object-fit:cover;cursor:pointer" onclick="document.getElementById(\'mainPh\').src=this.src">';
-for(i=0;i<Math.min(5,p.reviews.length);i++)rv+='<div class="py-2"><b>'+esc(p.reviews[i].name)+'</b> '+stars(p.reviews[i].rating)+'<p class="text-sm">'+esc(p.reviews[i].text)+'</p></div>';
-var sp=[['Dimensions',p.dims],['Origin',p.origin],['Category',p.cat],['Availability',p.status==='sold'?'Sold out':'Available'],['Reference',p.id],['Weave','Hand-knotted wool']],sg='';for(i=0;i<6;i++)sg+='<div><div class="eyebrow">'+sp[i][0]+'</div><div class="text-sm">'+esc(sp[i][1])+'</div></div>';
-document.getElementById('mProductBody').innerHTML='<button style="position:absolute;right:14px;top:10px" onclick="closeModal(\'mProduct\')">✕</button><div class="grid md:grid-cols-2 gap-6"><div><img id="mainPh" src="'+ph(p)+'" style="width:100%;aspect-ratio:3/4;object-fit:cover"><div class="flex gap-2 mt-2">'+th+'</div></div><div><div class="eyebrow">'+esc(p.origin)+'</div><h2 class="text-2xl">'+esc(p.title)+'</h2><div class="my-2">'+(p.discount?'<s>'+money(p.price)+'</s> <b style="color:var(--sale)">'+money(price(p))+'</b> <span class="badge" style="position:static;background:var(--sale)">Save '+p.discount+'%</span>':'<b>'+money(p.price)+'</b>')+'</div><div class="grid grid-cols-2 gap-3 my-3">'+sg+'</div><p class="text-sm">'+esc(p.desc)+'</p><div class="flex gap-2 flex-wrap mt-3"><a class="btn gold" target="_blank" rel="noopener" href="'+waUrl(waText(p))+'">Inquire on WhatsApp</a><button class="btn" onclick="toggleWish(\''+p.id+'\')">Save to Wishlist</button></div><h3 class="head mt-5">Reviews</h3>'+(rv||'<p class="text-sm">No reviews yet.</p>')+'<button class="btn mt-2" onclick="writeReview(\''+p.id+'\')">Write a Review</button></div></div>';openModal('mProduct')}
-function writeReview(id){var p=getP(id),n=prompt('Your name'),r=parseInt(prompt('Rating 1-5'),10),t=prompt('Your review');if(!n||!t||!(r>=1&&r<=5))return;p.reviews.unshift({id:'r'+Date.now(),name:n,rating:r,text:t,date:new Date().toISOString().slice(0,10),visible:true});save();renderStatic();openProduct(id);window.open(waUrl('Review for '+p.title+' ('+p.id+')\n'+n+' — '+r+'/5\n'+t),'_blank')}
-function toggleWish(id){var i=S.wish.indexOf(id);if(i>=0)S.wish.splice(i,1);else S.wish.push(id);save();renderGrid();if(document.getElementById('mWish').classList.contains('open'))openWish()}
-function openWish(){var h='<button style="position:absolute;right:14px;top:10px" onclick="closeModal(\'mWish\')">✕</button><h2 class="head text-xl mb-3">Wishlist</h2>',i,t='My Roshan wishlist:\n';
-for(i=0;i<S.wish.length;i++){var p=getP(S.wish[i]);if(!p)continue;t+='- '+p.title+' ('+p.id+') '+money(price(p))+'\n';h+='<div class="flex items-center gap-3 py-2"><img src="'+ph(p)+'" style="width:48px;height:64px;object-fit:cover"><div class="flex-1">'+esc(p.title)+'<br><b>'+money(price(p))+'</b></div><button onclick="toggleWish(\''+p.id+'\')">Remove</button></div>'}
-if(!S.wish.length)h+='<p>Tap the heart on any rug to save it here.</p>';else h+='<a class="btn gold" target="_blank" rel="noopener" href="'+waUrl(t)+'">Send Wishlist on WhatsApp</a> <button class="btn" onclick="S.wish=[];save();renderGrid();openWish()">Clear All</button>';
-document.getElementById('mWishBody').innerHTML=h;openModal('mWish')}
-var chipT=['Track my order','Sizing','Shipping','Returns'];
-function toggleChat(){document.getElementById('chatPanel').classList.toggle('open')}
-function sendChat(){var v=document.getElementById('chatIn').value;window.open(waUrl(v||'Hello Roshan'),'_blank')}
-/* ---------- Admin ---------- */
-function askPin(){document.getElementById('pinInput').value='';openModal('mPin')}
-function tryPin(){if(document.getElementById('pinInput').value===String(S.settings.pin)){closeModal('mPin');document.body.classList.add('admin-unlocked');setEditable(true);document.getElementById('adminFab').hidden=false;renderGrid();toast('Admin unlocked')}else toast('Wrong PIN')}
-function setEditable(on){var els=document.querySelectorAll('[data-edit]');for(var i=0;i<els.length;i++){if(on){els[i].setAttribute('contenteditable','true');els[i].setAttribute('spellcheck','false')}else{els[i].removeAttribute('contenteditable');els[i].removeAttribute('spellcheck')}}}
-function lockAdmin(){document.body.classList.remove('admin-unlocked');setEditable(false);document.getElementById('adminFab').hidden=true;closeAllModals();forceUnlockScroll();renderGrid()}
-document.addEventListener('blur',function(e){var el=e.target;if(!el.getAttribute||!el.getAttribute('data-edit'))return;var path=el.getAttribute('data-edit').split('.'),v=el.textContent;if(v.replace(/\s/g,'')===''){v=D[path[0]][path[1]];el.textContent=v}S[path[0]][path[1]]=v;save()},true);
-function openAdmin(){openModal('mAdmin');tab('inv')}
-function tab(t){var b=['inv','set','pub'],i;for(i=0;i<3;i++)document.getElementById('t-'+b[i]).className=b[i]===t?'on':'';var h='';
-if(t==='inv'){var used=(JSON.stringify(S).length/1024).toFixed(0);h='<p class="text-xs">Storage used: '+used+' KB of ~5,000 KB</p><button class="btn gold mb-3" onclick="editProduct()">Add New Rug</button>';for(i=0;i<S.products.length;i++){var p=S.products[i];h+='<div class="flex justify-between py-2 text-sm" style="border-bottom:1px solid var(--line)"><span>'+esc(p.title)+' <small>'+p.id+' · '+p.status+'</small></span><span><button onclick="editProduct(\''+p.id+'\')">Edit</button> <button onclick="delProduct(\''+p.id+'\')">Delete</button></span></div>'}}
-if(t==='set'){h='<label class="text-xs">Admin PIN</label><input id="sPin" value="'+esc(S.settings.pin)+'" maxlength="4"><label class="text-xs">WhatsApp number</label><input id="sWa" value="'+esc(S.settings.wa)+'"><label class="text-xs">Email</label><input id="sEm" value="'+esc(S.settings.email)+'"><label class="text-xs">Currency</label><select id="sCur"><option>$</option><option>€</option><option>£</option><option>AED</option></select><button class="btn gold" onclick="saveSettings()">Save</button><hr class="my-3"><button class="btn" onclick="removePhotos()">Remove All Photos</button> <button class="btn" onclick="eraseAll()">Erase Everything</button>';setTimeout(function(){document.getElementById('sCur').value=S.settings.cur},0)}
-if(t==='pub'){h='<button class="btn gold" onclick="copyCode()">Copy Code for GitHub Commit</button> <button class="btn" onclick="dlCode()">Download index.html</button><ol class="text-sm mt-3 list-decimal pl-5"><li>Copy the code or download the file.</li><li>Open your repository on GitHub and edit index.html.</li><li>Paste, commit, then wait a minute for Pages to update.</li></ol>'}
-document.getElementById('tabBody').innerHTML=h}
-function saveSettings(){S.settings.pin=document.getElementById('sPin').value||D.settings.pin;S.settings.wa=document.getElementById('sWa').value||D.settings.wa;S.settings.email=document.getElementById('sEm').value||D.settings.email;S.settings.cur=document.getElementById('sCur').value;save();renderStatic();renderGrid();toast('Saved')}
-function removePhotos(){for(var i=0;i<S.products.length;i++)S.products[i].photos=[];save();renderGrid();toast('Photos removed')}
-function eraseAll(){if(confirm('Erase all saved data on this device?')){try{localStorage.removeItem(KEY)}catch(e){}location.reload()}}
-function delProduct(id){if(!confirm('Delete this rug?'))return;S.products=S.products.filter(function(p){return p.id!==id});save();renderStatic();renderGrid();if(document.getElementById('mAdmin').classList.contains('open'))tab('inv')}
-function editProduct(id){var p=id?getP(id):null;editing=p?clone(p):{id:'RSH-'+('00'+(S.products.length+1)).slice(-3),title:'',price:0,discount:0,dims:'',origin:'',cat:'Kazak',status:'active',desc:'',photos:[],reviews:[],isNew:true};renderForm();openModal('mAdmin')}
-function renderForm(){var e=editing,i,co='',ph2='';for(i=0;i<CATS.length;i++)co+='<option'+(CATS[i]===e.cat?' selected':'')+'>'+CATS[i]+'</option>';
-for(i=0;i<e.photos.length;i++)ph2+='<span style="position:relative"><img src="'+e.photos[i]+'" style="width:60px;height:80px;object-fit:cover"><button onclick="rmPhoto('+i+')" style="position:absolute;top:0;right:0;background:#fff">✕</button></span> ';
-document.getElementById('tabBody').innerHTML='<label class="text-xs">Title *</label><input id="fT" value="'+esc(e.title)+'"><label class="text-xs">Price</label><input id="fP" value="'+esc(e.price)+'"><label class="text-xs">Discount %</label><input id="fD" type="number" min="0" max="90" step="5" value="'+e.discount+'"><label class="text-xs">Dimensions</label><input id="fDm" value="'+esc(e.dims)+'"><label class="text-xs">Regional Origin</label><input id="fO" value="'+esc(e.origin)+'"><label class="text-xs">Category</label><select id="fC">'+co+'</select><label class="text-xs">Status</label><select id="fS"><option value="active"'+(e.status==='active'?' selected':'')+'>Active</option><option value="sold"'+(e.status==='sold'?' selected':'')+'>Sold Out</option><option value="draft"'+(e.status==='draft'?' selected':'')+'>Draft</option></select><label class="text-xs">Description</label><textarea id="fDe" rows="3">'+esc(e.desc)+'</textarea><label class="text-xs">Photos (max 3, first is cover)</label><div>'+ph2+'</div><input type="file" id="fF" accept="image/*" multiple onchange="addPhotos(this.files)"><div id="prog" style="height:3px;background:var(--gold);width:0"></div><button class="btn gold" onclick="saveProduct()">Save Rug</button> <button class="btn" onclick="tab(\'inv\')">Cancel</button>'}
-function syncFormToEditing(){if(!editing||!document.getElementById('fT'))return;var e=editing;e.title=document.getElementById('fT').value;e.price=parseInt(String(document.getElementById('fP').value).replace(/[^0-9]/g,''),10)||0;e.discount=Math.max(0,Math.min(90,parseInt(document.getElementById('fD').value,10)||0));e.dims=document.getElementById('fDm').value;e.origin=document.getElementById('fO').value;e.cat=document.getElementById('fC').value;e.status=document.getElementById('fS').value;e.desc=document.getElementById('fDe').value}
-function rmPhoto(i){syncFormToEditing();editing.photos.splice(i,1);renderForm()}
-function compress(file,cb){var r=new FileReader();r.onload=function(){var im=new Image();im.onload=function(){var s=500/Math.max(im.width,im.height);if(s>1)s=1;var c=document.createElement('canvas');c.width=Math.round(im.width*s);c.height=Math.round(im.height*s);c.getContext('2d').drawImage(im,0,0,c.width,c.height);var u=c.toDataURL('image/webp',.55);if(u.indexOf('data:image/webp')!==0)u=c.toDataURL('image/jpeg',.6);cb(u)};im.src=r.result};r.readAsDataURL(file)}
-function addPhotos(files){syncFormToEditing();var list=[],i,room=3-editing.photos.length;for(i=0;i<files.length&&i<room;i++)list.push(files[i]);if(!list.length)return;var done=0;
-for(i=0;i<list.length;i++)compress(list[i],function(u){editing.photos.push(u);done++;document.getElementById('prog').style.width=(done/list.length*100)+'%';if(done===list.length)renderForm()})}
-function saveProduct(){syncFormToEditing();if(!editing.title){toast('Title is required');return}var e=clone(editing),isNew=e.isNew;delete e.isNew;var backup=clone(S.products);
-if(isNew)S.products.push(e);else for(var i=0;i<S.products.length;i++)if(S.products[i].id===e.id)S.products[i]=e;
-if(!save()){S.products=backup;return}editing=null;renderStatic();renderGrid();tab('inv');toast('Rug saved')}
-/* ---------- Export ---------- */
-function buildExport(){var h=document.documentElement.cloneNode(true),i,n;var a=h.querySelectorAll('[contenteditable],[spellcheck]');for(i=0;i<a.length;i++){a[i].removeAttribute('contenteditable');a[i].removeAttribute('spellcheck')}
-a=h.querySelectorAll('[data-edit]');for(i=0;i<a.length;i++)a[i].removeAttribute('style');
-var b=h.querySelector('body');b.classList.remove('admin-unlocked');b.classList.remove('no-scroll');b.removeAttribute('style');
-a=h.querySelectorAll('.modal,#chatPanel');for(i=0;i<a.length;i++)a[i].classList.remove('open');
-var hid=['adminFab'];for(i=0;i<hid.length;i++){n=h.querySelector('#'+hid[i]);if(n)n.setAttribute('hidden','')}
-var clr=['productGrid','filterTabs','careGrid','reviewsStrip','tabBody','mProductBody','mWishBody'];for(i=0;i<clr.length;i++){n=h.querySelector('#'+clr[i]);if(n)n.innerHTML=''}
-n=h.querySelector('#toast');if(n)n.textContent='';n=h.querySelector('#pinInput');if(n)n.setAttribute('value','');
-n=h.querySelector('#logoBox');if(n)n.innerHTML='';
-var st=h.getAttribute('style')||'';h.setAttribute('style','');h.removeAttribute('style');
-var cs=clone(S);cs.wish=[];restoreBlank(cs.content,D.content);restoreBlank(cs.settings,D.settings);
-n=h.querySelector('#roshan-baked-data');n.textContent=JSON.stringify(cs).replace(/</g,'\\u003c').replace(/\u2028/g,'\\u2028').replace(/\u2029/g,'\\u2029');
-return '<!DOCTYPE html>\n'+h.outerHTML}
-function copyCode(){var s=buildExport();function fb(){var t=document.createElement('textarea');t.value=s;document.body.appendChild(t);t.select();try{document.execCommand('copy');toast('Copied')}catch(e){toast('Copy failed — use Download')}document.body.removeChild(t)}
-if(navigator.clipboard&&navigator.clipboard.writeText){navigator.clipboard.writeText(s).then(function(){toast('Copied')},fb)}else fb()}
-function dlCode(){var a=document.createElement('a');a.href=URL.createObjectURL(new Blob([buildExport()],{type:'text/html'}));a.download='index.html';document.body.appendChild(a);a.click();document.body.removeChild(a)}
-function smoothScrollTo(id){forceUnlockScroll();var el=document.querySelector(id);if(el)el.scrollIntoView({behavior:'smooth'})}
-function init(){forceUnlockScroll();cleanupOld();load();var c='',i;for(i=0;i<chipT.length;i++)c+='<button class="chip" onclick="document.getElementById(\'chatIn\').value=\''+chipT[i]+'\'">'+chipT[i]+'</button>';document.getElementById('chips').innerHTML=c;
-renderStatic();renderGrid();document.getElementById('keyBtn').onclick=askPin;
-document.addEventListener('keydown',function(e){if((e.ctrlKey||e.metaKey)&&e.shiftKey&&(e.key==='A'||e.key==='a')){e.preventDefault();askPin()}});
-window.addEventListener('scroll',function(){document.getElementById('announce').style.display=window.scrollY>40?'none':'block'});
-var ms=document.querySelectorAll('.modal');for(i=0;i<ms.length;i++)ms[i].addEventListener('click',function(e){if(e.target===this){this.classList.remove('open'); forceUnlockScroll()}})}
+/* ===== STATE ===== */
+var STORAGE_KEY = 'roshan_v9_data';
+var DEFAULT_DATA = {
+  settings: { pin: '1234', whatsapp: '93700000000', email: 'hello@roshanrugs.com', currency: '$' },
+  theme: { gold: '#C5A059', dark: '#121212', light: '#FDFBF7', accent: '#8C2D19', heroImage: '', heritageImage: '', logo: '' },
+  show: { hero: true, collection: true, heritage: true, reviews: true, care: true },
+  content: {
+    announcement: 'Complimentary worldwide shipping on every handknotted rug',
+    brand: 'ROSHAN',
+    heroKicker: 'Handknotted in Afghanistan',
+    heroTitle: 'Rugs woven by light and patience',
+    heroSubtitle: 'Each Roshan rug is knotted by hand, one thread at a time, in the weaving villages of northern Afghanistan.',
+    heroCta1: 'View the collection',
+    heroCta2: 'Our story',
+    collectionTitle: 'The Collection',
+    heritageKicker: 'Artisanship',
+    heritageTitle: 'A craft older than the borders it crosses',
+    heritageBody: 'Our weavers learned from their mothers, who learned from theirs. Every rug begins with wool shorn, spun and dyed by hand.\n\nA single rug can take months to complete. We pay our weavers fairly and bring their work directly to your home.',
+    stat1n: '40+', stat1l: 'Weaving families',
+    stat2n: '6 mo', stat2l: 'Longest rug',
+    stat3n: '100%', stat3l: 'Hand knotted',
+    reviewsTitle: 'Words from our collectors',
+    careTitle: 'Caring for your rug',
+    care: [
+      { icon: '🧹', title: 'Vacuum gently', text: 'Use suction only, never a beater bar.' },
+      { icon: '☀️', title: 'Rotate yearly', text: 'Even out sunlight and foot traffic.' },
+      { icon: '💧', title: 'Blot spills', text: 'Press with a clean cloth. Never rub.' },
+      { icon: '🧺', title: 'Clean professionally', text: 'Every 2–3 years by a wool specialist.' }
+    ],
+    footerText: 'Handknotted Afghan rugs, sent from our family to yours.',
+    whatsappMessage: 'Hello Roshan, I would like to ask about a rug.'
+  },
+  rugs: [
+    { id: 'r1', title: 'Kunduz Ember', price: 1850, discount: 10, dimensions: '2.4 × 3.1 m', origin: 'Kunduz', category: 'Tribal', status: 'available', description: 'Deep madder reds with a hand-spun wool pile.', photos: [], createdAt: 3 },
+    { id: 'r2', title: 'Herat Garden', price: 2400, discount: 0, dimensions: '2.0 × 3.0 m', origin: 'Herat', category: 'Traditional', status: 'available', description: 'A walled garden pattern in soft gold and ivory.', photos: [], createdAt: 2 },
+    { id: 'r3', title: 'Mazar Dusk', price: 980, discount: 0, dimensions: '1.5 × 2.2 m', origin: 'Mazar-i-Sharif', category: 'Modern', status: 'sold', description: 'Muted indigo geometry on a natural wool field.', photos: [], createdAt: 1 }
+  ],
+  reviews: [
+    { id: 'v1', rugId: 'r1', name: 'Amelia R.', stars: 5, text: 'Even more beautiful in person. The wool feels alive.', date: 3 },
+    { id: 'v2', rugId: 'r2', name: 'Daniel K.', stars: 5, text: 'Arrived beautifully packed and the owner was kind throughout.', date: 2 },
+    { id: 'v3', rugId: 'r3', name: 'Sofia M.', stars: 4, text: 'Subtle, calm and well made. It anchors our living room.', date: 1 }
+  ]
+};
+var state = null;
+var view = { filter: 'All', search: '', sort: 'new' };
+var wishlist = [];
+var admin = false;
+var adminTab = 'inv';
+var editing = null;
+var openRugId = null;
+
+/* ===== HELPERS ===== */
+function $(selector, root) { return (root || document).querySelector(selector); }
+function clone(value) { return JSON.parse(JSON.stringify(value)); }
+function isPlainObject(value) { return value !== null && typeof value === 'object' && !Array.isArray(value); }
+function esc(text) {
+  return String(text === undefined || text === null ? '' : text).replace(/[&<>"']/g, function (c) {
+    return { '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c];
+  });
+}
+function money(amount) { return state.settings.currency + Number(amount).toLocaleString(); }
+function salePrice(rug) { return Math.round(rug.price * (100 - (rug.discount || 0)) / 100); }
+function findRug(id) { return state.rugs.filter(function (r) { return r.id === id; })[0]; }
+function toast(message) {
+  var el = $('#toast'); el.textContent = message; el.className = 'show';
+  setTimeout(function () { el.className = ''; }, 2200);
+}
+function newId(prefix) { return prefix + Date.now().toString(36) + Math.floor(Math.random() * 999); }
+
+/* ===== DATA SAFETY ===== */
+function deepMerge(base, override) {
+  if (override === undefined || override === null) { return base; }
+  if (typeof override === 'string' && override === '' && typeof base === 'string' && base !== '') { return base; }
+  if (!isPlainObject(base) || !isPlainObject(override)) { return override; }
+  var result = {};
+  Object.keys(base).forEach(function (key) { result[key] = deepMerge(base[key], override[key]); });
+  Object.keys(override).forEach(function (key) { if (!(key in result)) { result[key] = override[key]; } });
+  return result;
+}
+function restoreBlankDefaults() {
+  ['settings', 'content'].forEach(function (group) {
+    Object.keys(DEFAULT_DATA[group]).forEach(function (key) {
+      var fallback = DEFAULT_DATA[group][key];
+      var current = state[group][key];
+      if (typeof fallback === 'string' && (typeof current !== 'string' || current.replace(/\s/g, '') === '')) { state[group][key] = fallback; }
+    });
+  });
+  ['gold', 'dark', 'light', 'accent'].forEach(function (key) { if (!state.theme[key]) { state.theme[key] = DEFAULT_DATA.theme[key]; } });
+  if (!Array.isArray(state.content.care) || !state.content.care.length) { state.content.care = clone(DEFAULT_DATA.content.care); }
+}
+function cleanupOldStorage() {
+  try {
+    Object.keys(localStorage).forEach(function (key) {
+      if (/^roshan/i.test(key) && key !== STORAGE_KEY) { localStorage.removeItem(key); }
+    });
+  } catch (error) { /* storage unavailable */ }
+}
+function loadState() {
+  var saved = null;
+  var baked = null;
+  try { baked = JSON.parse($('#roshan-baked-data').textContent); } catch (error) { baked = null; }
+  try { saved = JSON.parse(localStorage.getItem(STORAGE_KEY)); } catch (error) { saved = null; }
+  state = deepMerge(clone(DEFAULT_DATA), baked || {});
+  if (saved) { state = deepMerge(state, saved); }
+  restoreBlankDefaults();
+}
+function saveState() {
+  restoreBlankDefaults();
+  try { localStorage.setItem(STORAGE_KEY, JSON.stringify(state)); return true; }
+  catch (error) { toast('Storage is full. Remove some photos.'); return false; }
+}
+
+/* ===== SCROLL SAFETY ===== */
+function forceUnlockScroll() {
+  [document.body, document.documentElement].forEach(function (node) {
+    node.style.overflow = ''; node.style.position = ''; node.style.height = ''; node.style.pointerEvents = '';
+  });
+}
+function lockScroll() { document.body.style.overflow = 'hidden'; }
+function scrollToId(id) {
+  forceUnlockScroll();
+  var el = document.getElementById(id);
+  if (el) { el.scrollIntoView({ behavior: 'smooth' }); }
+}
+
+/* ===== THEME ===== */
+function applyTheme() {
+  var root = document.documentElement.style;
+  root.setProperty('--gold', state.theme.gold);
+  root.setProperty('--dark', state.theme.dark);
+  root.setProperty('--light', state.theme.light);
+  root.setProperty('--accent', state.theme.accent);
+  root.setProperty('--heroimg', state.theme.heroImage ? 'url(' + state.theme.heroImage + ')' : '');
+  if (!state.theme.heroImage) { root.removeProperty('--heroimg'); }
+}
+
+/* ===== RENDERING: STOREFRONT ===== */
+var LOGO_SVG = '<svg width="34" height="34" viewBox="0 0 40 40" fill="none" stroke="#C5A059" stroke-width="1.4"><rect x="3" y="3" width="34" height="34"/><path d="M20 6 34 20 20 34 6 20Z"/><path d="M20 13 27 20 20 27 13 20Z" fill="#C5A059"/></svg>';
+function editable(path, text, tag) {
+  return '<' + (tag || 'span') + ' data-edit="' + path + '">' + esc(text) + '</' + (tag || 'span') + '>';
+}
+function paragraphs(text) {
+  return String(text).split(/\n\n+/).map(function (p) { return '<p style="margin-bottom:14px">' + esc(p) + '</p>'; }).join('');
+}
+function visibleRugs() {
+  var term = view.search.toLowerCase();
+  var list = state.rugs.filter(function (rug) {
+    var inCategory = view.filter === 'All' || rug.category === view.filter;
+    var matches = !term || (rug.title + ' ' + rug.origin + ' ' + rug.description).toLowerCase().indexOf(term) > -1;
+    return inCategory && matches;
+  });
+  list.sort(function (a, b) {
+    if (view.sort === 'low') { return salePrice(a) - salePrice(b); }
+    if (view.sort === 'high') { return salePrice(b) - salePrice(a); }
+    return (b.createdAt || 0) - (a.createdAt || 0);
+  });
+  return list;
+}
+function categories() {
+  var names = ['All'];
+  state.rugs.forEach(function (rug) { if (rug.category && names.indexOf(rug.category) < 0) { names.push(rug.category); } });
+  return names;
+}
+function placeholderArt() {
+  return 'data:image/svg+xml;utf8,' + encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="300" height="400"><rect width="300" height="400" fill="#e8dcc4"/><path d="M150 60 250 200 150 340 50 200Z" fill="none" stroke="#8C2D19" stroke-width="3"/><path d="M150 120 200 200 150 280 100 200Z" fill="#C5A059"/></svg>');
+}
+function cardHtml(rug) {
+  var liked = wishlist.indexOf(rug.id) > -1;
+  var cover = rug.photos && rug.photos.length ? rug.photos[0] : placeholderArt();
+  var priceHtml = rug.discount > 0
+    ? '<s>' + money(rug.price) + '</s><b class="now sale">' + money(salePrice(rug)) + '</b>'
+    : '<b class="now">' + money(rug.price) + '</b>';
+  return '<article class="card" data-act="open" data-id="' + rug.id + '"><div class="thumb">' +
+    '<img alt="' + esc(rug.title) + '" src="' + cover + '" onload="this.className=\'loaded\'">' +
+    (rug.discount > 0 && rug.status !== 'sold' ? '<span class="badge">-' + rug.discount + '%</span>' : '') +
+    (rug.status === 'sold' ? '<span class="badge sold">Sold</span>' : '') +
+    '<button class="icon wish' + (liked ? ' on' : '') + '" data-act="wish" data-id="' + rug.id + '" aria-label="Wishlist">' + (liked ? '♥' : '♡') + '</button>' +
+    (rug.photos && rug.photos.length > 1 ? '<span class="photos">' + rug.photos.length + ' photos</span>' : '') +
+    '<div class="over small">' + esc(rug.dimensions) + '</div></div>' +
+    '<h3>' + esc(rug.title) + '</h3><div class="price">' + priceHtml + '</div></article>';
+}
+function gridHtml() {
+  var list = visibleRugs();
+  if (!list.length) { return '<p style="grid-column:1/-1;text-align:center;color:#888">No rugs match your search.</p>'; }
+  return list.map(cardHtml).join('');
+}
+function recentReviews(limit) {
+  return state.reviews.slice().sort(function (a, b) { return b.date - a.date; }).slice(0, limit);
+}
+function starsText(count) { return new Array(count + 1).join('★') + new Array(6 - count).join('☆'); }
+function whatsappLink(message) {
+  return 'https://wa.me/' + String(state.settings.whatsapp).replace(/\D/g, '') + '?text=' + encodeURIComponent(message);
+}
+function renderStore() {
+  var c = state.content;
+  var navLinks = '<a href="#collection" data-act="go" data-id="collection">Collection</a><a href="#heritage" data-act="go" data-id="heritage">Heritage</a><a href="#care" data-act="go" data-id="care">Care</a>';
+  var logoMark = state.theme.logo ? '<img src="' + state.theme.logo + '" alt="" style="height:34px">' : LOGO_SVG;
+  var html = '<div id="announce" class="small">' + editable('content.announcement', c.announcement) + '</div>' +
+    '<header id="hdr"><div class="wrap bar"><button class="icon" id="burger" data-act="drawer" aria-label="Menu">☰</button>' +
+    '<a class="logo" href="#top">' + logoMark + editable('content.brand', c.brand) + '</a>' +
+    '<nav class="desk">' + navLinks + '</nav><div><button class="icon" data-act="wishlist" aria-label="Wishlist">♡<span class="heart-count" id="hc">' + (wishlist.length || '') + '</span></button>' +
+    '<a class="icon" style="display:inline-block;line-height:42px;text-align:center;text-decoration:none" href="' + whatsappLink(c.whatsappMessage) + '" target="_blank" rel="noopener" aria-label="WhatsApp">✆</a></div></div></header>' +
+    '<aside id="drawer"><button class="icon" style="position:absolute;top:14px;right:14px" data-act="drawer">✕</button>' + navLinks + '</aside>';
+  if (state.show.hero) {
+    html += '<section class="hero" id="top"><div><p class="small" style="color:var(--gold)">' + editable('content.heroKicker', c.heroKicker) + '</p>' +
+      editable('content.heroTitle', c.heroTitle, 'h1') + '<p class="sub">' + editable('content.heroSubtitle', c.heroSubtitle) + '</p>' +
+      '<div class="cta"><button class="btn" data-act="go" data-id="collection">' + editable('content.heroCta1', c.heroCta1) + '</button>' +
+      '<button class="btn ghost" data-act="go" data-id="heritage">' + editable('content.heroCta2', c.heroCta2) + '</button></div></div><div class="scroll"></div></section>';
+  }
+  if (state.show.collection) {
+    html += '<section id="collection"><div class="wrap"><div class="title"><p class="small" style="color:var(--gold)">Handknotted</p>' + editable('content.collectionTitle', c.collectionTitle, 'h2') + '</div>' +
+      '<div class="tools"><input id="search" placeholder="Search rugs" value="' + esc(view.search) + '"><select id="sort"><option value="new">Newest</option><option value="low">Price: low to high</option><option value="high">Price: high to low</option></select></div>' +
+      '<div class="tabs" id="tabs" style="margin-bottom:30px">' + tabsHtml() + '</div><div class="grid" id="grid">' + gridHtml() + '</div></div></section>';
+  }
+  if (state.show.heritage) {
+    var heritageImg = state.theme.heritageImage ? '<img src="' + state.theme.heritageImage + '" alt="" style="aspect-ratio:4/5;object-fit:cover;width:100%">' : '<div style="aspect-ratio:4/5;background:linear-gradient(135deg,#C5A059,#8C2D19)"></div>';
+    html += '<section class="heritage" id="heritage"><div class="wrap split">' + heritageImg + '<div><p class="small" style="color:var(--gold)">' + editable('content.heritageKicker', c.heritageKicker) + '</p>' +
+      editable('content.heritageTitle', c.heritageTitle, 'h2') + '<div style="margin-top:18px" data-edit="content.heritageBody" data-multi="1">' + paragraphs(c.heritageBody) + '</div>' +
+      '<div class="stats"><div><b>' + editable('content.stat1n', c.stat1n) + '</b><span class="small">' + editable('content.stat1l', c.stat1l) + '</span></div>' +
+      '<div><b>' + editable('content.stat2n', c.stat2n) + '</b><span class="small">' + editable('content.stat2l', c.stat2l) + '</span></div>' +
+      '<div><b>' + editable('content.stat3n', c.stat3n) + '</b><span class="small">' + editable('content.stat3l', c.stat3l) + '</span></div></div></div></div></section>';
+  }
+  if (state.show.reviews) {
+    html += '<section><div class="wrap"><div class="title">' + editable('content.reviewsTitle', c.reviewsTitle, 'h2') + '</div><div class="reviews">' +
+      recentReviews(6).map(function (r) { return '<div class="rev"><div class="stars">' + starsText(r.stars) + '</div><p style="margin:10px 0">' + esc(r.text) + '</p><span class="small">' + esc(r.name) + '</span></div>'; }).join('') + '</div></div></section>';
+  }
+  if (state.show.care) {
+    html += '<section id="care" class="heritage"><div class="wrap"><div class="title">' + editable('content.careTitle', c.careTitle, 'h2') + '</div><div class="care">' +
+      c.care.map(function (step) { return '<div><div class="ic">' + esc(step.icon) + '</div><h3>' + esc(step.title) + '</h3><p>' + esc(step.text) + '</p></div>'; }).join('') + '</div></div></section>';
+  }
+  html += '<footer><div class="wrap"><div class="logo" style="justify-content:center;color:#fff">' + LOGO_SVG + '<span>' + esc(c.brand) + '</span></div>' +
+    '<p style="margin-top:14px">' + editable('content.footerText', c.footerText) + '</p><div class="qnav">' +
+    '<a class="btn ghost sm" href="' + whatsappLink(c.whatsappMessage) + '" target="_blank" rel="noopener">WhatsApp</a>' +
+    '<a class="btn ghost sm" href="mailto:' + esc(state.settings.email) + '">Email</a><button class="btn ghost sm" data-act="go" data-id="collection">Collection</button></div>' +
+    '<button id="keybtn" data-act="admin" aria-label="Admin">🔑</button></div></footer>';
+  $('#app').innerHTML = html;
+  $('#sort').value = view.sort;
+  document.body.className = admin ? 'adm' : '';
+  setupInlineEdit();
+}
+function tabsHtml() {
+  return categories().map(function (name) { return '<button class="tab' + (view.filter === name ? ' on' : '') + '" data-act="filter" data-id="' + esc(name) + '">' + esc(name) + '</button>'; }).join('');
+}
+function refreshGrid() {
+  $('#grid').innerHTML = gridHtml();
+  $('#tabs').innerHTML = tabsHtml();
+}
+function refreshWishCount() {
+  var counter = $('#hc'); if (counter) { counter.textContent = wishlist.length || ''; }
+}
+
+/* ===== RENDERING: MODALS ===== */
+function showModal(html) {
+  $('#overlay').innerHTML = '<div class="modal" data-act="backdrop"><div class="sheet"><button class="icon x" data-act="close" aria-label="Close">✕</button>' + html + '</div></div>';
+  lockScroll();
+}
+function closeModal() {
+  $('#overlay').innerHTML = '';
+  openRugId = null;
+  forceUnlockScroll();
+}
+function openRug(id, photoIndex) {
+  var rug = findRug(id); if (!rug) { return; }
+  openRugId = id;
+  var index = photoIndex || 0;
+  var photos = rug.photos.length ? rug.photos : [placeholderArt()];
+  var rugReviews = state.reviews.filter(function (r) { return r.rugId === id; });
+  var priceHtml = rug.discount > 0 ? '<s style="color:#999">' + money(rug.price) + '</s> <b style="font-size:26px;color:var(--sale);font-weight:500">' + money(salePrice(rug)) + '</b>' : '<b style="font-size:26px;font-weight:500">' + money(rug.price) + '</b>';
+  var message = 'Hello Roshan, I am interested in "' + rug.title + '" (' + money(salePrice(rug)) + ').';
+  showModal('<div class="split"><div><div class="gal" data-act="zoom" data-id="' + id + '" data-i="' + index + '"><img src="' + photos[index] + '" alt=""></div><div class="strip">' +
+    photos.map(function (src, i) { return '<img class="' + (i === index ? 'on' : '') + '" src="' + src + '" data-act="photo" data-id="' + id + '" data-i="' + i + '" alt="">'; }).join('') + '</div></div>' +
+    '<div><p class="small" style="color:var(--gold)">' + esc(rug.category) + '</p><h2 style="font-size:36px">' + esc(rug.title) + '</h2><div style="margin:10px 0">' + priceHtml + '</div>' +
+    '<p>' + esc(rug.description) + '</p><div class="specs"><div><span class="small">Size</span><b>' + esc(rug.dimensions) + '</b></div><div><span class="small">Origin</span><b>' + esc(rug.origin) + '</b></div>' +
+    '<div><span class="small">Status</span><b>' + (rug.status === 'sold' ? 'Sold' : 'Available') + '</b></div><div><span class="small">Knots</span><b>Hand knotted</b></div></div>' +
+    '<div style="display:flex;gap:8px;flex-wrap:wrap">' + (rug.status === 'sold' ? '' : '<a class="btn" target="_blank" rel="noopener" href="' + whatsappLink(message) + '">Enquire on WhatsApp</a>') +
+    '<button class="btn ghost" data-act="wish" data-id="' + id + '">' + (wishlist.indexOf(id) > -1 ? 'Remove from wishlist' : 'Add to wishlist') + '</button></div>' +
+    '<h3 style="margin-top:26px">Reviews</h3>' + (rugReviews.length ? rugReviews.map(function (r) { return '<div style="margin-top:12px"><span class="stars">' + starsText(r.stars) + '</span> <span class="small">' + esc(r.name) + '</span><p>' + esc(r.text) + '</p></div>'; }).join('') : '<p style="color:#888">No reviews yet.</p>') +
+    '</div></div>');
+}
+function openLightbox(id, index) {
+  var rug = findRug(id); var src = rug.photos.length ? rug.photos[index] : placeholderArt();
+  var scale = 1, tx = 0, ty = 0, lastX = 0, lastY = 0, startDist = 0, startScale = 1;
+  var box = document.createElement('div'); box.className = 'lightbox';
+  box.innerHTML = '<img src="' + src + '" alt=""><div class="lbc"><button class="icon" data-lb="in">+</button><button class="icon" data-lb="out">−</button><button class="icon" data-lb="reset">⟲</button><button class="icon" data-lb="close">✕</button></div>';
+  document.body.appendChild(box);
+  var image = box.querySelector('img');
+  function paint() { image.style.transform = 'translate(' + tx + 'px,' + ty + 'px) scale(' + scale + ')'; }
+  function distance(touches) { return Math.sqrt(Math.pow(touches[0].clientX - touches[1].clientX, 2) + Math.pow(touches[0].clientY - touches[1].clientY, 2)); }
+  box.addEventListener('click', function (event) {
+    var action = event.target.getAttribute('data-lb');
+    if (action === 'in') { scale = Math.min(5, scale + .5); }
+    if (action === 'out') { scale = Math.max(1, scale - .5); }
+    if (action === 'reset') { scale = 1; tx = 0; ty = 0; }
+    if (action === 'close' || event.target === box) { box.remove(); forceUnlockScroll(); if ($('#overlay').innerHTML) { lockScroll(); } return; }
+    paint();
+  });
+  box.addEventListener('touchstart', function (event) {
+    if (event.touches.length === 2) { startDist = distance(event.touches); startScale = scale; }
+    else { lastX = event.touches[0].clientX; lastY = event.touches[0].clientY; }
+  });
+  box.addEventListener('touchmove', function (event) {
+    event.preventDefault();
+    image.style.transition = 'none';
+    if (event.touches.length === 2) { scale = Math.max(1, Math.min(5, startScale * distance(event.touches) / startDist)); }
+    else if (scale > 1) { tx += event.touches[0].clientX - lastX; ty += event.touches[0].clientY - lastY; lastX = event.touches[0].clientX; lastY = event.touches[0].clientY; }
+    paint();
+  }, { passive: false });
+  box.addEventListener('touchend', function () { image.style.transition = ''; });
+}
+function openWishlist() {
+  var items = wishlist.map(findRug).filter(Boolean);
+  var body = items.length ? items.map(function (rug) {
+    return '<div class="row"><img src="' + (rug.photos[0] || placeholderArt()) + '" alt=""><div class="grow"><b>' + esc(rug.title) + '</b><br>' + money(salePrice(rug)) + '</div><button class="btn ghost sm" data-act="wishremove" data-id="' + rug.id + '">Remove</button></div>';
+  }).join('') + '<div style="display:flex;gap:8px;margin-top:18px;flex-wrap:wrap"><a class="btn" target="_blank" rel="noopener" href="' + whatsappLink('Hello Roshan, my wishlist:\n' + items.map(function (r) { return '• ' + r.title + ' (' + money(salePrice(r)) + ')'; }).join('\n')) + '">Send wishlist on WhatsApp</a><button class="btn ghost" data-act="wishclear">Clear all</button></div>' : '<p style="color:#888">Your wishlist is empty. Tap the heart on any rug to save it.</p>';
+  showModal('<h2 style="margin-bottom:14px">Your wishlist</h2>' + body);
+}
+function toggleWish(id) {
+  var position = wishlist.indexOf(id);
+  if (position > -1) { wishlist.splice(position, 1); } else { wishlist.push(id); }
+  refreshWishCount();
+}
+
+/* ===== PHOTOS ===== */
+function compressImage(file, callback) {
+  var reader = new FileReader();
+  reader.onload = function () {
+    var img = new Image();
+    img.onload = function () {
+      var ratio = Math.min(1, 500 / Math.max(img.width, img.height));
+      var canvas = document.createElement('canvas');
+      canvas.width = Math.round(img.width * ratio); canvas.height = Math.round(img.height * ratio);
+      canvas.getContext('2d').drawImage(img, 0, 0, canvas.width, canvas.height);
+      var output = canvas.toDataURL('image/webp', 0.55);
+      if (output.indexOf('data:image/webp') !== 0) { output = canvas.toDataURL('image/jpeg', 0.55); }
+      callback(output);
+    };
+    img.src = reader.result;
+  };
+  reader.readAsDataURL(file);
+}
+
+/* ===== ADMIN ===== */
+function syncFormToEditing() {
+  if (!editing) { return; }
+  var fields = document.querySelectorAll('[data-f]');
+  for (var i = 0; i < fields.length; i++) {
+    var key = fields[i].getAttribute('data-f');
+    editing[key] = (key === 'price' || key === 'discount') ? Number(fields[i].value) || 0 : fields[i].value;
+  }
+}
+function field(label, key, type) {
+  return '<label>' + label + '</label><input data-f="' + key + '" type="' + (type || 'text') + '" value="' + esc(editing[key]) + '">';
+}
+function inventoryTab() {
+  var used = JSON.stringify(state).length;
+  var percent = Math.min(100, Math.round(used / 5000000 * 100));
+  if (editing) {
+    return '<h3>' + (editing.isNew ? 'Add new rug' : 'Edit rug') + '</h3>' + field('Title', 'title') +
+      '<div class="two"><div>' + field('Price', 'price', 'number') + '</div><div>' + field('Discount %', 'discount', 'number') + '</div></div>' +
+      '<div class="two"><div>' + field('Dimensions', 'dimensions') + '</div><div>' + field('Origin', 'origin') + '</div></div>' +
+      '<div class="two"><div>' + field('Category', 'category') + '</div><div><label>Status</label><select data-f="status"><option value="available"' + (editing.status === 'available' ? ' selected' : '') + '>Available</option><option value="sold"' + (editing.status === 'sold' ? ' selected' : '') + '>Sold</option></select></div></div>' +
+      '<label>Description</label><textarea data-f="description" rows="4">' + esc(editing.description) + '</textarea>' +
+      '<label>Photos (max 3)</label><input type="file" accept="image/*" id="rugphoto" multiple><div class="pics">' +
+      editing.photos.map(function (src, i) { return '<div><img src="' + src + '" alt=""><button data-act="delphoto" data-i="' + i + '">✕</button></div>'; }).join('') + '</div>' +
+      '<div style="display:flex;gap:8px;margin-top:20px"><button class="btn" data-act="saverug">Save rug</button><button class="btn ghost" data-act="cancelrug">Cancel</button></div>';
+  }
+  return '<p class="small">Storage used ' + percent + '%</p><div class="meter"><i style="width:' + percent + '%"></i></div>' +
+    '<button class="btn sm" style="margin:16px 0" data-act="newrug">Add new rug</button>' +
+    state.rugs.map(function (rug) {
+      return '<div class="row"><img src="' + (rug.photos[0] || placeholderArt()) + '" alt=""><div class="grow"><b>' + esc(rug.title) + '</b><br><small>' + money(rug.price) + ' · ' + rug.status + '</small></div>' +
+        '<button class="btn ghost sm" data-act="editrug" data-id="' + rug.id + '">Edit</button><button class="btn ghost sm" data-act="delrug" data-id="' + rug.id + '">Delete</button></div>';
+    }).join('');
+}
+function contentTab() {
+  var keys = Object.keys(DEFAULT_DATA.content).filter(function (key) { return typeof DEFAULT_DATA.content[key] === 'string'; });
+  return '<p style="margin-bottom:8px;color:#777">Tip: while unlocked you can also tap any text on the page to edit it.</p>' +
+    keys.map(function (key) {
+      var long = state.content[key].length > 70;
+      return '<label>' + key + '</label>' + (long ? '<textarea data-c="' + key + '" rows="4">' : '<input data-c="' + key + '" value="' + esc(state.content[key]) + '">') + (long ? esc(state.content[key]) + '</textarea>' : '');
+    }).join('') + '<h3 style="margin-top:22px">Rug care steps</h3>' +
+    state.content.care.map(function (step, i) {
+      return '<div class="two" style="margin-top:8px"><input data-care="' + i + '" data-k="icon" value="' + esc(step.icon) + '"><input data-care="' + i + '" data-k="title" value="' + esc(step.title) + '"></div><input style="margin-top:6px" data-care="' + i + '" data-k="text" value="' + esc(step.text) + '">';
+    }).join('');
+}
+function designTab() {
+  var colorInput = function (key, label) { return '<label>' + label + '</label><input type="color" data-t="' + key + '" value="' + state.theme[key] + '" style="height:46px;padding:2px">'; };
+  var toggles = Object.keys(state.show).map(function (key) {
+    return '<label class="check"><input type="checkbox" data-s="' + key + '"' + (state.show[key] ? ' checked' : '') + '> Show ' + key + ' section</label>';
+  }).join('');
+  return colorInput('gold', 'Gold') + colorInput('dark', 'Dark') + colorInput('light', 'Light') + colorInput('accent', 'Accent') +
+    '<label>Palette presets</label><div style="display:flex;gap:8px;flex-wrap:wrap"><button class="btn ghost sm" data-act="preset" data-id="classic">Classic</button><button class="btn ghost sm" data-act="preset" data-id="indigo">Indigo</button><button class="btn ghost sm" data-act="preset" data-id="sand">Sand</button></div>' +
+    '<label>Logo</label><input type="file" accept="image/*" data-img="logo"><label>Hero image</label><input type="file" accept="image/*" data-img="heroImage"><label>Heritage image</label><input type="file" accept="image/*" data-img="heritageImage">' +
+    '<label>Sections</label>' + toggles;
+}
+function settingsTab() {
+  return Object.keys(state.settings).map(function (key) { return '<label>' + key + '</label><input data-set="' + key + '" value="' + esc(state.settings[key]) + '">'; }).join('') +
+    '<div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:22px"><button class="btn ghost sm" data-act="cleanold">Clean old data</button><button class="btn ghost sm" data-act="nophotos">Remove all photos</button><button class="btn ghost sm" data-act="erase">Erase everything</button></div>';
+}
+function publishTab() {
+  return '<p style="margin-bottom:14px">Copy the finished page, then paste it over index.html in your GitHub repository and commit.</p>' +
+    '<div style="display:grid;gap:10px"><button class="btn" data-act="copycode">Copy code for GitHub commit</button><button class="btn ghost" data-act="download">Download index.html</button>' +
+    '<button class="btn ghost" data-act="backup">Export JSON backup</button><label>Import JSON backup</label><input type="file" accept=".json" id="importfile"></div>' +
+    '<h3 style="margin-top:24px">Checklist</h3><p>1. Save your changes. 2. Copy code. 3. Open index.html on GitHub and paste. 4. Commit.</p>';
+}
+function renderAdmin() {
+  var tabs = { inv: 'Inventory', rev: 'Reviews', content: 'Content', design: 'Design', settings: 'Settings', publish: 'Publish' };
+  var body = adminTab === 'inv' ? inventoryTab() : adminTab === 'rev' ? reviewsTab() : adminTab === 'content' ? contentTab() : adminTab === 'design' ? designTab() : adminTab === 'settings' ? settingsTab() : publishTab();
+  showModal('<h2>Admin</h2><div class="admbar">' + Object.keys(tabs).map(function (key) { return '<button class="' + (adminTab === key ? 'on' : '') + '" data-act="tab" data-id="' + key + '">' + tabs[key] + '</button>'; }).join('') +
+    '<button data-act="lock">Lock</button></div>' + body);
+}
+function reviewsTab() {
+  return '<label>Rug</label><select id="nrRug">' + state.rugs.map(function (r) { return '<option value="' + r.id + '">' + esc(r.title) + '</option>'; }).join('') + '</select>' +
+    '<label>Name</label><input id="nrName"><label>Stars (1-5)</label><input id="nrStars" type="number" min="1" max="5" value="5"><label>Review</label><textarea id="nrText" rows="3"></textarea>' +
+    '<button class="btn sm" style="margin:12px 0" data-act="addreview">Add verified review</button>' +
+    state.reviews.map(function (r) { return '<div class="row"><div class="grow"><span class="stars">' + starsText(r.stars) + '</span> ' + esc(r.name) + '<br><small>' + esc(r.text) + '</small></div><button class="btn ghost sm" data-act="delreview" data-id="' + r.id + '">Delete</button></div>'; }).join('');
+}
+function captureAdminFields() {
+  var node, i;
+  var list = document.querySelectorAll('[data-c]');
+  for (i = 0; i < list.length; i++) { if (list[i].value.replace(/\s/g, '') !== '') { state.content[list[i].getAttribute('data-c')] = list[i].value; } }
+  list = document.querySelectorAll('[data-care]');
+  for (i = 0; i < list.length; i++) { node = list[i]; state.content.care[Number(node.getAttribute('data-care'))][node.getAttribute('data-k')] = node.value; }
+  list = document.querySelectorAll('[data-t]');
+  for (i = 0; i < list.length; i++) { state.theme[list[i].getAttribute('data-t')] = list[i].value; }
+  list = document.querySelectorAll('[data-s]');
+  for (i = 0; i < list.length; i++) { state.show[list[i].getAttribute('data-s')] = list[i].checked; }
+  list = document.querySelectorAll('[data-set]');
+  for (i = 0; i < list.length; i++) { if (list[i].value.replace(/\s/g, '') !== '') { state.settings[list[i].getAttribute('data-set')] = list[i].value; } }
+}
+function applyAndSave() { captureAdminFields(); restoreBlankDefaults(); applyTheme(); saveState(); renderStore(); }
+function unlockAdmin() {
+  var entered = window.prompt('Enter admin PIN');
+  if (entered === null) { return; }
+  if (entered === state.settings.pin) { admin = true; closeModal(); renderStore(); renderAdmin(); }
+  else { toast('Incorrect PIN'); }
+}
+function lockAdmin() { admin = false; editing = null; closeModal(); renderStore(); forceUnlockScroll(); toast('Admin locked'); }
+
+/* ===== INLINE EDITING ===== */
+function setupInlineEdit() {
+  if (!admin) { return; }
+  var nodes = document.querySelectorAll('[data-edit]');
+  Array.prototype.forEach.call(nodes, function (node) {
+    node.setAttribute('contenteditable', 'true');
+    node.addEventListener('blur', function () {
+      var key = node.getAttribute('data-edit').split('.')[1];
+      var text = node.innerText.replace(/\s+$/, '');
+      if (text.replace(/\s/g, '') === '') { node.innerText = state.content[key]; restoreBlankDefaults(); return; }
+      state.content[key] = text; saveState();
+    });
+  });
+}
+
+/* ===== EXPORT ===== */
+function buildExportHtml() {
+  restoreBlankDefaults();
+  var copy = document.documentElement.cloneNode(true);
+  var baked = copy.querySelector('#roshan-baked-data');
+  baked.textContent = JSON.stringify(state).replace(/<\//g, '<\\/');
+  copy.querySelector('#app').innerHTML = '';
+  copy.querySelector('#overlay').innerHTML = '';
+  copy.querySelector('#toast').className = '';
+  copy.querySelector('body').removeAttribute('class');
+  copy.querySelector('body').removeAttribute('style');
+  copy.removeAttribute('style');
+  Array.prototype.forEach.call(copy.querySelectorAll('.lightbox,[contenteditable]'), function (node) { node.removeAttribute('contenteditable'); });
+  return '<!DOCTYPE html>\n' + copy.outerHTML;
+}
+function copyText(text) {
+  if (navigator.clipboard && navigator.clipboard.writeText) {
+    navigator.clipboard.writeText(text).then(function () { toast('Copied. Paste into GitHub.'); }, function () { fallbackCopy(text); });
+  } else { fallbackCopy(text); }
+}
+function fallbackCopy(text) {
+  var area = document.createElement('textarea'); area.value = text; document.body.appendChild(area); area.select();
+  try { document.execCommand('copy'); toast('Copied. Paste into GitHub.'); } catch (error) { toast('Copy failed. Use Download instead.'); }
+  area.remove();
+}
+function downloadFile(name, text, type) {
+  var link = document.createElement('a');
+  link.href = URL.createObjectURL(new Blob([text], { type: type })); link.download = name;
+  document.body.appendChild(link); link.click(); link.remove();
+}
+
+/* ===== EVENTS ===== */
+var PRESETS = {
+  classic: { gold: '#C5A059', dark: '#121212', light: '#FDFBF7', accent: '#8C2D19' },
+  indigo: { gold: '#B8975A', dark: '#101828', light: '#F7F8FB', accent: '#2B3A67' },
+  sand: { gold: '#A8814A', dark: '#2A211A', light: '#F6EFE3', accent: '#7A4A2B' }
+};
+function handleAction(act, target) {
+  var id = target.getAttribute('data-id');
+  var index = Number(target.getAttribute('data-i'));
+  if (act === 'open') { openRug(id); }
+  else if (act === 'wish') { toggleWish(id); if (openRugId) { openRug(openRugId); } else { refreshGrid(); } }
+  else if (act === 'photo') { openRug(id, index); }
+  else if (act === 'zoom') { openLightbox(id, index); }
+  else if (act === 'close') { closeModal(); }
+  else if (act === 'drawer') { $('#drawer').classList.toggle('open'); }
+  else if (act === 'go') { $('#drawer').classList.remove('open'); scrollToId(id); }
+  else if (act === 'filter') { view.filter = id; refreshGrid(); }
+  else if (act === 'wishlist') { openWishlist(); }
+  else if (act === 'wishremove') { toggleWish(id); openWishlist(); refreshGrid(); }
+  else if (act === 'wishclear') { wishlist = []; refreshWishCount(); closeModal(); refreshGrid(); }
+  else if (act === 'admin') { if (admin) { renderAdmin(); } else { unlockAdmin(); } }
+  else { handleAdminAction(act, id, index); }
+}
+function handleAdminAction(act, id, index) {
+  if (act === 'tab') { syncFormToEditing(); captureAdminFields(); adminTab = id; renderAdmin(); }
+  else if (act === 'lock') { applyAndSave(); lockAdmin(); }
+  else if (act === 'newrug') { editing = { id: newId('r'), isNew: true, title: '', price: 0, discount: 0, dimensions: '', origin: '', category: 'Traditional', status: 'available', description: '', photos: [], createdAt: Date.now() }; renderAdmin(); }
+  else if (act === 'editrug') { editing = clone(findRug(id)); renderAdmin(); }
+  else if (act === 'cancelrug') { editing = null; renderAdmin(); }
+  else if (act === 'delphoto') { syncFormToEditing(); editing.photos.splice(index, 1); renderAdmin(); }
+  else if (act === 'saverug') { saveRug(); }
+  else if (act === 'delrug') { if (window.confirm('Delete this rug?')) { state.rugs = state.rugs.filter(function (r) { return r.id !== id; }); saveState(); renderStore(); renderAdmin(); } }
+  else if (act === 'addreview') { addReview(); }
+  else if (act === 'delreview') { state.reviews = state.reviews.filter(function (r) { return r.id !== id; }); saveState(); renderStore(); renderAdmin(); }
+  else if (act === 'preset') { state.theme.gold = PRESETS[id].gold; state.theme.dark = PRESETS[id].dark; state.theme.light = PRESETS[id].light; state.theme.accent = PRESETS[id].accent; applyTheme(); saveState(); renderAdmin(); }
+  else if (act === 'cleanold') { cleanupOldStorage(); toast('Old data removed'); }
+  else if (act === 'nophotos') { if (window.confirm('Remove every rug photo?')) { state.rugs.forEach(function (r) { r.photos = []; }); saveState(); renderStore(); renderAdmin(); } }
+  else if (act === 'erase') { if (window.confirm('Erase everything and restore defaults?')) { state = clone(DEFAULT_DATA); saveState(); applyTheme(); renderStore(); renderAdmin(); } }
+  else if (act === 'copycode') { captureAdminFields(); restoreBlankDefaults(); saveState(); copyText(buildExportHtml()); }
+  else if (act === 'download') { captureAdminFields(); saveState(); downloadFile('index.html', buildExportHtml(), 'text/html'); }
+  else if (act === 'backup') { captureAdminFields(); downloadFile('roshan-backup.json', JSON.stringify(state), 'application/json'); }
+}
+function saveRug() {
+  syncFormToEditing();
+  if (!editing.title.replace(/\s/g, '')) { toast('Add a title first'); return; }
+  var record = clone(editing); delete record.isNew;
+  var existing = findRug(record.id);
+  if (existing) { state.rugs[state.rugs.indexOf(existing)] = record; } else { state.rugs.unshift(record); }
+  editing = null;
+  if (saveState()) { toast('Saved'); }
+  renderStore(); renderAdmin();
+}
+function addReview() {
+  var text = $('#nrText').value; var name = $('#nrName').value;
+  if (!text || !name) { toast('Add a name and review'); return; }
+  state.reviews.push({ id: newId('v'), rugId: $('#nrRug').value, name: name, stars: Math.max(1, Math.min(5, Number($('#nrStars').value) || 5)), text: text, date: Date.now() });
+  saveState(); renderStore(); renderAdmin();
+}
+function bindEvents() {
+  document.addEventListener('click', function (event) {
+    var target = event.target;
+    while (target && target !== document && !target.getAttribute('data-act')) { target = target.parentNode; }
+    if (!target || target === document) { return; }
+    var act = target.getAttribute('data-act');
+    if (act === 'backdrop') { if (event.target === target) { if (admin) { applyAndSave(); } closeModal(); } return; }
+    event.preventDefault();
+    if (act === 'wish' || act === 'close') { event.stopPropagation(); }
+    handleAction(act, target);
+  });
+  document.addEventListener('change', function (event) {
+    var node = event.target;
+    if (node.id === 'sort') { view.sort = node.value; refreshGrid(); }
+    else if (node.id === 'rugphoto') { addRugPhotos(node.files); }
+    else if (node.getAttribute('data-img')) { setThemeImage(node.getAttribute('data-img'), node.files[0]); }
+    else if (node.id === 'importfile') { importBackup(node.files[0]); }
+  });
+  document.addEventListener('input', function (event) {
+    if (event.target.id === 'search') { view.search = event.target.value; refreshGrid(); }
+  });
+  document.addEventListener('keydown', function (event) {
+    if (event.ctrlKey && event.shiftKey && (event.key === 'A' || event.key === 'a')) { event.preventDefault(); if (admin) { renderAdmin(); } else { unlockAdmin(); } }
+    if (event.key === 'Escape') { closeModal(); }
+  });
+  window.addEventListener('scroll', function () {
+    $('#announce').classList.toggle('gone', window.scrollY > 40);
+    var header = $('#hdr'); if (header) { header.style.top = $('#announce').classList.contains('gone') ? '0' : $('#announce').offsetHeight + 'px'; }
+  });
+}
+function addRugPhotos(files) {
+  syncFormToEditing();
+  var room = 3 - editing.photos.length;
+  var queue = Array.prototype.slice.call(files, 0, room);
+  if (!queue.length) { toast('Maximum 3 photos'); renderAdmin(); return; }
+  var pending = queue.length;
+  queue.forEach(function (file) {
+    compressImage(file, function (data) {
+      editing.photos.push(data); pending -= 1;
+      if (pending === 0) { renderAdmin(); }
+    });
+  });
+}
+function setThemeImage(key, file) {
+  if (!file) { return; }
+  compressImage(file, function (data) { state.theme[key] = data; applyAndSave(); renderAdmin(); });
+}
+function importBackup(file) {
+  if (!file) { return; }
+  var reader = new FileReader();
+  reader.onload = function () {
+    try { state = deepMerge(clone(DEFAULT_DATA), JSON.parse(reader.result)); restoreBlankDefaults(); saveState(); applyTheme(); renderStore(); renderAdmin(); toast('Backup imported'); }
+    catch (error) { toast('That file is not a valid backup'); }
+  };
+  reader.readAsText(file);
+}
+
+/* ===== INIT ===== */
+function init() {
+  forceUnlockScroll();
+  cleanupOldStorage();
+  loadState();
+  applyTheme();
+  renderStore();
+  bindEvents();
+  console.log('Roshan storefront ready');
+}
 init();
-</script></body></html>
+</script>
+</body>
+</html>
