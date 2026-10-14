@@ -55,7 +55,6 @@ section[id]{scroll-margin-top:calc(var(--header-h) + 20px)}
   max-width:660px;margin:0 auto}
 .section-head{text-align:center;margin-bottom:52px}
 @media(min-width:900px){.section-head{margin-bottom:60px}}
-/* HEADER */
 #topBar{position:fixed;top:0;left:0;right:0;z-index:120}
 .announcement{background:var(--dark);color:var(--gold);font-size:10.5px;
   letter-spacing:.22em;text-transform:uppercase;text-align:center;
@@ -74,7 +73,8 @@ section[id]{scroll-margin-top:calc(var(--header-h) + 20px)}
 @media(min-width:768px){.header-inner{padding:0 44px}}
 .brand{display:flex;align-items:center;gap:10px;transition:.3s}
 .brand:hover{opacity:.85}
-.brand-logo{width:42px;height:42px;flex:none;color:currentColor}
+.brand-logo{width:42px;height:42px;flex:none;color:currentColor;
+  display:inline-flex;align-items:center;justify-content:center}
 .brand-logo img,.brand-logo svg{width:100%;height:100%;object-fit:contain;display:block}
 .brand-text{font-family:var(--font-head);font-size:20px;letter-spacing:.34em;
   font-weight:600;white-space:nowrap;margin-right:-.34em}
@@ -103,7 +103,6 @@ section[id]{scroll-margin-top:calc(var(--header-h) + 20px)}
   color:#fff;font-size:9px;font-weight:800;min-width:18px;height:18px;
   border-radius:999px;display:flex;align-items:center;justify-content:center;
   padding:0 4px;letter-spacing:0;pointer-events:none}
-/* MOBILE DRAWER */
 #drawerOverlay{position:fixed;inset:0;z-index:190;background:rgba(6,6,6,.65);
   opacity:0;pointer-events:none;transition:opacity .35s}
 #drawerOverlay.open{opacity:1;pointer-events:auto}
@@ -138,7 +137,6 @@ section[id]{scroll-margin-top:calc(var(--header-h) + 20px)}
 .drawer-foot .btn{width:100%}
 .drawer-note{font-size:10.5px;letter-spacing:.2em;text-transform:uppercase;
   color:rgba(255,255,255,.4);text-align:center;margin-top:6px}
-/* BUTTONS */
 .btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;
   padding:16px 32px;font-size:10.5px;letter-spacing:.22em;text-transform:uppercase;
   font-weight:600;border-radius:2px;transition:all .32s ease;white-space:nowrap;
@@ -163,7 +161,6 @@ section[id]{scroll-margin-top:calc(var(--header-h) + 20px)}
 .mini-btn:hover{border-color:var(--gold);color:var(--gold)}
 .mini-btn.danger{color:#b3261e;border-color:rgba(179,38,30,.28)}
 .mini-btn.danger:hover{background:rgba(179,38,30,.08);border-color:#b3261e;color:#b3261e}
-/* HERO */
 .hero{position:relative;min-height:100vh;min-height:100svh;display:flex;
   align-items:center;justify-content:center;text-align:center;overflow:hidden;
   background:var(--dark);padding:140px 22px 100px}
@@ -190,7 +187,6 @@ section[id]{scroll-margin-top:calc(var(--header-h) + 20px)}
   z-index:3;color:var(--gold);font-size:15px;animation:bob 2.4s ease-in-out infinite;
   opacity:.75;cursor:pointer}
 @keyframes bob{0%,100%{transform:translate(-50%,0)}50%{transform:translate(-50%,10px)}}
-/* TOOLBAR */
 .toolbar{display:flex;flex-wrap:wrap;gap:12px;align-items:center;
   justify-content:center;margin-bottom:26px}
 .search-box{position:relative;flex:1 1 260px;max-width:400px;min-width:220px}
@@ -216,7 +212,6 @@ section[id]{scroll-margin-top:calc(var(--header-h) + 20px)}
   transition:.3s;background:#fff;min-height:40px;cursor:pointer}
 .filter-tab:hover{border-color:var(--gold);color:var(--gold)}
 .filter-tab.active{background:var(--gold);color:var(--on-gold);border-color:var(--gold)}
-/* PRODUCTS */
 .product-grid{display:grid;grid-template-columns:1fr;gap:28px}
 @media(min-width:600px){.product-grid{grid-template-columns:repeat(2,1fr);gap:26px}}
 @media(min-width:1024px){.product-grid{grid-template-columns:repeat(3,1fr);gap:34px}}
@@ -273,8 +268,6 @@ section[id]{scroll-margin-top:calc(var(--header-h) + 20px)}
 .p-actions{display:flex;gap:6px}
 .p-actions .icon-btn{width:40px;height:40px;border:1px solid var(--line);font-size:14px}
 .p-actions .icon-btn.wa:hover{background:#25D366;color:#fff;border-color:#25D366}
-.p-actions .icon-btn.view-room:hover{background:var(--gold);color:var(--on-gold);
-  border-color:var(--gold)}
 .p-admin{display:flex;gap:8px;margin-top:14px;padding-top:14px;
   border-top:1px dashed var(--gold-a45)}
 .p-admin .mini-btn{flex:1;padding:10px 8px;font-size:9px}
@@ -286,7 +279,6 @@ section[id]{scroll-margin-top:calc(var(--header-h) + 20px)}
 .stars{display:inline-flex;gap:2px;color:var(--gold);font-size:12px;line-height:1}
 .stars i{color:var(--gold)}
 .stars i.empty{color:rgba(197,160,89,.28)}
-/* STORY */
 .story-section{background:var(--dark);color:var(--light)}
 .story-section .section-title{color:#fff}
 .story-grid{display:grid;grid-template-columns:1fr;gap:48px;align-items:center}
@@ -304,7 +296,6 @@ section[id]{scroll-margin-top:calc(var(--header-h) + 20px)}
   color:var(--gold);font-weight:600;line-height:1.1}
 .stats span{display:block;font-size:9.5px;letter-spacing:.2em;text-transform:uppercase;
   color:rgba(255,255,255,.55);margin-top:9px;font-weight:600}
-/* CARE */
 .care-grid{display:grid;grid-template-columns:1fr;gap:22px;margin-top:52px}
 @media(min-width:640px){.care-grid{grid-template-columns:repeat(2,1fr)}}
 @media(min-width:1024px){.care-grid{grid-template-columns:repeat(4,1fr)}}
@@ -317,7 +308,6 @@ section[id]{scroll-margin-top:calc(var(--header-h) + 20px)}
   font-size:19px;margin-bottom:22px}
 .care-card h3{font-size:15.5px;font-weight:600;margin:0 0 12px;letter-spacing:.04em}
 .care-card p{font-size:14px;line-height:1.8;color:var(--muted);margin:0}
-/* REVIEWS */
 .reviews-section{background:#F4EFE6}
 .reviews-strip{display:grid;grid-template-columns:1fr;gap:22px;margin-top:44px}
 @media(min-width:700px){.reviews-strip{grid-template-columns:repeat(2,1fr)}}
@@ -334,7 +324,6 @@ section[id]{scroll-margin-top:calc(var(--header-h) + 20px)}
   color:var(--gold);font-weight:700;margin-top:16px;padding-top:14px;
   border-top:1px solid var(--line);cursor:pointer}
 .review-rug:hover{color:var(--accent)}
-/* FOOTER */
 .site-footer{background:var(--dark);color:rgba(255,255,255,.66);padding:76px 0 32px}
 .footer-grid{display:grid;grid-template-columns:1fr;gap:44px;margin-bottom:52px}
 @media(min-width:800px){.footer-grid{grid-template-columns:1.5fr 1fr 1fr}}
@@ -355,7 +344,11 @@ section[id]{scroll-margin-top:calc(var(--header-h) + 20px)}
   border-radius:50%;display:inline-flex;align-items:center;justify-content:center;
   transition:.35s;cursor:pointer}
 .admin-key:hover{color:var(--gold);background:rgba(197,160,89,.14);transform:rotate(-14deg)}
-/* CHAT */
+.footer-link-btn{font-size:13.5px;transition:.3s;color:rgba(255,255,255,.66);
+  display:flex;align-items:center;gap:10px;cursor:pointer;background:transparent;
+  border:none;padding:0;text-align:left;font-family:inherit}
+.footer-link-btn:hover{color:var(--gold)}
+.footer-link-btn i{color:var(--gold);width:16px;text-align:center;flex:none}
 #chatWidget{position:fixed;bottom:22px;right:22px;z-index:150;display:flex;
   flex-direction:column;align-items:flex-end;gap:14px}
 #chatToggle{width:52px;height:52px;border-radius:50%;background:var(--dark);color:#fff;
@@ -399,10 +392,6 @@ section[id]{scroll-margin-top:calc(var(--header-h) + 20px)}
   font-size:15px;display:flex;align-items:center;justify-content:center;
   transition:.25s;cursor:pointer;border:none;flex:none}
 .chat-send-btn:hover{background:var(--gold);color:var(--on-gold)}
-.chat-privacy{padding:0 20px 14px;font-size:10.5px;color:#a8a29e;
-  line-height:1.5;text-align:center}
-.chat-privacy a{color:#6b6862;text-decoration:underline}
-/* MODALS — simple, no pointer-events tricks */
 .modal{position:fixed;inset:0;z-index:300;display:none}
 .modal.open{display:block}
 .modal-backdrop{position:absolute;inset:0;background:rgba(10,10,10,.72);
@@ -547,7 +536,6 @@ section[id]{scroll-margin-top:calc(var(--header-h) + 20px)}
 .rf-actions .mini-btn{flex:1;padding:14px 16px}
 .rf-note{font-size:11.5px;color:var(--muted);text-align:center;margin:18px 0 0;
   letter-spacing:.04em;line-height:1.6;font-style:italic}
-/* LIGHTBOX */
 .lightbox{position:fixed;inset:0;z-index:400;background:rgba(6,6,6,.97);
   display:none;align-items:center;justify-content:center;overflow:hidden;opacity:0;
   transition:opacity .35s ease}
@@ -575,7 +563,6 @@ section[id]{scroll-margin-top:calc(var(--header-h) + 20px)}
 .lb-controls button:hover{background:var(--gold);color:var(--on-gold)}
 #lbScale{color:rgba(255,255,255,.72);font-size:11px;letter-spacing:.14em;
   padding:0 14px;min-width:66px;text-align:center;font-weight:600}
-/* ADMIN */
 .admin-drawer{position:absolute;top:0;right:0;bottom:0;width:100%;max-width:600px;
   background:var(--light);display:flex;flex-direction:column;
   animation:slideRight .36s cubic-bezier(.2,.8,.2,1);
@@ -749,7 +736,6 @@ input[type="color"]::-webkit-color-swatch{border:none;border-radius:1px}
   font-size:11.5px;color:var(--muted)}
 .storage-stats div strong{display:block;color:var(--dark);font-size:13px;
   font-family:var(--font-head);letter-spacing:.02em;margin-bottom:2px}
-/* FLOATING DOCK */
 #fabDock{position:fixed;bottom:22px;left:22px;z-index:145;display:flex;
   flex-direction:column;gap:10px;pointer-events:none}
 #fabDock>*{pointer-events:auto}
@@ -760,7 +746,6 @@ input[type="color"]::-webkit-color-swatch{border:none;border-radius:1px}
 .dock-btn:hover{background:var(--gold);color:var(--on-gold);transform:scale(1.06)}
 .dock-btn .icon-badge{top:-4px;right:-4px;background:var(--accent);color:#fff;
   font-size:9px;min-width:20px;height:20px;border:2px solid var(--dark)}
-/* ADMIN FAB — moved up, but hidden when panel opens */
 .admin-fab{position:fixed;bottom:88px;right:22px;z-index:145;display:flex;
   flex-direction:column;gap:10px}
 .fab-btn{width:52px;height:52px;border-radius:50%;background:var(--dark);
@@ -770,14 +755,12 @@ input[type="color"]::-webkit-color-swatch{border:none;border-radius:1px}
 .fab-btn:hover{background:var(--gold);color:var(--on-gold);transform:scale(1.06)}
 .fab-btn.danger{color:#ff8a80}
 .fab-btn.danger:hover{background:#b3261e;color:#fff;border-color:#b3261e}
-/* EDITING AFFORDANCE */
 body.admin-unlocked [data-edit]{cursor:text;border-radius:2px;
   outline:1px dashed transparent;outline-offset:4px;transition:.22s;
   min-width:20px;display:inline-block}
 body.admin-unlocked [data-edit]:hover{outline-color:var(--gold-a45)}
 body.admin-unlocked [data-edit]:focus{outline-color:var(--gold);
   background:rgba(197,160,89,.09)}
-/* TOAST */
 .toast{position:fixed;bottom:26px;left:50%;transform:translate(-50%,26px);
   z-index:500;background:var(--dark);color:#fff;padding:14px 24px;
   border-radius:3px;font-size:12.5px;letter-spacing:.06em;opacity:0;
@@ -1012,14 +995,6 @@ body.admin-unlocked [data-edit]:focus{outline-color:var(--gold);
   </div>
 </footer>
 
-<style>
-.footer-link-btn{font-size:13.5px;transition:.3s;color:rgba(255,255,255,.66);
-  display:flex;align-items:center;gap:10px;cursor:pointer;background:transparent;
-  border:none;padding:0;text-align:left;font-family:inherit}
-.footer-link-btn:hover{color:var(--gold)}
-.footer-link-btn i{color:var(--gold);width:16px;text-align:center;flex:none}
-</style>
-
 <div id="fabDock">
   <button class="dock-btn hidden" id="backToTop" type="button" aria-label="Back to top" title="Back to top">
     <i class="fa-solid fa-arrow-up"></i>
@@ -1230,9 +1205,9 @@ body.admin-unlocked [data-edit]:focus{outline-color:var(--gold);
 /* ==========================================================
    CONSTANTS
    ========================================================== */
-var STORAGE_KEY  = 'roshan_v8_data';
-var SESSION_KEY  = 'roshan_v8_admin';
-var WISHLIST_KEY = 'roshan_v8_wishlist';
+var STORAGE_KEY  = 'roshan_v9_data';
+var SESSION_KEY  = 'roshan_v9_admin';
+var WISHLIST_KEY = 'roshan_v9_wishlist';
 var OUR_KEY_PREFIXES = ['wevra_', 'roshan_'];
 var OUR_CURRENT_KEYS = [STORAGE_KEY, SESSION_KEY, WISHLIST_KEY];
 var QUOTA_ESTIMATE_BYTES = 5 * 1024 * 1024;
@@ -1288,7 +1263,7 @@ var PLACEHOLDER_WIDE = 'data:image/svg+xml;charset=utf-8,' + encodeURIComponent(
   'letter-spacing="12" text-anchor="middle" opacity="0.6">ROSHAN</text></svg>');
 
 var DEFAULT_DATA = {
-  version: 8,
+  version: 9,
   settings: {
     pin: '1234', whatsapp: '93700000000', email: 'atelier@roshan.com',
     currency: '$', fontPair: 'serif', logo: '',
@@ -1388,6 +1363,11 @@ function setPath(obj, path, val) {
   }
   cur[last] = val;
 }
+/**
+ * CRITICAL FIX: Deep merge that does NOT allow empty strings to overwrite
+ * non-empty base strings. This prevents a corrupted export with blank
+ * content from permanently wiping the site's default text.
+ */
 function deepMerge(base, over) {
   if (over === undefined || over === null) return base;
   if (Array.isArray(base)) return Array.isArray(over) ? over : base;
@@ -1399,6 +1379,10 @@ function deepMerge(base, over) {
       out[k2] = (k2 in base) ? deepMerge(base[k2], over[k2]) : over[k2];
     }
     return out;
+  }
+  /* Preserve non-empty defaults when override is empty */
+  if (typeof base === 'string' && typeof over === 'string') {
+    if (over === '' && base !== '') return base;
   }
   return over;
 }
@@ -1452,6 +1436,24 @@ function toast(msg, isErr) {
   t.className = 'toast show' + (isErr ? ' err' : '');
   clearTimeout(toastTimer);
   toastTimer = setTimeout(function () { t.className = 'toast'; }, 3600);
+}
+
+/**
+ * SAFETY NET: After loading, restore any critical content string that is
+ * blank back to its default. This is what saves the site if the baked
+ * data or localStorage got corrupted with empty strings.
+ */
+function restoreBlankDefaults(target, defaults) {
+  if (!target || !defaults) return;
+  for (var k in defaults) {
+    if (!Object.prototype.hasOwnProperty.call(defaults, k)) continue;
+    var dv = defaults[k];
+    if (typeof dv !== 'string' || dv === '') continue;
+    var tv = target[k];
+    if (tv === undefined || tv === null || tv === '') {
+      target[k] = dv;
+    }
+  }
 }
 
 /* ==========================================================
@@ -1527,15 +1529,23 @@ var reviewRating = 0;
 
 function loadState() {
   var s = clone(DEFAULT_DATA);
+
+  /* 1. Baked data (from a previous export) */
   var baked = document.getElementById('roshan-baked-data');
   if (baked && baked.textContent && baked.textContent.trim()) {
-    try { s = deepMerge(s, JSON.parse(baked.textContent)); }
-    catch (e) { console.warn('baked parse error', e); }
+    try {
+      var bakedParsed = JSON.parse(baked.textContent);
+      s = deepMerge(s, bakedParsed);
+    } catch (e) { console.warn('baked parse error', e); }
   }
+
+  /* 2. Local owner edits */
   try {
     var raw = localStorage.getItem(STORAGE_KEY);
     if (raw) s = deepMerge(s, JSON.parse(raw));
   } catch (e) { console.warn('local read error', e); }
+
+  /* 3. Guarantee shape */
   if (!s.content || typeof s.content !== 'object') s.content = clone(DEFAULT_DATA.content);
   if (!s.settings || typeof s.settings !== 'object') s.settings = clone(DEFAULT_DATA.settings);
   if (!s.settings.theme) s.settings.theme = clone(DEFAULT_DATA.settings.theme);
@@ -1545,6 +1555,7 @@ function loadState() {
     s.content.careItems = clone(DEFAULT_DATA.content.careItems);
   }
   if (!s.products || !Array.isArray(s.products)) s.products = [];
+
   for (var i = 0; i < s.products.length; i++) {
     var p = s.products[i];
     if (!p.id) p.id = randomId();
@@ -1553,6 +1564,11 @@ function loadState() {
     if (typeof p.discount === 'undefined') p.discount = 0;
     if (!p.reviews || !Array.isArray(p.reviews)) p.reviews = [];
   }
+
+  /* 4. FINAL SAFETY NET: repair any blank content strings */
+  restoreBlankDefaults(s.content, DEFAULT_DATA.content);
+  restoreBlankDefaults(s.settings, DEFAULT_DATA.settings);
+
   return s;
 }
 function loadWishlist() {
@@ -1929,7 +1945,6 @@ function updateWishlistBadges() {
 }
 function updateAdminUI() {
   document.body.classList.toggle('admin-unlocked', isAdmin);
-  /* Show FAB only when admin AND no modal is open */
   var anyModalOpen = !!document.querySelector('.modal.open');
   show('adminFab', isAdmin && !anyModalOpen);
 }
@@ -1948,10 +1963,9 @@ function render() {
 }
 
 /* ==========================================================
-   SCROLL — always works, even if body is stuck
+   SCROLL — defensive, always works
    ========================================================== */
 function forceUnlockScroll() {
-  /* Aggressively clear every scroll-blocking artifact */
   document.body.classList.remove('no-scroll');
   document.body.style.overflow = '';
   document.body.style.position = '';
@@ -2012,7 +2026,6 @@ function closeAllModals() {
   updateAdminUI();
 }
 
-/* ---- Product modal ---- */
 function openProduct(id) {
   var p = getProductById(id);
   if (!p) return;
@@ -2189,7 +2202,6 @@ function renderWishlistModal() {
   });
 }
 
-/* ---- Review ---- */
 function openReviewModal(productId) {
   var p = getProductById(productId);
   if (!p) return;
@@ -2249,7 +2261,7 @@ function bindReviewForm() {
   });
 }
 
-/* ---- Lightbox ---- */
+/* Lightbox */
 var lb = { scale: 1, x: 0, y: 0, dragging: false, sx: 0, sy: 0, ox: 0, oy: 0 };
 function lbApply() {
   var img = document.getElementById('lbImg');
@@ -2290,7 +2302,7 @@ function lbZoom(dir) {
 }
 
 /* ==========================================================
-   ADMIN SESSION
+   ADMIN
    ========================================================== */
 function requestAdmin() {
   closeDrawer();
@@ -2328,9 +2340,6 @@ function lockAdmin() {
   toast('Admin mode locked. Storefront is public again.');
 }
 
-/* ==========================================================
-   DRAWER
-   ========================================================== */
 function openDrawer() {
   var d = document.getElementById('mobileDrawer');
   var o = document.getElementById('drawerOverlay');
@@ -2349,9 +2358,6 @@ function closeDrawer() {
   }
 }
 
-/* ==========================================================
-   ADMIN PANEL
-   ========================================================== */
 function openAdminPanel() {
   renderInventory();
   renderReviewsAdmin();
@@ -3231,6 +3237,8 @@ function renderExportTab() {
       try {
         var parsed = JSON.parse(e.target.result);
         state = deepMerge(clone(DEFAULT_DATA), parsed);
+        restoreBlankDefaults(state.content, DEFAULT_DATA.content);
+        restoreBlankDefaults(state.settings, DEFAULT_DATA.settings);
         saveState(); render();
         renderInventory(); renderReviewsAdmin(); renderContentTab();
         renderDesignTab(); renderStorageTab(); renderSettingsTab();
@@ -3343,6 +3351,10 @@ function buildExportHTML() {
      '--gold-a45', '--light-a95', '--line', '--muted', '--on-gold',
      '--font-head', '--font-body'].forEach(function (v) { htmlEl.style.removeProperty(v); });
   }
+  /* CRITICAL: bake a cleaned copy — never let empty strings into the export */
+  var exportState = clone(state);
+  restoreBlankDefaults(exportState.content, DEFAULT_DATA.content);
+  restoreBlankDefaults(exportState.settings, DEFAULT_DATA.settings);
   var baked = root.querySelector('#roshan-baked-data');
   if (!baked) {
     baked = document.createElement('script');
@@ -3351,7 +3363,7 @@ function buildExportHTML() {
     var head = root.querySelector('head');
     if (head) head.appendChild(baked);
   }
-  var json = JSON.stringify(state);
+  var json = JSON.stringify(exportState);
   json = json.replace(/</g, '\\u003c').replace(/\u2028/g, '\\u2028').replace(/\u2029/g, '\\u2029');
   baked.textContent = json;
   return '<!DOCTYPE html>\n' + root.outerHTML;
@@ -3391,15 +3403,12 @@ function wireEvents() {
   }
   window.addEventListener('scroll', onScroll, { passive: true });
   onScroll();
-
-  /* Back-to-top: force unlock, then scroll */
   if (backTop) backTop.addEventListener('click', function (e) {
     e.preventDefault();
     forceUnlockScroll();
     window.scrollTo({ top: 0, behavior: 'smooth' });
   });
 
-  /* Mobile drawer */
   var mt = document.getElementById('menuToggle');
   var dc = document.getElementById('drawerClose');
   var overlay = document.getElementById('drawerOverlay');
@@ -3417,7 +3426,6 @@ function wireEvents() {
   var wdb = document.getElementById('wishlistDock');
   if (wdb) wdb.addEventListener('click', openWishlist);
 
-  /* Smooth-scroll: link & button targets */
   document.querySelectorAll('[data-scroll]').forEach(function (a) {
     a.addEventListener('click', function (e) {
       var href = a.getAttribute('href');
@@ -3430,23 +3438,18 @@ function wireEvents() {
     });
   });
 
-  /* Section-scroll buttons (hero-scroll arrow, footer buttons) */
   document.querySelectorAll('[data-scroll-target]').forEach(function (b) {
     b.addEventListener('click', function (e) {
       e.preventDefault();
       var target = b.getAttribute('data-scroll-target');
       if (!target) return;
-      if (b.classList.contains('hero-scroll') || b.classList.contains('footer-link-btn')) {
-        /* If drawer is open, close it first */
-        if (document.getElementById('mobileDrawer').classList.contains('open')) {
-          closeDrawer();
-          setTimeout(function () { smoothScrollTo(target); }, 260);
-        } else smoothScrollTo(target);
+      if (document.getElementById('mobileDrawer').classList.contains('open')) {
+        closeDrawer();
+        setTimeout(function () { smoothScrollTo(target); }, 260);
       } else smoothScrollTo(target);
     });
   });
 
-  /* Modal close triggers */
   document.querySelectorAll('[data-close]').forEach(function (el) {
     el.addEventListener('click', function () {
       var m = el.closest('.modal');
@@ -3454,7 +3457,6 @@ function wireEvents() {
     });
   });
 
-  /* Admin access */
   var keyBtn = document.getElementById('adminKey');
   if (keyBtn) keyBtn.addEventListener('click', requestAdmin);
   var pinBtn = document.getElementById('pinSubmit');
@@ -3463,24 +3465,12 @@ function wireEvents() {
   if (pinInp) pinInp.addEventListener('keydown', function (e) {
     if (e.key === 'Enter') { e.preventDefault(); tryUnlock(); }
   });
-
-  /* Lock buttons: both the FAB and the panel header */
   var lockBtn = document.getElementById('lockAdmin');
-  if (lockBtn) lockBtn.addEventListener('click', function (e) {
-    e.preventDefault();
-    lockAdmin();
-  });
+  if (lockBtn) lockBtn.addEventListener('click', function (e) { e.preventDefault(); lockAdmin(); });
   var lockHeader = document.getElementById('lockAdminHeader');
-  if (lockHeader) lockHeader.addEventListener('click', function (e) {
-    e.preventDefault();
-    lockAdmin();
-  });
-
+  if (lockHeader) lockHeader.addEventListener('click', function (e) { e.preventDefault(); lockAdmin(); });
   var openBtn = document.getElementById('openAdmin');
-  if (openBtn) openBtn.addEventListener('click', function (e) {
-    e.preventDefault();
-    openAdminPanel();
-  });
+  if (openBtn) openBtn.addEventListener('click', function (e) { e.preventDefault(); openAdminPanel(); });
 
   document.addEventListener('keydown', function (e) {
     if (e.ctrlKey && e.shiftKey && (e.key === 'A' || e.key === 'a')) {
@@ -3501,7 +3491,6 @@ function wireEvents() {
     b.addEventListener('click', function () { activateTab(b.dataset.tab); });
   });
 
-  /* Filters */
   var ft = document.getElementById('filterTabs');
   if (ft) ft.addEventListener('click', function (e) {
     var b = e.target.closest('.filter-tab');
@@ -3510,7 +3499,6 @@ function wireEvents() {
     renderFilters(); renderProducts(); bindEditing();
   });
 
-  /* Search */
   var si = document.getElementById('searchInput');
   var sc = document.getElementById('searchClear');
   if (si) {
@@ -3532,13 +3520,11 @@ function wireEvents() {
     if (si) si.focus();
   });
 
-  /* Sort */
   var ss = document.getElementById('sortSelect');
   if (ss) ss.addEventListener('change', function () {
     sortMode = ss.value; renderProducts(); bindEditing();
   });
 
-  /* Product grid */
   var grid = document.getElementById('productGrid');
   if (grid) grid.addEventListener('click', function (e) {
     var wish = e.target.closest('[data-wish]');
@@ -3569,7 +3555,6 @@ function wireEvents() {
     if (op) { e.preventDefault(); openProduct(op.dataset.open); }
   });
 
-  /* Reviews strip */
   var reviewsWrap = document.getElementById('reviewsStrip');
   if (reviewsWrap) reviewsWrap.addEventListener('click', function (e) {
     var el = e.target.closest('[data-reviewopen]');
@@ -3577,7 +3562,6 @@ function wireEvents() {
     openProduct(el.dataset.reviewopen);
   });
 
-  /* Lightbox */
   var lbClose = document.getElementById('lbClose');
   if (lbClose) lbClose.addEventListener('click', closeLightbox);
   document.querySelectorAll('[data-lbzoom]').forEach(function (b) {
@@ -3616,7 +3600,6 @@ function wireEvents() {
     });
   }
 
-  /* Inline edit save */
   document.addEventListener('focusout', function (e) {
     if (!isAdmin) return;
     var el = e.target && e.target.closest ? e.target.closest('[data-edit]') : null;
@@ -3625,13 +3608,20 @@ function wireEvents() {
     var val = el.innerText || '';
     val = val.replace(/\u00a0/g, ' ').replace(/\r/g, '').replace(/\n{3,}/g, '\n\n');
     if (val !== val.trim()) val = val.trim();
+    /* Never save an empty override for a critical field */
+    if (val === '') {
+      var fallback = getPath(DEFAULT_DATA, path);
+      if (typeof fallback === 'string' && fallback !== '') {
+        val = fallback;
+        el.textContent = fallback;
+      }
+    }
     setPath(state, path, val);
     saveState();
     var mirror = document.querySelector('[data-ck="' + path.replace('content.', '') + '"]');
     if (mirror) mirror.value = val;
   });
 
-  /* Prevent paste of images into text fields */
   document.addEventListener('paste', function (e) {
     var t = e.target;
     if (!t) return;
@@ -3721,10 +3711,11 @@ function init() {
   var ov = document.getElementById('drawerOverlay'); if (ov) ov.classList.remove('open');
   var chatP = document.getElementById('chatPanel'); if (chatP) chatP.classList.remove('open');
 
-  /* ALWAYS unlock at init */
   forceUnlockScroll();
 
+  /* Save the cleaned state immediately so the fix takes effect */
   saveState();
+
   render();
   bindReviewForm();
   wireEvents();
