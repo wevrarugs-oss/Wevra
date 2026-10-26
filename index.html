@@ -1,5 +1,6 @@
 <!DOCTYPE html>
-<html lang="en" style="--gold: #C5A059; --dark: #121212; --light: #FDFBF7; --accent: #8C2D19; --gold-soft: rgba(197,160,89,0.15); --line: rgba(18,18,18,0.1); --muted: rgba(18,18,18,0.6);"><head>
+<html lang="en">
+<head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
@@ -7,10 +8,10 @@
 <meta http-equiv="Expires" content="0">
 <title>Roshan — Handmade Afghan Rugs</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&amp;family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;500;600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
-<script id="roshan-baked" type="application/json">{"settings":{"pin":"7689","whatsapp":"93786495336","email":"weaversloom29@gmail.con","currency":"$","colors":{"gold":"#C5A059","dark":"#121212","light":"#FDFBF7","accent":"#8C2D19"}},"sections":{"announcement":true,"hero":true,"catalog":true,"story":true,"care":true,"footer":true},"content":{"announcement":"Complimentary worldwide shipping on all heirloom rugs","brand":"Roshan","heroEyebrow":"Heritage Collection · Est. Kabul","heroTitle":"Rugs Woven by Hand,\nStories Told in Wool","heroSubtitle":"Each Roshan rug is knotted over months by master Afghan weavers — using hand-spun Ghazni wool and natural dyes passed down through generations.","heroCta":"Explore the Collection","heroCta2":"Our Heritage","storyEyebrow":"Artisanship","storyTitle":"Twelve Months on the Loom","storyBody":"In the highlands of Bamyan and the workshops of Herat, our weavers begin with hand-spun wool from Ghazni sheep — prized across Persia for its lustre, resilience and depth of colour.\n\nEvery knot is tied by hand. Every dye is drawn from madder root, indigo, walnut husk and pomegranate rind. What emerges after a year at the loom is not a floor covering, but a document of a family, a village and a tradition that has survived centuries.","storyStat1n":"40+","storyStat1l":"Master Weavers","storyStat2n":"100%","storyStat2l":"Natural Dyes","storyStat3n":"12","storyStat3l":"Months per Rug","collectionEyebrow":"The Collection","collectionTitle":"Curated Heirloom Rugs","collectionSubtitle":"Authentic, one-of-a-kind pieces. Every rug is photographed in natural light and ships with a certificate of origin.","careEyebrow":"Care Guide","careTitle":"Preserving Your Rug","careIntro":"A hand-knotted rug is an investment meant to outlive us. A little attention each season will keep it luminous for generations.","careItems":[{"icon":"fa-rotate-left","title":"Rotate Every Season","text":"Turn your rug 180° twice a year so foot traffic and sunlight wear the pile evenly."},{"icon":"fa-wind","title":"Air, Never Shake","text":"Take it outside on a dry day and beat the reverse side gently. Never shake or vacuum the fringe."},{"icon":"fa-droplet","title":"Blot, Do Not Rub","text":"For spills, blot immediately with a clean white cloth, working from the outside in. Never rub."},{"icon":"fa-sun","title":"Avoid Direct Sun","text":"Natural dyes are living colours. Rotate and reposition to prevent uneven fading over decades."}],"footerTagline":"Authentic handmade Afghan rugs, sourced directly from the weavers who make them.","footerAddress":"Weaving Atelier, Kabul · Showroom, Dubai","footerHours":"Mon – Sat · 9:00 – 19:00 GST","footerNote":"© 2025 Roshan. All rights reserved."},"products":[{"id":"RSH-SFT2752","title":"Bijdar Design","price":"3000","discount":25,"dims":"427x307","origin":"Kabul","category":"Chobi","desc":"A rug to make your house your own","status":"Active","photos":["https://raw.githubusercontent.com/wevrarugs-oss/Wevra/refs/heads/main/images/51797fde-df59-41cf-b274-9fb90ac60e5f.jpeg","https://raw.githubusercontent.com/wevrarugs-oss/Wevra/refs/heads/main/images/f7958c2a-f2d5-43bc-ba47-eb68408d3673.jpeg"],"reviews":[]},{"id":"RSH-NTK5886","title":"Indigo Masterpiece","price":"2000","discount":20,"dims":"300x250","origin":"Kabul","category":"Chobi","desc":"A rug to make your house your own","status":"Active","photos":["https://raw.githubusercontent.com/wevrarugs-oss/Wevra/refs/heads/main/images/6f46dcee-207f-4d59-b800-ebf3d268beb8.jpeg","https://raw.githubusercontent.com/wevrarugs-oss/Wevra/refs/heads/main/images/7c6137ec-4319-48e2-a7f2-599ed2fa84ea.jpeg"],"reviews":[]}]}</script>
+<script id="roshan-baked" type="application/json"></script>
 <style>
 :root{
   --gold:#C5A059;
@@ -129,7 +130,8 @@ input,textarea,select{font-family:inherit;font-size:inherit}
 /* HERO */
 .hero{position:relative;min-height:100vh;min-height:100svh;display:flex;
   align-items:center;justify-content:center;text-align:center;overflow:hidden;
-  background:var(--dark);padding:140px 22px 100px}
+  background-color:var(--dark);background-size:cover;background-position:center;
+  padding:140px 22px 100px}
 .hero::before{content:'';position:absolute;inset:0;
   background:radial-gradient(circle at 20% 25%,var(--gold-soft),transparent 50%),
              radial-gradient(circle at 80% 75%,rgba(140,45,25,.22),transparent 55%)}
@@ -247,11 +249,11 @@ input,textarea,select{font-family:inherit;font-size:inherit}
   padding-top:30px;border-top:1px solid rgba(255,255,255,.14)}
 .stats strong{display:block;font-family:'Cinzel',serif;font-size:26px;
   color:var(--gold);font-weight:600;line-height:1.1}
-.stats span{display:block;font-size:9.5px;letter-spacing:.18em .;
-  text-transform:uppercase;color:rgba(3255,255,255,.55);margin-top:6pxs;font-weight:600}
+.stats span{display:block;font-size:9.5px;letter-spacing:.18em;
+  text-transform:uppercase;color:rgba(255,255,255,.55);margin-top:6px;font-weight:600}
 
 /* CARE */
-.care,-grid{display:grid;grid-template-columns:1fr;gap:20px;margin-top:40px}
+.care-grid{display:grid;grid-template-columns:1fr;gap:20px;margin-top:40px}
 @media(min-width:600px){.care-grid{grid-template-columns:repeat(2,1fr)}}
 @media(min-width:1000px){.care-grid{grid-template-columns:repeat(4,1fr)}}
 .care-card{background:#fff;border:1px solid var(--line);border-radius:3px;
@@ -283,7 +285,7 @@ footer{background:var(--dark);color:rgba(255,255,255,.65);padding:64px 0 28px;ma
 .foot-bottom .right{display:flex;align-items:center;gap:12px}
 .admin-key{color:rgba(255,255,255,.2);font-size:14px;width:38px;height:38px;
   border-radius:50%;display:inline-flex;align-items:center;justify-content:center;
-  cursor:pointer;transition:colorbackground .3s,transform .3s}
+  cursor:pointer;transition:color .3s,background .3s,transform .3s}
 .admin-key:hover{color:var(--gold);background:var(--gold-soft);transform:rotate(-12deg)}
 .vtag{font-size:10px;color:rgba(255,255,255,.3);letter-spacing:.1em;font-family:monospace}
 
@@ -311,7 +313,7 @@ footer{background:var(--dark);color:rgba(255,255,255,.65);padding:64px 0 28px;ma
 .pin-input:focus{border-color:var(--gold)}
 .center{text-align:center}
 
-/* PRODUCT MODAL — gallery */
+/* PRODUCT MODAL */
 .pm-grid{display:grid;grid-template-columns:1fr;gap:0}
 @media(min-width:800px){.pm-grid{grid-template-columns:1fr 1fr}}
 .pm-gallery{background:#fbf9f5;padding:24px 20px 20px;display:flex;
@@ -491,18 +493,19 @@ footer{background:var(--dark);color:rgba(255,255,255,.65);padding:64px 0 28px;ma
 <body>
 
 <!-- HEADER -->
-<div id="hdr" class="scrolled">
-  <div class="announce" data-edit="announcement">Complimentary worldwide shipping on all heirloom rugs</div>
+<div id="hdr">
+  <div class="announce" data-edit="announcement"></div>
   <div class="bar">
     <div class="bar-inner">
       <button class="iconbtn" id="menu-toggle" aria-label="Menu"><i class="fa-solid fa-bars"></i></button>
       <a href="#" class="brand" onclick="window.scrollTo({top:0,behavior:'smooth'});return false;">
-        <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="5.5" stroke-linecap="round" stroke-linejoin="round">
-          <path d="M 22 86 L 46 22 Q 74 22 74 44 Q 74 66 52 66 L 80 86"></path>
-          <path d="M 42 66 L 58 32"></path>
-          <line x1="76" y1="12" x2="84" y2="4"></line>
-          <line x1="84" y1="24" x2="94" y2="20"></line>
-          <line x1="86" y1="38" x2="96" y2="38"></line>
+        <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="5.5"
+             stroke-linecap="round" stroke-linejoin="round">
+          <path d="M 22 86 L 46 22 Q 74 22 74 44 Q 74 66 52 66 L 80 86"/>
+          <path d="M 42 66 L 58 32"/>
+          <line x1="76" y1="12" x2="84" y2="4"/>
+          <line x1="84" y1="24" x2="94" y2="20"/>
+          <line x1="86" y1="38" x2="96" y2="38"/>
         </svg>
         <span class="word" data-edit="brand">Roshan</span>
       </a>
@@ -517,7 +520,7 @@ footer{background:var(--dark);color:rgba(255,255,255,.65);padding:64px 0 28px;ma
           <i class="fa-regular fa-heart"></i>
           <span class="badge hidden" id="wish-badge">0</span>
         </button>
-        <a class="btn btn-gold btn-sm" id="hdr-wa" target="_blank" rel="noopener" href="https://wa.me/93786495336?text=Hello%20Roshan%2C%20I%20would%20like%20to%20know%20more%20about%20your%20handmade%20Afghan%20rugs.">
+        <a class="btn btn-gold btn-sm" id="hdr-wa" target="_blank" rel="noopener">
           <i class="fa-brands fa-whatsapp"></i> Inquire
         </a>
       </div>
@@ -553,7 +556,7 @@ footer{background:var(--dark);color:rgba(255,255,255,.65);padding:64px 0 28px;ma
     </button>
   </nav>
   <div class="drawer-foot">
-    <a class="btn btn-gold btn-block" id="drawer-wa" target="_blank" rel="noopener" href="https://wa.me/93786495336?text=Hello%20Roshan%2C%20I%20would%20like%20to%20know%20more%20about%20your%20handmade%20Afghan%20rugs.">
+    <a class="btn btn-gold btn-block" id="drawer-wa" target="_blank" rel="noopener">
       <i class="fa-brands fa-whatsapp"></i> Chat on WhatsApp
     </a>
     <p class="drawer-note">Handmade in Afghanistan</p>
@@ -561,15 +564,14 @@ footer{background:var(--dark);color:rgba(255,255,255,.65);padding:64px 0 28px;ma
 </aside>
 
 <!-- HERO -->
-<section class="hero">
+<section class="hero" id="hero-section">
   <div class="hero-inner">
-    <p class="eyebrow" data-edit="heroEyebrow">Heritage Collection · Est. Kabul</p>
-    <h1 data-edit="heroTitle">Rugs Woven by Hand,
-Stories Told in Wool</h1>
-    <p class="lead" data-edit="heroSubtitle">Each Roshan rug is knotted over months by master Afghan weavers — using hand-spun Ghazni wool and natural dyes passed down through generations.</p>
+    <p class="eyebrow" data-edit="heroEyebrow"></p>
+    <h1 data-edit="heroTitle"></h1>
+    <p class="lead" data-edit="heroSubtitle"></p>
     <div class="hero-cta">
-      <a href="#catalog" class="btn btn-gold" data-edit="heroCta" onclick="scrollToId('catalog');return false;">Explore the Collection</a>
-      <a href="#story" class="btn btn-ghost" data-edit="heroCta2" onclick="scrollToId('story');return false;">Our Heritage</a>
+      <a href="#catalog" class="btn btn-gold" data-edit="heroCta" onclick="scrollToId('catalog');return false;"></a>
+      <a href="#story" class="btn btn-ghost" data-edit="heroCta2" onclick="scrollToId('story');return false;"></a>
     </div>
   </div>
 </section>
@@ -578,9 +580,9 @@ Stories Told in Wool</h1>
 <section id="catalog" class="section">
   <div class="container">
     <div class="sec-head">
-      <p class="eyebrow-sm" data-edit="collectionEyebrow">The Collection</p>
-      <h2 class="sec-title" data-edit="collectionTitle">Curated Heirloom Rugs</h2>
-      <p class="sec-sub" data-edit="collectionSubtitle">Authentic, one-of-a-kind pieces. Every rug is photographed in natural light and ships with a certificate of origin.</p>
+      <p class="eyebrow-sm" data-edit="collectionEyebrow"></p>
+      <h2 class="sec-title" data-edit="collectionTitle"></h2>
+      <p class="sec-sub" data-edit="collectionSubtitle"></p>
     </div>
     <div class="toolbar">
       <div class="search">
@@ -608,18 +610,16 @@ Stories Told in Wool</h1>
   <div class="container">
     <div class="story-grid">
       <div class="story-img">
-        <img id="story-img" src="data:image/svg+xml;charset=utf-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%22800%22%20height%3D%221000%22%3E%3Crect%20width%3D%22800%22%20height%3D%221000%22%20fill%3D%22%231e1a16%22%2F%3E%3Cg%20stroke%3D%22%23C5A059%22%20stroke-width%3D%221.4%22%20fill%3D%22none%22%20opacity%3D%220.35%22%3E%3Crect%20x%3D%2260%22%20y%3D%2260%22%20width%3D%22680%22%20height%3D%22880%22%2F%3E%3Cpath%20d%3D%22M400%20200%20L640%20500%20L400%20800%20L160%20500%20Z%22%2F%3E%3Ccircle%20cx%3D%22400%22%20cy%3D%22500%22%20r%3D%2246%22%2F%3E%3C%2Fg%3E%3Ctext%20x%3D%22400%22%20y%3D%22912%22%20fill%3D%22%23C5A059%22%20font-family%3D%22serif%22%20font-size%3D%2226%22%20letter-spacing%3D%2212%22%20text-anchor%3D%22middle%22%20opacity%3D%220.6%22%3EROSHAN%3C%2Ftext%3E%3C%2Fsvg%3E" alt="Weaving">
+        <img id="story-img" src="" alt="Weaving">
       </div>
       <div>
-        <p class="eyebrow-sm" data-edit="storyEyebrow">Artisanship</p>
-        <h2 class="sec-title" data-edit="storyTitle">Twelve Months on the Loom</h2>
-        <p class="story-body" data-edit="storyBody">In the highlands of Bamyan and the workshops of Herat, our weavers begin with hand-spun wool from Ghazni sheep — prized across Persia for its lustre, resilience and depth of colour.
-
-Every knot is tied by hand. Every dye is drawn from madder root, indigo, walnut husk and pomegranate rind. What emerges after a year at the loom is not a floor covering, but a document of a family, a village and a tradition that has survived centuries.</p>
+        <p class="eyebrow-sm" data-edit="storyEyebrow"></p>
+        <h2 class="sec-title" data-edit="storyTitle"></h2>
+        <p class="story-body" data-edit="storyBody"></p>
         <div class="stats">
-          <div><strong data-edit="storyStat1n">40+</strong><span data-edit="storyStat1l">Master Weavers</span></div>
-          <div><strong data-edit="storyStat2n">100%</strong><span data-edit="storyStat2l">Natural Dyes</span></div>
-          <div><strong data-edit="storyStat3n">12</strong><span data-edit="storyStat3l">Months per Rug</span></div>
+          <div><strong data-edit="storyStat1n"></strong><span data-edit="storyStat1l"></span></div>
+          <div><strong data-edit="storyStat2n"></strong><span data-edit="storyStat2l"></span></div>
+          <div><strong data-edit="storyStat3n"></strong><span data-edit="storyStat3l"></span></div>
         </div>
       </div>
     </div>
@@ -630,9 +630,9 @@ Every knot is tied by hand. Every dye is drawn from madder root, indigo, walnut 
 <section id="care" class="section">
   <div class="container">
     <div class="sec-head">
-      <p class="eyebrow-sm" data-edit="careEyebrow">Care Guide</p>
-      <h2 class="sec-title" data-edit="careTitle">Preserving Your Rug</h2>
-      <p class="sec-sub" data-edit="careIntro">A hand-knotted rug is an investment meant to outlive us. A little attention each season will keep it luminous for generations.</p>
+      <p class="eyebrow-sm" data-edit="careEyebrow"></p>
+      <h2 class="sec-title" data-edit="careTitle"></h2>
+      <p class="sec-sub" data-edit="careIntro"></p>
     </div>
     <div class="care-grid" id="care-grid"></div>
   </div>
@@ -644,15 +644,16 @@ Every knot is tied by hand. Every dye is drawn from madder root, indigo, walnut 
     <div class="foot-grid">
       <div>
         <p class="foot-brand">Roshan</p>
-        <p data-edit="footerTagline">Authentic handmade Afghan rugs, sourced directly from the weavers who make them.</p>
+        <p style="font-size:14px;line-height:1.85;margin:0;max-width:400px;white-space:pre-line"
+           data-edit="footerTagline"></p>
       </div>
       <div>
         <p class="foot-h">Atelier</p>
         <div class="foot-links">
-          <span><i class="fa-solid fa-location-dot"></i><span data-edit="footerAddress">Weaving Atelier, Kabul · Showroom, Dubai</span></span>
-          <span><i class="fa-regular fa-clock"></i><span data-edit="footerHours">Mon – Sat · 9:00 – 19:00 GST</span></span>
-          <a id="foot-wa" target="_blank" rel="noopener" href="https://wa.me/93786495336?text=Hello%20Roshan%2C%20I%20would%20like%20to%20know%20more%20about%20your%20handmade%20Afghan%20rugs."><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
-          <a id="foot-mail" href="mailto:weaversloom29@gmail.con"><i class="fa-regular fa-envelope"></i> <span id="foot-mail-text">weaversloom29@gmail.con</span></a>
+          <span><i class="fa-solid fa-location-dot"></i><span data-edit="footerAddress"></span></span>
+          <span><i class="fa-regular fa-clock"></i><span data-edit="footerHours"></span></span>
+          <a id="foot-wa" target="_blank" rel="noopener"><i class="fa-brands fa-whatsapp"></i> WhatsApp</a>
+          <a id="foot-mail" href="#"><i class="fa-regular fa-envelope"></i> <span id="foot-mail-text">Email</span></a>
         </div>
       </div>
       <div>
@@ -666,9 +667,9 @@ Every knot is tied by hand. Every dye is drawn from madder root, indigo, walnut 
       </div>
     </div>
     <div class="foot-bottom">
-      <p data-edit="footerNote">© 2025 Roshan. All rights reserved.</p>
+      <p data-edit="footerNote"></p>
       <div class="right">
-        <span class="vtag" id="vtag">v12.0</span>
+        <span class="vtag" id="vtag">v13.0</span>
         <button class="admin-key" id="admin-key" aria-label="Owner access" title="Owner access">
           <i class="fa-solid fa-key"></i>
         </button>
@@ -737,7 +738,7 @@ Every knot is tied by hand. Every dye is drawn from madder root, indigo, walnut 
         <h2 class="cinzel" style="margin:0;font-size:17px;font-weight:500">Store Manager</h2>
       </div>
       <div style="display:flex;gap:6px">
-        <button class="iconbtn" onclick="lockAdmin()" style="color:#fff" title="Lock &amp; exit">
+        <button class="iconbtn" onclick="lockAdmin()" style="color:#fff" title="Lock & exit">
           <i class="fa-solid fa-lock"></i>
         </button>
         <button class="iconbtn" onclick="closeModal('admin-modal')" style="color:#fff">
@@ -746,28 +747,28 @@ Every knot is tied by hand. Every dye is drawn from madder root, indigo, walnut 
       </div>
     </div>
     <div class="admin-tabs">
-      <button class="tab" data-tab="inventory">Inventory</button>
+      <button class="tab on" data-tab="inventory">Inventory</button>
       <button class="tab" data-tab="content">Content</button>
       <button class="tab" data-tab="design">Design</button>
-      <button class="tab on" data-tab="publish">Publish</button>
+      <button class="tab" data-tab="publish">Publish</button>
     </div>
-    <div class="admin-pane" id="pane-inventory"></div>
+    <div class="admin-pane on" id="pane-inventory"></div>
     <div class="admin-pane" id="pane-content"></div>
     <div class="admin-pane" id="pane-design"></div>
-    <div class="admin-pane on" id="pane-publish"></div>
+    <div class="admin-pane" id="pane-publish"></div>
   </div>
 </div>
 
-<div id="toast" class=""></div>
+<div id="toast"></div>
 
 <script>
 (function() {
 'use strict';
 
-var VERSION = '12.0';
-var STORAGE_KEY = 'roshan_v12';
-var WISH_KEY = 'roshan_v12_wish';
-var SESSION_KEY = 'roshan_v12_session';
+var VERSION = '13.0';
+var STORAGE_KEY = 'roshan_v13';
+var WISH_KEY = 'roshan_v13_wish';
+var SESSION_KEY = 'roshan_v13_session';
 
 var CATEGORIES = ['Kazak','Chobi','Classic Khorjin','Modern Khorjin','Sultani','Pazrug','Mamluk','Other'];
 
@@ -814,9 +815,11 @@ var DEFAULT_DATA = {
     heroSubtitle: 'Each Roshan rug is knotted over months by master Afghan weavers — using hand-spun Ghazni wool and natural dyes passed down through generations.',
     heroCta: 'Explore the Collection',
     heroCta2: 'Our Heritage',
+    heroImage: '',
     storyEyebrow: 'Artisanship',
     storyTitle: 'Twelve Months on the Loom',
     storyBody: 'In the highlands of Bamyan and the workshops of Herat, our weavers begin with hand-spun wool from Ghazni sheep — prized across Persia for its lustre, resilience and depth of colour.\n\nEvery knot is tied by hand. Every dye is drawn from madder root, indigo, walnut husk and pomegranate rind. What emerges after a year at the loom is not a floor covering, but a document of a family, a village and a tradition that has survived centuries.',
+    storyImage: '',
     storyStat1n: '40+', storyStat1l: 'Master Weavers',
     storyStat2n: '100%', storyStat2l: 'Natural Dyes',
     storyStat3n: '12', storyStat3l: 'Months per Rug',
@@ -967,14 +970,11 @@ function loadState() {
     if (!p.status) p.status = 'Active';
     if (typeof p.discount === 'undefined') p.discount = 0;
     if (!Array.isArray(p.reviews)) p.reviews = [];
-    /* MIGRATION: v11 used p.photo (single string). Convert to photos array. */
     if (!Array.isArray(p.photos)) p.photos = [];
     if (p.photo && typeof p.photo === 'string' && p.photo.length > 0) {
       if (p.photos.indexOf(p.photo) === -1) p.photos.unshift(p.photo);
     }
-    /* Remove the old field so it doesn't linger */
     delete p.photo;
-    /* Clean: filter out any empty strings */
     p.photos = p.photos.filter(function(x) { return typeof x === 'string' && x.length > 0; });
   }
   return s;
@@ -1108,8 +1108,19 @@ function applyContent() {
     if (v === undefined || v === null) return;
     if (el.textContent !== String(v)) el.textContent = String(v);
   });
+  
   var si = $('story-img');
   if (si) si.src = c.storyImage || STORY_PLACEHOLDER;
+  
+  var hero = document.querySelector('.hero');
+  if (hero) {
+    if (c.heroImage) {
+      hero.style.backgroundImage = 'url("' + c.heroImage + '")';
+    } else {
+      hero.style.backgroundImage = 'none';
+    }
+  }
+
   var mail = $('foot-mail');
   var mt = $('foot-mail-text');
   if (mail && mt) {
@@ -1814,7 +1825,6 @@ function saveProduct() {
     return;
   }
   editingDraft.title = title;
-  /* Clean photos array: no empty strings */
   editingDraft.photos = (editingDraft.photos || []).filter(function(x) {
     return typeof x === 'string' && x.length > 0;
   });
@@ -1904,11 +1914,22 @@ function renderDesignEditor() {
   if (!pane) return;
   var c = state.settings.colors;
   pane.innerHTML =
+    '<h3 class="ap-h">Page Images</h3>' +
+    '<label class="field"><span>Hero Background Image URL</span>' +
+      '<input type="text" id="set-hero-img" value="' + escapeHtml(state.content.heroImage || '') + '" placeholder="https://..."></label>' +
+    '<label class="field"><span>Heritage Section Image URL</span>' +
+      '<input type="text" id="set-story-img" value="' + escapeHtml(state.content.storyImage || '') + '" placeholder="https://..."></label>' +
+    '<p class="note" style="font-size:11.5px;padding:10px;margin-top:-8px;margin-bottom:16px">' +
+      'Upload images to your GitHub "images" folder and paste the raw URL here. ' +
+      'If left blank, the built-in placeholders will show.' +
+    '</p>' +
+
     '<h3 class="ap-h">Colours</h3>' +
     colorRow('gold','Gold accent',c.gold) +
     colorRow('dark','Dark background',c.dark) +
     colorRow('light','Light surface',c.light) +
     colorRow('accent','Burgundy accent',c.accent) +
+    
     '<h3 class="ap-h">Section Visibility</h3>' +
     toggleRow('announcement','Announcement bar') +
     toggleRow('hero','Hero banner') +
@@ -1916,6 +1937,7 @@ function renderDesignEditor() {
     toggleRow('story','Artisanship story') +
     toggleRow('care','Rug care guide') +
     toggleRow('footer','Footer') +
+
     '<h3 class="ap-h">Contact &amp; Commerce</h3>' +
     '<label class="field"><span>WhatsApp Number (digits only)</span>' +
       '<input type="text" id="set-wa" value="' + escapeHtml(state.settings.whatsapp) + '"></label>' +
@@ -1927,6 +1949,7 @@ function renderDesignEditor() {
       '<input type="text" id="set-pin" maxlength="12" value="' + escapeHtml(state.settings.pin) + '"></label>' +
     '<button class="btn btn-gold" onclick="saveSettings()">' +
       '<i class="fa-solid fa-floppy-disk"></i> Save Settings</button>' +
+
     '<h3 class="ap-h" style="margin-top:28px">Reset</h3>' +
     '<button class="btn btn-line" onclick="resetDesignOnly()">Reset Design Only</button>' +
     '<button class="btn btn-line" style="margin-left:8px" onclick="resetContentOnly()">Reset Content Only</button>';
@@ -1985,6 +2008,15 @@ function saveSettings() {
   state.settings.currency = $('set-currency').value.trim() || '$';
   var newPin = $('set-pin').value.trim();
   if (newPin && newPin.length >= 3) state.settings.pin = newPin;
+  
+  var heroUrl = $('set-hero-img').value.trim();
+  if (heroUrl) state.content.heroImage = heroUrl;
+  else state.content.heroImage = '';
+  
+  var storyUrl = $('set-story-img').value.trim();
+  if (storyUrl) state.content.storyImage = storyUrl;
+  else state.content.storyImage = '';
+
   saveState();
   updateWaButtons();
   applyContent();
@@ -2007,7 +2039,9 @@ window.resetContentOnly = resetContentOnly;
 function resetDesignOnly() {
   if (!confirm('Reset colours and layout? Your inventory and text will be kept.')) return;
   state.settings.colors = clone(DEFAULT_DATA.settings.colors);
-  saveState(); applyTheme(); renderDesignEditor();
+  state.content.heroImage = '';
+  state.content.storyImage = '';
+  saveState(); applyTheme(); applyContent(); renderDesignEditor();
   toast('Design reset.');
 }
 window.resetDesignOnly = resetDesignOnly;
@@ -2267,7 +2301,7 @@ function init() {
            k.indexOf('roshan_v6') === 0 || k.indexOf('roshan_v7') === 0 ||
            k.indexOf('roshan_v8') === 0 || k.indexOf('roshan_v9') === 0 ||
            k.indexOf('roshan_v10') === 0 || k.indexOf('roshan_v11') === 0 ||
-           k.indexOf('roshan_master') === 0) &&
+           k.indexOf('roshan_v12') === 0 || k.indexOf('roshan_master') === 0) &&
           k !== STORAGE_KEY && k !== WISH_KEY && k !== SESSION_KEY) {
         toRemove.push(k);
       }
@@ -2374,5 +2408,5 @@ if (document.readyState === 'loading') {
 
 })();
 </script>
-
-</body></html>
+</body>
+</html>
